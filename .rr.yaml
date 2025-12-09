@@ -7,8 +7,16 @@ server:
 
 http:
   address: 0.0.0.0:8080
+  access_logs: true
   middleware: [ "static", "headers", "gzip" ]
   pool:
+    num_workers: 4
+    allocate_timeout: 60s
+    destroy_timeout: 1s
+    dynamic_allocator:
+      max_workers: 25
+      spawn_rate: 20
+      idle_timeout: 10s
     #max_jobs: 64 # feel free to change this
     supervisor:
       exec_ttl: 60s
@@ -18,3 +26,15 @@ http:
   static:
     dir: "public"
     forbid: [ ".php" ]
+
+jobs:
+  pool:
+    num_workers: 4
+    pipelines:
+      default:
+        driver: memory
+        config: {}
+
+logs:
+  mode: development
+  level: debug
