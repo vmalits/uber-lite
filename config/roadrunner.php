@@ -21,18 +21,18 @@ return [
     ],
 
     'temporal' => [
-        'address' => env('TEMPORAL_ADDRESS', '127.0.0.1:7233'),
+        'address'       => env('TEMPORAL_ADDRESS', '127.0.0.1:7233'),
         'defaultWorker' => env('TEMPORAL_TASK_QUEUE', TemporalWorkerFactoryInterface::DEFAULT_TASK_QUEUE),
-        'workers' => [],
-        'declarations' => [
+        'workers'       => [],
+        'declarations'  => [
             // 'App\Temporal\GreeterWorkflow'
         ],
     ],
 
     'workers' => [
-        Mode::MODE_HTTP => HttpWorker::class,
-        Mode::MODE_JOBS => QueueWorker::class,
-        Mode::MODE_GRPC => GrpcWorker::class,
+        Mode::MODE_HTTP     => HttpWorker::class,
+        Mode::MODE_JOBS     => QueueWorker::class,
+        Mode::MODE_GRPC     => GrpcWorker::class,
         Mode::MODE_TEMPORAL => TemporalWorker::class,
     ],
 ];
