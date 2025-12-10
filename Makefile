@@ -35,7 +35,7 @@ watch: rr
 # =============================================================================
 # Laravel commands
 # =============================================================================
-.PHONY: composer artisan migrate seed tinker fresh queue-work test analyse format
+.PHONY: composer artisan migrate seed tinker fresh queue-work test analyse format rector
 
 composer:       # composer install / update / require ...
 	@composer $(filter-out $@,$(MAKECMDGOALS))
@@ -63,6 +63,9 @@ analyse:        # phpstan analyse
 
 format:         # pint
 	vendor/bin/pint
+
+rector:         # rector process
+	vendor/bin/rector
 
 # =============================================================================
 # Project setup
