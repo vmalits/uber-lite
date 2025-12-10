@@ -58,6 +58,9 @@ tinker:         # php artisan tinker
 test:           # php artisan test
 	php artisan test
 
+analyse:        # phpstan analyse
+	vendor/bin/phpstan analyse
+
 format:         # pint
 	vendor/bin/pint
 
