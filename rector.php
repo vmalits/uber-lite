@@ -9,17 +9,17 @@ use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
-        __DIR__ . '/app',
-        __DIR__ . '/bootstrap',
-        __DIR__ . '/config',
-        __DIR__ . '/database',
-        __DIR__ . '/routes',
+        __DIR__.'/app',
+        __DIR__.'/bootstrap',
+        __DIR__.'/config',
+        __DIR__.'/database',
+        __DIR__.'/routes',
     ]);
 
     $rectorConfig->skip([
-        __DIR__ . '/bootstrap/cache/*',
-        __DIR__ . '/storage/*',
-        __DIR__ . '/vendor/*',
+        __DIR__.'/bootstrap/cache/*',
+        __DIR__.'/storage/*',
+        __DIR__.'/vendor/*',
     ]);
 
     $rectorConfig->sets([
@@ -30,4 +30,3 @@ return static function (RectorConfig $rectorConfig): void {
         LaravelSetList::LARAVEL_CODE_QUALITY,
     ]);
 };
-
