@@ -13,6 +13,9 @@ down:
 
 restart: down up
 
+stop:
+	$(DOCKER_COMPOSE) stop
+
 logs:
 	$(DOCKER_COMPOSE) logs -f
 
@@ -35,7 +38,7 @@ watch: rr
 # =============================================================================
 # Laravel commands
 # =============================================================================
-.PHONY: composer artisan migrate seed tinker fresh queue-work test analyse format rector lint
+.PHONY: composer artisan migrate seed tinker fresh queue-work test analyse format rector lint docs
 
 composer:       # composer install / update / require ...
 	@composer $(filter-out $@,$(MAKECMDGOALS))
@@ -59,7 +62,7 @@ test:           # php artisan test
 	php artisan test
 
 analyse:        # phpstan analyse
-	vendor/bin/phpstan analyse
+	vendor/bin/phpstan analyse --memory-limit=4G --parallel
 
 format:         # pint
 	vendor/bin/pint
@@ -70,6 +73,9 @@ rector:         # rector process
 lint:           # pint --test + phpstan analyse
 	vendor/bin/pint
 	vendor/bin/phpstan analyse
+
+docs:           # scribe:generate
+	php artisan scribe:generate
 
 # =============================================================================
 # Project setup

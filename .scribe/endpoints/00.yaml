@@ -1,0 +1,56 @@
+name: Auth
+description: |-
+
+  Request OTP Code
+
+  This endpoint generates a one-time password (OTP) for the given phone number
+  and sends it via SMS.
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/auth/request-otp
+    metadata:
+      custom: []
+      groupName: Auth
+      groupDescription: |-
+
+        Request OTP Code
+
+        This endpoint generates a one-time password (OTP) for the given phone number
+        and sends it via SMS.
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      phone:
+        custom: []
+        name: phone
+        description: 'The phone number in E.164 format.'
+        required: true
+        example: '+37360000000'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      phone: '+37360000000'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

@@ -7,9 +7,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
+        "knuckleswtf/scribe": "^5.6",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "roadrunner-php/laravel-bridge": "^6.0"
+        "propaganistas/laravel-phone": "^6.0",
+        "roadrunner-php/laravel-bridge": "^6.0",
+        "spatie/laravel-data": "^4.6",
+        "twilio/sdk": "^8.9"
     },
     "require-dev": {
         "driftingly/rector-laravel": "^2.1",
