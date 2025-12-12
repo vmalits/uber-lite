@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('code');
             $table->timestamp('expires_at');
+            $table->boolean('used')->default(false);
             $table->timestamps();
         });
     }

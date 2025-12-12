@@ -30,10 +30,10 @@ http:
 jobs:
   pool:
     num_workers: 4
-    pipelines:
-      default:
-        driver: memory
-        config: {}
+  pipelines:
+    default:
+      driver: memory
+      config: { }
 
 logs:
   mode: development

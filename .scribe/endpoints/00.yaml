@@ -5,6 +5,8 @@ description: |-
 
   This endpoint generates a one-time password (OTP) for the given phone number
   and sends it via SMS.
+
+  Rate limited to 3 requests per 15 minutes per phone number.
 endpoints:
   -
     custom: []
@@ -20,6 +22,8 @@ endpoints:
 
         This endpoint generates a one-time password (OTP) for the given phone number
         and sends it via SMS.
+
+        Rate limited to 3 requests per 15 minutes per phone number.
       subgroup: ''
       subgroupDescription: ''
       title: ''

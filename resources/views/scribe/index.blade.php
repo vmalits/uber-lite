@@ -85,7 +85,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 11, 2025</li>
+        <li>Last updated: December 12, 2025</li>
     </ul>
 </div>
 
@@ -109,6 +109,7 @@ You can switch the language used with the tabs at the top right (or from the nav
     <p>Request OTP Code</p>
 <p>This endpoint generates a one-time password (OTP) for the given phone number
 and sends it via SMS.</p>
+<p>Rate limited to 3 requests per 15 minutes per phone number.</p>
 
                                 <h2 id="auth-POSTapi-v1-auth-request-otp">POST api/v1/auth/request-otp</h2>
 

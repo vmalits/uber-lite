@@ -11,6 +11,7 @@ use Illuminate\Support\Carbon;
  * @property string $phone
  * @property string $code
  * @property Carbon $expires_at
+ * @property bool $used
  */
 class OtpCode extends Model
 {
@@ -18,12 +19,14 @@ class OtpCode extends Model
         'phone',
         'code',
         'expires_at',
+        'used',
     ];
 
     protected function casts(): array
     {
         return [
             'expires_at' => 'datetime',
+            'used'       => 'boolean',
         ];
     }
 }
