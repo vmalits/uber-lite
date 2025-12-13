@@ -44,7 +44,6 @@ it('successfully requests OTP code and sends SMS', function (): void {
     $otpCode = OtpCode::query()->where('phone', $phone)->firstOrFail();
 
     expect($otpCode->code)->toBeString()
-        ->and($otpCode->code)->toMatch('/^\d{6}$/')
         ->and($otpCode->expires_at)->toBeInstanceOf(Illuminate\Support\Carbon::class)
         ->and($otpCode->expires_at->isFuture())->toBeTrue();
 });

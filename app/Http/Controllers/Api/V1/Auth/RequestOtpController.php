@@ -8,6 +8,7 @@ use App\Actions\Auth\CreateOtpCode;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\OtpCodeRequest;
 use App\Jobs\Auth\SendOtpSmsJob;
+use App\Services\OtpService;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -39,15 +40,17 @@ use Illuminate\Http\Response;
 class RequestOtpController extends Controller
 {
     public function __construct(
+        private readonly OtpService $otpService,
         private readonly CreateOtpCode $createOtpCode,
     ) {}
 
     public function __invoke(OtpCodeRequest $request): JsonResponse
     {
         $phone = $request->string('phone')->toString();
-        $otpCode = $this->createOtpCode->handle($phone);
+        $generatedCode = $this->otpService->generateOtpCode();
+        $otpCode = $this->createOtpCode->handle($phone, $generatedCode);
 
-        SendOtpSmsJob::dispatch($phone, $otpCode->code);
+        SendOtpSmsJob::dispatch($phone, $generatedCode);
 
         return ApiResponse::success([
             'phone'      => $otpCode->phone,

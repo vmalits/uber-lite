@@ -7,13 +7,12 @@ namespace App\Queries\Auth;
 use App\Models\OtpCode;
 use Illuminate\Support\Carbon;
 
-final class FindValidOtpCodeQuery
+final class FindValidOtpCodeByPhoneQuery implements FindValidOtpCodeByPhoneQueryInterface
 {
-    public function execute(string $phone, string $code): ?OtpCode
+    public function execute(string $phone): ?OtpCode
     {
         return OtpCode::query()
             ->where('phone', $phone)
-            ->where('code', $code)
             ->where('expires_at', '>', Carbon::now())
             ->where('used', false)
             ->orderByDesc('id')

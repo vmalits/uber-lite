@@ -34,6 +34,7 @@ class OtpCode extends Model
         return [
             'expires_at' => 'datetime',
             'used'       => 'boolean',
+            'code'       => 'hashed',
         ];
     }
 

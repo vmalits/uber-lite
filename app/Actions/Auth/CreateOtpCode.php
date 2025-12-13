@@ -18,13 +18,11 @@ final class CreateOtpCode
     /**
      * @throws RandomException|Throwable
      */
-    public function handle(string $phone): OtpCode
+    public function handle(string $phone, string $code): OtpCode
     {
         return $this->databaseManager->transaction(
-            callback: function () use ($phone): OtpCode {
+            callback: function () use ($phone, $code): OtpCode {
                 OtpCode::where('phone', $phone)->update(['used' => true]);
-
-                $code = random_int(100000, 999999);
 
                 return OtpCode::query()->create([
                     'phone'      => $phone,
