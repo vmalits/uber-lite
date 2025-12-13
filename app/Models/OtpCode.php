@@ -43,7 +43,7 @@ class OtpCode extends Model
     public function prunable(): Builder
     {
         return self::query()
-            ->where(function ($q) {
+            ->where(function (Builder $q): void {
                 $q->where('used', true)
                     ->orWhere('expires_at', '<', now());
             });

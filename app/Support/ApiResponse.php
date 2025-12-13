@@ -125,8 +125,10 @@ final class ApiResponse
 
         if ($data instanceof LengthAwarePaginator) {
             return [
-                'items' => array_map(static fn ($item) => $item instanceof Arrayable ? $item->toArray() : (array) $item,
-                    $data->items()),
+                'items' => array_map(
+                    static fn (mixed $item): array => $item instanceof Arrayable ? $item->toArray() : (array) $item,
+                    $data->items()
+                ),
                 'pagination' => [
                     'total'        => $data->total(),
                     'per_page'     => $data->perPage(),

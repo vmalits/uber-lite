@@ -38,7 +38,7 @@ watch: rr
 # =============================================================================
 # Laravel commands
 # =============================================================================
-.PHONY: composer artisan migrate seed tinker fresh queue-work test analyse format rector lint docs
+.PHONY: composer artisan migrate seed tinker fresh queue-work test analyse format rector lint docs coverage
 
 composer:       # composer install / update / require ...
 	@composer $(filter-out $@,$(MAKECMDGOALS))
@@ -60,6 +60,9 @@ tinker:         # php artisan tinker
 
 test:           # php artisan test
 	php artisan test
+
+coverage:       # pest coverage (HTML + text)
+	vendor/bin/pest --type-coverage
 
 analyse:        # phpstan analyse
 	vendor/bin/phpstan analyse --memory-limit=4G --parallel
