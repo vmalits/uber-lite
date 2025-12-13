@@ -40,8 +40,8 @@ it('returns success with data, message, meta and custom headers', function (): v
         ->assertHeader('X-Foo', 'Bar')
         ->assertJson([
             'message' => 'Done',
-            'data' => $payload,
-            'meta' => $meta,
+            'data'    => $payload,
+            'meta'    => $meta,
         ]);
 });
 
@@ -78,8 +78,8 @@ it('returns error with message and errors and extra', function (): void {
     $response->assertStatus(418)
         ->assertJson([
             'message' => 'Bad',
-            'errors' => $errors,
-            'code' => 'E100',
+            'errors'  => $errors,
+            'code'    => 'E100',
         ]);
 });
 
@@ -90,7 +90,7 @@ it('returns validationError (422) with errors', function (): void {
     $response->assertUnprocessable()
         ->assertJson([
             'message' => 'The given data was invalid.',
-            'errors' => $errors,
+            'errors'  => $errors,
         ]);
 });
 
@@ -104,7 +104,7 @@ it('returns tooManyRequests with and without retry_after', function (): void {
     $r2 = TestResponse::fromBaseResponse(ApiResponse::tooManyRequests('Too many', 60));
     $r2->assertStatus(429)
         ->assertJson([
-            'message' => 'Too many',
+            'message'     => 'Too many',
             'retry_after' => 60,
         ]);
 });
@@ -115,9 +115,7 @@ it('normalizes Data objects to array for data key', function (): void {
     /** @extends Data */
     class SampleData extends Data
     {
-        public function __construct(public int $a, public string $b)
-        {
-        }
+        public function __construct(public int $a, public string $b) {}
     }
 
     $data = new SampleData(1, 'x');
@@ -131,7 +129,8 @@ it('normalizes Data objects to array for data key', function (): void {
 
 it('normalizes LengthAwarePaginator into items and pagination', function (): void {
     // Arrayable item
-    $arrayable = new class implements Arrayable {
+    $arrayable = new class implements Arrayable
+    {
         public function toArray(): array
         {
             return ['k' => 'v'];
@@ -145,7 +144,7 @@ it('normalizes LengthAwarePaginator into items and pagination', function (): voi
         total: 10,
         perPage: 2,
         currentPage: 1,
-        options: ['path' => '/test']
+        options: ['path' => '/test'],
     );
 
     $response = TestResponse::fromBaseResponse(ApiResponse::success($paginator));
@@ -160,7 +159,8 @@ it('normalizes LengthAwarePaginator into items and pagination', function (): voi
 });
 
 it('normalizes Arrayable to array', function (): void {
-    $arrayable = new class implements Arrayable {
+    $arrayable = new class implements Arrayable
+    {
         public function toArray(): array
         {
             return ['a' => 1];

@@ -9,8 +9,8 @@ uses(Tests\TestCase::class);
 
 it('casts expires_at to Carbon and used to boolean with default false', function (): void {
     $otp = OtpCode::query()->create([
-        'phone'      => '+37360000009',
-        'code'       => '999999',
+        'phone' => '+37360000009',
+        'code'  => '999999',
         // to provide a string, casting should convert to Carbon
         'expires_at' => now()->addMinute()->toDateTimeString(),
         // omit "used" to rely on default false in migration

@@ -127,7 +127,7 @@ final class ApiResponse
             return [
                 'items' => array_map(
                     static fn (mixed $item): array => $item instanceof Arrayable ? $item->toArray() : (array) $item,
-                    $data->items()
+                    $data->items(),
                 ),
                 'pagination' => [
                     'total'        => $data->total(),
