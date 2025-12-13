@@ -8,9 +8,9 @@ use App\Actions\Auth\CreateOtpCode;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\OtpCodeRequest;
 use App\Jobs\Auth\SendOtpSmsJob;
+use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
-use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 /**
  * @group Auth
@@ -49,13 +49,9 @@ class RequestOtpController extends Controller
 
         SendOtpSmsJob::dispatch($phone, $otpCode->code);
 
-        return response()->json(
-            data: [
-                'message' => 'OTP has been requested successfully.',
-                'data'    => [
-                    'phone'      => $otpCode->phone,
-                    'expires_at' => $otpCode->expires_at->toAtomString(),
-                ],
-            ], status: ResponseAlias::HTTP_OK);
+        return ApiResponse::success([
+            'phone'      => $otpCode->phone,
+            'expires_at' => $otpCode->expires_at->toAtomString(),
+        ], message: 'OTP has been requested successfully.');
     }
 }

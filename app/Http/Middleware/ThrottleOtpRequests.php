@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use App\Support\ApiResponse;
 use Closure;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,14 +34,13 @@ final class ThrottleOtpRequests
         if (RateLimiter::tooManyAttempts($key, self::MAX_ATTEMPTS)) {
             $seconds = RateLimiter::availableIn($key);
 
-            /** @var \Illuminate\Http\JsonResponse $jsonResponse */
-            $jsonResponse = response()->json([
-                'message'     => 'Too many OTP requests. Please try again later.',
-                'retry_after' => $seconds,
-            ], Response::HTTP_TOO_MANY_REQUESTS);
+            /** @var JsonResponse $jsonResponse */
+            $jsonResponse = ApiResponse::tooManyRequests(
+                'Too many OTP requests. Please try again later.', $seconds,
+            );
 
             return $jsonResponse->withHeaders([
-                'Retry-After'           => $seconds,
+                'Retry-After'           => (string) $seconds,
                 'X-RateLimit-Limit'     => (string) self::MAX_ATTEMPTS,
                 'X-RateLimit-Remaining' => '0',
             ]);
