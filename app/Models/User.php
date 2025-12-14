@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\ProfileStep;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,11 +13,15 @@ use Illuminate\Notifications\Notifiable;
 
 /*
  * @property-read string $id
- * @property string $name
  * @property string $phone
  * @property string $email
+ * @property string|null $first_name
+ * @property string|null $last_name
+ * @property string|null $role
  * @property CarbonInterface|null $phone_verified_at
+ * @property CarbonInterface|null $email_verified_at
  * @property CarbonInterface|null $last_login_at
+ * @property string|null $profile_step
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  */
@@ -32,12 +37,15 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
         'phone',
         'email',
+        'first_name',
+        'last_name',
         'role',
         'phone_verified_at',
+        'email_verified_at',
         'last_login_at',
+        'profile_step',
     ];
 
     /**
@@ -48,6 +56,8 @@ class User extends Authenticatable
         return [
             'phone_verified_at' => 'datetime',
             'last_login_at'     => 'datetime',
+            'email_verified_at' => 'datetime',
+            'profile_step'      => ProfileStep::class,
         ];
     }
 }
