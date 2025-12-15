@@ -6,7 +6,7 @@ namespace App\Http\Requests\V1\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddEmailRequest extends FormRequest
+class CompleteProfileRequest extends FormRequest
 {
     /**
      * @return array<string, array<int, string>>
@@ -14,7 +14,8 @@ class AddEmailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email:rfc,dns', 'max:255', 'unique:users,email'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name'  => ['required', 'string', 'max:255'],
         ];
     }
 

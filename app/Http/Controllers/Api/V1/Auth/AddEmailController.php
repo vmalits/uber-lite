@@ -9,9 +9,10 @@ use App\Data\Auth\AddEmailResponse;
 use App\Enums\ProfileStep;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\AddEmailRequest;
-use App\Queries\Auth\FindUserByPhoneQuery;
+use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 use Throwable;
 
 /**
@@ -19,15 +20,19 @@ use Throwable;
  *
  * Add Email
  *
- * Attach an email to the user identified by phone. Phone must be verified first.
+ * Attach an email to the authenticated user. Phone must be verified first.
  *
- * @bodyParam phone string required The phone number in E.164 format. Example: +37360000000
+ * Requires Bearer token (issued after OTP verification).
+ *
+ * @authenticated
+ *
+ * @header Authorization string required Bearer <token>
+ *
  * @bodyParam email string required A valid email address. Example: user@gmail.com
  *
  * @response 200 {
  *   "message": "Email added successfully.",
  *   "data": {
- *     "phone": "+37360000000",
  *     "email": "user@gmail.com",
  *     "profile_step": "email_added"
  *   }
@@ -38,7 +43,6 @@ class AddEmailController extends Controller
 {
     public function __construct(
         private readonly AddEmail $addEmail,
-        private readonly FindUserByPhoneQuery $findUserByPhone,
     ) {}
 
     /**
@@ -46,22 +50,21 @@ class AddEmailController extends Controller
      */
     public function __invoke(AddEmailRequest $request): JsonResponse
     {
-        $phone = $request->string('phone')->toString();
+        /** @var User $user */
+        $user = $request->user();
         $email = $request->string('email')->toString();
 
-        $ok = $this->addEmail->handle($phone, $email);
+        $ok = $this->addEmail->handle($user, $email);
         if (! $ok) {
             return ApiResponse::validationError([
                 'phone' => ['Phone is not verified.'],
             ]);
         }
 
-        $user = $this->findUserByPhone->execute($phone);
-        $user?->sendEmailVerificationNotification();
+        $user->sendEmailVerificationNotification();
 
         return ApiResponse::success(
             AddEmailResponse::of(
-                phone: $phone,
                 email: $email,
                 profileStep: ProfileStep::EMAIL_ADDED,
             ),

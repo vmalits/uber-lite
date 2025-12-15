@@ -6,6 +6,7 @@ use App\Enums\ProfileStep;
 use App\Models\User;
 use App\Notifications\Auth\VerifyEmailNotification;
 use Illuminate\Support\Facades\Notification;
+use Laravel\Sanctum\Sanctum;
 
 it('adds email for a user with verified phone', function (): void {
     /** @var User $user */
@@ -17,8 +18,9 @@ it('adds email for a user with verified phone', function (): void {
         'email_verified_at' => null,
     ]);
 
+    Sanctum::actingAs($user);
+
     $payload = [
-        'phone' => $user->phone,
         'email' => 'user@gmail.com',
     ];
 
@@ -28,7 +30,6 @@ it('adds email for a user with verified phone', function (): void {
         ->assertJson([
             'message' => 'Email added successfully.',
             'data'    => [
-                'phone'        => $user->phone,
                 'email'        => 'user@gmail.com',
                 'profile_step' => ProfileStep::EMAIL_ADDED->value,
             ],
@@ -52,8 +53,9 @@ it('sends verification email with signed link after adding email', function (): 
         'email'             => null,
     ]);
 
+    Sanctum::actingAs($user);
+
     $payload = [
-        'phone' => $user->phone,
         'email' => 'notify@gmail.com',
     ];
 
@@ -77,8 +79,9 @@ it('returns 422 when phone is not verified', function (): void {
         'email'             => null,
     ]);
 
+    Sanctum::actingAs($user);
+
     $response = $this->postJson('/api/v1/auth/add-email', [
-        'phone' => $user->phone,
         'email' => 'another@gmail.com',
     ]);
 
@@ -86,14 +89,12 @@ it('returns 422 when phone is not verified', function (): void {
         ->assertJsonValidationErrors(['phone']);
 });
 
-it('returns 422 when user does not exist', function (): void {
+it('returns 401 when unauthenticated', function (): void {
     $response = $this->postJson('/api/v1/auth/add-email', [
-        'phone' => '+37369999999',
         'email' => 'ghost@gmail.com',
     ]);
 
-    $response->assertUnprocessable()
-        ->assertJsonValidationErrors(['phone']);
+    $response->assertUnauthorized();
 });
 
 it('validates email must be unique', function (): void {
@@ -110,8 +111,9 @@ it('validates email must be unique', function (): void {
         'profile_step'      => ProfileStep::PHONE_VERIFIED,
     ]);
 
+    Sanctum::actingAs($verified);
+
     $response = $this->postJson('/api/v1/auth/add-email', [
-        'phone' => $verified->phone,
         'email' => 'taken@gmail.com',
     ]);
 
@@ -127,8 +129,9 @@ it('validates email format', function (): void {
         'profile_step'      => ProfileStep::PHONE_VERIFIED,
     ]);
 
+    Sanctum::actingAs($verified);
+
     $response = $this->postJson('/api/v1/auth/add-email', [
-        'phone' => $verified->phone,
         'email' => 'not-an-email',
     ]);
 

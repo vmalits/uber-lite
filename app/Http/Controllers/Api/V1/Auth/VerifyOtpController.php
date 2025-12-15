@@ -8,6 +8,7 @@ use App\Actions\Auth\VerifyOtpCode;
 use App\Enums\ProfileStep;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\VerifyOtpRequest;
+use App\Queries\Auth\FindUserByPhoneQueryInterface;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 
@@ -24,8 +25,9 @@ use Illuminate\Http\JsonResponse;
  * @response 200 {
  *   "message": "OTP verified successfully.",
  *   "data": {
- *     "phone": "+37360000000",
- *     "profile_step": "phone_verified"
+ *     "profile_step": "phone_verified",
+ *     "token": "<Personal Access Token>",
+ *     "token_type": "Bearer"
  *   }
  * }
  * @response 422 {"message":"The given data was invalid.","errors":{"code":["Invalid or expired code."]}}
@@ -34,6 +36,7 @@ class VerifyOtpController extends Controller
 {
     public function __construct(
         private readonly VerifyOtpCode $verifyOtpCode,
+        private readonly FindUserByPhoneQueryInterface $findUserByPhone,
     ) {}
 
     public function __invoke(VerifyOtpRequest $request): JsonResponse
@@ -48,9 +51,19 @@ class VerifyOtpController extends Controller
             ]);
         }
 
+        $user = $this->findUserByPhone->execute($phone);
+        if ($user === null) {
+            return ApiResponse::validationError([
+                'code' => ['Invalid or expired code.'],
+            ]);
+        }
+
+        $token = $user->createToken('auth')->plainTextToken;
+
         return ApiResponse::success([
-            'phone'        => $phone,
             'profile_step' => ProfileStep::PHONE_VERIFIED->value,
+            'token'        => $token,
+            'token_type'   => 'Bearer',
         ], message: 'OTP verified successfully.');
     }
 }

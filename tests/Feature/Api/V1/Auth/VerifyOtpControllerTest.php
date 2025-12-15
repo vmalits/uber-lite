@@ -34,9 +34,12 @@ it('verifies OTP successfully and updates user', function (): void {
         ->assertJson([
             'message' => 'OTP verified successfully.',
             'data'    => [
-                'phone'        => $phone,
                 'profile_step' => ProfileStep::PHONE_VERIFIED->value,
+                'token_type'   => 'Bearer',
             ],
+        ])
+        ->assertJsonStructure([
+            'data' => ['token'],
         ]);
 
     // OTP is marked used

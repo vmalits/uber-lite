@@ -7,19 +7,23 @@ namespace App\Data\Auth;
 use App\Enums\ProfileStep;
 use Spatie\LaravelData\Data;
 
-final class AddEmailResponse extends Data
+final class CompleteProfileResponse extends Data
 {
     public function __construct(
-        public string $email,
+        public string $phone,
+        public string $first_name,
+        public string $last_name,
         public string $profile_step,
     ) {}
 
-    public static function of(string $email, ProfileStep|string $profileStep): self
+    public static function of(string $phone, string $firstName, string $lastName, ProfileStep|string $profileStep): self
     {
         $step = $profileStep instanceof ProfileStep ? $profileStep->value : (string) $profileStep;
 
         return new self(
-            email: $email,
+            phone: $phone,
+            first_name: $firstName,
+            last_name: $lastName,
             profile_step: $step,
         );
     }

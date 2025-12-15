@@ -6,7 +6,6 @@ namespace App\Actions\Auth;
 
 use App\Enums\ProfileStep;
 use App\Models\User;
-use App\Queries\Auth\FindUserByPhoneQuery;
 use Illuminate\Database\DatabaseManager;
 use Throwable;
 
@@ -14,21 +13,15 @@ final readonly class AddEmail
 {
     public function __construct(
         private DatabaseManager $databaseManager,
-        private FindUserByPhoneQuery $findUserByPhone,
     ) {}
 
     /**
      * @throws Throwable
      */
-    public function handle(string $phone, string $email): bool
+    public function handle(User $user, string $email): bool
     {
         return $this->databaseManager->transaction(
-            callback: function () use ($phone, $email): bool {
-                /** @var User|null $user */
-                $user = $this->findUserByPhone->execute($phone);
-                if ($user === null) {
-                    return false;
-                }
+            callback: function () use ($user, $email): bool {
 
                 $step = $user->profile_step?->value;
                 $phoneVerified = $user->phone_verified_at !== null || $step === ProfileStep::PHONE_VERIFIED->value;

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Auth\AddEmailController;
+use App\Http\Controllers\Api\V1\Auth\CompleteProfileController;
 use App\Http\Controllers\Api\V1\Auth\RequestOtpController;
 use App\Http\Controllers\Api\V1\Auth\VerifyEmailController;
 use App\Http\Controllers\Api\V1\Auth\VerifyOtpController;
@@ -18,7 +19,12 @@ Route::prefix('auth')->group(function (): void {
         ->name('api.v1.auth.verify-otp');
 
     Route::post('add-email', [AddEmailController::class, '__invoke'])
+        ->middleware('auth:sanctum')
         ->name('api.v1.auth.add-email');
+
+    Route::post('complete-profile', [CompleteProfileController::class, '__invoke'])
+        ->middleware('auth:sanctum')
+        ->name('api.v1.auth.complete-profile');
 
     Route::get('/email/verify/{user}/{hash}', VerifyEmailController::class)
         ->name('verification.verify')

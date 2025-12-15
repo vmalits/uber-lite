@@ -129,14 +129,17 @@ endpoints:
 
         Add Email
 
-        Attach an email to the user identified by phone. Phone must be verified first.
+        Attach an email to the authenticated user. Phone must be verified first.
+
+        Requires Bearer token (issued after OTP verification).
       subgroup: ''
       subgroupDescription: ''
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       deprecated: false
     headers:
+      Authorization: 'string required Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -144,17 +147,6 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      phone:
-        custom: []
-        name: phone
-        description: 'The phone number in E.164 format.'
-        required: true
-        example: '+37360000000'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
       email:
         custom: []
         name: email
@@ -167,8 +159,69 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone: '+37360000000'
       email: user@gmail.com
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/auth/complete-profile
+    metadata:
+      custom: []
+      groupName: Auth
+      groupDescription: |-
+
+        Complete Profile
+
+        Submit first and last name to complete the registration after email verification.
+
+        Requires Bearer token (issued after OTP verification).
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'string required Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        custom: []
+        name: first_name
+        description: 'First name.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      last_name:
+        custom: []
+        name: last_name
+        description: 'Last name.'
+        required: true
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      first_name: John
+      last_name: Doe
     fileParameters: []
     responses: []
     responseFields: []
@@ -204,7 +257,7 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 01kchk22ks5a2aa1r9rxtm7xwt
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -233,7 +286,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      user_id: 01kchk22ks5a2aa1r9rxtm7xwt
+      user_id: architecto
       hash: architecto
       user: architecto
     queryParameters: []
