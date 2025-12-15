@@ -178,3 +178,108 @@ endpoints:
     controller: null
     method: null
     route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/auth/email/verify/{user_id}/{hash}'
+    metadata:
+      custom: []
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Verify Email
+
+        Route formats:
+        - GET /api/v1/auth/email/verify/{user}/{hash}
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 01kchk22ks5a2aa1r9rxtm7xwt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      hash:
+        custom: []
+        name: hash
+        description: "SHA-1 hash of the user's email."
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      user:
+        custom: []
+        name: user
+        description: "The user's ULID."
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      user_id: 01kchk22ks5a2aa1r9rxtm7xwt
+      hash: architecto
+      user: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "message": "Email verified successfully.",
+            "data": {
+              "user_id": "01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y",
+              "email": "verifyme@example.com",
+              "profile_step": "email_verified",
+              "verified_at": "2025-12-11T23:23:00+00:00",
+              "verified": true,
+              "already_verified": false
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "message": "Email already verified.",
+            "data": {
+              "user_id": "01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y",
+              "email": "verifyme@example.com",
+              "profile_step": "email_verified",
+              "verified_at": "2025-12-11T23:23:00+00:00",
+              "verified": true,
+              "already_verified": true
+            }
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

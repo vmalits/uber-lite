@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use App\Enums\ProfileStep;
 use App\Models\User;
+use App\Notifications\Auth\VerifyEmailNotification;
+use Illuminate\Support\Facades\Notification;
 
 it('adds email for a user with verified phone', function (): void {
     /** @var User $user */
@@ -37,6 +39,33 @@ it('adds email for a user with verified phone', function (): void {
     expect($user->email)->toBe('user@gmail.com')
         ->and($user->email_verified_at)->toBeNull()
         ->and($user->profile_step)->toBe(ProfileStep::EMAIL_ADDED);
+});
+
+it('sends verification email with signed link after adding email', function (): void {
+    Notification::fake();
+
+    /** @var User $user */
+    $user = User::factory()->create([
+        'phone'             => '+37360000088',
+        'phone_verified_at' => now(),
+        'profile_step'      => ProfileStep::PHONE_VERIFIED,
+        'email'             => null,
+    ]);
+
+    $payload = [
+        'phone' => $user->phone,
+        'email' => 'notify@gmail.com',
+    ];
+
+    $this->postJson('/api/v1/auth/add-email', $payload)->assertOk();
+
+    Notification::assertSentTo(
+        $user,
+        VerifyEmailNotification::class,
+        function (VerifyEmailNotification $notification) use ($user) {
+            return $user->id !== '';
+        },
+    );
 });
 
 it('returns 422 when phone is not verified', function (): void {

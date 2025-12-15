@@ -29,6 +29,7 @@ final class CreateOtpCode
                     'code'       => $code,
                     'expires_at' => now()->addMinutes(self::EXPIRATION_MINUTES),
                 ]);
-            }, attempts: 3);
+            },
+            attempts: 3);
     }
 }

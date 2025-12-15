@@ -80,6 +80,12 @@
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-add-email">
                                 <a href="#auth-POSTapi-v1-auth-add-email">POST api/v1/auth/add-email</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="auth-GETapi-v1-auth-email-verify--user_id---hash-">
+                                <a href="#auth-GETapi-v1-auth-email-verify--user_id---hash-">Verify Email
+
+Route formats:
+- GET /api/v1/auth/email/verify/{user}/{hash}</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -540,6 +546,190 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>A valid email address. Example: <code>user@gmail.com</code></p>
         </div>
         </form>
+
+                    <h2 id="auth-GETapi-v1-auth-email-verify--user_id---hash-">Verify Email
+
+Route formats:
+- GET /api/v1/auth/email/verify/{user}/{hash}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-auth-email-verify--user_id---hash-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/auth/email/verify/01kchk22ks5a2aa1r9rxtm7xwt/architecto" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/auth/email/verify/01kchk22ks5a2aa1r9rxtm7xwt/architecto"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-auth-email-verify--user_id---hash-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Email verified successfully.&quot;,
+    &quot;data&quot;: {
+        &quot;user_id&quot;: &quot;01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y&quot;,
+        &quot;email&quot;: &quot;verifyme@example.com&quot;,
+        &quot;profile_step&quot;: &quot;email_verified&quot;,
+        &quot;verified_at&quot;: &quot;2025-12-11T23:23:00+00:00&quot;,
+        &quot;verified&quot;: true,
+        &quot;already_verified&quot;: false
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Email already verified.&quot;,
+    &quot;data&quot;: {
+        &quot;user_id&quot;: &quot;01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y&quot;,
+        &quot;email&quot;: &quot;verifyme@example.com&quot;,
+        &quot;profile_step&quot;: &quot;email_verified&quot;,
+        &quot;verified_at&quot;: &quot;2025-12-11T23:23:00+00:00&quot;,
+        &quot;verified&quot;: true,
+        &quot;already_verified&quot;: true
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-auth-email-verify--user_id---hash-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-auth-email-verify--user_id---hash-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-auth-email-verify--user_id---hash-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-auth-email-verify--user_id---hash-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-auth-email-verify--user_id---hash-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-auth-email-verify--user_id---hash-" data-method="GET"
+      data-path="api/v1/auth/email/verify/{user_id}/{hash}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-auth-email-verify--user_id---hash-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-auth-email-verify--user_id---hash-"
+                    onclick="tryItOut('GETapi-v1-auth-email-verify--user_id---hash-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-auth-email-verify--user_id---hash-"
+                    onclick="cancelTryOut('GETapi-v1-auth-email-verify--user_id---hash-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-auth-email-verify--user_id---hash-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/auth/email/verify/{user_id}/{hash}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
+               value="01kchk22ks5a2aa1r9rxtm7xwt"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>01kchk22ks5a2aa1r9rxtm7xwt</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="hash"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>SHA-1 hash of the user's email. Example: <code>architecto</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The user's ULID. Example: <code>architecto</code></p>
+            </div>
+                    </form>
 
             
 

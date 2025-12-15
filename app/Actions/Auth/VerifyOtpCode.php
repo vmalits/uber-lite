@@ -31,21 +31,23 @@ final readonly class VerifyOtpCode
             return false;
         }
 
-        $this->databaseManager->transaction(function () use ($otp, $phone): void {
-            $otp->update(['used' => true]);
+        $this->databaseManager->transaction(
+            callback: function () use ($otp, $phone): void {
+                $otp->update(['used' => true]);
 
-            /** @var User $user */
-            $user = User::query()->firstOrCreate(
-                ['phone' => $phone],
-                ['profile_step' => ProfileStep::PHONE_VERIFIED->value],
-            );
+                /** @var User $user */
+                $user = User::query()->firstOrCreate(
+                    ['phone' => $phone],
+                    ['profile_step' => ProfileStep::PHONE_VERIFIED->value],
+                );
 
-            $user->forceFill([
-                'phone_verified_at' => now(),
-                'last_login_at'     => now(),
-                'profile_step'      => ProfileStep::PHONE_VERIFIED,
-            ])->save();
-        }, 3);
+                $user->forceFill([
+                    'phone_verified_at' => now(),
+                    'last_login_at'     => now(),
+                    'profile_step'      => ProfileStep::PHONE_VERIFIED,
+                ])->save();
+            },
+            attempts: 3);
 
         return true;
     }

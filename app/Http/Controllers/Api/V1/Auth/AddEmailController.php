@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Actions\Auth\AddEmail;
+use App\Data\Auth\AddEmailResponse;
 use App\Enums\ProfileStep;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\AddEmailRequest;
+use App\Queries\Auth\FindUserByPhoneQuery;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Throwable;
 
 /**
  * @group Auth
@@ -33,8 +36,14 @@ use Illuminate\Http\JsonResponse;
  */
 class AddEmailController extends Controller
 {
-    public function __construct(private readonly AddEmail $addEmail) {}
+    public function __construct(
+        private readonly AddEmail $addEmail,
+        private readonly FindUserByPhoneQuery $findUserByPhone,
+    ) {}
 
+    /**
+     * @throws Throwable
+     */
     public function __invoke(AddEmailRequest $request): JsonResponse
     {
         $phone = $request->string('phone')->toString();
@@ -47,10 +56,16 @@ class AddEmailController extends Controller
             ]);
         }
 
-        return ApiResponse::success([
-            'phone'        => $phone,
-            'email'        => $email,
-            'profile_step' => ProfileStep::EMAIL_ADDED->value,
-        ], message: 'Email added successfully.');
+        $user = $this->findUserByPhone->execute($phone);
+        $user?->sendEmailVerificationNotification();
+
+        return ApiResponse::success(
+            AddEmailResponse::of(
+                phone: $phone,
+                email: $email,
+                profileStep: ProfileStep::EMAIL_ADDED,
+            ),
+            message: 'Email added successfully.',
+        );
     }
 }

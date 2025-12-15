@@ -22,25 +22,27 @@ final readonly class AddEmail
      */
     public function handle(string $phone, string $email): bool
     {
-        return $this->databaseManager->transaction(function () use ($phone, $email): bool {
-            /** @var User|null $user */
-            $user = $this->findUserByPhone->execute($phone);
-            if ($user === null) {
-                return false;
-            }
+        return $this->databaseManager->transaction(
+            callback: function () use ($phone, $email): bool {
+                /** @var User|null $user */
+                $user = $this->findUserByPhone->execute($phone);
+                if ($user === null) {
+                    return false;
+                }
 
-            $step = $user->profile_step?->value;
-            $phoneVerified = $user->phone_verified_at !== null || $step === ProfileStep::PHONE_VERIFIED->value;
-            if (! $phoneVerified) {
-                return false;
-            }
+                $step = $user->profile_step?->value;
+                $phoneVerified = $user->phone_verified_at !== null || $step === ProfileStep::PHONE_VERIFIED->value;
+                if (! $phoneVerified) {
+                    return false;
+                }
 
-            $user->email = $email;
-            if ($step !== ProfileStep::COMPLETED->value) {
-                $user->profile_step = ProfileStep::EMAIL_ADDED;
-            }
+                $user->email = $email;
+                if ($step !== ProfileStep::COMPLETED->value) {
+                    $user->profile_step = ProfileStep::EMAIL_ADDED;
+                }
 
-            return $user->save();
-        }, 3);
+                return $user->save();
+            },
+            attempts: 3);
     }
 }
