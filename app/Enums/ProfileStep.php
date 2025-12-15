@@ -8,6 +8,8 @@ enum ProfileStep: string
 {
     case PHONE_VERIFIED = 'phone_verified';
 
+    case EMAIL_ADDED = 'email_added';
+
     case EMAIL_VERIFIED = 'email_verified';
 
     case COMPLETED = 'completed';

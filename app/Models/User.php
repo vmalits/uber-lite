@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\ProfileStep;
+use Carbon\CarbonInterface;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-/*
+/**
  * @property-read string $id
  * @property string $phone
  * @property string $email
@@ -21,11 +22,10 @@ use Illuminate\Notifications\Notifiable;
  * @property CarbonInterface|null $phone_verified_at
  * @property CarbonInterface|null $email_verified_at
  * @property CarbonInterface|null $last_login_at
- * @property string|null $profile_step
+ * @property ProfileStep|null $profile_step
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  */
-
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */

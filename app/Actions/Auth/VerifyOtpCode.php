@@ -20,7 +20,6 @@ final readonly class VerifyOtpCode
     ) {}
 
     /**
-     *
      * @throws Throwable
      */
     public function handle(string $phone, string $code): bool

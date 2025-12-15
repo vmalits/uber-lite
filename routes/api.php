@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Api\V1\Auth\AddEmailController;
 use App\Http\Controllers\Api\V1\Auth\RequestOtpController;
 use App\Http\Controllers\Api\V1\Auth\VerifyOtpController;
 use App\Http\Middleware\ThrottleOtpRequests;
@@ -15,5 +16,8 @@ Route::prefix('v1')->group(function (): void {
 
         Route::post('verify-otp', [VerifyOtpController::class, '__invoke'])
             ->name('api.v1.auth.verify-otp');
+
+        Route::post('add-email', [AddEmailController::class, '__invoke'])
+            ->name('api.v1.auth.add-email');
     });
 });
