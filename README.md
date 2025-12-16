@@ -1,59 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Uber Lite — local setup (RoadRunner only)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This guide explains how to run the project locally using Docker (PostgreSQL, Redis, Mailpit), build the frontend, and serve the app with RoadRunner.
 
-## About Laravel
+### Requirements
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP 8.4+
+- Composer 2.x
+- Node.js 18+ and npm/yarn (Vite)
+- Docker + Docker Compose (for PostgreSQL/Redis/Mailpit)
+- Optional: `make` (targets are provided in the repository `Makefile`)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 1) First-time setup
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+git clone https://github.com/vmalits/uber-lite.git
+cd uber-lite
 
-## Learning Laravel
+# Start infra (Postgres, Redis, Mailpit)
+make up
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+# Install PHP deps and download RoadRunner binary
+make install            # (uses vendor/bin/dload and sets chmod +x rr)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Prepare env and build assets in one go (install, copy .env, key:generate, migrate, npm install, build)
+composer run setup
+```
 
-## Laravel Sponsors
+- Mailpit UI: http://localhost:8025 (SMTP: 1025)
+- RoadRunner will listen on http://localhost:8080 (see `.rr.yaml`). Static files are served from `public`.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2) Start the application (RoadRunner)
 
-### Premium Partners
+```bash
+make rr                 # starts RR with .rr.yaml on :8080
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Stop/Restart: Ctrl+C (if foreground) or `make stop`; then run `make rr` again.
 
-## Contributing
+### 3) Frontend dev (Vite)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Run the Vite dev server alongside RR during development:
 
-## Code of Conduct
+```bash
+npm run dev             # typically serves on http://localhost:5173
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+If you’re using a local SPA, point it at the API base `http://localhost:8080`.
 
-## Security Vulnerabilities
+### 4) Testing
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+make test   # starts the test suite
+make coverage  # generates coverage report
+```
 
-## License
+### 5) API documentation (Scribe)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+make docs
+```
+
+- Generated docs location: `public/docs/index.html`.
+
+### Make targets (cheat sheet)
+
+```bash
+# Infra
+make up           # start postgres, redis, mailpit
+make down         # stop & remove containers/volumes
+make logs         # all logs
+make db-logs      # postgres logs
+make redis-logs   # redis logs
+
+# App
+make install      # deps + rr binary (chmod +x rr)
+make rr           # start RoadRunner (http://localhost:8080)
+
+# Laravel
+make migrate      # php artisan migrate --force
+make fresh        # migrate:fresh + seed
+make seed         # php artisan db:seed --force
+make test         # php artisan test
+make analyse      # phpstan analyse
+make format       # pint
+make rector       # rector
+make lint         # pint + phpstan
+make docs         # scribe:generate -> public/docs
+make coverage     # pest coverage
+```
+
+### Troubleshooting
+
+- Ports in use: RR (8080), Postgres (5432/5433), Redis (6379), Mailpit (1025/8025). Free or change ports if needed.
+- RR binary permissions: `make install` sets `chmod +x rr`; if you downloaded RR manually, run `chmod +x rr`.
+- Cache/config issues: `php artisan config:clear && php artisan cache:clear`, remove `storage/framework/cache/*`.
+- Permissions on macOS/Linux: `chmod -R 777 storage bootstrap/cache` (local only).
+- After composer updates: restart the RR server (`Ctrl+C` then `make rr`).
+
+---
+
+Stack: Laravel 12, PHP 8.4, PostgreSQL, Redis, Vite/Tailwind. Served via RoadRunner.
