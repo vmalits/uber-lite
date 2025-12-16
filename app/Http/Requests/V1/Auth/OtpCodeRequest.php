@@ -18,6 +18,17 @@ class OtpCodeRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'phone.required' => 'Phone number is required.',
+            'phone.phone'    => 'Phone number is invalid.',
+        ];
+    }
+
     public function authorize(): bool
     {
         return true;
