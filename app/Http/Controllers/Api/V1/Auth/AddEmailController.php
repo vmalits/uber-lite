@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 use App\Actions\Auth\AddEmail;
 use App\Data\Auth\AddEmailResponse;
 use App\Enums\ProfileStep;
+use App\Events\Auth\EmailAdded;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\AddEmailRequest;
 use App\Models\User;
@@ -61,7 +62,7 @@ class AddEmailController extends Controller
             ]);
         }
 
-        $user->sendEmailVerificationNotification();
+        event(new EmailAdded(userId: $user->id, email: $email));
 
         return ApiResponse::success(
             AddEmailResponse::of(
