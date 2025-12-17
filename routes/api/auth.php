@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Api\V1\Auth\AddEmailController;
 use App\Http\Controllers\Api\V1\Auth\CompleteProfileController;
 use App\Http\Controllers\Api\V1\Auth\RequestOtpController;
+use App\Http\Controllers\Api\V1\Auth\ResendOtpController;
 use App\Http\Controllers\Api\V1\Auth\VerifyEmailController;
 use App\Http\Controllers\Api\V1\Auth\VerifyOtpController;
 use App\Http\Middleware\ThrottleOtpRequests;
@@ -14,6 +15,10 @@ Route::prefix('auth')->group(function (): void {
     Route::post('request-otp', [RequestOtpController::class, '__invoke'])
         ->middleware(ThrottleOtpRequests::class)
         ->name('api.v1.auth.request-otp');
+
+    Route::post('request-otp/resend', [ResendOtpController::class, '__invoke'])
+        ->middleware(ThrottleOtpRequests::class)
+        ->name('api.v1.auth.request-otp.resend');
 
     Route::post('verify-otp', [VerifyOtpController::class, '__invoke'])
         ->name('api.v1.auth.verify-otp');
