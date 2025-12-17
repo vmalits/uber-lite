@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\OtpCodeRequest;
 use App\Services\OtpService;
 use App\Support\ApiResponse;
+use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Http\JsonResponse;
 
 /**
@@ -41,6 +42,7 @@ class ResendOtpController extends Controller
     public function __construct(
         private readonly OtpService $otpService,
         private readonly CreateOtpCode $createOtpCode,
+        private readonly EventsDispatcher $events,
     ) {}
 
     public function __invoke(OtpCodeRequest $request): JsonResponse
@@ -49,7 +51,7 @@ class ResendOtpController extends Controller
         $generatedCode = $this->otpService->generateOtpCode();
         $otpCode = $this->createOtpCode->handle($phone, $generatedCode);
 
-        event(new OtpResent(phone: $phone, otpCode: $generatedCode));
+        $this->events->dispatch(new OtpResent(phone: $phone, otpCode: $generatedCode));
 
         return ApiResponse::success([
             'phone'      => $otpCode->phone,

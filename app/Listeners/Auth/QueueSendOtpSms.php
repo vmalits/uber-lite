@@ -7,11 +7,19 @@ namespace App\Listeners\Auth;
 use App\Events\Auth\OtpRequested;
 use App\Events\Auth\OtpResent;
 use App\Jobs\Auth\SendOtpSmsJob;
+use Illuminate\Contracts\Bus\Dispatcher;
 
-final class QueueSendOtpSms
+final readonly class QueueSendOtpSms
 {
+    public function __construct(private Dispatcher $dispatcher) {}
+
     public function handle(OtpRequested|OtpResent $event): void
     {
-        SendOtpSmsJob::dispatch($event->phone, $event->otpCode);
+        $this->dispatcher->dispatch(
+            new SendOtpSmsJob(
+                phone: $event->phone,
+                otpCode: $event->otpCode,
+            ),
+        );
     }
 }

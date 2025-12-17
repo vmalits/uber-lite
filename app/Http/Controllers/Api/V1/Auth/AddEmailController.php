@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\AddEmailRequest;
 use App\Models\User;
 use App\Support\ApiResponse;
+use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Throwable;
@@ -44,6 +45,7 @@ class AddEmailController extends Controller
 {
     public function __construct(
         private readonly AddEmail $addEmail,
+        private readonly EventsDispatcher $events,
     ) {}
 
     /**
@@ -62,7 +64,7 @@ class AddEmailController extends Controller
             ]);
         }
 
-        event(new EmailAdded(userId: $user->id, email: $email));
+        $this->events->dispatch(new EmailAdded(userId: $user->id, email: $email));
 
         return ApiResponse::success(
             AddEmailResponse::of(
