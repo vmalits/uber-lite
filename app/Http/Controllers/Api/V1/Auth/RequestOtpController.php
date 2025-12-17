@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Actions\Auth\CreateOtpCode;
+use App\Events\Auth\OtpRequested;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\OtpCodeRequest;
-use App\Jobs\Auth\SendOtpSmsJob;
 use App\Services\OtpService;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
@@ -50,7 +50,7 @@ class RequestOtpController extends Controller
         $generatedCode = $this->otpService->generateOtpCode();
         $otpCode = $this->createOtpCode->handle($phone, $generatedCode);
 
-        SendOtpSmsJob::dispatch($phone, $generatedCode);
+        event(new OtpRequested(phone: $phone, otpCode: $generatedCode));
 
         return ApiResponse::success([
             'phone'      => $otpCode->phone,
