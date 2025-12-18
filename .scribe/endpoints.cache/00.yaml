@@ -462,3 +462,41 @@ endpoints:
     controller: null
     method: null
     route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: api/v1/auth/delete-account
+    metadata:
+      custom: []
+      groupName: Auth
+      groupDescription: |-
+
+        Delete Account (GDPR)
+
+        Permanently deletes the authenticated user's account and revokes all access tokens.
+
+        Requires Bearer token (issued after OTP verification).
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'string required Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

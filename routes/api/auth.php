@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Auth\AddEmailController;
 use App\Http\Controllers\Api\V1\Auth\CompleteProfileController;
+use App\Http\Controllers\Api\V1\Auth\DeleteAccountController;
 use App\Http\Controllers\Api\V1\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Api\V1\Auth\LogoutController;
 use App\Http\Controllers\Api\V1\Auth\RequestOtpController;
@@ -46,4 +47,8 @@ Route::prefix('auth')->group(function (): void {
         ->middleware(['signed', 'throttle:6,1'])
         ->whereUlid('user')
         ->where('hash', '[A-Fa-f0-9]{40}');
+
+    Route::delete('delete-account', [DeleteAccountController::class, '__invoke'])
+        ->middleware('auth:sanctum')
+        ->name('api.v1.auth.delete-account');
 });
