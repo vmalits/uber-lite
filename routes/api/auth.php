@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Auth\AddEmailController;
 use App\Http\Controllers\Api\V1\Auth\CompleteProfileController;
+use App\Http\Controllers\Api\V1\Auth\LogoutController;
 use App\Http\Controllers\Api\V1\Auth\RequestOtpController;
 use App\Http\Controllers\Api\V1\Auth\ResendOtpController;
 use App\Http\Controllers\Api\V1\Auth\VerifyEmailController;
@@ -30,6 +31,10 @@ Route::prefix('auth')->group(function (): void {
     Route::post('complete-profile', [CompleteProfileController::class, '__invoke'])
         ->middleware('auth:sanctum')
         ->name('api.v1.auth.complete-profile');
+
+    Route::post('logout', [LogoutController::class, '__invoke'])
+        ->middleware('auth:sanctum')
+        ->name('api.v1.auth.logout');
 
     Route::get('/email/verify/{user}/{hash}', VerifyEmailController::class)
         ->name('verification.verify')
