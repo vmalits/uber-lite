@@ -282,6 +282,82 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: api/v1/auth/logout
+    metadata:
+      custom: []
+      groupName: Auth
+      groupDescription: |-
+
+        Logout
+
+        Revoke the current access token and logout the authenticated user.
+
+        Requires Bearer token (issued after OTP verification).
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'string required Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/auth/email/verification-notification
+    metadata:
+      custom: []
+      groupName: Auth
+      groupDescription: |-
+
+        Send Email Verification Notification
+
+        Sends a verification link to the authenticated user's email address.
+
+        Requires Bearer token (issued after OTP verification).
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'string required Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: 'api/v1/auth/email/verify/{user_id}/{hash}'
     metadata:
@@ -307,7 +383,7 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 01kcm7a8rxa46k69cr3czwys6w
+        example: 01kcprdkad7gpg6mv6xph3y9gr
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -336,7 +412,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      user_id: 01kcm7a8rxa46k69cr3czwys6w
+      user_id: 01kcprdkad7gpg6mv6xph3y9gr
       hash: architecto
       user: architecto
     queryParameters: []

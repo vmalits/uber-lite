@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Listeners\Auth;
 
-use App\Events\Auth\EmailAdded;
 use App\Events\Auth\EmailVerificationRequested;
 use App\Models\User;
 
-final class SendEmailVerificationOnEmailAdded
+final class SendEmailVerificationOnRequest
 {
-    public function handle(EmailAdded|EmailVerificationRequested $event): void
+    public function handle(EmailVerificationRequested $event): void
     {
         /** @var User|null $user */
         $user = User::query()->find($event->userId);
