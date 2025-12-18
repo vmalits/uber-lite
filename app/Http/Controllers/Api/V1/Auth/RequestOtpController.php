@@ -24,8 +24,6 @@ use Illuminate\Http\Response;
  *
  * Rate limited to 3 requests per 15 minutes per phone number.
  *
- * @bodyParam phone string required The phone number in E.164 format. Example: +37360000000
- *
  * @response 200 {
  *   "message": "OTP has been requested successfully.",
  *   "data": {
@@ -54,9 +52,11 @@ class RequestOtpController extends Controller
 
         $this->events->dispatch(new OtpRequested(phone: $phone, otpCode: $generatedCode));
 
-        return ApiResponse::success([
-            'phone'      => $otpCode->phone,
-            'expires_at' => $otpCode->expires_at->toAtomString(),
-        ], message: 'OTP has been requested successfully.');
+        return ApiResponse::success(
+            data: [
+                'phone'      => $otpCode->phone,
+                'expires_at' => $otpCode->expires_at->toAtomString(),
+            ],
+            message: 'OTP has been requested successfully.');
     }
 }

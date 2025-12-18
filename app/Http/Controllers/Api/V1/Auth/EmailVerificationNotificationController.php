@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
+use App\Actions\Auth\ResolveNextAction;
 use App\Events\Auth\EmailVerificationRequested;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\EmailVerificationNotificationRequest;
@@ -26,10 +27,14 @@ use Illuminate\Http\JsonResponse;
  * @header Authorization string required Bearer <token>
  *
  * @response 200 {"message":"Verification link sent."}
+ * @response 200 {"message":"Email is already verified.","meta":{"next_action":"complete_profile"}}
  */
 final class EmailVerificationNotificationController extends Controller
 {
-    public function __construct(private readonly EventsDispatcher $events) {}
+    public function __construct(
+        private readonly EventsDispatcher $events,
+        private readonly ResolveNextAction $resolveNextAction,
+    ) {}
 
     public function __invoke(EmailVerificationNotificationRequest $request): JsonResponse
     {
@@ -37,11 +42,18 @@ final class EmailVerificationNotificationController extends Controller
         $user = $request->user();
 
         if ($user->hasVerifiedEmail()) {
-            return ApiResponse::success(message: 'Email is already verified.');
+            $next = $this->resolveNextAction->handle($user)->value;
+
+            return ApiResponse::success(
+                message: 'Email is already verified.',
+                meta: ['next_action' => $next],
+            );
         }
 
         $this->events->dispatch(new EmailVerificationRequested(userId: $user->id));
 
-        return ApiResponse::success(message: 'Verification link sent.');
+        return ApiResponse::success(
+            message: 'Verification link sent.',
+        );
     }
 }

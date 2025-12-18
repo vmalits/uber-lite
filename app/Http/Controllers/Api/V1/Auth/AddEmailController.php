@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Actions\Auth\AddEmail;
+use App\Actions\Auth\ResolveNextAction;
 use App\Data\Auth\AddEmailResponse;
 use App\Enums\ProfileStep;
 use App\Events\Auth\EmailAdded;
@@ -30,8 +31,6 @@ use Throwable;
  *
  * @header Authorization string required Bearer <token>
  *
- * @bodyParam email string required A valid email address. Example: user@gmail.com
- *
  * @response 200 {
  *   "message": "Email added successfully.",
  *   "data": {
@@ -46,6 +45,7 @@ class AddEmailController extends Controller
     public function __construct(
         private readonly AddEmail $addEmail,
         private readonly EventsDispatcher $events,
+        private readonly ResolveNextAction $resolveNextAction,
     ) {}
 
     /**
@@ -66,12 +66,15 @@ class AddEmailController extends Controller
 
         $this->events->dispatch(new EmailAdded(userId: $user->id, email: $email));
 
+        $next = $this->resolveNextAction->handle($user);
+
         return ApiResponse::success(
-            AddEmailResponse::of(
+            data: AddEmailResponse::of(
                 email: $email,
                 profileStep: ProfileStep::EMAIL_ADDED,
             ),
             message: 'Email added successfully.',
+            meta: ['next_action' => $next->value],
         );
     }
 }

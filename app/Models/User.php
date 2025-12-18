@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\ProfileStep;
+use App\Enums\UserRole;
 use App\Notifications\Auth\VerifyEmailNotification;
 use Carbon\CarbonInterface;
 use Database\Factories\UserFactory;
@@ -21,7 +22,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string|null $email
  * @property string|null $first_name
  * @property string|null $last_name
- * @property string|null $role
+ * @property UserRole|null $role
  * @property CarbonInterface|null $phone_verified_at
  * @property CarbonInterface|null $email_verified_at
  * @property CarbonInterface|null $last_login_at
@@ -62,6 +63,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'last_login_at'     => 'datetime',
             'email_verified_at' => 'datetime',
             'profile_step'      => ProfileStep::class,
+            'role'              => UserRole::class,
         ];
     }
 

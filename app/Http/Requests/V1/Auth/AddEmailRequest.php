@@ -18,6 +18,19 @@ class AddEmailRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array<string, array<string, string>>
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'email' => [
+                'description' => 'User\'s email address. Must be a valid, unique email.',
+                'example'     => 'user@example.com',
+            ],
+        ];
+    }
+
     public function authorize(): bool
     {
         return true;

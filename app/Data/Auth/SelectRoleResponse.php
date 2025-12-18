@@ -5,19 +5,20 @@ declare(strict_types=1);
 namespace App\Data\Auth;
 
 use App\Enums\ProfileStep;
+use App\Enums\UserRole;
 use Spatie\LaravelData\Data;
 
-final class AddEmailResponse extends Data
+final class SelectRoleResponse extends Data
 {
     public function __construct(
-        public string $email,
+        public string $role,
         public string $profile_step,
     ) {}
 
-    public static function of(string $email, ProfileStep $profileStep): self
+    public static function of(UserRole $role, ProfileStep $profileStep): self
     {
         return new self(
-            email: $email,
+            role: $role->value,
             profile_step: $profileStep->value,
         );
     }

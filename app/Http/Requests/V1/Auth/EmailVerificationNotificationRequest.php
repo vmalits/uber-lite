@@ -22,6 +22,14 @@ class EmailVerificationNotificationRequest extends FormRequest
         return [];
     }
 
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    public function bodyParameters(): array
+    {
+        return [];
+    }
+
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $v): void {

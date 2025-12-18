@@ -87,6 +87,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-add-email">
                                 <a href="#auth-POSTapi-v1-auth-add-email">POST api/v1/auth/add-email</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-select-role">
+                                <a href="#auth-POSTapi-v1-auth-select-role">POST api/v1/auth/select-role</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-complete-profile">
                                 <a href="#auth-POSTapi-v1-auth-complete-profile">POST api/v1/auth/complete-profile</a>
                             </li>
@@ -159,7 +162,7 @@ and sends it via SMS.</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": \"+37360000000\"
+    \"phone\": \"+37360123456\"
 }"
 </code></pre></div>
 
@@ -175,7 +178,7 @@ const headers = {
 };
 
 let body = {
-    "phone": "+37360000000"
+    "phone": "+37360123456"
 };
 
 fetch(url, {
@@ -196,7 +199,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'phone' =&gt; '+37360000000',
+            'phone' =&gt; '+37360123456',
         ],
     ]
 );
@@ -210,7 +213,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/auth/request-otp'
 payload = {
-    "phone": "+37360000000"
+    "phone": "+37360123456"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -303,10 +306,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v1-auth-request-otp"
-               value="+37360000000"
+               value="+37360123456"
                data-component="body">
     <br>
-<p>The phone number in E.164 format. Example: <code>+37360000000</code></p>
+<p>Phone number of the user to receive the OTP. Must be a valid Moldova phone number. Example: <code>+37360123456</code></p>
         </div>
         </form>
 
@@ -327,7 +330,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": \"+37360000000\"
+    \"phone\": \"+37360123456\"
 }"
 </code></pre></div>
 
@@ -343,7 +346,7 @@ const headers = {
 };
 
 let body = {
-    "phone": "+37360000000"
+    "phone": "+37360123456"
 };
 
 fetch(url, {
@@ -364,7 +367,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'phone' =&gt; '+37360000000',
+            'phone' =&gt; '+37360123456',
         ],
     ]
 );
@@ -378,7 +381,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/auth/request-otp/resend'
 payload = {
-    "phone": "+37360000000"
+    "phone": "+37360123456"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -471,10 +474,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v1-auth-request-otp-resend"
-               value="+37360000000"
+               value="+37360123456"
                data-component="body">
     <br>
-<p>The phone number in E.164 format. Example: <code>+37360000000</code></p>
+<p>Phone number of the user to receive the OTP. Must be a valid Moldova phone number. Example: <code>+37360123456</code></p>
         </div>
         </form>
 
@@ -495,7 +498,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": \"+37360000000\",
+    \"phone\": \"+37361234567\",
     \"code\": \"123456\"
 }"
 </code></pre></div>
@@ -512,7 +515,7 @@ const headers = {
 };
 
 let body = {
-    "phone": "+37360000000",
+    "phone": "+37361234567",
     "code": "123456"
 };
 
@@ -534,7 +537,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'phone' =&gt; '+37360000000',
+            'phone' =&gt; '+37361234567',
             'code' =&gt; '123456',
         ],
     ]
@@ -549,7 +552,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/auth/verify-otp'
 payload = {
-    "phone": "+37360000000",
+    "phone": "+37361234567",
     "code": "123456"
 }
 headers = {
@@ -643,10 +646,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v1-auth-verify-otp"
-               value="+37360000000"
+               value="+37361234567"
                data-component="body">
     <br>
-<p>The phone number in E.164 format. Example: <code>+37360000000</code></p>
+<p>User's phone number (Moldova). Include country code, e.g., +37361234567. Example: <code>+37361234567</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -658,7 +661,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="123456"
                data-component="body">
     <br>
-<p>The 6-digit OTP code. Example: <code>123456</code></p>
+<p>6-digit one-time password (OTP) sent to the provided phone number. Must be 6 characters. Example: <code>123456</code></p>
         </div>
         </form>
 
@@ -681,7 +684,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"user@gmail.com\"
+    \"email\": \"user@example.com\"
 }"
 </code></pre></div>
 
@@ -698,7 +701,7 @@ const headers = {
 };
 
 let body = {
-    "email": "user@gmail.com"
+    "email": "user@example.com"
 };
 
 fetch(url, {
@@ -720,7 +723,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'user@gmail.com',
+            'email' =&gt; 'user@example.com',
         ],
     ]
 );
@@ -734,7 +737,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/auth/add-email'
 payload = {
-    "email": "user@gmail.com"
+    "email": "user@example.com"
 }
 headers = {
   'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
@@ -840,10 +843,197 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-auth-add-email"
-               value="user@gmail.com"
+               value="user@example.com"
                data-component="body">
     <br>
-<p>A valid email address. Example: <code>user@gmail.com</code></p>
+<p>User's email address. Must be a valid, unique email. Must be a valid email address. Must not be greater than 255 characters. Example: <code>user@example.com</code></p>
+        </div>
+        </form>
+
+                    <h2 id="auth-POSTapi-v1-auth-select-role">POST api/v1/auth/select-role</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-auth-select-role">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/auth/select-role" \
+    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"role\": \"rider\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/auth/select-role"
+);
+
+const headers = {
+    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "role": "rider"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/auth/select-role';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'role' =&gt; 'rider',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/auth/select-role'
+payload = {
+    "role": "rider"
+}
+headers = {
+  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-auth-select-role">
+</span>
+<span id="execution-results-POSTapi-v1-auth-select-role" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-auth-select-role"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-auth-select-role"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-auth-select-role" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-auth-select-role">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-auth-select-role" data-method="POST"
+      data-path="api/v1/auth/select-role"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-auth-select-role', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-auth-select-role"
+                    onclick="tryItOut('POSTapi-v1-auth-select-role');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-auth-select-role"
+                    onclick="cancelTryOut('POSTapi-v1-auth-select-role');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-auth-select-role"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/auth/select-role</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-auth-select-role"
+               value="string required Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-auth-select-role"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-auth-select-role"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="role"                data-endpoint="POSTapi-v1-auth-select-role"
+               value="rider"
+               data-component="body">
+    <br>
+<p>The user role. Allowed values: rider, driver. Example: <code>rider</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>rider</code></li> <li><code>driver</code></li></ul>
         </div>
         </form>
 
@@ -1032,7 +1222,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="John"
                data-component="body">
     <br>
-<p>First name. Example: <code>John</code></p>
+<p>First name of the user. Must not be greater than 255 characters. Example: <code>John</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -1044,7 +1234,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="Doe"
                data-component="body">
     <br>
-<p>Last name. Example: <code>Doe</code></p>
+<p>Last name of the user. Must not be greater than 255 characters. Example: <code>Doe</code></p>
         </div>
         </form>
 

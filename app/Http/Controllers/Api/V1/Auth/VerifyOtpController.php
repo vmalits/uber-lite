@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
+use App\Actions\Auth\ResolveNextAction;
 use App\Actions\Auth\VerifyOtpCode;
 use App\Enums\ProfileStep;
 use App\Http\Controllers\Controller;
@@ -19,24 +20,30 @@ use Illuminate\Http\JsonResponse;
  *
  * This endpoint verifies the one-time password (OTP) for the given phone number.
  *
- * @bodyParam phone string required The phone number in E.164 format. Example: +37360000000
- * @bodyParam code string required The 6-digit OTP code. Example: 123456
- *
  * @response 200 {
+ *   "success": true,
  *   "message": "OTP verified successfully.",
  *   "data": {
  *     "profile_step": "phone_verified",
  *     "token": "<Personal Access Token>",
  *     "token_type": "Bearer"
+ *   },
+ *   "meta": {
+ *     "next_action": "select_role"
  *   }
  * }
- * @response 422 {"message":"The given data was invalid.","errors":{"code":["Invalid or expired code."]}}
+ * @response 422 {
+ *   "success": false,
+ *   "message": "The given data was invalid.",
+ *   "errors": {"code": ["Invalid or expired code."]}
+ * }
  */
 class VerifyOtpController extends Controller
 {
     public function __construct(
         private readonly VerifyOtpCode $verifyOtpCode,
         private readonly FindUserByPhoneQueryInterface $findUserByPhone,
+        private readonly ResolveNextAction $resolveNextAction,
     ) {}
 
     public function __invoke(VerifyOtpRequest $request): JsonResponse
@@ -44,8 +51,8 @@ class VerifyOtpController extends Controller
         $phone = $request->string('phone')->toString();
         $code = $request->string('code')->toString();
 
-        $ok = $this->verifyOtpCode->handle($phone, $code);
-        if (! $ok) {
+        $isValid = $this->verifyOtpCode->handle($phone, $code);
+        if (! $isValid) {
             return ApiResponse::validationError([
                 'code' => ['Invalid or expired code.'],
             ]);
@@ -59,11 +66,15 @@ class VerifyOtpController extends Controller
         }
 
         $token = $user->createToken('auth')->plainTextToken;
+        $nextAction = $this->resolveNextAction->handle($user)->value;
 
-        return ApiResponse::success([
-            'profile_step' => ProfileStep::PHONE_VERIFIED->value,
-            'token'        => $token,
-            'token_type'   => 'Bearer',
-        ], message: 'OTP verified successfully.');
+        return ApiResponse::success(
+            data: [
+                'profile_step' => ProfileStep::PHONE_VERIFIED->value,
+                'token'        => $token,
+                'token_type'   => 'Bearer',
+            ],
+            message: 'OTP verified successfully.',
+            meta: ['next_action' => $nextAction]);
     }
 }

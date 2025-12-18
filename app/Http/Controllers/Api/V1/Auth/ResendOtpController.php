@@ -23,8 +23,6 @@ use Illuminate\Http\JsonResponse;
  *
  * Rate limited to 3 requests per 15 minutes per phone number.
  *
- * @bodyParam phone string required The phone number in E.164 format. Example: +37360000000
- *
  * @response 200 {
  *   "message": "OTP has been resent successfully.",
  *   "data": {
@@ -53,9 +51,11 @@ class ResendOtpController extends Controller
 
         $this->events->dispatch(new OtpResent(phone: $phone, otpCode: $generatedCode));
 
-        return ApiResponse::success([
-            'phone'      => $otpCode->phone,
-            'expires_at' => $otpCode->expires_at->toAtomString(),
-        ], message: 'OTP has been resent successfully.');
+        return ApiResponse::success(
+            data: [
+                'phone'      => $otpCode->phone,
+                'expires_at' => $otpCode->expires_at->toAtomString(),
+            ],
+            message: 'OTP has been resent successfully.');
     }
 }

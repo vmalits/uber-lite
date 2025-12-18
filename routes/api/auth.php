@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Api\V1\Auth\LogoutController;
 use App\Http\Controllers\Api\V1\Auth\RequestOtpController;
 use App\Http\Controllers\Api\V1\Auth\ResendOtpController;
+use App\Http\Controllers\Api\V1\Auth\SelectRoleController;
 use App\Http\Controllers\Api\V1\Auth\VerifyEmailController;
 use App\Http\Controllers\Api\V1\Auth\VerifyOtpController;
 use App\Http\Middleware\ThrottleOtpRequests;
@@ -29,6 +30,10 @@ Route::prefix('auth')->group(function (): void {
     Route::post('add-email', [AddEmailController::class, '__invoke'])
         ->middleware('auth:sanctum')
         ->name('api.v1.auth.add-email');
+
+    Route::post('select-role', [SelectRoleController::class, '__invoke'])
+        ->middleware('auth:sanctum')
+        ->name('api.v1.auth.select-role');
 
     Route::post('complete-profile', [CompleteProfileController::class, '__invoke'])
         ->middleware('auth:sanctum')

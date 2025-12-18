@@ -19,6 +19,23 @@ class VerifyOtpRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array<string, array<string, string>>
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'phone' => [
+                'description' => 'User\'s phone number (Moldova). Include country code, e.g., +37361234567.',
+                'example'     => '+37361234567',
+            ],
+            'code' => [
+                'description' => '6-digit one-time password (OTP) sent to the provided phone number.',
+                'example'     => '123456',
+            ],
+        ];
+    }
+
     public function authorize(): bool
     {
         return true;

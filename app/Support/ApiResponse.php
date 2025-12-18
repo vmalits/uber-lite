@@ -25,7 +25,9 @@ final class ApiResponse
         ?array $meta = null,
         array $headers = [],
     ): JsonResponse {
-        $payload = [];
+        $payload = [
+            'success' => true,
+        ];
 
         if ($message !== null) {
             $payload['message'] = $message;
@@ -73,6 +75,7 @@ final class ApiResponse
         array $extra = [],
     ): JsonResponse {
         $payload = array_merge([
+            'success' => false,
             'message' => $message,
         ], $extra);
 

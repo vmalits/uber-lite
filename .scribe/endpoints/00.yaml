@@ -41,16 +41,16 @@ endpoints:
       phone:
         custom: []
         name: phone
-        description: 'The phone number in E.164 format.'
+        description: 'Phone number of the user to receive the OTP. Must be a valid Moldova phone number.'
         required: true
-        example: '+37360000000'
+        example: '+37360123456'
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone: '+37360000000'
+      phone: '+37360123456'
     fileParameters: []
     responses: []
     responseFields: []
@@ -91,16 +91,16 @@ endpoints:
       phone:
         custom: []
         name: phone
-        description: 'The phone number in E.164 format.'
+        description: 'Phone number of the user to receive the OTP. Must be a valid Moldova phone number.'
         required: true
-        example: '+37360000000'
+        example: '+37360123456'
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone: '+37360000000'
+      phone: '+37360123456'
     fileParameters: []
     responses: []
     responseFields: []
@@ -138,27 +138,27 @@ endpoints:
       phone:
         custom: []
         name: phone
-        description: 'The phone number in E.164 format.'
+        description: "User's phone number (Moldova). Include country code, e.g., +37361234567."
         required: true
-        example: '+37360000000'
+        example: '+37361234567'
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
       code:
         custom: []
         name: code
-        description: 'The 6-digit OTP code.'
+        description: '6-digit one-time password (OTP) sent to the provided phone number. Must be 6 characters.'
         required: true
         example: '123456'
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone: '+37360000000'
+      phone: '+37361234567'
       code: '123456'
     fileParameters: []
     responses: []
@@ -200,16 +200,68 @@ endpoints:
       email:
         custom: []
         name: email
-        description: 'A valid email address.'
+        description: "User's email address. Must be a valid, unique email. Must be a valid email address. Must not be greater than 255 characters."
         required: true
-        example: user@gmail.com
+        example: user@example.com
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      email: user@gmail.com
+      email: user@example.com
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/auth/select-role
+    metadata:
+      custom: []
+      groupName: Auth
+      groupDescription: |-
+
+        Select Role
+
+        Choose a role for the authenticated user: rider or driver.
+
+        Requires Bearer token (issued after OTP verification).
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'string required Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      role:
+        custom: []
+        name: role
+        description: 'The user role. Allowed values: rider, driver.'
+        required: true
+        example: rider
+        type: string
+        enumValues:
+          - rider
+          - driver
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      role: rider
     fileParameters: []
     responses: []
     responseFields: []
@@ -250,23 +302,23 @@ endpoints:
       first_name:
         custom: []
         name: first_name
-        description: 'First name.'
+        description: 'First name of the user. Must not be greater than 255 characters.'
         required: true
         example: John
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
       last_name:
         custom: []
         name: last_name
-        description: 'Last name.'
+        description: 'Last name of the user. Must not be greater than 255 characters.'
         required: true
         example: Doe
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:

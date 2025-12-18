@@ -33,4 +33,18 @@ class OtpCodeRequest extends FormRequest
     {
         return true;
     }
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'phone' => [
+                'description' => 'Phone number of the user to receive the OTP. Must be a valid Moldova phone number',
+                'example'     => '+37360123456',
+                'required'    => true,
+            ],
+        ];
+    }
 }

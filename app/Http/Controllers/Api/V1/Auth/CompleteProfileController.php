@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Actions\Auth\CompleteProfile;
 use App\Data\Auth\CompleteProfileResponse;
+use App\Enums\NextAction;
 use App\Enums\ProfileStep;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\CompleteProfileRequest;
@@ -27,16 +28,14 @@ use Throwable;
  *
  * @header Authorization string required Bearer <token>
  *
- * @bodyParam first_name string required First name. Example: John
- * @bodyParam last_name string required Last name. Example: Doe
- *
  * @response 200 {
  *   "message": "Profile completed successfully.",
  *   "data": {
  *     "first_name": "John",
  *     "last_name": "Doe",
  *     "profile_step": "completed"
- *   }
+ *   },
+ *   "meta": {"next_action": "done"}
  * }
  * @response 422 {"message":"The given data was invalid.","errors":{"phone":["Email is not verified."]}}
  */
@@ -65,13 +64,14 @@ class CompleteProfileController extends Controller
         }
 
         return ApiResponse::success(
-            CompleteProfileResponse::of(
+            data: CompleteProfileResponse::of(
                 phone: $user->phone,
                 firstName: $firstName,
                 lastName: $lastName,
                 profileStep: ProfileStep::COMPLETED,
             ),
             message: 'Profile completed successfully.',
+            meta: ['next_action' => NextAction::DONE->value],
         );
     }
 }

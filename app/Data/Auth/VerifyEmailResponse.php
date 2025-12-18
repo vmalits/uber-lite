@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Data\Auth;
 
-use App\Enums\ProfileStep;
 use App\Models\User;
 use Spatie\LaravelData\Data;
 
@@ -21,14 +20,10 @@ final class VerifyEmailResponse extends Data
 
     public static function fromUser(User $user, bool $alreadyVerified = false): self
     {
-        $profileStep = $user->profile_step instanceof ProfileStep
-            ? $user->profile_step->value
-            : (string) $user->profile_step;
-
         return new self(
             user_id: $user->id,
             email: $user->email,
-            profile_step: $profileStep,
+            profile_step: $user->profile_step !== null ? $user->profile_step->value : '',
             verified_at: $user->email_verified_at?->toAtomString(),
             verified: $user->hasVerifiedEmail(),
             already_verified: $alreadyVerified,
