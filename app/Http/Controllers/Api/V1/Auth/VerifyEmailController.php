@@ -53,7 +53,7 @@ final class VerifyEmailController extends Controller
     {
         $expectedHash = sha1($user->getEmailForVerification());
         if (! hash_equals($expectedHash, $hash)) {
-            return ApiResponse::error('Invalid verification link.', 403);
+            return ApiResponse::forbidden('Invalid verification link.');
         }
 
         if ($user->hasVerifiedEmail()) {

@@ -110,6 +110,16 @@ Route formats:
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-rider" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="rider">
+                    <a href="#rider">Rider</a>
+                </li>
+                                    <ul id="tocify-subheader-rider" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides">
+                                <a href="#rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -119,7 +129,7 @@ Route formats:
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 18, 2025</li>
+        <li>Last updated: December 19, 2025</li>
     </ul>
 </div>
 
@@ -1568,14 +1578,14 @@ Route formats:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/auth/email/verify/01kcprdkad7gpg6mv6xph3y9gr/architecto" \
+    --get "http://localhost:8080/api/v1/auth/email/verify/01kcw61jdx08k59b7sxa5s6mqd/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/auth/email/verify/01kcprdkad7gpg6mv6xph3y9gr/architecto"
+    "http://localhost:8080/api/v1/auth/email/verify/01kcw61jdx08k59b7sxa5s6mqd/architecto"
 );
 
 const headers = {
@@ -1591,7 +1601,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/auth/email/verify/01kcprdkad7gpg6mv6xph3y9gr/architecto';
+$url = 'http://localhost:8080/api/v1/auth/email/verify/01kcw61jdx08k59b7sxa5s6mqd/architecto';
 $response = $client-&gt;get(
     $url,
     [
@@ -1609,7 +1619,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/auth/email/verify/01kcprdkad7gpg6mv6xph3y9gr/architecto'
+url = 'http://localhost:8080/api/v1/auth/email/verify/01kcw61jdx08k59b7sxa5s6mqd/architecto'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1735,10 +1745,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
-               value="01kcprdkad7gpg6mv6xph3y9gr"
+               value="01kcw61jdx08k59b7sxa5s6mqd"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>01kcprdkad7gpg6mv6xph3y9gr</code></p>
+<p>The ID of the user. Example: <code>01kcw61jdx08k59b7sxa5s6mqd</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
@@ -1922,6 +1932,277 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                <h1 id="rider">Rider</h1>
+
+    <p>Create Ride</p>
+<p>Endpoint for riders to create a new ride request.</p>
+<p>Requires Bearer token and completed profile.</p>
+
+                                <h2 id="rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-rider-rides">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/rider/rides" \
+    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"origin_address\": \"bd. Ștefan cel Mare și Sfânt, 1, Chișinău\",
+    \"origin_lat\": 47.0105,
+    \"origin_lng\": 28.8638,
+    \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
+    \"destination_lat\": 47.0225,
+    \"destination_lng\": 28.8353
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/rides"
+);
+
+const headers = {
+    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "origin_address": "bd. Ștefan cel Mare și Sfânt, 1, Chișinău",
+    "origin_lat": 47.0105,
+    "origin_lng": 28.8638,
+    "destination_address": "str. Mihai Eminescu, 50, Chișinău",
+    "destination_lat": 47.0225,
+    "destination_lng": 28.8353
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/rides';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'origin_address' =&gt; 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău',
+            'origin_lat' =&gt; 47.0105,
+            'origin_lng' =&gt; 28.8638,
+            'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
+            'destination_lat' =&gt; 47.0225,
+            'destination_lng' =&gt; 28.8353,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/rides'
+payload = {
+    "origin_address": "bd. Ștefan cel Mare și Sfânt, 1, Chișinău",
+    "origin_lat": 47.0105,
+    "origin_lng": 28.8638,
+    "destination_address": "str. Mihai Eminescu, 50, Chișinău",
+    "destination_lat": 47.0225,
+    "destination_lng": 28.8353
+}
+headers = {
+  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-rider-rides">
+</span>
+<span id="execution-results-POSTapi-v1-rider-rides" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-rider-rides"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-rider-rides"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-rider-rides" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-rider-rides">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-rider-rides" data-method="POST"
+      data-path="api/v1/rider/rides"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-rider-rides', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-rider-rides"
+                    onclick="tryItOut('POSTapi-v1-rider-rides');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-rider-rides"
+                    onclick="cancelTryOut('POSTapi-v1-rider-rides');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-rider-rides"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/rider/rides</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-rider-rides"
+               value="string required Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-rider-rides"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-rider-rides"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>origin_address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="origin_address"                data-endpoint="POSTapi-v1-rider-rides"
+               value="bd. Ștefan cel Mare și Sfânt, 1, Chișinău"
+               data-component="body">
+    <br>
+<p>The starting address of the ride. Must not be greater than 255 characters. Example: <code>bd. Ștefan cel Mare și Sfânt, 1, Chișinău</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>origin_lat</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="origin_lat"                data-endpoint="POSTapi-v1-rider-rides"
+               value="47.0105"
+               data-component="body">
+    <br>
+<p>The latitude of the origin. Must be between -90 and 90. Example: <code>47.0105</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>origin_lng</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="origin_lng"                data-endpoint="POSTapi-v1-rider-rides"
+               value="28.8638"
+               data-component="body">
+    <br>
+<p>The longitude of the origin. Must be between -180 and 180. Example: <code>28.8638</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>destination_address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="destination_address"                data-endpoint="POSTapi-v1-rider-rides"
+               value="str. Mihai Eminescu, 50, Chișinău"
+               data-component="body">
+    <br>
+<p>The destination address of the ride. Must not be greater than 255 characters. Example: <code>str. Mihai Eminescu, 50, Chișinău</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>destination_lat</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="destination_lat"                data-endpoint="POSTapi-v1-rider-rides"
+               value="47.0225"
+               data-component="body">
+    <br>
+<p>The latitude of the destination. Must be between -90 and 90. Example: <code>47.0225</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>destination_lng</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="destination_lng"                data-endpoint="POSTapi-v1-rider-rides"
+               value="28.8353"
+               data-component="body">
+    <br>
+<p>The longitude of the destination. Must be between -180 and 180. Example: <code>28.8353</code></p>
+        </div>
+        </form>
 
             
 

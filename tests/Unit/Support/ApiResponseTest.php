@@ -46,11 +46,12 @@ it('returns success with data, message, meta and custom headers', function (): v
 });
 
 it('returns created with 201 status', function (): void {
-    $response = TestResponse::fromBaseResponse(ApiResponse::created(['id' => 1]));
+    $response = TestResponse::fromBaseResponse(ApiResponse::created(['id' => 1], 'Created!'));
 
     $response->assertCreated()
         ->assertJson([
-            'data' => ['id' => 1],
+            'message' => 'Created!',
+            'data'    => ['id' => 1],
         ]);
 });
 
@@ -107,6 +108,22 @@ it('returns tooManyRequests with and without retry_after', function (): void {
             'message'     => 'Too many',
             'retry_after' => 60,
         ]);
+});
+
+it('returns unauthorized (401)', function (): void {
+    $response = TestResponse::fromBaseResponse(ApiResponse::unauthorized('No entry'));
+    $response->assertStatus(401)->assertJson(['message' => 'No entry']);
+
+    $responseDefault = TestResponse::fromBaseResponse(ApiResponse::unauthorized());
+    $responseDefault->assertStatus(401)->assertJson(['message' => 'Unauthenticated.']);
+});
+
+it('returns forbidden (403)', function (): void {
+    $response = TestResponse::fromBaseResponse(ApiResponse::forbidden('Forbidden!'));
+    $response->assertStatus(403)->assertJson(['message' => 'Forbidden!']);
+
+    $responseDefault = TestResponse::fromBaseResponse(ApiResponse::forbidden());
+    $responseDefault->assertStatus(403)->assertJson(['message' => 'Forbidden.']);
 });
 
 it('normalizes Data objects to array for data key', function (): void {

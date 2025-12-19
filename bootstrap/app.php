@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Middleware\CheckProfileStep;
 use App\Http\Middleware\CheckRole;
 use App\Http\Middleware\RequestIdMiddleware;
 use Illuminate\Foundation\Application;
@@ -19,7 +20,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->prepend(RequestIdMiddleware::class);
         $middleware->alias([
-            'role' => CheckRole::class,
+            'role'         => CheckRole::class,
+            'profile_step' => CheckProfileStep::class,
         ]);
         $middleware->trustProxies();
         $middleware->throttleApi();

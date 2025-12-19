@@ -49,9 +49,9 @@ final class ApiResponse
      *
      * @param array<string,mixed>|Arrayable<int|string,mixed>|Data $data
      */
-    public static function created(array|Arrayable|Data $data): JsonResponse
+    public static function created(array|Arrayable|Data $data, ?string $message = null): JsonResponse
     {
-        return self::success($data, status: 201);
+        return self::success($data, message: $message, status: 201);
     }
 
     /**
@@ -60,6 +60,22 @@ final class ApiResponse
     public static function noContent(): JsonResponse
     {
         return response()->json([], 204);
+    }
+
+    /**
+     * 401 Unauthorized.
+     */
+    public static function unauthorized(string $message = 'Unauthenticated.'): JsonResponse
+    {
+        return self::error($message, 401);
+    }
+
+    /**
+     * 403 Forbidden.
+     */
+    public static function forbidden(string $message = 'Forbidden.'): JsonResponse
+    {
+        return self::error($message, 403);
     }
 
     /**

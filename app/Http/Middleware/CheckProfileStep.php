@@ -9,12 +9,12 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class CheckRole
+final class CheckProfileStep
 {
     /**
      * @param Closure(Request): (Response) $next
      */
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next, string $step): Response
     {
         $user = $request->user();
 
@@ -22,8 +22,8 @@ final class CheckRole
             return ApiResponse::unauthorized();
         }
 
-        if ($user->role === null || $user->role->value !== $role) {
-            return ApiResponse::forbidden();
+        if ($user->profile_step === null || $user->profile_step->value !== $step) {
+            return ApiResponse::forbidden(message: 'Forbidden. Profile step not '.$step.'.');
         }
 
         return $next($request);
