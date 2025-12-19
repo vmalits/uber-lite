@@ -25,7 +25,7 @@ it('sets role when it is not set', function (): void {
         ->and($user->profile_step)->toBe(ProfileStep::PHONE_VERIFIED);
 });
 
-it('changes role when different', function (): void {
+it('does not change role when already set', function (): void {
     /** @var User $user */
     $user = User::factory()->create([
         'phone_verified_at' => now(),
@@ -37,13 +37,13 @@ it('changes role when different', function (): void {
 
     $changed = $action->handle($user, UserRole::DRIVER);
 
-    expect($changed)->toBeTrue();
+    expect($changed)->toBeFalse();
     $user->refresh();
-    expect($user->role)->toBe(UserRole::DRIVER)
+    expect($user->role)->toBe(UserRole::RIDER)
         ->and($user->profile_step)->toBe(ProfileStep::PHONE_VERIFIED);
 });
 
-it('is idempotent when the same role passed', function (): void {
+it('does not change role even if the same role passed', function (): void {
     /** @var User $user */
     $user = User::factory()->create([
         'phone_verified_at' => now(),

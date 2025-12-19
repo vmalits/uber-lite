@@ -15,7 +15,7 @@ final readonly class SelectUserRole
      */
     public function handle(User $user, UserRole $role): bool
     {
-        if ($user->role === $role) {
+        if ($user->role !== null) {
             return false;
         }
 
