@@ -19,4 +19,9 @@ final class RidePolicy
     {
         return $user->id === $ride->rider_id;
     }
+
+    public function cancel(User $user, Ride $ride): bool
+    {
+        return $user->id === $ride->rider_id;
+    }
 }
