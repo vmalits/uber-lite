@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\RideBuilder;
 use App\Enums\RideStatus;
 use Carbon\CarbonInterface;
 use Database\Factories\RideFactory;
+use Illuminate\Database\Eloquent\Attributes\UseEloquentBuilder;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -29,6 +31,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read User $rider
  * @property-read User|null $driver
  */
+#[UseEloquentBuilder(RideBuilder::class)]
 class Ride extends Model
 {
     /** @use HasFactory<RideFactory> */

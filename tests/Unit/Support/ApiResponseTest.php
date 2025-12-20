@@ -17,7 +17,8 @@ it('returns success with message only', function (): void {
     $response->assertOk()
         ->assertJson([
             'message' => 'OK',
-        ])->assertJsonMissing(['data']);
+            'data'    => null,
+        ]);
 });
 
 it('returns success with array data only', function (): void {

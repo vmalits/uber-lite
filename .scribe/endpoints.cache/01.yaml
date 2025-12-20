@@ -123,6 +123,55 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/rider/rides/active
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: |-
+
+        Get Active Ride
+
+        Retrieve the current active ride for the authenticated rider.
+        Active ride is any ride that is not completed or cancelled.
+
+        Requires Bearer token and completed profile.
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'string required Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 316689db-189c-409d-8dfc-805931cb5599
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: 'api/v1/rider/rides/{id}'
     metadata:
       custom: []
@@ -172,7 +221,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: b38c4dc2-8070-444f-a5b8-fa760c9103cf
+          x-request-id: 002a21d8-bb4c-4a73-bc1d-c6feadc36444
         description: null
     responseFields: []
     auth: []

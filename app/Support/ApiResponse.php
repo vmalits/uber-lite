@@ -27,14 +27,11 @@ final class ApiResponse
     ): JsonResponse {
         $payload = [
             'success' => true,
+            'data'    => $data !== null ? self::normalizeData($data) : null,
         ];
 
         if ($message !== null) {
             $payload['message'] = $message;
-        }
-
-        if ($data !== null) {
-            $payload['data'] = self::normalizeData($data);
         }
 
         if ($meta !== null) {
