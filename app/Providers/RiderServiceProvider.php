@@ -6,6 +6,8 @@ namespace App\Providers;
 
 use App\Queries\Rider\GetActiveRideQuery;
 use App\Queries\Rider\GetActiveRideQueryInterface;
+use App\Queries\Rider\GetRideHistoryQuery;
+use App\Queries\Rider\GetRideHistoryQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 final class RiderServiceProvider extends ServiceProvider
@@ -14,7 +16,9 @@ final class RiderServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetActiveRideQueryInterface::class => GetActiveRideQuery::class,
-        GetActiveRideQuery::class          => GetActiveRideQuery::class,
+        GetActiveRideQueryInterface::class  => GetActiveRideQuery::class,
+        GetActiveRideQuery::class           => GetActiveRideQuery::class,
+        GetRideHistoryQueryInterface::class => GetRideHistoryQuery::class,
+        GetRideHistoryQuery::class          => GetRideHistoryQuery::class,
     ];
 }

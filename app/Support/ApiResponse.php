@@ -14,12 +14,12 @@ final class ApiResponse
     /**
      * Generic success response.
      *
-     * @param array<string,mixed>|Arrayable<int|string,mixed>|Data|null $data
-     * @param array<string,mixed>|null $meta
-     * @param array<string,string> $headers
+     * @param array<string, mixed>|Arrayable<int|string, mixed>|Data|LengthAwarePaginator<int, mixed>|null $data
+     * @param array<string, mixed>|null $meta
+     * @param array<string, string> $headers
      */
     public static function success(
-        array|Arrayable|Data|LengthAwarePaginator|null $data = null,
+        mixed $data = null,
         ?string $message = null,
         int $status = 200,
         ?array $meta = null,
@@ -129,11 +129,11 @@ final class ApiResponse
     /**
      * Normalize various data types to array for JSON payloads.
      *
-     * @param array<string,mixed>|Arrayable<int|string,mixed>|LengthAwarePaginator<int,mixed>|Data $data
+     * @param array<string, mixed>|Arrayable<int|string, mixed>|LengthAwarePaginator<int, mixed>|Data $data
      *
-     * @return array<string,mixed>|array<int,mixed>
+     * @return array<string, mixed>|array<int, mixed>
      */
-    private static function normalizeData(array|Arrayable|Data|LengthAwarePaginator $data): array
+    private static function normalizeData(mixed $data): array
     {
         if ($data instanceof Data) {
             return $data->toArray();

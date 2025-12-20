@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
+use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('rider')->group(function (): void {
@@ -16,6 +17,10 @@ Route::prefix('rider')->group(function (): void {
     Route::get('rides/active', GetActiveRideController::class)
         ->middleware(['auth:sanctum', 'role:rider', 'profile_step:completed'])
         ->name('api.v1.rider.rides.active');
+
+    Route::get('rides/history', GetRideHistoryController::class)
+        ->middleware(['auth:sanctum', 'role:rider', 'profile_step:completed'])
+        ->name('api.v1.rider.rides.history');
 
     Route::get('rides/{ride}', GetRideController::class)
         ->middleware(['auth:sanctum', 'role:rider', 'profile_step:completed'])

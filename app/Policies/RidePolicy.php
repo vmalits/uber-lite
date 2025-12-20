@@ -10,6 +10,11 @@ use App\Models\User;
 
 final class RidePolicy
 {
+    public function viewAny(User $user): bool
+    {
+        return $user->role === UserRole::RIDER;
+    }
+
     public function create(User $user): bool
     {
         return $user->role === UserRole::RIDER;

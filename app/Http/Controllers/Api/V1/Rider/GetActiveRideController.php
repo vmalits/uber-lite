@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api\V1\Rider;
 
 use App\Data\Rider\RideData;
 use App\Http\Controllers\Controller;
+use App\Models\Ride;
 use App\Models\User;
 use App\Queries\Rider\GetActiveRideQueryInterface;
 use App\Support\ApiResponse;
@@ -60,6 +61,8 @@ final class GetActiveRideController extends Controller
 
     public function __invoke(Request $request): JsonResponse
     {
+        $this->authorize('viewAny', Ride::class);
+
         /** @var User $user */
         $user = $request->user();
 
