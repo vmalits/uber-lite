@@ -4,22 +4,19 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Rider;
 
-use App\Actions\Rider\CreateRide;
-use App\Data\Rider\CreateRideData;
 use App\Data\Rider\RideData;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\V1\Rider\CreateRideRequest;
 use App\Models\Ride;
-use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 /**
  * @group Rider
  *
- * Create Ride
+ * Get Ride Status
  *
- * Endpoint for riders to create a new ride request.
+ * Retrieve the current status and details of a specific ride.
  *
  * Requires Bearer token and completed profile.
  *
@@ -27,9 +24,10 @@ use Illuminate\Http\JsonResponse;
  *
  * @header Authorization string required Bearer <token>
  *
- * @response 201 {
+ * @urlParam id string required The ULID of the ride. Example: 01jk9v6v9v6v9v6v9v6v9v6v9v
+ *
+ * @response 200 {
  *   "success": true,
- *   "message": "Ride created successfully.",
  *   "data": {
  *     "id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
  *     "rider_id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
@@ -45,39 +43,23 @@ use Illuminate\Http\JsonResponse;
  *     "created_at": "2025-12-19T20:00:12+00:00"
  *   }
  * }
- * @response 422 {
+ * @response 404 {
  *   "success": false,
- *   "message": "The given data was invalid.",
- *   "errors": {
- *     "origin_address": ["The origin address field is required."]
- *   }
+ *   "message": "Ride not found."
  * }
  * @response 403 {
  *   "success": false,
  *   "message": "Forbidden. Profile step isn't completed."
  * }
  */
-final class CreateRideController extends Controller
+final class GetRideController extends Controller
 {
-    public function __construct(
-        private readonly CreateRide $createRide,
-    ) {}
-
-    public function __invoke(CreateRideRequest $request): JsonResponse
+    public function __invoke(Request $request, Ride $ride): JsonResponse
     {
-        $this->authorize('create', Ride::class);
+        $this->authorize('view', $ride);
 
-        /** @var User $user */
-        $user = $request->user();
-
-        $ride = $this->createRide->handle(
-            $user,
-            CreateRideData::from($request->validated()),
-        );
-
-        return ApiResponse::created(
+        return ApiResponse::success(
             data: RideData::fromModel($ride),
-            message: 'Ride created successfully.',
         );
     }
 }
