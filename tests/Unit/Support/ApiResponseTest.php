@@ -9,8 +9,6 @@ use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Testing\TestResponse;
 use Spatie\LaravelData\Data;
 
-uses(Tests\TestCase::class);
-
 it('returns success with message only', function (): void {
     $response = TestResponse::fromBaseResponse(ApiResponse::success(message: 'OK'));
 

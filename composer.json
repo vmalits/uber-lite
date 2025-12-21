@@ -17,6 +17,7 @@
         "twilio/sdk": "^8.9"
     },
     "require-dev": {
+        "buggregator/trap": "^1.15",
         "driftingly/rector-laravel": "^2.1",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^3.0",
@@ -56,12 +57,12 @@
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
         ],
         "test": [
-      "@php artisan config:clear --ansi",
-      "@php artisan test"
-    ],
-    "coverage": [
-      "XDEBUG_MODE=coverage vendor/bin/pest --coverage --coverage-html coverage --coverage-text --colors=always"
-    ],
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ],
+        "coverage": [
+            "XDEBUG_MODE=coverage vendor/bin/pest --coverage --coverage-html coverage --coverage-text --colors=always"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

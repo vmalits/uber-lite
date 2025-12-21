@@ -27,6 +27,7 @@ composer run setup
 ```
 
 - Mailpit UI: http://localhost:8025 (SMTP: 1025)
+- Buggregator UI: http://localhost:8001 (SMTP: 1026, Dumper: 9912, Ray: 10001)
 - RoadRunner will listen on http://localhost:8080 (see `.rr.yaml`). Static files are served from `public`.
 
 ### 2) Start the application (RoadRunner)
@@ -91,7 +92,7 @@ make coverage     # pest coverage
 
 ### Troubleshooting
 
-- Ports in use: RR (8080), Postgres (5432/5433), Redis (6379), Mailpit (1025/8025). Free or change ports if needed.
+- Ports in use: RR (8080), Postgres (5432/5433), Redis (6379), Mailpit (1025/8025), Buggregator (8001/1026/9912/10001). Free or change ports if needed.
 - RR binary permissions: `make install` sets `chmod +x rr`; if you downloaded RR manually, run `chmod +x rr`.
 - Cache/config issues: `php artisan config:clear && php artisan cache:clear`, remove `storage/framework/cache/*`.
 - Permissions on macOS/Linux: `chmod -R 777 storage bootstrap/cache` (local only).

@@ -5,8 +5,6 @@ declare(strict_types=1);
 use App\Models\OtpCode;
 use Illuminate\Support\Carbon;
 
-uses(Tests\TestCase::class);
-
 it('casts expires_at to Carbon and used to boolean with default false', function (): void {
     $otp = OtpCode::query()->create([
         'phone' => '+37360000009',

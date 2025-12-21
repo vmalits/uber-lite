@@ -141,7 +141,7 @@ Route formats:
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 20, 2025</li>
+        <li>Last updated: December 21, 2025</li>
     </ul>
 </div>
 
@@ -1590,14 +1590,14 @@ Route formats:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/auth/email/verify/01kcw61jdx08k59b7sxa5s6mqd/architecto" \
+    --get "http://localhost:8080/api/v1/auth/email/verify/architecto/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/auth/email/verify/01kcw61jdx08k59b7sxa5s6mqd/architecto"
+    "http://localhost:8080/api/v1/auth/email/verify/architecto/architecto"
 );
 
 const headers = {
@@ -1613,7 +1613,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/auth/email/verify/01kcw61jdx08k59b7sxa5s6mqd/architecto';
+$url = 'http://localhost:8080/api/v1/auth/email/verify/architecto/architecto';
 $response = $client-&gt;get(
     $url,
     [
@@ -1631,7 +1631,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/auth/email/verify/01kcw61jdx08k59b7sxa5s6mqd/architecto'
+url = 'http://localhost:8080/api/v1/auth/email/verify/architecto/architecto'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1757,10 +1757,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
-               value="01kcw61jdx08k59b7sxa5s6mqd"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>01kcw61jdx08k59b7sxa5s6mqd</code></p>
+<p>The ID of the user. Example: <code>architecto</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
@@ -2297,7 +2297,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: fb4fa7a5-1f8a-4e35-aa84-d18b8549583f
+x-request-id: 4d8787af-3097-4f62-9753-d6ff20c9370e
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2486,7 +2486,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 93f7bb8e-e5f4-46cb-bd18-a19772eb3e03
+x-request-id: f31a28a0-a133-4523-91bc-48ed3c35b123
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2685,7 +2685,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 44308ba2-8e9c-436b-9aa9-6b730a96b8af
+x-request-id: 06ea8128-6133-4e16-90dc-815fea73a83a
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2805,7 +2805,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/rider/rides/01kcw656b6dyetjc2cetatkdft/cancel" \
+    "http://localhost:8080/api/v1/rider/rides/architecto/cancel" \
     --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2813,7 +2813,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/01kcw656b6dyetjc2cetatkdft/cancel"
+    "http://localhost:8080/api/v1/rider/rides/architecto/cancel"
 );
 
 const headers = {
@@ -2830,7 +2830,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/01kcw656b6dyetjc2cetatkdft/cancel';
+$url = 'http://localhost:8080/api/v1/rider/rides/architecto/cancel';
 $response = $client-&gt;post(
     $url,
     [
@@ -2849,7 +2849,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/rider/rides/01kcw656b6dyetjc2cetatkdft/cancel'
+url = 'http://localhost:8080/api/v1/rider/rides/architecto/cancel'
 headers = {
   'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -2954,10 +2954,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-rider-rides--ride_id--cancel"
-               value="01kcw656b6dyetjc2cetatkdft"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kcw656b6dyetjc2cetatkdft</code></p>
+<p>The ID of the ride. Example: <code>architecto</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;

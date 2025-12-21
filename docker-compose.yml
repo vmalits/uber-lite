@@ -57,6 +57,21 @@ services:
       timeout: 3s
       retries: 10
 
+  buggregator:
+    image: ghcr.io/buggregator/server:latest
+    container_name: uber-lite-buggregator
+    ports:
+      - "8001:8000" # Web UI
+      - "1026:1025" # SMTP
+      - "9912:9912" # Var Dumper
+      - "9913:9913" # Monolog
+      - "10001:10001" # Ray
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8000" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
 volumes:
   pgdata:
   pgdata_test:

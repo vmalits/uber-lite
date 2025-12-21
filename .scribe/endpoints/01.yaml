@@ -159,7 +159,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: fb4fa7a5-1f8a-4e35-aa84-d18b8549583f
+          x-request-id: 4d8787af-3097-4f62-9753-d6ff20c9370e
         description: null
     responseFields: []
     auth: []
@@ -231,7 +231,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 93f7bb8e-e5f4-46cb-bd18-a19772eb3e03
+          x-request-id: f31a28a0-a133-4523-91bc-48ed3c35b123
         description: null
     responseFields: []
     auth: []
@@ -291,7 +291,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 44308ba2-8e9c-436b-9aa9-6b730a96b8af
+          x-request-id: 06ea8128-6133-4e16-90dc-815fea73a83a
         description: null
     responseFields: []
     auth: []
@@ -330,7 +330,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01kcw656b6dyetjc2cetatkdft
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -348,7 +348,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01kcw656b6dyetjc2cetatkdft
+      ride_id: architecto
       id: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []

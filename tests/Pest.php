@@ -18,10 +18,11 @@ pest()
     ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
     ->in('Feature');
 
-// Ensure Laravel application is bootstrapped for unit tests using models/factories
+// Ensure Laravel application is bootstrapped for unit tests
 pest()
     ->extend(Tests\TestCase::class)
-    ->in('Unit/Actions');
+    ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
+    ->in('Unit');
 
 /*
 |--------------------------------------------------------------------------
