@@ -28,7 +28,10 @@ class UserFactory extends Factory
             'email'             => null,
             'email_verified_at' => null,
             'phone_verified_at' => null,
+            'first_name'        => null,
+            'last_name'         => null,
             'last_login_at'     => null,
+            'role'              => null,
             'profile_step'      => null,
         ];
     }
