@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\V1\Rider;
 
+use App\Models\Ride;
+use App\Models\User;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateRideRequest extends FormRequest
@@ -26,6 +29,23 @@ class CreateRideRequest extends FormRequest
             'destination_lat'     => ['required', 'numeric', 'between:-90,90'],
             'destination_lng'     => ['required', 'numeric', 'between:-180,180'],
         ];
+    }
+
+    public function withValidator(Validator $validator): void
+    {
+        $validator->after(function (Validator $validator): void {
+            /** @var User $user */
+            $user = $this->user();
+
+            $hasActiveRide = Ride::query()
+                ->where('rider_id', $user->id)
+                ->active()
+                ->exists();
+
+            if ($hasActiveRide) {
+                $validator->errors()->add('ride', 'You already have an active ride.');
+            }
+        });
     }
 
     /**

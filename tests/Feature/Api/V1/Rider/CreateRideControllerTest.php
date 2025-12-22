@@ -107,3 +107,34 @@ test('denies access if unauthenticated', function (): void {
 
     $response->assertUnauthorized();
 });
+
+test('cannot create a second active ride', function (): void {
+    /** @var User $user */
+    $user = User::factory()->create([
+        'role'         => UserRole::RIDER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    Sanctum::actingAs($user);
+
+    // Create first ride
+    App\Models\Ride::factory()->create([
+        'rider_id' => $user->id,
+        'status'   => RideStatus::PENDING,
+    ]);
+
+    $rideData = [
+        'origin_address'      => 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău',
+        'origin_lat'          => 47.0105,
+        'origin_lng'          => 28.8638,
+        'destination_address' => 'str. Mihai Eminescu, 50, Chișinău',
+        'destination_lat'     => 47.0225,
+        'destination_lng'     => 28.8353,
+    ];
+
+    $response = $this->postJson('/api/v1/rider/rides', $rideData);
+
+    $response->assertUnprocessable()
+        ->assertJsonValidationErrors(['ride'])
+        ->assertJsonPath('errors.ride.0', 'You already have an active ride.');
+});
