@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\V1\Auth;
 
+use App\Data\Auth\VerifyOtpData;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VerifyOtpRequest extends FormRequest
@@ -39,5 +40,13 @@ class VerifyOtpRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function toDto(): VerifyOtpData
+    {
+        return new VerifyOtpData(
+            phone: $this->string('phone')->toString(),
+            code: $this->string('code')->toString(),
+        );
     }
 }

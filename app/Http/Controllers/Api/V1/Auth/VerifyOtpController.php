@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Actions\Auth\ResolveNextAction;
 use App\Actions\Auth\VerifyOtpCode;
+use App\Data\Auth\VerifyOtpResponse;
 use App\Enums\ProfileStep;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\VerifyOtpRequest;
@@ -48,17 +49,16 @@ class VerifyOtpController extends Controller
 
     public function __invoke(VerifyOtpRequest $request): JsonResponse
     {
-        $phone = $request->string('phone')->toString();
-        $code = $request->string('code')->toString();
+        $dto = $request->toDto();
 
-        $isValid = $this->verifyOtpCode->handle($phone, $code);
+        $isValid = $this->verifyOtpCode->handle($dto->phone, $dto->code);
         if (! $isValid) {
             return ApiResponse::validationError([
                 'code' => ['Invalid or expired code.'],
             ]);
         }
 
-        $user = $this->findUserByPhone->execute($phone);
+        $user = $this->findUserByPhone->execute($dto->phone);
         if ($user === null) {
             return ApiResponse::validationError([
                 'code' => ['Invalid or expired code.'],
@@ -69,11 +69,10 @@ class VerifyOtpController extends Controller
         $nextAction = $this->resolveNextAction->handle($user)->value;
 
         return ApiResponse::success(
-            data: [
-                'profile_step' => ProfileStep::PHONE_VERIFIED->value,
-                'token'        => $token,
-                'token_type'   => 'Bearer',
-            ],
+            data: VerifyOtpResponse::of(
+                profileStep: ProfileStep::PHONE_VERIFIED,
+                token: $token,
+            ),
             message: 'OTP verified successfully.',
             meta: ['next_action' => $nextAction]);
     }
