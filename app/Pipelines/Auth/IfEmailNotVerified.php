@@ -13,7 +13,7 @@ final class IfEmailNotVerified
     /**
      * @param array{0: User, 1: NextAction} $payload
      *
-     * @return array{0: User, 1: NextAction}
+     * @return array{0: User, 1: NextAction}|NextAction
      */
     public function handle(array $payload, Closure $next): array|NextAction
     {

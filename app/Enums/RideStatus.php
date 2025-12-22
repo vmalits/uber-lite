@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use function in_array;
+
 enum RideStatus: string
 {
     case PENDING = 'pending';
@@ -17,7 +19,7 @@ enum RideStatus: string
 
     public function isActive(): bool
     {
-        return \in_array($this, [
+        return in_array($this, [
             self::PENDING,
             self::ACCEPTED,
             self::ON_THE_WAY,
@@ -28,7 +30,7 @@ enum RideStatus: string
 
     public function isInProgress(): bool
     {
-        return \in_array($this, [
+        return in_array($this, [
             self::ACCEPTED,
             self::ON_THE_WAY,
             self::ARRIVED,
@@ -48,7 +50,7 @@ enum RideStatus: string
 
     public function isFinal(): bool
     {
-        return \in_array($this, [
+        return in_array($this, [
             self::COMPLETED,
             self::CANCELLED,
         ], true);
@@ -71,6 +73,6 @@ enum RideStatus: string
 
     public function canTransitionTo(self $target): bool
     {
-        return \in_array($target, $this->getAllowedTransitions(), true);
+        return in_array($target, $this->getAllowedTransitions(), true);
     }
 }

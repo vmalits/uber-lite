@@ -72,7 +72,7 @@ final class CancelRideController extends Controller
     {
         $this->authorize('cancel', $ride);
 
-        $this->cancelRide->handle($ride);
+        $ride = $this->cancelRide->handle($ride);
 
         return ApiResponse::success(
             data: RideData::fromModel($ride),

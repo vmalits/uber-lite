@@ -54,7 +54,7 @@ final class SelectRoleController extends Controller
         /** @var User $user */
         $user = $request->user();
 
-        $this->selectUserRole->handle($user, $dto->role);
+        $user = $this->selectUserRole->handle($user, $dto->role);
         $next = $this->resolveNextAction->handle($user)->value;
 
         return ApiResponse::success(

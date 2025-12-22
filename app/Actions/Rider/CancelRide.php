@@ -6,20 +6,40 @@ namespace App\Actions\Rider;
 
 use App\Enums\RideStatus;
 use App\Models\Ride;
+use Illuminate\Database\DatabaseManager;
 use Illuminate\Validation\ValidationException;
+use Throwable;
 
-final class CancelRide
+final readonly class CancelRide
 {
-    public function handle(Ride $ride): void
-    {
-        if (! $ride->status->canTransitionTo(RideStatus::CANCELLED)) {
-            throw ValidationException::withMessages([
-                'ride' => ['Ride cannot be cancelled in its current status.'],
-            ]);
-        }
+    public function __construct(
+        private DatabaseManager $databaseManager,
+    ) {}
 
-        $ride->update([
-            'status' => RideStatus::CANCELLED,
-        ]);
+    /**
+     * @throws ValidationException
+     * @throws Throwable
+     */
+    public function handle(Ride $ride): Ride
+    {
+        return $this->databaseManager->transaction(
+            callback: function () use ($ride): Ride {
+                /** @var Ride $ride */
+                $ride = Ride::query()->lockForUpdate()->findOrFail($ride->id);
+
+                if (! $ride->status->canTransitionTo(RideStatus::CANCELLED)) {
+                    throw ValidationException::withMessages([
+                        'ride' => ['Ride cannot be cancelled in its current status.'],
+                    ]);
+                }
+
+                $ride->update([
+                    'status' => RideStatus::CANCELLED,
+                ]);
+
+                return $ride;
+            },
+            attempts: 3,
+        );
     }
 }

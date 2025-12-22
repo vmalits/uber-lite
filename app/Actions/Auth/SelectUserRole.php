@@ -6,21 +6,35 @@ namespace App\Actions\Auth;
 
 use App\Enums\UserRole;
 use App\Models\User;
+use Illuminate\Database\DatabaseManager;
 use Throwable;
 
 final readonly class SelectUserRole
 {
+    public function __construct(
+        private DatabaseManager $databaseManager,
+    ) {}
+
     /**
      * @throws Throwable
      */
-    public function handle(User $user, UserRole $role): bool
+    public function handle(User $user, UserRole $role): User
     {
-        if ($user->role !== null) {
-            return false;
-        }
+        return $this->databaseManager->transaction(
+            callback: function () use ($user, $role): User {
+                /** @var User $user */
+                $user = User::query()->lockForUpdate()->findOrFail($user->id);
 
-        $user->role = $role;
+                if ($user->role !== null) {
+                    return $user;
+                }
 
-        return $user->save();
+                $user->role = $role;
+                $user->save();
+
+                return $user;
+            },
+            attempts: 3,
+        );
     }
 }
