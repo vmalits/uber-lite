@@ -10,12 +10,10 @@ use Laravel\Sanctum\Sanctum;
 
 it('deletes the authenticated account and revokes all tokens', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'phone'             => '+37360000999',
         'phone_verified_at' => now(),
         'profile_step'      => ProfileStep::PHONE_VERIFIED,
-        'email'             => 'gdpr@example.com',
-        'email_verified_at' => null,
     ]);
 
     // Issue a token and ensure it exists

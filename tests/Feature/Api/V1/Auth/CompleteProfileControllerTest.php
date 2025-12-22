@@ -47,7 +47,7 @@ it('completes profile for a user with verified email', function (): void {
         ->and($user->profile_step)->toBe(ProfileStep::COMPLETED);
 });
 
-it('returns 422 when email is not verified', function (): void {
+it('returns 403 when email is not verified', function (): void {
     /** @var User $user */
     $user = User::factory()->create([
         'phone'             => '+37360000112',
@@ -63,11 +63,10 @@ it('returns 422 when email is not verified', function (): void {
         'last_name'  => 'Doe',
     ]);
 
-    $response->assertUnprocessable()
-        ->assertJsonValidationErrors(['email']);
+    $response->assertForbidden();
 });
 
-it('returns 422 when email is not verified (no phone field in payload)', function (): void {
+it('returns 403 when email is not verified (no phone field in payload)', function (): void {
     /** @var User $user */
     $user = User::factory()->create([
         'phone'             => '+37360000114',
@@ -83,12 +82,11 @@ it('returns 422 when email is not verified (no phone field in payload)', functio
         'last_name'  => 'User',
     ]);
 
-    $response->assertUnprocessable()
-        ->assertJsonValidationErrors(['email']);
+    $response->assertForbidden();
 });
 
 it('validates required fields', function (): void {
-    $user = User::factory()->create();
+    $user = User::factory()->verified()->create();
     Sanctum::actingAs($user);
 
     $response = $this->postJson('/api/v1/auth/complete-profile', []);
@@ -98,7 +96,7 @@ it('validates required fields', function (): void {
 });
 
 it('validates name length constraints', function (): void {
-    $user = User::factory()->create();
+    $user = User::factory()->verified()->create();
     Sanctum::actingAs($user);
 
     $tooLong = str_repeat('a', 256);
@@ -114,7 +112,7 @@ it('validates name length constraints', function (): void {
 
 it('keeps step completed when already completed and updates names', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'phone'        => '+37360000113',
         'email'        => 'done@example.com',
         'first_name'   => 'Old',

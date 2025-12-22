@@ -10,7 +10,7 @@ use Laravel\Sanctum\Sanctum;
 
 test('allows rider to get their own ride status', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -36,13 +36,13 @@ test('allows rider to get their own ride status', function (): void {
 
 test('denies rider to get another rider ride status', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
 
     /** @var User $otherUser */
-    $otherUser = User::factory()->create([
+    $otherUser = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -61,7 +61,7 @@ test('denies rider to get another rider ride status', function (): void {
 
 test('returns 404 for non-existent ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -75,7 +75,7 @@ test('returns 404 for non-existent ride', function (): void {
 
 test('denies access if profile not completed', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::EMAIL_VERIFIED,
     ]);

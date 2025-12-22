@@ -11,7 +11,7 @@ use Laravel\Sanctum\Sanctum;
 
 test('rider can get their ride history', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -50,7 +50,7 @@ test('rider can get their ride history', function (): void {
 
 test('rider history is paginated', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -79,7 +79,7 @@ test('guest cannot get ride history', function (): void {
 
 test('rider with incomplete profile cannot get ride history', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::EMAIL_VERIFIED,
     ]);
@@ -93,7 +93,7 @@ test('rider with incomplete profile cannot get ride history', function (): void 
 
 test('rider can filter ride history by status', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -119,7 +119,7 @@ test('rider can filter ride history by status', function (): void {
 
 test('rider can sort ride history by price', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);

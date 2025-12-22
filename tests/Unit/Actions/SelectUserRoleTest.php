@@ -17,10 +17,8 @@ it('sets role when it is not set', function (): void {
 
     $action = app(SelectUserRole::class);
 
-    $changed = $action->handle($user, UserRole::RIDER);
+    $user = $action->handle($user, UserRole::RIDER);
 
-    expect($changed)->toBeTrue();
-    $user->refresh();
     expect($user->role)->toBe(UserRole::RIDER)
         ->and($user->profile_step)->toBe(ProfileStep::PHONE_VERIFIED);
 });
@@ -35,10 +33,8 @@ it('does not change role when already set', function (): void {
 
     $action = app(SelectUserRole::class);
 
-    $changed = $action->handle($user, UserRole::DRIVER);
+    $user = $action->handle($user, UserRole::DRIVER);
 
-    expect($changed)->toBeFalse();
-    $user->refresh();
     expect($user->role)->toBe(UserRole::RIDER)
         ->and($user->profile_step)->toBe(ProfileStep::PHONE_VERIFIED);
 });
@@ -53,10 +49,8 @@ it('does not change role even if the same role passed', function (): void {
 
     $action = app(SelectUserRole::class);
 
-    $changed = $action->handle($user, UserRole::DRIVER);
+    $user = $action->handle($user, UserRole::DRIVER);
 
-    expect($changed)->toBeFalse();
-    $user->refresh();
     expect($user->role)->toBe(UserRole::DRIVER)
         ->and($user->profile_step)->toBe(ProfileStep::PHONE_VERIFIED);
 });

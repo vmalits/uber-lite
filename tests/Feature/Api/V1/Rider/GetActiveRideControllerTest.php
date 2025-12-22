@@ -11,7 +11,7 @@ use Laravel\Sanctum\Sanctum;
 
 test('rider can get their active ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -38,7 +38,7 @@ test('rider can get their active ride', function (): void {
 
 test('rider gets message when no active ride exists', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -62,7 +62,7 @@ test('rider gets message when no active ride exists', function (): void {
 
 test('rider gets the latest active ride if multiple exist', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -103,7 +103,7 @@ test('guest cannot get active ride', function (): void {
 
 test('rider with incomplete profile cannot get active ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::EMAIL_VERIFIED,
     ]);

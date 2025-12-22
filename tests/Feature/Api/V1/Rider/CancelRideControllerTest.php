@@ -11,7 +11,7 @@ use Laravel\Sanctum\Sanctum;
 
 test('rider can cancel their own ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -44,13 +44,13 @@ test('rider can cancel their own ride', function (): void {
 
 test('rider cannot cancel someone else\'s ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
 
     /** @var User $otherUser */
-    $otherUser = User::factory()->create([
+    $otherUser = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -70,7 +70,7 @@ test('rider cannot cancel someone else\'s ride', function (): void {
 
 test('rider cannot cancel completed ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -100,7 +100,7 @@ test('guest cannot cancel ride', function (): void {
 
 test('rider with incomplete profile cannot cancel ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::EMAIL_VERIFIED,
     ]);

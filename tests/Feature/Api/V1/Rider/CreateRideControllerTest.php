@@ -10,7 +10,7 @@ use Laravel\Sanctum\Sanctum;
 
 test('allows access for rider with completed profile and creates ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -53,7 +53,7 @@ test('allows access for rider with completed profile and creates ride', function
 
 test('validates request data', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -75,7 +75,7 @@ test('validates request data', function (): void {
 
 test('denies access for non-rider', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::DRIVER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
@@ -89,7 +89,7 @@ test('denies access for non-rider', function (): void {
 
 test('denies access if profile not completed', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::EMAIL_VERIFIED,
     ]);
@@ -110,7 +110,7 @@ test('denies access if unauthenticated', function (): void {
 
 test('cannot create a second active ride', function (): void {
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User::factory()->verified()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);

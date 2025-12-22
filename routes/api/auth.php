@@ -36,7 +36,7 @@ Route::prefix('auth')->group(function (): void {
         ->name('api.v1.auth.select-role');
 
     Route::post('complete-profile', [CompleteProfileController::class, '__invoke'])
-        ->middleware('auth:sanctum')
+        ->middleware(['auth:sanctum', 'verified'])
         ->name('api.v1.auth.complete-profile');
 
     Route::post('logout', [LogoutController::class, '__invoke'])
@@ -54,6 +54,6 @@ Route::prefix('auth')->group(function (): void {
         ->where('hash', '[A-Fa-f0-9]{40}');
 
     Route::delete('delete-account', [DeleteAccountController::class, '__invoke'])
-        ->middleware('auth:sanctum')
+        ->middleware(['auth:sanctum', 'verified'])
         ->name('api.v1.auth.delete-account');
 });
