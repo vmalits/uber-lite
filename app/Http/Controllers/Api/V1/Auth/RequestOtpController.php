@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Actions\Auth\CreateOtpCode;
+use App\Data\Auth\OtpCodeResponse;
 use App\Events\Auth\OtpRequested;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\OtpCodeRequest;
@@ -13,6 +14,8 @@ use App\Support\ApiResponse;
 use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Random\RandomException;
+use Throwable;
 
 /**
  * @group Auth
@@ -28,7 +31,10 @@ use Illuminate\Http\Response;
  *   "message": "OTP has been requested successfully.",
  *   "data": {
  *     "phone": "+37360000000",
- *     "expires_at": "2025-12-11T23:23:00+00:00"
+ *     "expires_at": {
+ *       "human": "1 minute from now",
+ *       "string": "2025-12-11 23:23:00"
+ *     }
  *   }
  * }
  * @response 429 {
@@ -44,19 +50,21 @@ class RequestOtpController extends Controller
         private readonly EventsDispatcher $events,
     ) {}
 
+    /**
+     * @throws Throwable
+     * @throws RandomException
+     */
     public function __invoke(OtpCodeRequest $request): JsonResponse
     {
-        $phone = $request->string('phone')->toString();
-        $generatedCode = $this->otpService->generateOtpCode();
-        $otpCode = $this->createOtpCode->handle($phone, $generatedCode);
+        $dto = $request->toDto();
 
-        $this->events->dispatch(new OtpRequested(phone: $phone, otpCode: $generatedCode));
+        $generatedCode = $this->otpService->generateOtpCode();
+        $otpCode = $this->createOtpCode->handle($dto->phone, $generatedCode);
+
+        $this->events->dispatch(new OtpRequested(phone: $dto->phone, otpCode: $generatedCode));
 
         return ApiResponse::success(
-            data: [
-                'phone'      => $otpCode->phone,
-                'expires_at' => $otpCode->expires_at->toAtomString(),
-            ],
+            data: OtpCodeResponse::fromModel($otpCode),
             message: 'OTP has been requested successfully.');
     }
 }

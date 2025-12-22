@@ -24,7 +24,10 @@ it('successfully requests OTP code and dispatches event', function (): void {
             'message',
             'data' => [
                 'phone',
-                'expires_at',
+                'expires_at' => [
+                    'human',
+                    'string',
+                ],
             ],
         ])
         ->assertJson([
@@ -81,7 +84,7 @@ it('creates OTP code with correct expiration time', function (): void {
 
     $otpCode = OtpCode::query()->where('phone', $phone)->firstOrFail();
 
-    $expectedExpiration = now()->addMinutes(5);
+    $expectedExpiration = now()->addMinutes(1);
 
     expect($otpCode->expires_at->diffInMinutes($expectedExpiration))->toBeLessThan(1);
 });
@@ -108,7 +111,7 @@ it('generates unique OTP codes for same phone', function (): void {
         ->and($firstOtpCode)->not->toBe($secondOtpCode);
 });
 
-it('returns expires_at in ISO 8601 format', function (): void {
+it('returns expires_at as DateData', function (): void {
     $phone = '+37360000000';
 
     $response = $this->postJson('/api/v1/auth/request-otp', [
@@ -119,8 +122,10 @@ it('returns expires_at in ISO 8601 format', function (): void {
 
     $data = $response->json('data');
 
-    expect($data['expires_at'])->toBeString()
-        ->and(DateTime::createFromFormat(DateTimeInterface::ATOM, $data['expires_at']))->not->toBeFalse();
+    expect($data['expires_at'])->toBeArray()
+        ->and($data['expires_at'])->toHaveKeys(['human', 'string'])
+        ->and($data['expires_at']['human'])->toBeString()
+        ->and($data['expires_at']['string'])->toBeString();
 });
 
 it('rate limits OTP requests to 3 per 15 minutes per phone', function (): void {

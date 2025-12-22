@@ -11,7 +11,7 @@ use Throwable;
 
 final class CreateOtpCode
 {
-    private const int EXPIRATION_MINUTES = 5;
+    private const int EXPIRATION_MINUTES = 1;
 
     public function __construct(private readonly DatabaseManager $databaseManager) {}
 

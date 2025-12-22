@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\V1\Auth;
 
+use App\Data\Auth\OtpCodeData;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OtpCodeRequest extends FormRequest
@@ -46,5 +47,12 @@ class OtpCodeRequest extends FormRequest
                 'required'    => true,
             ],
         ];
+    }
+
+    public function toDto(): OtpCodeData
+    {
+        return new OtpCodeData(
+            phone: $this->string('phone')->toString(),
+        );
     }
 }
