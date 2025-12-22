@@ -53,24 +53,25 @@ class AddEmailController extends Controller
      */
     public function __invoke(AddEmailRequest $request): JsonResponse
     {
+        $dto = $request->toDto();
+
         /** @var User $user */
         $user = $request->user();
-        $email = $request->string('email')->toString();
 
-        $ok = $this->addEmail->handle($user, $email);
+        $ok = $this->addEmail->handle($user, $dto->email);
         if (! $ok) {
             return ApiResponse::validationError([
                 'phone' => ['Phone is not verified.'],
             ]);
         }
 
-        $this->events->dispatch(new EmailAdded(userId: $user->id, email: $email));
+        $this->events->dispatch(new EmailAdded(userId: $user->id, email: $dto->email));
 
         $next = $this->resolveNextAction->handle($user);
 
         return ApiResponse::success(
             data: AddEmailResponse::of(
-                email: $email,
+                email: $dto->email,
                 profileStep: ProfileStep::EMAIL_ADDED,
             ),
             message: 'Email added successfully.',

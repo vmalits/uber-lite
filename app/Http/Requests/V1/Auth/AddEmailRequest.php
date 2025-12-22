@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\V1\Auth;
 
+use App\Data\Auth\AddEmailData;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AddEmailRequest extends FormRequest
@@ -34,5 +35,12 @@ class AddEmailRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function toDto(): AddEmailData
+    {
+        return new AddEmailData(
+            email: $this->string('email')->toString(),
+        );
     }
 }
