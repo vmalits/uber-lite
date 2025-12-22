@@ -7,7 +7,7 @@ namespace App\Actions\Auth;
 use App\Enums\ProfileStep;
 use App\Models\OtpCode;
 use App\Models\User;
-use App\Queries\Auth\FindValidOtpCodeByPhoneQuery;
+use App\Queries\Auth\FindValidOtpCodeByPhoneQueryInterface;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\Facades\Hash;
 use Throwable;
@@ -16,39 +16,42 @@ final readonly class VerifyOtpCode
 {
     public function __construct(
         private DatabaseManager $databaseManager,
-        private FindValidOtpCodeByPhoneQuery $findValidOtp,
+        private FindValidOtpCodeByPhoneQueryInterface $findValidOtp,
     ) {}
 
     /**
      * @throws Throwable
      */
-    public function handle(string $phone, string $code): bool
+    public function handle(string $phone, string $code): ?User
     {
-        /** @var OtpCode|null $otp */
-        $otp = $this->findValidOtp->execute($phone);
+        return $this->databaseManager->transaction(
+            callback: function () use ($phone, $code): ?User {
+                /** @var OtpCode|null $otp */
+                $otp = $this->findValidOtp->execute($phone, lock: true);
 
-        if ($otp === null || ! Hash::check($code, $otp->code)) {
-            return false;
-        }
+                if ($otp === null || ! Hash::check($code, $otp->code)) {
+                    return null;
+                }
 
-        $this->databaseManager->transaction(
-            callback: function () use ($otp, $phone): void {
                 $otp->update(['used' => true]);
 
                 /** @var User $user */
-                $user = User::query()->firstOrCreate(
-                    ['phone' => $phone],
-                    ['profile_step' => ProfileStep::PHONE_VERIFIED->value],
-                );
+                $user = User::query()->firstOrCreate(['phone' => $phone]);
 
                 $user->forceFill([
                     'phone_verified_at' => now(),
                     'last_login_at'     => now(),
-                    'profile_step'      => ProfileStep::PHONE_VERIFIED,
-                ])->save();
-            },
-            attempts: 3);
+                ]);
 
-        return true;
+                if ($user->profile_step === null) {
+                    $user->profile_step = ProfileStep::PHONE_VERIFIED;
+                }
+
+                $user->save();
+
+                return $user;
+            },
+            attempts: 3,
+        );
     }
 }

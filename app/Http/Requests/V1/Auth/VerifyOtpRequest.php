@@ -27,8 +27,8 @@ class VerifyOtpRequest extends FormRequest
     {
         return [
             'phone' => [
-                'description' => 'User\'s phone number (Moldova). Include country code, e.g., +37361234567.',
-                'example'     => '+37361234567',
+                'description' => 'User\'s phone number (Moldova). Include country code, e.g., +37360123456.',
+                'example'     => '+37360123456',
             ],
             'code' => [
                 'description' => '6-digit one-time password (OTP) sent to the provided phone number.',

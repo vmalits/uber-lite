@@ -82,3 +82,16 @@ it('returns done when everything completed', function (): void {
 
     expect($resolver->handle($user))->toBe(NextAction::DONE);
 });
+
+it('returns done when profile_step is completed even if role is missing', function (): void {
+    /** @var User $user */
+    $user = User::factory()->make([
+        'phone_verified_at' => now(),
+        'profile_step'      => ProfileStep::COMPLETED,
+        'role'              => null,
+    ]);
+
+    $resolver = app(ResolveNextAction::class);
+
+    expect($resolver->handle($user))->toBe(NextAction::DONE);
+});

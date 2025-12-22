@@ -520,7 +520,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": \"+37361234567\",
+    \"phone\": \"+37360123456\",
     \"code\": \"123456\"
 }"
 </code></pre></div>
@@ -537,7 +537,7 @@ const headers = {
 };
 
 let body = {
-    "phone": "+37361234567",
+    "phone": "+37360123456",
     "code": "123456"
 };
 
@@ -559,7 +559,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'phone' =&gt; '+37361234567',
+            'phone' =&gt; '+37360123456',
             'code' =&gt; '123456',
         ],
     ]
@@ -574,7 +574,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/auth/verify-otp'
 payload = {
-    "phone": "+37361234567",
+    "phone": "+37360123456",
     "code": "123456"
 }
 headers = {
@@ -668,10 +668,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v1-auth-verify-otp"
-               value="+37361234567"
+               value="+37360123456"
                data-component="body">
     <br>
-<p>User's phone number (Moldova). Include country code, e.g., +37361234567. Example: <code>+37361234567</code></p>
+<p>User's phone number (Moldova). Include country code, e.g., +37360123456. Example: <code>+37360123456</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -2297,7 +2297,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 50d4346b-464c-42ca-8b57-329cb5492473
+x-request-id: 52afb7fb-90b3-4f70-9bb2-d30c05ed5bba
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2492,7 +2492,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 7b8f4cd0-922a-477e-b7c2-ee609e0d9f6a
+x-request-id: e6cc241e-2815-4c8d-b515-f5ff23674584
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2715,7 +2715,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: f52e6f01-b327-4929-bd73-0ab6c2c605a1
+x-request-id: d23429ad-e608-4737-a448-5ffd840599ed
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{

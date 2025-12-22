@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Enums\ProfileStep;
+use App\Enums\UserRole;
 use App\Models\OtpCode;
 use App\Models\User;
 
@@ -52,6 +53,41 @@ it('verifies OTP successfully and updates user', function (): void {
     expect($user->phone_verified_at)->not->toBeNull()
         ->and($user->last_login_at)->not->toBeNull()
         ->and($user->profile_step)->toBe(ProfileStep::PHONE_VERIFIED);
+});
+
+it('skips registration steps for a returning user with completed profile', function (): void {
+    $phone = '+37360000999';
+    $code = '999999';
+
+    // Given a user with a completed profile
+    User::factory()->create([
+        'phone'             => $phone,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'role'              => UserRole::RIDER,
+        'email'             => 'test@example.com',
+        'email_verified_at' => now(),
+    ]);
+
+    // And a valid OTP
+    createOtp($phone, $code, now()->addMinutes(5));
+
+    // When
+    $response = $this->postJson('/api/v1/auth/verify-otp', [
+        'phone' => $phone,
+        'code'  => $code,
+    ]);
+
+    // Then
+    $response->assertOk()
+        ->assertJson([
+            'message' => 'OTP verified successfully.',
+            'data'    => [
+                'profile_step' => ProfileStep::COMPLETED->value,
+            ],
+            'meta' => [
+                'next_action' => 'done',
+            ],
+        ]);
 });
 
 it('returns validation error when code is invalid', function (): void {

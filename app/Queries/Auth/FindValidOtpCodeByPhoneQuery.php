@@ -9,13 +9,18 @@ use Illuminate\Support\Carbon;
 
 final class FindValidOtpCodeByPhoneQuery implements FindValidOtpCodeByPhoneQueryInterface
 {
-    public function execute(string $phone): ?OtpCode
+    public function execute(string $phone, bool $lock = false): ?OtpCode
     {
-        return OtpCode::query()
+        $query = OtpCode::query()
             ->where('phone', $phone)
             ->where('expires_at', '>', Carbon::now())
             ->where('used', false)
-            ->orderByDesc('id')
-            ->first();
+            ->orderByDesc('id');
+
+        if ($lock) {
+            $query->lockForUpdate();
+        }
+
+        return $query->first();
     }
 }

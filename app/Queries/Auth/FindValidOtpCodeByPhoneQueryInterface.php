@@ -8,5 +8,5 @@ use App\Models\OtpCode;
 
 interface FindValidOtpCodeByPhoneQueryInterface
 {
-    public function execute(string $phone): ?OtpCode;
+    public function execute(string $phone, bool $lock = false): ?OtpCode;
 }

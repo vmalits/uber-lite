@@ -10,6 +10,7 @@ use App\Pipelines\Auth\IfEmailNotSet;
 use App\Pipelines\Auth\IfEmailNotVerified;
 use App\Pipelines\Auth\IfProfileNotCompleted;
 use App\Pipelines\Auth\IfRoleNotSelected;
+use App\Pipelines\Auth\StopIfProfileCompleted;
 use Illuminate\Pipeline\Pipeline;
 
 final readonly class ResolveNextAction
@@ -24,6 +25,7 @@ final readonly class ResolveNextAction
         $result = $this->pipeline
             ->send([$user, $initial])
             ->through([
+                StopIfProfileCompleted::class,
                 IfRoleNotSelected::class,
                 IfEmailNotSet::class,
                 IfEmailNotVerified::class,
