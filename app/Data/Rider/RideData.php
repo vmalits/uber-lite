@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Data\Rider;
 
+use App\Data\DateData;
 use App\Enums\RideStatus;
 use App\Models\Ride;
 use Spatie\LaravelData\Data;
@@ -22,7 +23,8 @@ final class RideData extends Data
         public float $destination_lng,
         public RideStatus $status,
         public ?float $price,
-        public string $created_at,
+        public DateData $created_at,
+        public DateData $updated_at,
     ) {}
 
     public static function fromModel(Ride $ride): self
@@ -39,7 +41,8 @@ final class RideData extends Data
             destination_lng: $ride->destination_lng,
             status: $ride->status,
             price: $ride->price,
-            created_at: $ride->created_at->toIso8601String(),
+            created_at: DateData::fromCarbon($ride->created_at),
+            updated_at: DateData::fromCarbon($ride->updated_at),
         );
     }
 }

@@ -14,6 +14,7 @@
         "propaganistas/laravel-phone": "^6.0",
         "roadrunner-php/laravel-bridge": "^6.0",
         "spatie/laravel-data": "^4.6",
+        "spatie/laravel-query-builder": "^6.3",
         "twilio/sdk": "^8.9"
     },
     "require-dev": {

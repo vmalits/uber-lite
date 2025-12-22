@@ -141,7 +141,7 @@ Route formats:
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 21, 2025</li>
+        <li>Last updated: December 22, 2025</li>
     </ul>
 </div>
 
@@ -1590,14 +1590,14 @@ Route formats:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/auth/email/verify/architecto/architecto" \
+    --get "http://localhost:8080/api/v1/auth/email/verify/01kd37predav134gcdf53yxpss/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/auth/email/verify/architecto/architecto"
+    "http://localhost:8080/api/v1/auth/email/verify/01kd37predav134gcdf53yxpss/architecto"
 );
 
 const headers = {
@@ -1613,7 +1613,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/auth/email/verify/architecto/architecto';
+$url = 'http://localhost:8080/api/v1/auth/email/verify/01kd37predav134gcdf53yxpss/architecto';
 $response = $client-&gt;get(
     $url,
     [
@@ -1631,7 +1631,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/auth/email/verify/architecto/architecto'
+url = 'http://localhost:8080/api/v1/auth/email/verify/01kd37predav134gcdf53yxpss/architecto'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1757,10 +1757,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
-               value="architecto"
+               value="01kd37predav134gcdf53yxpss"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>architecto</code></p>
+<p>The ID of the user. Example: <code>01kd37predav134gcdf53yxpss</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
@@ -2297,7 +2297,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 4d8787af-3097-4f62-9753-d6ff20c9370e
+x-request-id: e06a9e80-aabd-473d-8c90-cb06dada4b1a
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2404,7 +2404,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/rides/history?per_page=15&amp;page=1" \
+    --get "http://localhost:8080/api/v1/rider/rides/history?per_page=15&amp;page=1&amp;filter%5Bstatus%5D=completed&amp;sort=-price" \
     --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2418,6 +2418,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "page": "1",
+    "filter[status]": "completed",
+    "sort": "-price",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2448,6 +2450,8 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'page' =&gt; '1',
+            'filter[status]' =&gt; 'completed',
+            'sort' =&gt; '-price',
         ],
     ]
 );
@@ -2463,6 +2467,8 @@ url = 'http://localhost:8080/api/v1/rider/rides/history'
 params = {
   'per_page': '15',
   'page': '1',
+  'filter[status]': 'completed',
+  'sort': '-price',
 }
 headers = {
   'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
@@ -2486,7 +2492,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: f31a28a0-a133-4523-91bc-48ed3c35b123
+x-request-id: ad665844-3aef-4a57-a681-817bbadc8380
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2602,6 +2608,30 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Page number. Example: <code>1</code></p>
             </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter[status]</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="filter[status]"                data-endpoint="GETapi-v1-rider-rides-history"
+               value="completed"
+               data-component="query">
+    <br>
+<p>Filter by status. Example: <code>completed</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="sort"                data-endpoint="GETapi-v1-rider-rides-history"
+               value="-price"
+               data-component="query">
+    <br>
+<p>Sort by field (created_at, price). Use - for descending. Example: <code>-price</code></p>
+            </div>
                 </form>
 
                     <h2 id="rider-GETapi-v1-rider-rides--id-">GET api/v1/rider/rides/{id}</h2>
@@ -2685,7 +2715,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 06ea8128-6133-4e16-90dc-815fea73a83a
+x-request-id: 9501bc85-228f-4e7e-aaab-ecc6ab4c8afb
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2805,7 +2835,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/rider/rides/architecto/cancel" \
+    "http://localhost:8080/api/v1/rider/rides/01kd387hgnp8w4akwb3z2hxmw1/cancel" \
     --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2813,7 +2843,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/architecto/cancel"
+    "http://localhost:8080/api/v1/rider/rides/01kd387hgnp8w4akwb3z2hxmw1/cancel"
 );
 
 const headers = {
@@ -2830,7 +2860,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/architecto/cancel';
+$url = 'http://localhost:8080/api/v1/rider/rides/01kd387hgnp8w4akwb3z2hxmw1/cancel';
 $response = $client-&gt;post(
     $url,
     [
@@ -2849,7 +2879,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/rider/rides/architecto/cancel'
+url = 'http://localhost:8080/api/v1/rider/rides/01kd387hgnp8w4akwb3z2hxmw1/cancel'
 headers = {
   'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -2954,10 +2984,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-rider-rides--ride_id--cancel"
-               value="architecto"
+               value="01kd387hgnp8w4akwb3z2hxmw1"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>architecto</code></p>
+<p>The ID of the ride. Example: <code>01kd387hgnp8w4akwb3z2hxmw1</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;

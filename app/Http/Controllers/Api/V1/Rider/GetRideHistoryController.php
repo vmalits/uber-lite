@@ -29,6 +29,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
  *
  * @queryParam per_page int Page size. Default: 15. Example: 15
  * @queryParam page int Page number. Example: 1
+ * @queryParam filter[status] string Filter by status. Example: completed
+ * @queryParam sort string Sort by field (created_at, price). Use - for descending. Example: -price
  *
  * @response 200 {
  *   "success": true,
@@ -46,7 +48,14 @@ use Illuminate\Pagination\LengthAwarePaginator;
  *         "destination_lng": 28.8353,
  *         "status": "completed",
  *         "price": 50.0,
- *         "created_at": "2025-12-19T20:00:12+00:00"
+ *         "created_at": {
+ *           "human": "2 minutes ago",
+ *           "string": "2025-12-19 20:00:12"
+ *         },
+ *         "updated_at": {
+ *           "human": "2 minutes ago",
+ *           "string": "2025-12-19 20:00:12"
+ *         }
  *       }
  *     ],
  *     "pagination": {
@@ -71,6 +80,7 @@ final class GetRideHistoryController extends Controller
         /** @var User $user */
         $user = $request->user();
 
+        /** @var LengthAwarePaginator<int, Ride> $rides */
         $rides = $this->getRideHistoryQuery->execute(
             $user,
             $request->integer('per_page', 15),

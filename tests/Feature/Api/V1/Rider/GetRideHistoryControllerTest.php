@@ -90,3 +90,67 @@ test('rider with incomplete profile cannot get ride history', function (): void 
 
     $response->assertForbidden();
 });
+
+test('rider can filter ride history by status', function (): void {
+    /** @var User $user */
+    $user = User::factory()->create([
+        'role'         => UserRole::RIDER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    Ride::factory()->create([
+        'rider_id' => $user->id,
+        'status'   => RideStatus::COMPLETED,
+    ]);
+
+    Ride::factory()->create([
+        'rider_id' => $user->id,
+        'status'   => RideStatus::CANCELLED,
+    ]);
+
+    Sanctum::actingAs($user);
+
+    $response = $this->getJson('/api/v1/rider/rides/history?filter[status]=completed');
+
+    $response->assertOk()
+        ->assertJsonCount(1, 'data.items')
+        ->assertJsonPath('data.items.0.status', RideStatus::COMPLETED->value);
+});
+
+test('rider can sort ride history by price', function (): void {
+    /** @var User $user */
+    $user = User::factory()->create([
+        'role'         => UserRole::RIDER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    Ride::factory()->create([
+        'rider_id'   => $user->id,
+        'status'     => RideStatus::COMPLETED,
+        'price'      => 100.0,
+        'created_at' => now()->subDay(),
+    ]);
+
+    Ride::factory()->create([
+        'rider_id'   => $user->id,
+        'status'     => RideStatus::COMPLETED,
+        'price'      => 200.0,
+        'created_at' => now(),
+    ]);
+
+    Sanctum::actingAs($user);
+
+    // Sort by price ascending
+    $response = $this->getJson('/api/v1/rider/rides/history?sort=price');
+
+    $response->assertOk()
+        ->assertJsonPath('data.items.0.price', 100)
+        ->assertJsonPath('data.items.1.price', 200);
+
+    // Sort by price descending
+    $response = $this->getJson('/api/v1/rider/rides/history?sort=-price');
+
+    $response->assertOk()
+        ->assertJsonPath('data.items.0.price', 200)
+        ->assertJsonPath('data.items.1.price', 100);
+});

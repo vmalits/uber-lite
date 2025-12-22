@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Models\OtpCode;
-use Illuminate\Support\Carbon;
+use Carbon\CarbonInterface;
 
 it('casts expires_at to Carbon and used to boolean with default false', function (): void {
     $otp = OtpCode::query()->create([
@@ -17,7 +17,7 @@ it('casts expires_at to Carbon and used to boolean with default false', function
     // refresh from DB so the default value is applied
     $otp->refresh();
 
-    expect($otp->expires_at)->toBeInstanceOf(Carbon::class)
+    expect($otp->expires_at)->toBeInstanceOf(CarbonInterface::class)
         ->and($otp->used)->toBeFalse();
 });
 

@@ -39,7 +39,7 @@ it('successfully requests OTP code and dispatches event', function (): void {
     $otpCode = OtpCode::query()->where('phone', $phone)->firstOrFail();
 
     expect($otpCode->code)->toBeString()
-        ->and($otpCode->expires_at)->toBeInstanceOf(Illuminate\Support\Carbon::class)
+        ->and($otpCode->expires_at)->toBeInstanceOf(Carbon\CarbonInterface::class)
         ->and($otpCode->expires_at->isFuture())->toBeTrue();
 
     Event::assertDispatched(OtpRequested::class);

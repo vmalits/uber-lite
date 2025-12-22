@@ -161,7 +161,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 4d8787af-3097-4f62-9753-d6ff20c9370e
+          x-request-id: e06a9e80-aabd-473d-8c90-cb06dada4b1a
         description: null
     responseFields: []
     auth: []
@@ -218,9 +218,33 @@ endpoints:
         exampleWasSpecified: true
         nullable: false
         deprecated: false
+      'filter[status]':
+        custom: []
+        name: 'filter[status]'
+        description: 'Filter by status.'
+        required: false
+        example: completed
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort by field (created_at, price). Use - for descending.'
+        required: false
+        example: '-price'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
     cleanQueryParameters:
       per_page: 15
       page: 1
+      'filter[status]': completed
+      sort: '-price'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -233,7 +257,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: f31a28a0-a133-4523-91bc-48ed3c35b123
+          x-request-id: ad665844-3aef-4a57-a681-817bbadc8380
         description: null
     responseFields: []
     auth: []
@@ -293,7 +317,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 06ea8128-6133-4e16-90dc-815fea73a83a
+          x-request-id: 9501bc85-228f-4e7e-aaab-ecc6ab4c8afb
         description: null
     responseFields: []
     auth: []
@@ -332,7 +356,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01kd387hgnp8w4akwb3z2hxmw1
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -350,7 +374,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01kd387hgnp8w4akwb3z2hxmw1
       id: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []

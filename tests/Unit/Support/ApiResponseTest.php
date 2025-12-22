@@ -128,13 +128,10 @@ it('returns forbidden (403)', function (): void {
 it('normalizes Data objects to array for data key', function (): void {
     // Simple inline Data class for testing
 
-    /** @extends Data */
-    class SampleData extends Data
+    $data = new class(1, 'x') extends Data
     {
         public function __construct(public int $a, public string $b) {}
-    }
-
-    $data = new SampleData(1, 'x');
+    };
     $response = TestResponse::fromBaseResponse(ApiResponse::success($data));
 
     $response->assertOk()
