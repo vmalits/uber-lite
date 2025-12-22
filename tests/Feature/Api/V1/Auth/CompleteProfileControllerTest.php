@@ -30,9 +30,12 @@ it('completes profile for a user with verified email', function (): void {
         ->assertJson([
             'message' => 'Profile completed successfully.',
             'data'    => [
+                'id'           => $user->id,
                 'phone'        => $user->phone,
+                'email'        => $user->email,
                 'first_name'   => 'John',
                 'last_name'    => 'Doe',
+                'role'         => $user->role?->value,
                 'profile_step' => ProfileStep::COMPLETED->value,
             ],
         ]);

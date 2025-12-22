@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\V1\Auth;
 
+use App\Data\Auth\CompleteProfileData;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CompleteProfileRequest extends FormRequest
@@ -39,5 +40,13 @@ class CompleteProfileRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function toDto(): CompleteProfileData
+    {
+        return new CompleteProfileData(
+            first_name: $this->string('first_name')->toString(),
+            last_name: $this->string('last_name')->toString(),
+        );
     }
 }
