@@ -24,7 +24,10 @@ it('successfully resends OTP code and dispatches event', function (): void {
             'message',
             'data' => [
                 'phone',
-                'expires_at',
+                'expires_at' => [
+                    'human',
+                    'string',
+                ],
             ],
         ])
         ->assertJson([
