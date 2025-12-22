@@ -8,12 +8,12 @@ use App\Actions\Auth\ResolveNextAction;
 use App\Actions\Auth\SelectUserRole;
 use App\Data\Auth\SelectRoleResponse;
 use App\Enums\ProfileStep;
-use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\SelectRoleRequest;
 use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Throwable;
 
 /**
  * @group Auth
@@ -44,18 +44,22 @@ final class SelectRoleController extends Controller
         private readonly SelectUserRole $selectUserRole,
     ) {}
 
+    /**
+     * @throws Throwable
+     */
     public function __invoke(SelectRoleRequest $request): JsonResponse
     {
+        $dto = $request->toDto();
+
         /** @var User $user */
         $user = $request->user();
 
-        $role = UserRole::from($request->string('role')->toString());
-        $this->selectUserRole->handle($user, $role);
+        $this->selectUserRole->handle($user, $dto->role);
         $next = $this->resolveNextAction->handle($user)->value;
 
         return ApiResponse::success(
             SelectRoleResponse::of(
-                role: $role,
+                role: $dto->role,
                 profileStep: ($user->profile_step) ?? ProfileStep::PHONE_VERIFIED,
             ),
             message: 'Role selected successfully.',
