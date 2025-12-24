@@ -8,6 +8,7 @@ use App\Data\Rider\CreateRideData;
 use App\Enums\RideStatus;
 use App\Models\Ride;
 use App\Models\User;
+use App\Support\RideStateMachine;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Validation\ValidationException;
 use Throwable;
@@ -16,6 +17,7 @@ final readonly class CreateRide
 {
     public function __construct(
         private DatabaseManager $databaseManager,
+        private RideStateMachine $rideStateMachine,
     ) {}
 
     /**
@@ -38,7 +40,8 @@ final readonly class CreateRide
                     ]);
                 }
 
-                return Ride::query()->create([
+                /** @var Ride $ride */
+                $ride = Ride::query()->create([
                     'rider_id'            => $user->id,
                     'origin_address'      => $data->origin_address,
                     'origin_lat'          => $data->origin_lat,
@@ -48,6 +51,15 @@ final readonly class CreateRide
                     'destination_lng'     => $data->destination_lng,
                     'status'              => RideStatus::PENDING,
                 ]);
+
+                $this->rideStateMachine->transition(
+                    ride: $ride,
+                    to: RideStatus::PENDING,
+                    actorType: 'rider',
+                    actorId: $user->id,
+                );
+
+                return $ride->refresh();
             },
             attempts: 3,
         );
