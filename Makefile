@@ -33,6 +33,9 @@ redis-logs:
 rr:
 	./rr serve -c .rr.yaml
 
+reset:
+	./rr reset -c .rr.yaml
+
 watch: rr
 
 # =============================================================================

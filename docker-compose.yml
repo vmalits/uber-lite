@@ -72,6 +72,24 @@ services:
       timeout: 3s
       retries: 10
 
+  centrifugo:
+    build:
+      context: ./docker/centrifugo
+      dockerfile: Dockerfile
+    container_name: uber-lite-centrifugo
+    ports:
+      - "8000:8000"
+      - "10000:10000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+
 volumes:
   pgdata:
   pgdata_test:

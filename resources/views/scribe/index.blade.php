@@ -132,6 +132,16 @@ Route formats:
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-ws" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="ws">
+                    <a href="#ws">WS</a>
+                </li>
+                                    <ul id="tocify-subheader-ws" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="ws-GETapi-v1-ws-token">
+                                <a href="#ws-GETapi-v1-ws-token">GET api/v1/ws/token</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -141,7 +151,7 @@ Route formats:
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 22, 2025</li>
+        <li>Last updated: December 24, 2025</li>
     </ul>
 </div>
 
@@ -1590,14 +1600,14 @@ Route formats:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/auth/email/verify/01kd37predav134gcdf53yxpss/architecto" \
+    --get "http://localhost:8080/api/v1/auth/email/verify/architecto/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/auth/email/verify/01kd37predav134gcdf53yxpss/architecto"
+    "http://localhost:8080/api/v1/auth/email/verify/architecto/architecto"
 );
 
 const headers = {
@@ -1613,7 +1623,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/auth/email/verify/01kd37predav134gcdf53yxpss/architecto';
+$url = 'http://localhost:8080/api/v1/auth/email/verify/architecto/architecto';
 $response = $client-&gt;get(
     $url,
     [
@@ -1631,7 +1641,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/auth/email/verify/01kd37predav134gcdf53yxpss/architecto'
+url = 'http://localhost:8080/api/v1/auth/email/verify/architecto/architecto'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1757,10 +1767,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
-               value="01kd37predav134gcdf53yxpss"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>01kd37predav134gcdf53yxpss</code></p>
+<p>The ID of the user. Example: <code>architecto</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
@@ -2297,7 +2307,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: f865d788-f30e-46ff-96f5-1025d1bcfbfa
+x-request-id: 60c024e3-e2ba-49af-88fc-96425852bde2
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2492,7 +2502,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 3928b98f-436a-48c9-9acf-a2abd12afe2b
+x-request-id: f5b23267-8e35-48cf-8426-2d0c0426f54f
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2715,7 +2725,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: baa190d5-f374-4c15-a0ea-f12cc38b853e
+x-request-id: 085ab6c0-f348-4e89-acdf-0920806b50a3
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2835,7 +2845,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/rider/rides/01kd387hgnp8w4akwb3z2hxmw1/cancel" \
+    "http://localhost:8080/api/v1/rider/rides/architecto/cancel" \
     --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2843,7 +2853,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/01kd387hgnp8w4akwb3z2hxmw1/cancel"
+    "http://localhost:8080/api/v1/rider/rides/architecto/cancel"
 );
 
 const headers = {
@@ -2860,7 +2870,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/01kd387hgnp8w4akwb3z2hxmw1/cancel';
+$url = 'http://localhost:8080/api/v1/rider/rides/architecto/cancel';
 $response = $client-&gt;post(
     $url,
     [
@@ -2879,7 +2889,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/rider/rides/01kd387hgnp8w4akwb3z2hxmw1/cancel'
+url = 'http://localhost:8080/api/v1/rider/rides/architecto/cancel'
 headers = {
   'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -2984,10 +2994,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-rider-rides--ride_id--cancel"
-               value="01kd387hgnp8w4akwb3z2hxmw1"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kd387hgnp8w4akwb3z2hxmw1</code></p>
+<p>The ID of the ride. Example: <code>architecto</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
@@ -3002,6 +3012,185 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ULID of the ride. Example: <code>01jk9v6v9v6v9v6v9v6v9v6v9v</code></p>
             </div>
                     </form>
+
+                <h1 id="ws">WS</h1>
+
+    <p>WS Token</p>
+<p>Endpoint to get a JWT token for Centrifugo connection.</p>
+
+                                <h2 id="ws-GETapi-v1-ws-token">GET api/v1/ws/token</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-ws-token">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/ws/token" \
+    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/ws/token"
+);
+
+const headers = {
+    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/ws/token';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/ws/token'
+headers = {
+  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-ws-token">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+x-request-id: 096470c7-9fc4-4802-9ce1-7a72dcfa9e2a
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-ws-token" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-ws-token"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-ws-token"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-ws-token" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-ws-token">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-ws-token" data-method="GET"
+      data-path="api/v1/ws/token"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-ws-token', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-ws-token"
+                    onclick="tryItOut('GETapi-v1-ws-token');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-ws-token"
+                    onclick="cancelTryOut('GETapi-v1-ws-token');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-ws-token"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/ws/token</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-ws-token"
+               value="string required Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-ws-token"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-ws-token"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 

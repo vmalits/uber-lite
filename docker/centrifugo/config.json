@@ -1,0 +1,26 @@
+{
+    "client": {
+        "token": {
+            "hmac_secret_key": "${CENTRIFUGO_TOKEN_HMAC_SECRET_KEY}"
+        },
+        "allowed_origins": ["http://localhost:8080", "http://127.0.0.1:8080"]
+    },
+    "admin": {
+        "enabled": true,
+        "password": "${CENTRIFUGO_ADMIN_PASSWORD}",
+        "secret": "${CENTRIFUGO_ADMIN_SECRET}"
+    },
+    "http_api": {
+        "key": "${CENTRIFUGO_HTTP_API_KEY}"
+    },
+    "channel": {
+        "namespaces": [
+            {
+                "name": "rider",
+                "private": true,
+                "allow_subscribe_for_client": false,
+                "allow_publish_for_client": false
+            }
+        ]
+    }
+}

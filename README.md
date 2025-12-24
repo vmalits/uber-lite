@@ -29,6 +29,7 @@ composer run setup
 - Mailpit UI: http://localhost:8025 (SMTP: 1025)
 - Buggregator UI: http://localhost:8001 (SMTP: 1026, Dumper: 9912, Ray: 10001)
 - RoadRunner will listen on http://localhost:8080 (see `.rr.yaml`). Static files are served from `public`.
+- Centrifugo UI: http://localhost:8000 (Password: see `docker/centrifugo/config.json`)
 
 ### 2) Start the application (RoadRunner)
 
