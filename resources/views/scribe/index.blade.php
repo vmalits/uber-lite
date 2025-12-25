@@ -110,6 +110,16 @@ Route formats:
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-driver" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="driver">
+                    <a href="#driver">Driver</a>
+                </li>
+                                    <ul id="tocify-subheader-driver" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-available">
+                                <a href="#driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-rider" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="rider">
                     <a href="#rider">Rider</a>
@@ -151,7 +161,7 @@ Route formats:
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 24, 2025</li>
+        <li>Last updated: December 25, 2025</li>
     </ul>
 </div>
 
@@ -1955,6 +1965,225 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                <h1 id="driver">Driver</h1>
+
+    <p>Get Available Rides</p>
+<p>Retrieve a list of rides available to accept.</p>
+
+                                <h2 id="driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-driver-rides-available">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/driver/rides/available?per_page=15&amp;page=1" \
+    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/rides/available"
+);
+
+const params = {
+    "per_page": "15",
+    "page": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/rides/available';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'per_page' =&gt; '15',
+            'page' =&gt; '1',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/rides/available'
+params = {
+  'per_page': '15',
+  'page': '1',
+}
+headers = {
+  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-driver-rides-available">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+x-request-id: 19349f60-1124-41b2-813a-2558ea52762a
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-driver-rides-available" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-driver-rides-available"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-driver-rides-available"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-driver-rides-available" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-driver-rides-available">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-driver-rides-available" data-method="GET"
+      data-path="api/v1/driver/rides/available"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-driver-rides-available', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-driver-rides-available"
+                    onclick="tryItOut('GETapi-v1-driver-rides-available');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-driver-rides-available"
+                    onclick="cancelTryOut('GETapi-v1-driver-rides-available');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-driver-rides-available"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/driver/rides/available</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-driver-rides-available"
+               value="string required Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-driver-rides-available"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-driver-rides-available"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="per_page"                data-endpoint="GETapi-v1-driver-rides-available"
+               value="15"
+               data-component="query">
+    <br>
+<p>Page size. Default: 15. Example: <code>15</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi-v1-driver-rides-available"
+               value="1"
+               data-component="query">
+    <br>
+<p>Page number. Example: <code>1</code></p>
+            </div>
+                </form>
+
                 <h1 id="rider">Rider</h1>
 
     <p>Create Ride</p>
@@ -2307,7 +2536,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 4e3dd022-1974-4f01-a8cf-178efffdfe08
+x-request-id: 66c4838a-a83e-42a9-a4df-2f17a7156d5e
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2502,7 +2731,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 8e5169aa-7f6a-4e67-998f-57462689f2fc
+x-request-id: b24809ef-4216-47c8-88c7-c5af403c8b70
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2725,7 +2954,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 4ba0c342-7888-4aab-a7ef-18e003b1b503
+x-request-id: 43716fcc-4dfe-4daf-9116-6b9c56d306f4
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3099,7 +3328,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 54616da6-7431-4ff5-83fe-d96fef1e1293
+x-request-id: d9326176-422b-4785-b8f3-a5a327479b08
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{

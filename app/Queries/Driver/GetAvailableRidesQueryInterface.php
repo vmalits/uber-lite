@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Queries\Rider;
+namespace App\Queries\Driver;
 
 use App\Models\Ride;
-use App\Models\User;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-interface GetRideHistoryQueryInterface
+interface GetAvailableRidesQueryInterface
 {
     /**
      * @return LengthAwarePaginator<int, Ride>
      */
-    public function execute(User $user, int $perPage): LengthAwarePaginator;
+    public function execute(int $perPage): LengthAwarePaginator;
 }

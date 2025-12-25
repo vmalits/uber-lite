@@ -7,6 +7,7 @@ namespace App\Queries\Rider;
 use App\Enums\RideStatus;
 use App\Models\Ride;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -16,19 +17,26 @@ final class GetRideHistoryQuery implements GetRideHistoryQueryInterface
     /**
      * @return LengthAwarePaginator<int, Ride>
      */
-    public function execute(User $user, int $perPage = 10): LengthAwarePaginator
+    public function execute(User $user, int $perPage): LengthAwarePaginator
     {
         $baseQuery = Ride::query()
             ->where('rider_id', $user->id)
             ->whereIn('status', [
-                RideStatus::COMPLETED->value,
-                RideStatus::CANCELLED->value,
+                RideStatus::COMPLETED,
+                RideStatus::CANCELLED,
             ]);
 
         /** @var QueryBuilder<Ride> $query */
         $query = QueryBuilder::for($baseQuery)
             ->allowedFilters([
-                AllowedFilter::exact('status'),
+                AllowedFilter::callback('status', function (Builder $query, $value) {
+                    if (\in_array($value, [
+                        RideStatus::COMPLETED->value,
+                        RideStatus::CANCELLED->value,
+                    ], true)) {
+                        $query->where('status', $value);
+                    }
+                }),
             ])
             ->allowedSorts([
                 'created_at',
@@ -36,9 +44,6 @@ final class GetRideHistoryQuery implements GetRideHistoryQueryInterface
             ])
             ->defaultSort('-created_at');
 
-        /** @var LengthAwarePaginator<int, Ride> $paginator */
-        $paginator = $query->paginate($perPage);
-
-        return $paginator;
+        return $query->paginate($perPage);
     }
 }

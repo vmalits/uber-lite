@@ -10,7 +10,12 @@ use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('rider')
-    ->middleware(['auth:sanctum', 'verified', 'role:rider', 'profile_step:completed'])
+    ->middleware([
+        'auth:sanctum',
+        'verified',
+        'role:rider',
+        'profile_step:completed',
+    ])
     ->group(function (): void {
         Route::post('rides', CreateRideController::class)
             ->name('api.v1.rider.rides');
