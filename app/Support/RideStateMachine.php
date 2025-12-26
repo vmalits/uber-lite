@@ -10,12 +10,13 @@ use App\Events\Rider\RideStatusChanged;
 use App\Exceptions\Ride\InvalidRideTransition;
 use App\Models\Ride;
 use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\DatabaseManager;
 
 final readonly class RideStateMachine
 {
     public function __construct(
         private EventsDispatcher $events,
+        private DatabaseManager $databaseManager,
     ) {}
 
     public function transition(
@@ -30,7 +31,7 @@ final readonly class RideStateMachine
             throw new InvalidRideTransition($from, $to);
         }
 
-        DB::transaction(function () use ($ride, $from, $to, $actorType, $actorId) {
+        $this->databaseManager->transaction(callback: function () use ($ride, $from, $to, $actorType, $actorId) {
             if ($ride->status !== $to) {
                 $ride->update([
                     'status' => $to,

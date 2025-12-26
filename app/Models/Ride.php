@@ -6,8 +6,10 @@ namespace App\Models;
 
 use App\Builders\RideBuilder;
 use App\Enums\RideStatus;
+use App\Observers\RideObserver;
 use Carbon\CarbonInterface;
 use Database\Factories\RideFactory;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Attributes\UseEloquentBuilder;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,18 +21,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $rider_id
  * @property string|null $driver_id
  * @property string $origin_address
- * @property float $origin_lat
- * @property float $origin_lng
+ * @property float|null $origin_lat
+ * @property float|null $origin_lng
  * @property string $destination_address
- * @property float $destination_lat
- * @property float $destination_lng
+ * @property float|null $destination_lat
+ * @property float|null $destination_lng
  * @property RideStatus $status
  * @property float|null $price
+ * @property mixed $origin_point
+ * @property mixed $destination_point
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  * @property-read User $rider
  * @property-read User|null $driver
  */
+#[ObservedBy([RideObserver::class])]
 #[UseEloquentBuilder(RideBuilder::class)]
 class Ride extends Model
 {
@@ -49,6 +54,8 @@ class Ride extends Model
         'destination_lng',
         'status',
         'price',
+        'origin_point', // geography(Point, 4326)
+        'destination_point',
     ];
 
     protected function casts(): array

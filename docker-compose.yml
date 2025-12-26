@@ -1,6 +1,7 @@
 services:
   postgres:
-    image: postgres:17
+    image: postgis/postgis:17-3.5
+    platform: linux/amd64
     container_name: uber-lite-postgres
     environment:
       POSTGRES_DB: uber
@@ -17,7 +18,8 @@ services:
       retries: 10
 
   postgres-test:
-    image: postgres:17
+    image: postgis/postgis:17-3.5
+    platform: linux/amd64
     container_name: uber-lite-postgres-test
     environment:
       POSTGRES_DB: uber_lite_test
