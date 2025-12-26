@@ -161,7 +161,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 66c4838a-a83e-42a9-a4df-2f17a7156d5e
+          x-request-id: 6d15f735-1049-423f-ab99-9a4c5ee96d23
         description: null
     responseFields: []
     auth: []
@@ -257,7 +257,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: b24809ef-4216-47c8-88c7-c5af403c8b70
+          x-request-id: 46e651ed-3080-4622-a7e1-5b5353596eae
         description: null
     responseFields: []
     auth: []
@@ -317,7 +317,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 43716fcc-4dfe-4daf-9116-6b9c56d306f4
+          x-request-id: 02df23ac-a9f9-403b-8f75-7a30e53fa7a3
         description: null
     responseFields: []
     auth: []
@@ -356,7 +356,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01kd8nk55qcgtrpxn3yhe2jw0w
+        example: 01kdd3j4ma1cbhf9t1d9ftr2q1
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -374,7 +374,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01kd8nk55qcgtrpxn3yhe2jw0w
+      ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
       id: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []

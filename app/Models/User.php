@@ -67,6 +67,16 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    public function isDriver(): bool
+    {
+        return $this->role === UserRole::DRIVER;
+    }
+
+    public function isRider(): bool
+    {
+        return $this->role === UserRole::RIDER;
+    }
+
     public function sendEmailVerificationNotification(): void
     {
         $this->notify(new VerifyEmailNotification(
