@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Builders\RideBuilder;
+use App\Enums\ActorType;
 use App\Enums\RideStatus;
 use App\Observers\RideObserver;
 use Carbon\CarbonInterface;
@@ -30,6 +31,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property float|null $price
  * @property mixed $origin_point
  * @property mixed $destination_point
+ * @property CarbonInterface|null $cancelled_at;
+ * @property ActorType|null $cancelled_by_type
+ * @property string|null $cancelled_by_id
+ * @property string|null $cancelled_reason
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  * @property-read User $rider
@@ -56,17 +61,23 @@ class Ride extends Model
         'price',
         'origin_point', // geography(Point, 4326)
         'destination_point',
+        'cancelled_at',
+        'cancelled_by_type',
+        'cancelled_by_id',
+        'cancelled_reason',
     ];
 
     protected function casts(): array
     {
         return [
-            'origin_lat'      => 'float',
-            'origin_lng'      => 'float',
-            'destination_lat' => 'float',
-            'destination_lng' => 'float',
-            'status'          => RideStatus::class,
-            'price'           => 'float',
+            'origin_lat'        => 'float',
+            'origin_lng'        => 'float',
+            'destination_lat'   => 'float',
+            'destination_lng'   => 'float',
+            'status'            => RideStatus::class,
+            'price'             => 'float',
+            'cancelled_by_type' => ActorType::class,
+            'cancelled_at'      => 'datetime',
         ];
     }
 

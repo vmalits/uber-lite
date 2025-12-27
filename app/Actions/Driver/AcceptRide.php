@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions\Driver;
 
+use App\Enums\ActorType;
 use App\Enums\RideStatus;
 use App\Models\Ride;
 use App\Support\RideStateMachine;
@@ -39,7 +40,7 @@ final readonly class AcceptRide
                 $this->stateMachine->transition(
                     ride: $lockedRide,
                     to: RideStatus::ACCEPTED,
-                    actorType: 'driver',
+                    actorType: ActorType::DRIVER,
                     actorId: $driverId,
                 );
             }, attempts: 3);

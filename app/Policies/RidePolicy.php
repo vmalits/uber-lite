@@ -40,7 +40,8 @@ final class RidePolicy
 
     public function cancel(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->rider_id;
+        return $user->id === $ride->rider_id
+            || $user->id === $ride->driver_id;
     }
 
     public function start(User $user, Ride $ride): bool

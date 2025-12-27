@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Api\V1\Rider;
+namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Rider\CancelRide;
+use App\Actions\Driver\CancelRide;
 use App\Data\Rider\RideData;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
@@ -16,7 +16,7 @@ use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
 use Knuckles\Scribe\Attributes\UrlParam;
 
-#[Group('Rider')]
+#[Group('Driver')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[UrlParam(

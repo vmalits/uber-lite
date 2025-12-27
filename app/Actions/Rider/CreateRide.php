@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions\Rider;
 
 use App\Data\Rider\CreateRideData;
+use App\Enums\ActorType;
 use App\Enums\RideStatus;
 use App\Models\Ride;
 use App\Models\User;
@@ -55,7 +56,7 @@ final readonly class CreateRide
                 $this->rideStateMachine->transition(
                     ride: $ride,
                     to: RideStatus::PENDING,
-                    actorType: 'rider',
+                    actorType: ActorType::RIDER,
                     actorId: $user->id,
                 );
 

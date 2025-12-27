@@ -70,7 +70,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 04f889d7-7378-4df5-b537-b837c8b6cf62
+          x-request-id: d4cb1478-9ad8-4bff-baa3-6e78ec70ff7d
         description: null
     responseFields: []
     auth: []
@@ -128,6 +128,80 @@ endpoints:
     cleanBodyParameters: []
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/driver/rides/{ride_id}/cancel'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: 01kdd3j4ma1cbhf9t1d9ftr2q1
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      ride:
+        custom: []
+        name: ride
+        description: 'ULID of the ride.'
+        required: true
+        example: 01jk9v6v9v6v9v6v9v6v9v6v9v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
+      ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Ride cancelled successfully.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Ride cannot be cancelled in its current status.'
     responseFields: []
     auth: []
     controller: null

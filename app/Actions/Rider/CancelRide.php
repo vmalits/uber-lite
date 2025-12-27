@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions\Rider;
 
+use App\Enums\ActorType;
 use App\Enums\RideStatus;
 use App\Exceptions\Ride\InvalidRideTransition;
 use App\Models\Ride;
@@ -27,7 +28,7 @@ final readonly class CancelRide
             $this->stateMachine->transition(
                 ride: $ride,
                 to: RideStatus::CANCELLED,
-                actorType: 'rider',
+                actorType: ActorType::RIDER,
                 actorId: $ride->rider_id,
             );
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Support;
 
+use App\Enums\ActorType;
 use App\Enums\RideStatus;
 use App\Enums\RideTransitions;
 use App\Events\Rider\RideStatusChanged;
@@ -11,6 +12,7 @@ use App\Exceptions\Ride\InvalidRideTransition;
 use App\Models\Ride;
 use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Database\DatabaseManager;
+use Throwable;
 
 final readonly class RideStateMachine
 {
@@ -19,11 +21,17 @@ final readonly class RideStateMachine
         private DatabaseManager $databaseManager,
     ) {}
 
+    /**
+     * @param array<string, mixed> $meta
+     *
+     * @throws Throwable
+     */
     public function transition(
         Ride $ride,
         RideStatus $to,
-        string $actorType,
+        ActorType $actorType,
         ?string $actorId = null,
+        array $meta = [],
     ): void {
         $from = $ride->status;
 
@@ -31,11 +39,22 @@ final readonly class RideStateMachine
             throw new InvalidRideTransition($from, $to);
         }
 
-        $this->databaseManager->transaction(callback: function () use ($ride, $from, $to, $actorType, $actorId) {
+        $this->databaseManager->transaction(function () use (
+            $ride, $from, $to, $actorType, $actorId, $meta
+        ) {
             if ($ride->status !== $to) {
-                $ride->update([
-                    'status' => $to,
-                ]);
+                $update = ['status' => $to];
+
+                if ($to === RideStatus::CANCELLED) {
+                    $update += [
+                        'cancelled_by_type' => $actorType,
+                        'cancelled_by_id'   => $actorId,
+                        'cancelled_reason'  => $meta['reason'] ?? null,
+                        'cancelled_at'      => now(),
+                    ];
+                }
+
+                $ride->update($update);
             }
 
             $this->events->dispatch(new RideStatusChanged(

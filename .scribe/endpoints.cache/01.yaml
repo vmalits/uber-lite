@@ -161,7 +161,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 6d15f735-1049-423f-ab99-9a4c5ee96d23
+          x-request-id: 6391de57-3d3d-4642-a830-7a29d6e2c94f
         description: null
     responseFields: []
     auth: []
@@ -257,7 +257,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 46e651ed-3080-4622-a7e1-5b5353596eae
+          x-request-id: 6f04702f-1fbb-4e61-8796-5e97df32375a
         description: null
     responseFields: []
     auth: []
@@ -317,7 +317,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 02df23ac-a9f9-403b-8f75-7a30e53fa7a3
+          x-request-id: 70ec699f-c9cd-43e8-aa6e-328c76636247
         description: null
     responseFields: []
     auth: []
@@ -332,14 +332,7 @@ endpoints:
     metadata:
       custom: []
       groupName: Rider
-      groupDescription: |-
-
-        Cancel Ride
-
-        Cancel a ride request. Can only be done by the rider who created it
-        and only if the ride is not already completed or cancelled.
-
-        Requires Bearer token and completed profile.
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -347,7 +340,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'string required Bearer <token>'
+      Authorization: 'Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -362,26 +355,44 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      id:
+      ride:
         custom: []
-        name: id
-        description: 'The ULID of the ride.'
+        name: ride
+        description: 'ULID of the ride.'
         required: true
         example: 01jk9v6v9v6v9v6v9v6v9v6v9v
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
       ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
-      id: 01jk9v6v9v6v9v6v9v6v9v6v9v
+      ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Ride cancelled successfully.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Ride cannot be cancelled in its current status.'
     responseFields: []
     auth: []
     controller: null

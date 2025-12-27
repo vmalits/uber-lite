@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Events\Rider;
 
+use App\Enums\ActorType;
 use App\Enums\RideStatus;
 use App\Models\Ride;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -18,7 +19,7 @@ class RideStatusChanged
         public readonly Ride $ride,
         public readonly RideStatus $from,
         public readonly RideStatus $to,
-        public readonly string $actorType,
+        public readonly ActorType $actorType,
         public readonly ?string $actorId = null,
     ) {}
 }
