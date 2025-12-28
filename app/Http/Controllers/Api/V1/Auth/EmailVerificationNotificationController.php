@@ -12,23 +12,16 @@ use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 
-/**
- * @group Auth
- *
- * Send Email Verification Notification
- *
- * Sends a verification link to the authenticated user's email address.
- *
- * Requires Bearer token (issued after OTP verification).
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @response 200 {"message":"Verification link sent."}
- * @response 200 {"message":"Email is already verified.","meta":{"next_action":"complete_profile"}}
- */
+#[Group('Auth')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 200, description: 'Verification link sent.')]
+#[Response(status: 200, description: 'Email is already verified.')]
 final class EmailVerificationNotificationController extends Controller
 {
     public function __construct(

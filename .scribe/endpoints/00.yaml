@@ -389,13 +389,7 @@ endpoints:
     metadata:
       custom: []
       groupName: Auth
-      groupDescription: |-
-
-        Send Email Verification Notification
-
-        Sends a verification link to the authenticated user's email address.
-
-        Requires Bearer token (issued after OTP verification).
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -403,7 +397,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'string required Bearer <token>'
+      Authorization: 'Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -413,7 +407,19 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Verification link sent.'
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Email is already verified.'
     responseFields: []
     auth: []
     controller: null
