@@ -3143,7 +3143,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: d41d7baf-06f6-474a-868d-436401a599a5
+x-request-id: d7e607db-300c-4184-a05e-a1e3a33de52b
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3299,19 +3299,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/rides/01jk9v6v9v6v9v6v9v6v9v6v9v" \
-    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --get "http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/01jk9v6v9v6v9v6v9v6v9v6v9v"
+    "http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1"
 );
 
 const headers = {
-    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3324,12 +3324,12 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/01jk9v6v9v6v9v6v9v6v9v6v9v';
+$url = 'http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1';
 $response = $client-&gt;get(
     $url,
     [
         'headers' =&gt; [
-            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
@@ -3343,9 +3343,9 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/rider/rides/01jk9v6v9v6v9v6v9v6v9v6v9v'
+url = 'http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1'
 headers = {
-  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -3357,21 +3357,25 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-rider-rides--id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200, Ride details returned successfully.):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
-x-request-id: a5d03211-b5ef-4b04-8194-f2dd307327b9
- </code></pre></details>         <pre>
+                <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden. Profile step isn&#039;t completed.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Ride not found.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-rider-rides--id-" hidden>
@@ -3428,10 +3432,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-rider-rides--id-"
-               value="string required Bearer <token>"
+               value="Bearer <token>"
                data-component="header">
     <br>
-<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3465,10 +3469,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-rider-rides--id-"
-               value="01jk9v6v9v6v9v6v9v6v9v6v9v"
+               value="01kdd3j4ma1cbhf9t1d9ftr2q1"
                data-component="url">
     <br>
-<p>The ULID of the ride. Example: <code>01jk9v6v9v6v9v6v9v6v9v6v9v</code></p>
+<p>The ID of the ride. Example: <code>01kdd3j4ma1cbhf9t1d9ftr2q1</code></p>
             </div>
                     </form>
 
@@ -3761,7 +3765,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 7b150c38-3189-4b73-934f-5d0b805679a5
+x-request-id: e67b2596-2cd7-47b5-9639-c73fcc02aa42
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
