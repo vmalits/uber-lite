@@ -44,6 +44,12 @@ final class RidePolicy
             || $user->id === $ride->driver_id;
     }
 
+    public function onTheWay(User $user, Ride $ride): bool
+    {
+        return $user->id === $ride->driver_id
+            && $ride->status === RideStatus::ACCEPTED;
+    }
+
     public function start(User $user, Ride $ride): bool
     {
         return $user->id === $ride->driver_id;
