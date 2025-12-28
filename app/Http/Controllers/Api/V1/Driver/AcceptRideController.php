@@ -11,39 +11,34 @@ use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
+use Knuckles\Scribe\Attributes\UrlParam;
 use Throwable;
 
-/**
- * @group Driver
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * Accept a ride request by a driver.
- *
- * @urlParam ride string required The ID of the ride to accept. Example: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
- *
- * @response 200 {
- *   "success": true,
- *   "message": "Ride accepted successfully."
- * }
- */
-class AcceptRideController extends Controller
+#[Group('Driver')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[UrlParam(
+    name: 'ride',
+    type: 'string',
+    description: 'ULID of the ride.',
+    required: true,
+    example: '01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z',
+)]
+#[Response(status: 200, description: 'Ride accepted successfully.')]
+final class AcceptRideController extends Controller
 {
     public function __construct(
         private readonly AcceptRide $acceptRide,
     ) {}
 
     /**
-     * @param User $user The authenticated driver.
-     * @param Ride $ride The ride to accept.
-     *
      * @throws Throwable
-     *
-     * @return JsonResponse
      */
-    public function __invoke(#[CurrentUser] User $user, Ride $ride)
+    public function __invoke(#[CurrentUser] User $user, Ride $ride): JsonResponse
     {
         $this->authorize('accept', $ride);
 
