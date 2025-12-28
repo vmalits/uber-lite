@@ -10,45 +10,16 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Response;
 
+#[Group('Auth')]
+#[Response(status: 200, description: 'Email verified successfully.')]
+#[Response(status: 200, description: 'Email already verified.')]
 final class VerifyEmailController extends Controller
 {
     public function __construct(private readonly VerifyEmailAction $verifyEmail) {}
 
-    /**
-     * @group Auth
-     *
-     * Verify Email
-     *
-     * Route formats:
-     * - GET /api/v1/auth/email/verify/{user}/{hash}
-     *
-     * @urlParam user string required The user's ULID.
-     * @urlParam hash string required SHA-1 hash of the user's email.
-     *
-     * @response 200 {
-     *   "message": "Email verified successfully.",
-     *   "data": {
-     *     "user_id": "01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y",
-     *     "email": "verifyme@example.com",
-     *     "profile_step": "email_verified",
-     *     "verified_at": "2025-12-11T23:23:00+00:00",
-     *     "verified": true,
-     *     "already_verified": false
-     *   }
-     * }
-     * @response 200 {
-     *   "message": "Email already verified.",
-     *   "data": {
-     *     "user_id": "01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y",
-     *     "email": "verifyme@example.com",
-     *     "profile_step": "email_verified",
-     *     "verified_at": "2025-12-11T23:23:00+00:00",
-     *     "verified": true,
-     *     "already_verified": true
-     *   }
-     * }
-     */
     public function __invoke(User $user, string $hash): JsonResponse
     {
         $expectedHash = sha1($user->getEmailForVerification());

@@ -445,11 +445,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        Verify Email
-
-        Route formats:
-        - GET /api/v1/auth/email/verify/{user}/{hash}
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -471,20 +467,9 @@ endpoints:
       hash:
         custom: []
         name: hash
-        description: "SHA-1 hash of the user's email."
+        description: ''
         required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      user:
-        custom: []
-        name: user
-        description: "The user's ULID."
-        required: true
-        example: architecto
+        example: 922815DfBeA128EaEAaaA185508FE078BecEfbbe
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -492,8 +477,7 @@ endpoints:
         deprecated: false
     cleanUrlParameters:
       user_id: 01kdd3d1dkqr3mxawpammhk9my
-      hash: architecto
-      user: architecto
+      hash: 922815DfBeA128EaEAaaA185508FE078BecEfbbe
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -503,37 +487,15 @@ endpoints:
       -
         custom: []
         status: 200
-        content: |-
-          {
-            "message": "Email verified successfully.",
-            "data": {
-              "user_id": "01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y",
-              "email": "verifyme@example.com",
-              "profile_step": "email_verified",
-              "verified_at": "2025-12-11T23:23:00+00:00",
-              "verified": true,
-              "already_verified": false
-            }
-          }
+        content: null
         headers: []
-        description: ''
+        description: 'Email verified successfully.'
       -
         custom: []
         status: 200
-        content: |-
-          {
-            "message": "Email already verified.",
-            "data": {
-              "user_id": "01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y",
-              "email": "verifyme@example.com",
-              "profile_step": "email_verified",
-              "verified_at": "2025-12-11T23:23:00+00:00",
-              "verified": true,
-              "already_verified": true
-            }
-          }
+        content: null
         headers: []
-        description: ''
+        description: 'Email already verified.'
     responseFields: []
     auth: []
     controller: null

@@ -100,10 +100,7 @@
                                 <a href="#auth-POSTapi-v1-auth-email-verification-notification">POST api/v1/auth/email/verification-notification</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-GETapi-v1-auth-email-verify--user_id---hash-">
-                                <a href="#auth-GETapi-v1-auth-email-verify--user_id---hash-">Verify Email
-
-Route formats:
-- GET /api/v1/auth/email/verify/{user}/{hash}</a>
+                                <a href="#auth-GETapi-v1-auth-email-verify--user_id---hash-">GET api/v1/auth/email/verify/{user_id}/{hash}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-DELETEapi-v1-auth-delete-account">
                                 <a href="#auth-DELETEapi-v1-auth-delete-account">DELETE api/v1/auth/delete-account</a>
@@ -1682,10 +1679,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="auth-GETapi-v1-auth-email-verify--user_id---hash-">Verify Email
-
-Route formats:
-- GET /api/v1/auth/email/verify/{user}/{hash}</h2>
+                    <h2 id="auth-GETapi-v1-auth-email-verify--user_id---hash-">GET api/v1/auth/email/verify/{user_id}/{hash}</h2>
 
 <p>
 </p>
@@ -1698,14 +1692,14 @@ Route formats:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/auth/email/verify/01kdd3d1dkqr3mxawpammhk9my/architecto" \
+    --get "http://localhost:8080/api/v1/auth/email/verify/01kdd3d1dkqr3mxawpammhk9my/922815DfBeA128EaEAaaA185508FE078BecEfbbe" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/auth/email/verify/01kdd3d1dkqr3mxawpammhk9my/architecto"
+    "http://localhost:8080/api/v1/auth/email/verify/01kdd3d1dkqr3mxawpammhk9my/922815DfBeA128EaEAaaA185508FE078BecEfbbe"
 );
 
 const headers = {
@@ -1721,7 +1715,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/auth/email/verify/01kdd3d1dkqr3mxawpammhk9my/architecto';
+$url = 'http://localhost:8080/api/v1/auth/email/verify/01kdd3d1dkqr3mxawpammhk9my/922815DfBeA128EaEAaaA185508FE078BecEfbbe';
 $response = $client-&gt;get(
     $url,
     [
@@ -1739,7 +1733,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/auth/email/verify/01kdd3d1dkqr3mxawpammhk9my/architecto'
+url = 'http://localhost:8080/api/v1/auth/email/verify/01kdd3d1dkqr3mxawpammhk9my/922815DfBeA128EaEAaaA185508FE078BecEfbbe'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1752,38 +1746,18 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-auth-email-verify--user_id---hash-">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (200, Email verified successfully.):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Email verified successfully.&quot;,
-    &quot;data&quot;: {
-        &quot;user_id&quot;: &quot;01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y&quot;,
-        &quot;email&quot;: &quot;verifyme@example.com&quot;,
-        &quot;profile_step&quot;: &quot;email_verified&quot;,
-        &quot;verified_at&quot;: &quot;2025-12-11T23:23:00+00:00&quot;,
-        &quot;verified&quot;: true,
-        &quot;already_verified&quot;: false
-    }
-}</code>
+<code class="language-json" style="max-height: 300px;"></code>
  </pre>
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (200, Email already verified.):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Email already verified.&quot;,
-    &quot;data&quot;: {
-        &quot;user_id&quot;: &quot;01HG7Z8J8F6Z5Q9YF5W3ZQ1X2Y&quot;,
-        &quot;email&quot;: &quot;verifyme@example.com&quot;,
-        &quot;profile_step&quot;: &quot;email_verified&quot;,
-        &quot;verified_at&quot;: &quot;2025-12-11T23:23:00+00:00&quot;,
-        &quot;verified&quot;: true,
-        &quot;already_verified&quot;: true
-    }
-}</code>
+<code class="language-json" style="max-height: 300px;"></code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-auth-email-verify--user_id---hash-" hidden>
@@ -1877,22 +1851,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="hash"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
-               value="architecto"
+               value="922815DfBeA128EaEAaaA185508FE078BecEfbbe"
                data-component="url">
     <br>
-<p>SHA-1 hash of the user's email. Example: <code>architecto</code></p>
-            </div>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>user</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="user"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
-               value="architecto"
-               data-component="url">
-    <br>
-<p>The user's ULID. Example: <code>architecto</code></p>
+<p>Example: <code>922815DfBeA128EaEAaaA185508FE078BecEfbbe</code></p>
             </div>
                     </form>
 
