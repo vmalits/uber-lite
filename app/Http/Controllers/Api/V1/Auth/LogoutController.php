@@ -9,22 +9,15 @@ use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 
-/**
- * @group Auth
- *
- * Logout
- *
- * Revoke the current access token and logout the authenticated user.
- *
- * Requires Bearer token (issued after OTP verification).
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @response 200 {"message":"Logged out successfully."}
- */
+#[Group('Auth')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 200, description: 'Logged out successfully.')]
 final class LogoutController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
