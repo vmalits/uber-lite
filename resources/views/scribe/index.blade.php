@@ -188,10 +188,8 @@ You can switch the language used with the tabs at the top right (or from the nav
 
         <h1 id="auth">Auth</h1>
 
-    <p>Resend OTP Code</p>
-<p>This endpoint resends a one-time password (OTP) for the given phone number
-by generating a new code and sending it via SMS.</p>
-<p>Rate limited to 3 requests per 15 minutes per phone number.</p>
+    <p>Verify OTP Code</p>
+<p>This endpoint verifies the one-time password (OTP) for the given phone number.</p>
 
                                 <h2 id="auth-POSTapi-v1-auth-request-otp">POST api/v1/auth/request-otp</h2>
 
@@ -456,7 +454,21 @@ response.json()</code></pre></div>
 </span>
 
 <span id="example-responses-POSTapi-v1-auth-request-otp-resend">
-</span>
+            <blockquote>
+            <p>Example response (200, OTP has been resent successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (429, Too many OTP requests. Please try again later.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-auth-request-otp-resend" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-auth-request-otp-resend"></span>:
