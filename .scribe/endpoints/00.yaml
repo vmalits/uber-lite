@@ -1,10 +1,10 @@
 name: Auth
 description: |-
 
-  Request OTP Code
+  Resend OTP Code
 
-  This endpoint generates a one-time password (OTP) for the given phone number
-  and sends it via SMS.
+  This endpoint resends a one-time password (OTP) for the given phone number
+  by generating a new code and sending it via SMS.
 
   Rate limited to 3 requests per 15 minutes per phone number.
 endpoints:
@@ -16,14 +16,7 @@ endpoints:
     metadata:
       custom: []
       groupName: Auth
-      groupDescription: |-
-
-        Request OTP Code
-
-        This endpoint generates a one-time password (OTP) for the given phone number
-        and sends it via SMS.
-
-        Rate limited to 3 requests per 15 minutes per phone number.
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -52,7 +45,19 @@ endpoints:
     cleanBodyParameters:
       phone: '+37360123456'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'OTP has been requested successfully.'
+      -
+        custom: []
+        status: 429
+        content: null
+        headers: []
+        description: 'Too many OTP requests. Please try again later.'
     responseFields: []
     auth: []
     controller: null
