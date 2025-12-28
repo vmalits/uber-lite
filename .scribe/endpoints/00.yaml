@@ -238,13 +238,7 @@ endpoints:
     metadata:
       custom: []
       groupName: Auth
-      groupDescription: |-
-
-        Select Role
-
-        Choose a role for the authenticated user: rider or driver.
-
-        Requires Bearer token (issued after OTP verification).
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -252,7 +246,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'string required Bearer <token>'
+      Authorization: 'Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -276,7 +270,13 @@ endpoints:
     cleanBodyParameters:
       role: rider
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Role selected successfully.'
     responseFields: []
     auth: []
     controller: null

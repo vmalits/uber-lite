@@ -13,30 +13,16 @@ use App\Http\Requests\V1\Auth\SelectRoleRequest;
 use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 use Throwable;
 
-/**
- * @group Auth
- *
- * Select Role
- *
- * Choose a role for the authenticated user: rider or driver.
- *
- * Requires Bearer token (issued after OTP verification).
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @response 200 {
- *   "message": "Role selected successfully.",
- *   "data": {
- *     "role": "rider",
- *     "profile_step": "phone_verified"
- *   },
- *   "meta": {"next_action": "add_email"}
- * }
- */
+#[Group('Auth')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 200, description: 'Role selected successfully.')]
 final class SelectRoleController extends Controller
 {
     public function __construct(
