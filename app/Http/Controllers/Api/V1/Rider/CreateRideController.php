@@ -13,50 +13,17 @@ use App\Models\Ride;
 use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 
-/**
- * @group Rider
- *
- * Create Ride
- *
- * Endpoint for riders to create a new ride request.
- *
- * Requires Bearer token and completed profile.
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @response 201 {
- *   "success": true,
- *   "message": "Ride created successfully.",
- *   "data": {
- *     "id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *     "rider_id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *     "driver_id": null,
- *     "origin_address": "bd. Ștefan cel Mare și Sfânt, 1, Chișinău",
- *     "origin_lat": 47.0105,
- *     "origin_lng": 28.8638,
- *     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
- *     "destination_lat": 47.0225,
- *     "destination_lng": 28.8353,
- *     "status": "pending",
- *     "price": null,
- *     "created_at": "2025-12-19T20:00:12+00:00"
- *   }
- * }
- * @response 422 {
- *   "success": false,
- *   "message": "The given data was invalid.",
- *   "errors": {
- *     "origin_address": ["The origin address field is required."]
- *   }
- * }
- * @response 403 {
- *   "success": false,
- *   "message": "Forbidden. Profile step isn't completed."
- * }
- */
+#[Group('Rider')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 201, description: 'Ride created successfully.')]
+#[Response(status: 422, description: 'Validation errors.')]
+#[Response(status: 403, description: 'Profile not completed.')]
 final class CreateRideController extends Controller
 {
     public function __construct(

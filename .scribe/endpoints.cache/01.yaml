@@ -3,9 +3,10 @@
 name: Rider
 description: |-
 
-  Create Ride
+  Get Active Ride
 
-  Endpoint for riders to create a new ride request.
+  Retrieve the current active ride for the authenticated rider.
+  Active ride is any ride that is not completed or cancelled.
 
   Requires Bearer token and completed profile.
 endpoints:
@@ -17,13 +18,7 @@ endpoints:
     metadata:
       custom: []
       groupName: Rider
-      groupDescription: |-
-
-        Create Ride
-
-        Endpoint for riders to create a new ride request.
-
-        Requires Bearer token and completed profile.
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -31,7 +26,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'string required Bearer <token>'
+      Authorization: 'Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -113,7 +108,25 @@ endpoints:
       destination_lat: 47.0225
       destination_lng: 28.8353
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Ride created successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Profile not completed.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
     responseFields: []
     auth: []
     controller: null
@@ -161,7 +174,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: cb6e8833-6b59-4d97-b042-3baf48ae0a77
+          x-request-id: 92ad03c2-743b-4841-a7b7-89eba36ea0d4
         description: null
     responseFields: []
     auth: []
@@ -257,7 +270,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 065a6cdd-ea8a-4ac9-943d-a37941eff5d9
+          x-request-id: a706c216-f011-4161-b7fe-496412c26582
         description: null
     responseFields: []
     auth: []
@@ -317,7 +330,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 4c4f864a-3354-4651-99e9-ed3672fb6f76
+          x-request-id: a9f7c10e-36d8-4390-b804-dfc2b597da8a
         description: null
     responseFields: []
     auth: []

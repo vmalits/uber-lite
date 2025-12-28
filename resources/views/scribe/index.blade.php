@@ -2573,8 +2573,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="rider">Rider</h1>
 
-    <p>Create Ride</p>
-<p>Endpoint for riders to create a new ride request.</p>
+    <p>Get Active Ride</p>
+<p>Retrieve the current active ride for the authenticated rider.
+Active ride is any ride that is not completed or cancelled.</p>
 <p>Requires Bearer token and completed profile.</p>
 
                                 <h2 id="rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</h2>
@@ -2592,7 +2593,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8080/api/v1/rider/rides" \
-    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -2612,7 +2613,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2640,7 +2641,7 @@ $response = $client-&gt;post(
     $url,
     [
         'headers' =&gt; [
-            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
@@ -2672,7 +2673,7 @@ payload = {
     "destination_lng": 28.8353
 }
 headers = {
-  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -2683,7 +2684,28 @@ response.json()</code></pre></div>
 </span>
 
 <span id="example-responses-POSTapi-v1-rider-rides">
-</span>
+            <blockquote>
+            <p>Example response (201, Ride created successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Profile not completed.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-rider-rides" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-rider-rides"></span>:
@@ -2738,10 +2760,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-rider-rides"
-               value="string required Bearer <token>"
+               value="Bearer <token>"
                data-component="header">
     <br>
-<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2923,7 +2945,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: cb6e8833-6b59-4d97-b042-3baf48ae0a77
+x-request-id: 92ad03c2-743b-4841-a7b7-89eba36ea0d4
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3118,7 +3140,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 065a6cdd-ea8a-4ac9-943d-a37941eff5d9
+x-request-id: a706c216-f011-4161-b7fe-496412c26582
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3341,7 +3363,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 4c4f864a-3354-4651-99e9-ed3672fb6f76
+x-request-id: a9f7c10e-36d8-4390-b804-dfc2b597da8a
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3736,7 +3758,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 5b83704e-18c7-4d97-9f63-431ee173ce04
+x-request-id: 44377cf1-9925-408c-a767-99643a1c8b18
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
