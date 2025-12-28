@@ -112,7 +112,10 @@
                     <a href="#driver">Driver</a>
                 </li>
                                     <ul id="tocify-subheader-driver" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-available">
+                                                    <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-active">
+                                <a href="#driver-GETapi-v1-driver-rides-active">GET api/v1/driver/rides/active</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-available">
                                 <a href="#driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--accept">
@@ -2039,7 +2042,185 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</h2>
+                                <h2 id="driver-GETapi-v1-driver-rides-active">GET api/v1/driver/rides/active</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-driver-rides-active">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/driver/rides/active" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/rides/active"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/rides/active';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/rides/active'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-driver-rides-active">
+            <blockquote>
+            <p>Example response (200, Active ride retrieved successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (200, No active ride found.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden. Profile step isn&#039;t completed.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-driver-rides-active" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-driver-rides-active"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-driver-rides-active"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-driver-rides-active" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-driver-rides-active">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-driver-rides-active" data-method="GET"
+      data-path="api/v1/driver/rides/active"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-driver-rides-active', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-driver-rides-active"
+                    onclick="tryItOut('GETapi-v1-driver-rides-active');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-driver-rides-active"
+                    onclick="cancelTryOut('GETapi-v1-driver-rides-active');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-driver-rides-active"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/driver/rides/active</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-driver-rides-active"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-driver-rides-active"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-driver-rides-active"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>

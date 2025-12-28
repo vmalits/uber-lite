@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Queries\Driver\GetActiveRideQuery;
+use App\Queries\Driver\GetActiveRideQueryInterface;
 use App\Queries\Driver\GetAvailableRidesQuery;
 use App\Queries\Driver\GetAvailableRidesQueryInterface;
 use Illuminate\Support\ServiceProvider;
@@ -16,5 +18,7 @@ final class DriverServiceProvider extends ServiceProvider
     public array $bindings = [
         GetAvailableRidesQueryInterface::class => GetAvailableRidesQuery::class,
         GetAvailableRidesQuery::class          => GetAvailableRidesQuery::class,
+        GetActiveRideQueryInterface::class     => GetActiveRideQuery::class,
+        GetActiveRideQuery::class              => GetActiveRideQuery::class,
     ];
 }
