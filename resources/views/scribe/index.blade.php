@@ -1114,7 +1114,7 @@ Must be one of:
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8080/api/v1/auth/complete-profile" \
-    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1130,7 +1130,7 @@ Must be one of:
 );
 
 const headers = {
-    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1154,7 +1154,7 @@ $response = $client-&gt;post(
     $url,
     [
         'headers' =&gt; [
-            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
@@ -1178,7 +1178,7 @@ payload = {
     "last_name": "Doe"
 }
 headers = {
-  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -1189,7 +1189,21 @@ response.json()</code></pre></div>
 </span>
 
 <span id="example-responses-POSTapi-v1-auth-complete-profile">
-</span>
+            <blockquote>
+            <p>Example response (200, Profile completed successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-auth-complete-profile" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-auth-complete-profile"></span>:
@@ -1244,10 +1258,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-auth-complete-profile"
-               value="string required Bearer <token>"
+               value="Bearer <token>"
                data-component="header">
     <br>
-<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;

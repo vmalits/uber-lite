@@ -12,36 +12,17 @@ use App\Http\Requests\V1\Auth\CompleteProfileRequest;
 use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 use Throwable;
 
-/**
- * @group Auth
- *
- * Complete Profile
- *
- * Submit first and last name to complete the registration after email verification.
- *
- * Requires Bearer token (issued after OTP verification).
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @response 200 {
- *   "message": "Profile completed successfully.",
- *   "data": {
- *     "id": "01JDR35Y8YF5W3ZQ1X2Y5W3ZQ1",
- *     "phone": "+37360000000",
- *     "email": "user@example.com",
- *     "first_name": "John",
- *     "last_name": "Doe",
- *     "role": "rider",
- *     "profile_step": "completed"
- *   },
- *   "meta": {"next_action": "done"}
- * }
- * @response 422 {"message":"The given data was invalid.","errors":{"phone":["Email is not verified."]}}
- */
+#[Group('Auth')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 200, description: 'Profile completed successfully.')]
+#[Response(status: 422, description: 'Validation errors.')]
 class CompleteProfileController extends Controller
 {
     public function __construct(
