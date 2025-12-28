@@ -167,7 +167,7 @@ Route formats:
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 27, 2025</li>
+        <li>Last updated: December 28, 2025</li>
     </ul>
 </div>
 
@@ -1973,8 +1973,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="driver">Driver</h1>
 
-    <p>Get Available Rides</p>
-<p>Retrieve a list of rides available to accept.</p>
+    
 
                                 <h2 id="driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</h2>
 
@@ -1991,7 +1990,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8080/api/v1/driver/rides/available?per_page=15&amp;page=1" \
-    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2009,7 +2008,7 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
-    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2027,7 +2026,7 @@ $response = $client-&gt;get(
     $url,
     [
         'headers' =&gt; [
-            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
@@ -2051,7 +2050,7 @@ params = {
   'page': '1',
 }
 headers = {
-  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -2063,21 +2062,11 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-driver-rides-available">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200, List of available rides retrieved successfully.):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
-x-request-id: d4cb1478-9ad8-4bff-baa3-6e78ec70ff7d
- </code></pre></details>         <pre>
+                <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
+<code class="language-json" style="max-height: 300px;"></code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-driver-rides-available" hidden>
@@ -2134,10 +2123,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-driver-rides-available"
-               value="string required Bearer <token>"
+               value="Bearer <token>"
                data-component="header">
     <br>
-<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2167,7 +2156,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-v1-driver-rides-available"
@@ -2179,7 +2168,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="page"                data-endpoint="GETapi-v1-driver-rides-available"
@@ -2205,7 +2194,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/accept" \
-    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2216,7 +2205,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2234,7 +2223,7 @@ $response = $client-&gt;post(
     $url,
     [
         'headers' =&gt; [
-            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
@@ -2250,7 +2239,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/accept'
 headers = {
-  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -2261,7 +2250,14 @@ response.json()</code></pre></div>
 </span>
 
 <span id="example-responses-POSTapi-v1-driver-rides--ride_id--accept">
-</span>
+            <blockquote>
+            <p>Example response (200, Ride accepted successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-driver-rides--ride_id--accept" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-driver-rides--ride_id--accept"></span>:
@@ -2316,10 +2312,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-driver-rides--ride_id--accept"
-               value="string required Bearer <token>"
+               value="Bearer <token>"
                data-component="header">
     <br>
-<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2368,7 +2364,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z"
                data-component="url">
     <br>
-<p>The ID of the ride to accept. Example: <code>01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z</code></p>
+<p>ULID of the ride. Example: <code>01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z</code></p>
             </div>
                     </form>
 
@@ -2927,7 +2923,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 6391de57-3d3d-4642-a830-7a29d6e2c94f
+x-request-id: cb6e8833-6b59-4d97-b042-3baf48ae0a77
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3122,7 +3118,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 6f04702f-1fbb-4e61-8796-5e97df32375a
+x-request-id: 065a6cdd-ea8a-4ac9-943d-a37941eff5d9
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3345,7 +3341,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 70ec699f-c9cd-43e8-aa6e-328c76636247
+x-request-id: 4c4f864a-3354-4651-99e9-ed3672fb6f76
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3740,7 +3736,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 4b96f1f6-272e-47f3-9033-4a0ea50edcc2
+x-request-id: 5b83704e-18c7-4d97-9f63-431ee173ce04
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{

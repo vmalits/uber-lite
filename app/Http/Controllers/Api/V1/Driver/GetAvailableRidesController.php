@@ -13,47 +13,19 @@ use App\Support\PaginationHelper;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\QueryParam;
+use Knuckles\Scribe\Attributes\Response;
 
-/**
- * @group Driver
- *
- * Get Available Rides
- *
- * Retrieve a list of rides available to accept.
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @queryParam per_page int Page size. Default: 15. Example: 15
- * @queryParam page int Page number. Example: 1
- *
- * @response 200 {
- *   "success": true,
- *   "data": {
- *     "items": [
- *       {
- *         "id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *         "rider_id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *         "origin_address": "bd. Ștefan cel Mare și Sfânt, 1, Chișinău",
- *         "origin_lat": 47.0105,
- *         "origin_lng": 28.8638,
- *         "destination_address": "str. Mihai Eminescu, 50, Chișinău",
- *         "destination_lat": 47.0225,
- *         "destination_lng": 28.8353,
- *         "status": "pending"
- *       }
- *     ],
- *     "pagination": {
- *       "total": 1,
- *       "per_page": 15,
- *       "current_page": 1,
- *       "last_page": 1
- *     }
- *   }
- * }
- */
-class GetAvailableRidesController extends Controller
+#[Group('Driver')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[QueryParam(name: 'per_page', type: 'int', description: 'Page size. Default: 15.', example: 15)]
+#[QueryParam(name: 'page', type: 'int', description: 'Page number.', example: 1)]
+#[Response(status: 200, description: 'List of available rides retrieved successfully.')]
+final class GetAvailableRidesController extends Controller
 {
     public function __construct(
         private readonly GetAvailableRidesQueryInterface $getAvailableRidesQuery,
