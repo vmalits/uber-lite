@@ -14,60 +14,15 @@ use App\Support\PaginationHelper;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 
-/**
- * @group Rider
- *
- * Get Ride History
- *
- * Retrieve the paginated list of all rides for the authenticated rider.
- *
- * Requires Bearer token and completed profile.
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @queryParam per_page int Page size. Default: 15. Example: 15
- * @queryParam page int Page number. Example: 1
- * @queryParam filter[status] string Filter by status. Example: completed
- * @queryParam sort string Sort by field (created_at, price). Use - for descending. Example: -price
- *
- * @response 200 {
- *   "success": true,
- *   "data": {
- *     "items": [
- *       {
- *         "id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *         "rider_id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *         "driver_id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *         "origin_address": "bd. Ștefan cel Mare și Sfânt, 1, Chișinău",
- *         "origin_lat": 47.0105,
- *         "origin_lng": 28.8638,
- *         "destination_address": "str. Mihai Eminescu, 50, Chișinău",
- *         "destination_lat": 47.0225,
- *         "destination_lng": 28.8353,
- *         "status": "completed",
- *         "price": 50.0,
- *         "created_at": {
- *           "human": "2 minutes ago",
- *           "string": "2025-12-19 20:00:12"
- *         },
- *         "updated_at": {
- *           "human": "2 minutes ago",
- *           "string": "2025-12-19 20:00:12"
- *         }
- *       }
- *     ],
- *     "pagination": {
- *       "total": 1,
- *       "per_page": 15,
- *       "current_page": 1,
- *       "last_page": 1
- *     }
- *   }
- * }
- */
+#[Group('Rider')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 200, description: 'Paginated ride history retrieved successfully.')]
 final class GetRideHistoryController extends Controller
 {
     public function __construct(

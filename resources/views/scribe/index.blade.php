@@ -2573,9 +2573,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="rider">Rider</h1>
 
-    <p>Get Ride History</p>
-<p>Retrieve the paginated list of all rides for the authenticated rider.</p>
-<p>Requires Bearer token and completed profile.</p>
+    
 
                                 <h2 id="rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</h2>
 
@@ -3055,8 +3053,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/rides/history?per_page=15&amp;page=1&amp;filter%5Bstatus%5D=completed&amp;sort=-price" \
-    --header "Authorization: string required Bearer &amp;lt;token&amp;gt;" \
+    --get "http://localhost:8080/api/v1/rider/rides/history" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -3066,17 +3064,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://localhost:8080/api/v1/rider/rides/history"
 );
 
-const params = {
-    "per_page": "15",
-    "page": "1",
-    "filter[status]": "completed",
-    "sort": "-price",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
-    "Authorization": "string required Bearer &amp;lt;token&amp;gt;",
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3094,15 +3083,9 @@ $response = $client-&gt;get(
     $url,
     [
         'headers' =&gt; [
-            'Authorization' =&gt; 'string required Bearer &lt;token&gt;',
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-        ],
-        'query' =&gt; [
-            'per_page' =&gt; '15',
-            'page' =&gt; '1',
-            'filter[status]' =&gt; 'completed',
-            'sort' =&gt; '-price',
         ],
     ]
 );
@@ -3115,40 +3098,24 @@ print_r(json_decode((string) $body));</code></pre></div>
 import json
 
 url = 'http://localhost:8080/api/v1/rider/rides/history'
-params = {
-  'per_page': '15',
-  'page': '1',
-  'filter[status]': 'completed',
-  'sort': '-price',
-}
 headers = {
-  'Authorization': 'string required Bearer &amp;lt;token&amp;gt;',
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers, params=params)
+response = requests.request('GET', url, headers=headers)
 response.json()</code></pre></div>
 
 </span>
 
 <span id="example-responses-GETapi-v1-rider-rides-history">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200, Paginated ride history retrieved successfully.):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
-x-request-id: d7e607db-300c-4184-a05e-a1e3a33de52b
- </code></pre></details>         <pre>
+                <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
+<code class="language-json" style="max-height: 300px;"></code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-rider-rides-history" hidden>
@@ -3205,10 +3172,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-rider-rides-history"
-               value="string required Bearer <token>"
+               value="Bearer <token>"
                data-component="header">
     <br>
-<p>Example: <code>string required Bearer &lt;token&gt;</code></p>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3234,56 +3201,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-v1-rider-rides-history"
-               value="15"
-               data-component="query">
-    <br>
-<p>Page size. Default: 15. Example: <code>15</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="page"                data-endpoint="GETapi-v1-rider-rides-history"
-               value="1"
-               data-component="query">
-    <br>
-<p>Page number. Example: <code>1</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[status]</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter[status]"                data-endpoint="GETapi-v1-rider-rides-history"
-               value="completed"
-               data-component="query">
-    <br>
-<p>Filter by status. Example: <code>completed</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="sort"                data-endpoint="GETapi-v1-rider-rides-history"
-               value="-price"
-               data-component="query">
-    <br>
-<p>Sort by field (created_at, price). Use - for descending. Example: <code>-price</code></p>
-            </div>
-                </form>
+                        </form>
 
                     <h2 id="rider-GETapi-v1-rider-rides--id-">GET api/v1/rider/rides/{id}</h2>
 
@@ -3765,7 +3683,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: e67b2596-2cd7-47b5-9639-c73fcc02aa42
+x-request-id: 58bac144-eb89-4926-bc75-dc4045081e6b
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
