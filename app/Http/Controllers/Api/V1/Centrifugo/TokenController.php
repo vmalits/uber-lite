@@ -11,25 +11,15 @@ use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 
-/**
- * @group WS
- *
- * WS Token
- *
- * Endpoint to get a JWT token for Centrifugo connection.
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @response 200 {
- *   "success": true,
- *   "data": {
- *     "token": "header.payload.signature"
- *   }
- * }
- */
+#[Group('WS')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 200, description: 'JWT token for Centrifugo connection retrieved successfully.')]
 final class TokenController extends Controller
 {
     public function __construct(

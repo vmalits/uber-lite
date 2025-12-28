@@ -1,9 +1,5 @@
 name: WS
-description: |-
-
-  WS Token
-
-  Endpoint to get a JWT token for Centrifugo connection.
+description: ''
 endpoints:
   -
     custom: []
@@ -13,11 +9,7 @@ endpoints:
     metadata:
       custom: []
       groupName: WS
-      groupDescription: |-
-
-        WS Token
-
-        Endpoint to get a JWT token for Centrifugo connection.
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -25,7 +17,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'string required Bearer <token>'
+      Authorization: 'Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -38,14 +30,10 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-          x-request-id: 58bac144-eb89-4926-bc75-dc4045081e6b
-        description: null
+        status: 200
+        content: null
+        headers: []
+        description: 'JWT token for Centrifugo connection retrieved successfully.'
     responseFields: []
     auth: []
     controller: null
