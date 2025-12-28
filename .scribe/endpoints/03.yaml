@@ -241,6 +241,68 @@ endpoints:
     custom: []
     httpMethods:
       - POST
+    uri: 'api/v1/driver/rides/{ride_id}/arrived'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: 01kdd3j4ma1cbhf9t1d9ftr2q1
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      ride:
+        custom: []
+        name: ride
+        description: 'ULID of the ride.'
+        required: true
+        example: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
+      ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Driver has arrived at pickup location.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
     uri: 'api/v1/driver/rides/{ride_id}/cancel'
     metadata:
       custom: []

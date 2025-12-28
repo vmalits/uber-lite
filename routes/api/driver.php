@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Driver\AcceptRideController;
+use App\Http\Controllers\Api\V1\Driver\ArrivedController;
 use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
@@ -25,6 +26,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.rides.accept');
         Route::post('rides/{ride}/on-the-way', OnTheWayController::class)
             ->name('api.v1.driver.rides.on-the-way');
+        Route::post('rides/{ride}/arrived', ArrivedController::class)
+            ->name('api.v1.driver.rides.arrived');
         Route::post('rides/{ride}/cancel', CancelRideController::class)
             ->name('api.v1.driver.rides.cancel');
     });
