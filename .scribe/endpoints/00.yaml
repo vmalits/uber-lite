@@ -175,13 +175,7 @@ endpoints:
     metadata:
       custom: []
       groupName: Auth
-      groupDescription: |-
-
-        Add Email
-
-        Attach an email to the authenticated user. Phone must be verified first.
-
-        Requires Bearer token (issued after OTP verification).
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -189,7 +183,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'string required Bearer <token>'
+      Authorization: 'Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -211,7 +205,19 @@ endpoints:
     cleanBodyParameters:
       email: user@example.com
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Email added successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
     responseFields: []
     auth: []
     controller: null

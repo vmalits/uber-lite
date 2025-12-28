@@ -15,31 +15,17 @@ use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Auth;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 use Throwable;
 
-/**
- * @group Auth
- *
- * Add Email
- *
- * Attach an email to the authenticated user. Phone must be verified first.
- *
- * Requires Bearer token (issued after OTP verification).
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @response 200 {
- *   "message": "Email added successfully.",
- *   "data": {
- *     "email": "user@gmail.com",
- *     "profile_step": "email_added"
- *   }
- * }
- * @response 422 {"message":"The given data was invalid.","errors":{"phone":["Phone is not verified."]}}
- */
+#[Group('Auth')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 200, description: 'Email added successfully.')]
+#[Response(status: 422, description: 'Validation errors.')]
 class AddEmailController extends Controller
 {
     public function __construct(
