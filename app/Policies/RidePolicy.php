@@ -58,7 +58,8 @@ final class RidePolicy
 
     public function start(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->driver_id;
+        return $user->id === $ride->driver_id
+            && $ride->status === RideStatus::ARRIVED;
     }
 
     public function complete(User $user, Ride $ride): bool

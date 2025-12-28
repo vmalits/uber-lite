@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\OnTheWayController;
+use App\Http\Controllers\Api\V1\Driver\StartController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('driver')
@@ -28,6 +29,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.rides.on-the-way');
         Route::post('rides/{ride}/arrived', ArrivedController::class)
             ->name('api.v1.driver.rides.arrived');
+        Route::post('rides/{ride}/start', StartController::class)
+            ->name('api.v1.driver.rides.start');
         Route::post('rides/{ride}/cancel', CancelRideController::class)
             ->name('api.v1.driver.rides.cancel');
     });

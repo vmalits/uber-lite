@@ -32,6 +32,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property mixed $origin_point
  * @property mixed $destination_point
  * @property CarbonInterface|null $arrived_at
+ * @property CarbonInterface|null $started_at
  * @property CarbonInterface|null $cancelled_at;
  * @property ActorType|null $cancelled_by_type
  * @property string|null $cancelled_by_id
@@ -63,6 +64,7 @@ class Ride extends Model
         'origin_point', // geography(Point, 4326)
         'destination_point',
         'arrived_at',
+        'started_at',
         'cancelled_at',
         'cancelled_by_type',
         'cancelled_by_id',
@@ -79,6 +81,7 @@ class Ride extends Model
             'status'            => RideStatus::class,
             'price'             => 'float',
             'arrived_at'        => 'datetime',
+            'started_at'        => 'datetime',
             'cancelled_by_type' => ActorType::class,
             'cancelled_at'      => 'datetime',
         ];
