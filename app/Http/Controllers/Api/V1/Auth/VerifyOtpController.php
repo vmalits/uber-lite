@@ -12,32 +12,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\VerifyOtpRequest;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Response;
 
-/**
- * @group Auth
- *
- * Verify OTP Code
- *
- * This endpoint verifies the one-time password (OTP) for the given phone number.
- *
- * @response 200 {
- *   "success": true,
- *   "message": "OTP verified successfully.",
- *   "data": {
- *     "profile_step": "phone_verified",
- *     "token": "<Personal Access Token>",
- *     "token_type": "Bearer"
- *   },
- *   "meta": {
- *     "next_action": "select_role"
- *   }
- * }
- * @response 422 {
- *   "success": false,
- *   "message": "The given data was invalid.",
- *   "errors": {"code": ["Invalid or expired code."]}
- * }
- */
+#[Group('Auth')]
+#[Response(status: 200, description: 'OTP verified successfully.')]
+#[Response(status: 422, description: 'Validation errors.')]
 class VerifyOtpController extends Controller
 {
     public function __construct(
