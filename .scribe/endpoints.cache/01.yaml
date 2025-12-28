@@ -3,10 +3,9 @@
 name: Rider
 description: |-
 
-  Get Active Ride
+  Get Ride History
 
-  Retrieve the current active ride for the authenticated rider.
-  Active ride is any ride that is not completed or cancelled.
+  Retrieve the paginated list of all rides for the authenticated rider.
 
   Requires Bearer token and completed profile.
 endpoints:
@@ -140,14 +139,7 @@ endpoints:
     metadata:
       custom: []
       groupName: Rider
-      groupDescription: |-
-
-        Get Active Ride
-
-        Retrieve the current active ride for the authenticated rider.
-        Active ride is any ride that is not completed or cancelled.
-
-        Requires Bearer token and completed profile.
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -155,7 +147,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'string required Bearer <token>'
+      Authorization: 'Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -168,14 +160,22 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-          x-request-id: 92ad03c2-743b-4841-a7b7-89eba36ea0d4
-        description: null
+        status: 200
+        content: null
+        headers: []
+        description: 'Active ride data returned.'
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'No active ride found.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: "Forbidden. Profile step isn't completed."
     responseFields: []
     auth: []
     controller: null
@@ -270,7 +270,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: a706c216-f011-4161-b7fe-496412c26582
+          x-request-id: d41d7baf-06f6-474a-868d-436401a599a5
         description: null
     responseFields: []
     auth: []
@@ -330,7 +330,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: a9f7c10e-36d8-4390-b804-dfc2b597da8a
+          x-request-id: a5d03211-b5ef-4b04-8194-f2dd307327b9
         description: null
     responseFields: []
     auth: []

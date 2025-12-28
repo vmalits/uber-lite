@@ -12,47 +12,17 @@ use App\Queries\Rider\GetActiveRideQueryInterface;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Response;
 
-/**
- * @group Rider
- *
- * Get Active Ride
- *
- * Retrieve the current active ride for the authenticated rider.
- * Active ride is any ride that is not completed or cancelled.
- *
- * Requires Bearer token and completed profile.
- *
- * @authenticated
- *
- * @header Authorization string required Bearer <token>
- *
- * @response 200 {
- *   "success": true,
- *   "data": {
- *     "id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *     "rider_id": "01jk9v6v9v6v9v6v9v6v9v6v9v",
- *     "driver_id": null,
- *     "origin_address": "bd. Ștefan cel Mare și Sfânt, 1, Chișinău",
- *     "origin_lat": 47.0105,
- *     "origin_lng": 28.8638,
- *     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
- *     "destination_lat": 47.0225,
- *     "destination_lng": 28.8353,
- *     "status": "pending",
- *     "price": null,
- *     "created_at": "2025-12-19T20:00:12+00:00"
- *   }
- * }
- * @response 200 {
- *   "success": true,
- *   "message": "No active ride found."
- * }
- * @response 403 {
- *   "success": false,
- *   "message": "Forbidden. Profile step isn't completed."
- * }
- */
+#[Group('Rider')]
+#[Authenticated]
+#[Header('Authorization', 'Bearer <token>')]
+#[Response(status: 200, description: 'Active ride data returned.')]
+#[Response(status: 200, description: 'No active ride found.')]
+#[Response(status: 403, description: 'Forbidden. Profile step isn\'t completed.')]
 final class GetActiveRideController extends Controller
 {
     public function __construct(
