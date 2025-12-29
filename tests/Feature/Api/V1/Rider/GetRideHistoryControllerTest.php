@@ -117,6 +117,57 @@ test('rider can filter ride history by status', function (): void {
         ->assertJsonPath('data.items.0.status', RideStatus::COMPLETED->value);
 });
 
+test('rider can filter ride history by cancelled status', function (): void {
+    /** @var User $user */
+    $user = User::factory()->verified()->create([
+        'role'         => UserRole::RIDER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    Ride::factory()->create([
+        'rider_id' => $user->id,
+        'status'   => RideStatus::COMPLETED,
+    ]);
+
+    Ride::factory()->create([
+        'rider_id' => $user->id,
+        'status'   => RideStatus::CANCELLED,
+    ]);
+
+    Sanctum::actingAs($user);
+
+    $response = $this->getJson('/api/v1/rider/rides/history?filter[status]=cancelled');
+
+    $response->assertOk()
+        ->assertJsonCount(1, 'data.items')
+        ->assertJsonPath('data.items.0.status', RideStatus::CANCELLED->value);
+});
+
+test('rider filtering by invalid status returns all history', function (): void {
+    /** @var User $user */
+    $user = User::factory()->verified()->create([
+        'role'         => UserRole::RIDER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    Ride::factory()->create([
+        'rider_id' => $user->id,
+        'status'   => RideStatus::COMPLETED,
+    ]);
+
+    Ride::factory()->create([
+        'rider_id' => $user->id,
+        'status'   => RideStatus::CANCELLED,
+    ]);
+
+    Sanctum::actingAs($user);
+
+    $response = $this->getJson('/api/v1/rider/rides/history?filter[status]=pending');
+
+    $response->assertOk()
+        ->assertJsonCount(2, 'data.items');
+});
+
 test('rider can sort ride history by price', function (): void {
     /** @var User $user */
     $user = User::factory()->verified()->create([

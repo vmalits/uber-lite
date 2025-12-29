@@ -29,7 +29,7 @@ final class GetRideHistoryQuery implements GetRideHistoryQueryInterface
         /** @var QueryBuilder<Ride> $query */
         $query = QueryBuilder::for($baseQuery)
             ->allowedFilters([
-                AllowedFilter::callback('status', function (Builder $query, $value) {
+                AllowedFilter::callback('status', function (Builder $query, string $value) {
                     if (\in_array($value, [
                         RideStatus::COMPLETED->value,
                         RideStatus::CANCELLED->value,

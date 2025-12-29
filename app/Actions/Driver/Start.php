@@ -34,7 +34,10 @@ final readonly class Start
                     ->firstOrFail();
 
                 $lockedRide->update([
-                    'started_at' => now(),
+                    'started_at'       => now(),
+                    'price_per_km'     => config('pricing.fixed_rates.per_km'),
+                    'price_per_minute' => config('pricing.fixed_rates.per_minute'),
+                    'base_fee'         => config('pricing.fixed_rates.base_fee'),
                 ]);
 
                 $this->stateMachine->transition(

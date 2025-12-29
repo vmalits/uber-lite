@@ -10,6 +10,35 @@ use App\Enums\RideStatus;
 use App\Models\Ride;
 use Spatie\LaravelData\Data;
 
+/**
+ * @param string $id
+ * @param string $rider_id
+ * @param string|null $driver_id
+ * @param string $origin_address
+ * @param float|null $origin_lat
+ * @param float|null $origin_lng
+ * @param string $destination_address
+ * @param float|null $destination_lat
+ * @param float|null $destination_lng
+ * @param RideStatus $status
+ * @param float|null $price
+ * @param float|null $estimated_price
+ * @param float|null $estimated_distance_km
+ * @param float|null $estimated_duration_min
+ * @param float|null $price_per_km
+ * @param float|null $price_per_minute
+ * @param float|null $base_fee
+ * @param mixed $origin_point
+ * @param mixed $destination_point
+ * @param DateData|null $arrived_at
+ * @param DateData|null $started_at
+ * @param DateData|null $cancelled_at
+ * @param ActorType|null $cancelled_by_type
+ * @param string|null $cancelled_by_id
+ * @param string|null $cancelled_reason
+ * @param DateData $created_at
+ * @param DateData $updated_at
+ */
 final class RideData extends Data
 {
     public function __construct(
@@ -24,12 +53,22 @@ final class RideData extends Data
         public ?float $destination_lng,
         public RideStatus $status,
         public ?float $price,
+        public ?float $estimated_price,
+        public ?float $estimated_distance_km,
+        public ?float $estimated_duration_min,
+        public ?float $price_per_km,
+        public ?float $price_per_minute,
+        public ?float $base_fee,
+        public mixed $origin_point,
+        public mixed $destination_point,
+        public ?DateData $arrived_at,
+        public ?DateData $started_at,
+        public ?DateData $cancelled_at,
+        public ?ActorType $cancelled_by_type,
+        public ?string $cancelled_by_id,
+        public ?string $cancelled_reason,
         public DateData $created_at,
         public DateData $updated_at,
-        public ?DateData $cancelled_at = null,
-        public ?ActorType $cancelled_by_type = null,
-        public ?string $cancelled_by_id = null,
-        public ?string $cancelled_reason = null,
     ) {}
 
     public static function fromModel(Ride $ride): self
@@ -46,12 +85,22 @@ final class RideData extends Data
             destination_lng: $ride->destination_lng,
             status: $ride->status,
             price: $ride->price,
-            created_at: DateData::fromCarbon($ride->created_at),
-            updated_at: DateData::fromCarbon($ride->updated_at),
+            estimated_price: $ride->estimated_price,
+            estimated_distance_km: $ride->estimated_distance_km,
+            estimated_duration_min: $ride->estimated_duration_min,
+            price_per_km: $ride->price_per_km,
+            price_per_minute: $ride->price_per_minute,
+            base_fee: $ride->base_fee,
+            origin_point: $ride->origin_point,
+            destination_point: $ride->destination_point,
+            arrived_at: $ride->arrived_at ? DateData::fromCarbon($ride->arrived_at) : null,
+            started_at: $ride->started_at ? DateData::fromCarbon($ride->started_at) : null,
             cancelled_at: $ride->cancelled_at ? DateData::fromCarbon($ride->cancelled_at) : null,
             cancelled_by_type: $ride->cancelled_by_type,
             cancelled_by_id: $ride->cancelled_by_id,
             cancelled_reason: $ride->cancelled_reason,
+            created_at: DateData::fromCarbon($ride->created_at),
+            updated_at: DateData::fromCarbon($ride->updated_at),
         );
     }
 }

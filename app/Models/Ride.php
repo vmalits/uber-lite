@@ -29,6 +29,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property float|null $destination_lng
  * @property RideStatus $status
  * @property float|null $price
+ * @property float|null $estimated_price
+ * @property float|null $estimated_distance_km
+ * @property float|null $estimated_duration_min
+ * @property float|null $price_per_km
+ * @property float|null $price_per_minute
+ * @property float|null $base_fee
  * @property mixed $origin_point
  * @property mixed $destination_point
  * @property CarbonInterface|null $arrived_at
@@ -61,6 +67,12 @@ class Ride extends Model
         'destination_lng',
         'status',
         'price',
+        'estimated_price',
+        'estimated_distance_km',
+        'estimated_duration_min',
+        'price_per_km',
+        'price_per_minute',
+        'base_fee',
         'origin_point', // geography(Point, 4326)
         'destination_point',
         'arrived_at',
@@ -74,16 +86,22 @@ class Ride extends Model
     protected function casts(): array
     {
         return [
-            'origin_lat'        => 'float',
-            'origin_lng'        => 'float',
-            'destination_lat'   => 'float',
-            'destination_lng'   => 'float',
-            'status'            => RideStatus::class,
-            'price'             => 'float',
-            'arrived_at'        => 'datetime',
-            'started_at'        => 'datetime',
-            'cancelled_by_type' => ActorType::class,
-            'cancelled_at'      => 'datetime',
+            'origin_lat'             => 'float',
+            'origin_lng'             => 'float',
+            'destination_lat'        => 'float',
+            'destination_lng'        => 'float',
+            'status'                 => RideStatus::class,
+            'price'                  => 'float',
+            'estimated_price'        => 'float',
+            'estimated_distance_km'  => 'float',
+            'estimated_duration_min' => 'float',
+            'price_per_km'           => 'float',
+            'price_per_minute'       => 'float',
+            'base_fee'               => 'float',
+            'arrived_at'             => 'datetime',
+            'started_at'             => 'datetime',
+            'cancelled_by_type'      => ActorType::class,
+            'cancelled_at'           => 'datetime',
         ];
     }
 

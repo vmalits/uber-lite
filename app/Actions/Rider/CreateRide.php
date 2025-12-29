@@ -9,6 +9,7 @@ use App\Enums\ActorType;
 use App\Enums\RideStatus;
 use App\Models\Ride;
 use App\Models\User;
+use App\Services\Ride\RideEstimationService;
 use App\Support\RideStateMachine;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Validation\ValidationException;
@@ -19,6 +20,7 @@ final readonly class CreateRide
     public function __construct(
         private DatabaseManager $databaseManager,
         private RideStateMachine $rideStateMachine,
+        private RideEstimationService $estimationService,
     ) {}
 
     /**
@@ -41,16 +43,21 @@ final readonly class CreateRide
                     ]);
                 }
 
+                $estimates = $this->estimationService->calculateEstimates($data);
+
                 /** @var Ride $ride */
                 $ride = Ride::query()->create([
-                    'rider_id'            => $user->id,
-                    'origin_address'      => $data->origin_address,
-                    'origin_lat'          => $data->origin_lat,
-                    'origin_lng'          => $data->origin_lng,
-                    'destination_address' => $data->destination_address,
-                    'destination_lat'     => $data->destination_lat,
-                    'destination_lng'     => $data->destination_lng,
-                    'status'              => RideStatus::PENDING,
+                    'rider_id'               => $user->id,
+                    'origin_address'         => $data->origin_address,
+                    'origin_lat'             => $data->origin_lat,
+                    'origin_lng'             => $data->origin_lng,
+                    'destination_address'    => $data->destination_address,
+                    'destination_lat'        => $data->destination_lat,
+                    'destination_lng'        => $data->destination_lng,
+                    'status'                 => RideStatus::PENDING,
+                    'estimated_price'        => $estimates->price,
+                    'estimated_distance_km'  => $estimates->distance,
+                    'estimated_duration_min' => $estimates->duration,
                 ]);
 
                 $this->rideStateMachine->transition(
