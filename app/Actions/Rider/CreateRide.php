@@ -58,6 +58,9 @@ final readonly class CreateRide
                     'estimated_price'        => $estimates->price,
                     'estimated_distance_km'  => $estimates->distance,
                     'estimated_duration_min' => $estimates->duration,
+                    'base_fee'               => config('pricing.fixed_rates.base_fee'),
+                    'price_per_km'           => config('pricing.fixed_rates.per_km'),
+                    'price_per_minute'       => config('pricing.fixed_rates.per_minute'),
                 ]);
 
                 $this->rideStateMachine->transition(
