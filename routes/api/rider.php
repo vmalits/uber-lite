@@ -17,18 +17,18 @@ Route::prefix('rider')
         'profile_step:completed',
     ])
     ->group(function (): void {
-        Route::post('rides', CreateRideController::class)
+        Route::post('rides', [CreateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides');
 
-        Route::get('rides/active', GetActiveRideController::class)
+        Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.active');
 
-        Route::get('rides/history', GetRideHistoryController::class)
+        Route::get('rides/history', [GetRideHistoryController::class, '__invoke'])
             ->name('api.v1.rider.rides.history');
 
-        Route::get('rides/{ride}', GetRideController::class)
+        Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.show');
 
-        Route::post('rides/{ride}/cancel', CancelRideController::class)
+        Route::post('rides/{ride}/cancel', [CancelRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.cancel');
     });
