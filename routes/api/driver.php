@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\OnTheWayController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
+use App\Http\Controllers\Api\V1\Driver\UpdateLocationController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('driver')
@@ -36,4 +37,6 @@ Route::prefix('driver')
             ->name('api.v1.driver.rides.complete');
         Route::post('rides/{ride}/cancel', [CancelRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.cancel');
+        Route::post('location', UpdateLocationController::class)
+            ->name('api.v1.driver.location');
     });

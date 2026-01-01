@@ -138,7 +138,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01kdd3j4ma1cbhf9t1d9ftr2q1
+        example: 01kdjs4chp9135g5epn13fkbh0
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -156,7 +156,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
+      ride_id: 01kdjs4chp9135g5epn13fkbh0
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -200,7 +200,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01kdd3j4ma1cbhf9t1d9ftr2q1
+        example: 01kdjs4chp9135g5epn13fkbh0
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -218,7 +218,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
+      ride_id: 01kdjs4chp9135g5epn13fkbh0
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -262,7 +262,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01kdd3j4ma1cbhf9t1d9ftr2q1
+        example: 01kdjs4chp9135g5epn13fkbh0
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -280,7 +280,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
+      ride_id: 01kdjs4chp9135g5epn13fkbh0
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -324,7 +324,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01kdd3j4ma1cbhf9t1d9ftr2q1
+        example: 01kdjs4chp9135g5epn13fkbh0
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -342,7 +342,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
+      ride_id: 01kdjs4chp9135g5epn13fkbh0
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -356,6 +356,68 @@ endpoints:
         content: null
         headers: []
         description: 'Ride has started.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/driver/rides/{ride_id}/complete'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: 01kdjs4chp9135g5epn13fkbh0
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      ride:
+        custom: []
+        name: ride
+        description: 'ULID of the ride.'
+        required: true
+        example: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: 01kdjs4chp9135g5epn13fkbh0
+      ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Ride completed successfully.'
     responseFields: []
     auth: []
     controller: null
@@ -386,7 +448,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01kdd3j4ma1cbhf9t1d9ftr2q1
+        example: 01kdjs4chp9135g5epn13fkbh0
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -404,7 +466,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01kdd3j4ma1cbhf9t1d9ftr2q1
+      ride_id: 01kdjs4chp9135g5epn13fkbh0
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -430,6 +492,74 @@ endpoints:
         content: null
         headers: []
         description: 'Ride cannot be cancelled in its current status.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/driver/location
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      lat:
+        custom: []
+        name: lat
+        description: 'Latitude. Must be between -90 and 90.'
+        required: true
+        example: 55.751244
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      lng:
+        custom: []
+        name: lng
+        description: 'Longitude. Must be between -180 and 180.'
+        required: true
+        example: 37.618423
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      lat: 55.751244
+      lng: 37.618423
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Driver location updated successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: "Forbidden. Profile step isn't completed."
     responseFields: []
     auth: []
     controller: null

@@ -130,8 +130,14 @@
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--start">
                                 <a href="#driver-POSTapi-v1-driver-rides--ride_id--start">POST api/v1/driver/rides/{ride_id}/start</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--complete">
+                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--complete">POST api/v1/driver/rides/{ride_id}/complete</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--cancel">
                                 <a href="#driver-POSTapi-v1-driver-rides--ride_id--cancel">POST api/v1/driver/rides/{ride_id}/cancel</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-location">
+                                <a href="#driver-POSTapi-v1-driver-location">POST api/v1/driver/location</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -176,7 +182,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 28, 2025</li>
+        <li>Last updated: January 1, 2026</li>
     </ul>
 </div>
 
@@ -2447,7 +2453,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/accept" \
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/accept" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2455,7 +2461,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/accept"
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/accept"
 );
 
 const headers = {
@@ -2472,7 +2478,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/accept';
+$url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/accept';
 $response = $client-&gt;post(
     $url,
     [
@@ -2491,7 +2497,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/accept'
+url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/accept'
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -2603,10 +2609,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-driver-rides--ride_id--accept"
-               value="01kdd3j4ma1cbhf9t1d9ftr2q1"
+               value="01kdjs4chp9135g5epn13fkbh0"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kdd3j4ma1cbhf9t1d9ftr2q1</code></p>
+<p>The ID of the ride. Example: <code>01kdjs4chp9135g5epn13fkbh0</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ride</code></b>&nbsp;&nbsp;
@@ -2636,7 +2642,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/on-the-way" \
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/on-the-way" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2644,7 +2650,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/on-the-way"
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/on-the-way"
 );
 
 const headers = {
@@ -2661,7 +2667,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/on-the-way';
+$url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/on-the-way';
 $response = $client-&gt;post(
     $url,
     [
@@ -2680,7 +2686,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/on-the-way'
+url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/on-the-way'
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -2792,10 +2798,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-driver-rides--ride_id--on-the-way"
-               value="01kdd3j4ma1cbhf9t1d9ftr2q1"
+               value="01kdjs4chp9135g5epn13fkbh0"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kdd3j4ma1cbhf9t1d9ftr2q1</code></p>
+<p>The ID of the ride. Example: <code>01kdjs4chp9135g5epn13fkbh0</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ride</code></b>&nbsp;&nbsp;
@@ -2825,7 +2831,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/arrived" \
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/arrived" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2833,7 +2839,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/arrived"
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/arrived"
 );
 
 const headers = {
@@ -2850,7 +2856,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/arrived';
+$url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/arrived';
 $response = $client-&gt;post(
     $url,
     [
@@ -2869,7 +2875,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/arrived'
+url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/arrived'
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -2981,10 +2987,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-driver-rides--ride_id--arrived"
-               value="01kdd3j4ma1cbhf9t1d9ftr2q1"
+               value="01kdjs4chp9135g5epn13fkbh0"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kdd3j4ma1cbhf9t1d9ftr2q1</code></p>
+<p>The ID of the ride. Example: <code>01kdjs4chp9135g5epn13fkbh0</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ride</code></b>&nbsp;&nbsp;
@@ -3014,7 +3020,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/start" \
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/start" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3022,7 +3028,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/start"
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/start"
 );
 
 const headers = {
@@ -3039,7 +3045,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/start';
+$url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/start';
 $response = $client-&gt;post(
     $url,
     [
@@ -3058,7 +3064,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/start'
+url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/start'
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -3170,10 +3176,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-driver-rides--ride_id--start"
-               value="01kdd3j4ma1cbhf9t1d9ftr2q1"
+               value="01kdjs4chp9135g5epn13fkbh0"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kdd3j4ma1cbhf9t1d9ftr2q1</code></p>
+<p>The ID of the ride. Example: <code>01kdjs4chp9135g5epn13fkbh0</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ride</code></b>&nbsp;&nbsp;
@@ -3182,6 +3188,195 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride"                data-endpoint="POSTapi-v1-driver-rides--ride_id--start"
+               value="01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z"
+               data-component="url">
+    <br>
+<p>ULID of the ride. Example: <code>01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--complete">POST api/v1/driver/rides/{ride_id}/complete</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-driver-rides--ride_id--complete">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/complete" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/complete"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/complete';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/complete'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-driver-rides--ride_id--complete">
+            <blockquote>
+            <p>Example response (200, Ride completed successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-driver-rides--ride_id--complete" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-driver-rides--ride_id--complete"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-driver-rides--ride_id--complete"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-driver-rides--ride_id--complete" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-driver-rides--ride_id--complete">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-driver-rides--ride_id--complete" data-method="POST"
+      data-path="api/v1/driver/rides/{ride_id}/complete"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-driver-rides--ride_id--complete', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-driver-rides--ride_id--complete"
+                    onclick="tryItOut('POSTapi-v1-driver-rides--ride_id--complete');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-driver-rides--ride_id--complete"
+                    onclick="cancelTryOut('POSTapi-v1-driver-rides--ride_id--complete');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-driver-rides--ride_id--complete"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/driver/rides/{ride_id}/complete</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-driver-rides--ride_id--complete"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-driver-rides--ride_id--complete"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-driver-rides--ride_id--complete"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ride_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ride_id"                data-endpoint="POSTapi-v1-driver-rides--ride_id--complete"
+               value="01kdjs4chp9135g5epn13fkbh0"
+               data-component="url">
+    <br>
+<p>The ID of the ride. Example: <code>01kdjs4chp9135g5epn13fkbh0</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ride</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ride"                data-endpoint="POSTapi-v1-driver-rides--ride_id--complete"
                value="01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z"
                data-component="url">
     <br>
@@ -3203,7 +3398,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/cancel" \
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/cancel" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3211,7 +3406,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/cancel"
+    "http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/cancel"
 );
 
 const headers = {
@@ -3228,7 +3423,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/cancel';
+$url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/cancel';
 $response = $client-&gt;post(
     $url,
     [
@@ -3247,7 +3442,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/driver/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/cancel'
+url = 'http://localhost:8080/api/v1/driver/rides/01kdjs4chp9135g5epn13fkbh0/cancel'
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -3373,10 +3568,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-driver-rides--ride_id--cancel"
-               value="01kdd3j4ma1cbhf9t1d9ftr2q1"
+               value="01kdjs4chp9135g5epn13fkbh0"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kdd3j4ma1cbhf9t1d9ftr2q1</code></p>
+<p>The ID of the ride. Example: <code>01kdjs4chp9135g5epn13fkbh0</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ride</code></b>&nbsp;&nbsp;
@@ -3391,6 +3586,221 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>ULID of the ride. Example: <code>01jk9v6v9v6v9v6v9v6v9v6v9v</code></p>
             </div>
                     </form>
+
+                    <h2 id="driver-POSTapi-v1-driver-location">POST api/v1/driver/location</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-driver-location">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/driver/location" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"lat\": 55.751244,
+    \"lng\": 37.618423
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/location"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "lat": 55.751244,
+    "lng": 37.618423
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/location';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'lat' =&gt; 55.751244,
+            'lng' =&gt; 37.618423,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/location'
+payload = {
+    "lat": 55.751244,
+    "lng": 37.618423
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-driver-location">
+            <blockquote>
+            <p>Example response (200, Driver location updated successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden. Profile step isn&#039;t completed.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-driver-location" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-driver-location"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-driver-location"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-driver-location" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-driver-location">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-driver-location" data-method="POST"
+      data-path="api/v1/driver/location"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-driver-location', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-driver-location"
+                    onclick="tryItOut('POSTapi-v1-driver-location');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-driver-location"
+                    onclick="cancelTryOut('POSTapi-v1-driver-location');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-driver-location"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/driver/location</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-driver-location"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-driver-location"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-driver-location"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>lat</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="lat"                data-endpoint="POSTapi-v1-driver-location"
+               value="55.751244"
+               data-component="body">
+    <br>
+<p>Latitude. Must be between -90 and 90. Example: <code>55.751244</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>lng</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="lng"                data-endpoint="POSTapi-v1-driver-location"
+               value="37.618423"
+               data-component="body">
+    <br>
+<p>Longitude. Must be between -180 and 180. Example: <code>37.618423</code></p>
+        </div>
+        </form>
 
                 <h1 id="rider">Rider</h1>
 
@@ -4038,7 +4448,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1" \
+    --get "http://localhost:8080/api/v1/rider/rides/01kdjs4chp9135g5epn13fkbh0" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4046,7 +4456,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1"
+    "http://localhost:8080/api/v1/rider/rides/01kdjs4chp9135g5epn13fkbh0"
 );
 
 const headers = {
@@ -4063,7 +4473,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1';
+$url = 'http://localhost:8080/api/v1/rider/rides/01kdjs4chp9135g5epn13fkbh0';
 $response = $client-&gt;get(
     $url,
     [
@@ -4082,7 +4492,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1'
+url = 'http://localhost:8080/api/v1/rider/rides/01kdjs4chp9135g5epn13fkbh0'
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -4208,10 +4618,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-rider-rides--id-"
-               value="01kdd3j4ma1cbhf9t1d9ftr2q1"
+               value="01kdjs4chp9135g5epn13fkbh0"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kdd3j4ma1cbhf9t1d9ftr2q1</code></p>
+<p>The ID of the ride. Example: <code>01kdjs4chp9135g5epn13fkbh0</code></p>
             </div>
                     </form>
 
@@ -4229,7 +4639,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/cancel" \
+    "http://localhost:8080/api/v1/rider/rides/01kdjs4chp9135g5epn13fkbh0/cancel" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4237,7 +4647,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/cancel"
+    "http://localhost:8080/api/v1/rider/rides/01kdjs4chp9135g5epn13fkbh0/cancel"
 );
 
 const headers = {
@@ -4254,7 +4664,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/cancel';
+$url = 'http://localhost:8080/api/v1/rider/rides/01kdjs4chp9135g5epn13fkbh0/cancel';
 $response = $client-&gt;post(
     $url,
     [
@@ -4273,7 +4683,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/rider/rides/01kdd3j4ma1cbhf9t1d9ftr2q1/cancel'
+url = 'http://localhost:8080/api/v1/rider/rides/01kdjs4chp9135g5epn13fkbh0/cancel'
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'application/json',
@@ -4399,10 +4809,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ride_id"                data-endpoint="POSTapi-v1-rider-rides--ride_id--cancel"
-               value="01kdd3j4ma1cbhf9t1d9ftr2q1"
+               value="01kdjs4chp9135g5epn13fkbh0"
                data-component="url">
     <br>
-<p>The ID of the ride. Example: <code>01kdd3j4ma1cbhf9t1d9ftr2q1</code></p>
+<p>The ID of the ride. Example: <code>01kdjs4chp9135g5epn13fkbh0</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ride</code></b>&nbsp;&nbsp;
