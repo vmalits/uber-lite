@@ -22,7 +22,7 @@ use Knuckles\Scribe\Attributes\Response;
 #[Header('Authorization', 'Bearer <token>')]
 #[Response(status: 200, description: 'Driver location updated successfully.')]
 #[Response(status: 403, description: 'Forbidden. Profile step isn\'t completed.')]
-class UpdateLocationController extends Controller
+final class UpdateLocationController extends Controller
 {
     public function __construct(
         private readonly UpdateLocation $updateLocation,

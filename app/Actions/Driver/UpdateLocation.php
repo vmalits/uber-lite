@@ -8,7 +8,7 @@ use App\Data\Driver\UpdateLocationData;
 use App\Models\DriverLocation;
 use App\Models\User;
 
-readonly class UpdateLocation
+final readonly class UpdateLocation
 {
     public function handle(User $driver, UpdateLocationData $data): DriverLocation
     {
