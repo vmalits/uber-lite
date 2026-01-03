@@ -460,7 +460,7 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 01kdd3d1dkqr3mxawpammhk9my
+        example: 01ke2agzragzyycfdttcy7csc2
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -478,7 +478,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      user_id: 01kdd3d1dkqr3mxawpammhk9my
+      user_id: 01ke2agzragzyycfdttcy7csc2
       hash: 922815DfBeA128EaEAaaA185508FE078BecEfbbe
     queryParameters: []
     cleanQueryParameters: []

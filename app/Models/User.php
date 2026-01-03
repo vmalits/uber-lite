@@ -51,6 +51,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at',
         'last_login_at',
         'profile_step',
+        'password',
     ];
 
     /**
@@ -64,6 +65,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'profile_step'      => ProfileStep::class,
             'role'              => UserRole::class,
+            'password'          => 'hashed',
         ];
     }
 
