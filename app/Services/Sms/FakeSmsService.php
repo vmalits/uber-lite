@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Services\Sms;
 
-use Illuminate\Support\Facades\Log;
+use Psr\Log\LoggerInterface;
 
-class FakeSmsService implements SmsServiceInterface
+final readonly class FakeSmsService implements SmsServiceInterface
 {
+    public function __construct(private LoggerInterface $logger) {}
+
     public function send(string $to, string $message): bool
     {
-        Log::info("Fake SMS sent to {$to}: {$message}");
+        $this->logger->info("Fake SMS sent to {$to}: {$message}");
 
         return true;
     }

@@ -5,15 +5,17 @@ declare(strict_types=1);
 namespace App\Services\Sms;
 
 use Exception;
-use Illuminate\Support\Facades\Log;
+use Psr\Log\LoggerInterface;
 use Twilio\Rest\Client;
 
 class TwilioSmsService
 {
     private string $from;
 
-    public function __construct(private readonly Client $client)
-    {
+    public function __construct(
+        private readonly Client $client,
+        private readonly LoggerInterface $logger,
+    ) {
         /** @var string $from */
         $from = config('services.sms.twilio.from');
         $this->from = $from;
@@ -29,7 +31,7 @@ class TwilioSmsService
 
             return true;
         } catch (Exception $e) {
-            Log::error('Twilio SMS error: '.$e->getMessage());
+            $this->logger->error('Twilio SMS error: '.$e->getMessage());
 
             return false;
         }

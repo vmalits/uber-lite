@@ -21,7 +21,7 @@ class TwilioServiceProvider extends ServiceProvider
 
                 return match ($driver) {
                     'twilio' => $app->make(TwilioSmsService::class),
-                    default  => new FakeSmsService,
+                    default  => $app->make(FakeSmsService::class),
                 };
             },
         );
