@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
+use Psr\Log\LoggerInterface;
 use Throwable;
 
 final class SendOtpSmsJob implements ShouldQueue
@@ -29,18 +29,16 @@ final class SendOtpSmsJob implements ShouldQueue
      */
     public array $backoff = [10, 30, 60];
 
-    public bool $failOnTimeout = true;
-
     public function __construct(
         private readonly string $phone,
         private readonly string $otpCode,
     ) {}
 
-    public function handle(SmsServiceInterface $smsService): void
+    public function handle(SmsServiceInterface $smsService, LoggerInterface $logger): void
     {
         $message = "Your OTP code is {$this->otpCode}";
 
-        Log::info('Sending OTP SMS', [
+        $logger->info('Sending OTP SMS', [
             'phone'   => $this->phone,
             'attempt' => $this->attempts(),
         ]);
@@ -48,7 +46,7 @@ final class SendOtpSmsJob implements ShouldQueue
         $success = $smsService->send($this->phone, $message);
 
         if (! $success) {
-            Log::warning('Failed to send OTP SMS', [
+            $logger->warning('Failed to send OTP SMS', [
                 'phone'   => $this->phone,
                 'attempt' => $this->attempts(),
             ]);
@@ -56,15 +54,15 @@ final class SendOtpSmsJob implements ShouldQueue
             throw new \RuntimeException("Failed to send OTP SMS to {$this->phone}");
         }
 
-        Log::info('OTP SMS sent successfully', [
+        $logger->info('OTP SMS sent successfully', [
             'phone'   => $this->phone,
             'attempt' => $this->attempts(),
         ]);
     }
 
-    public function failed(?Throwable $exception): void
+    public function failed(?Throwable $exception, LoggerInterface $logger): void
     {
-        Log::error('SendOtpSmsJob failed after all retries', [
+        $logger->error('SendOtpSmsJob failed after all retries', [
             'phone'     => $this->phone,
             'attempts'  => $this->attempts(),
             'exception' => $exception?->getMessage(),
