@@ -10,7 +10,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('rides', function (Blueprint $table) {
+        Schema::table('rides', static function (Blueprint $table) {
             $table->string('cancelled_by_type')->nullable();
             $table->ulid('cancelled_by_id')->nullable();
             $table->string('cancelled_reason')->nullable();
@@ -20,8 +20,8 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::table('rides', function (Blueprint $table) {
-            $table->dropColumn(['cancelled_by', 'cancelled_by_id', 'cancelled_reason', 'cancelled_at']);
+        Schema::table('rides', static function (Blueprint $table) {
+            $table->dropColumn(['cancelled_by_type', 'cancelled_by_id', 'cancelled_reason', 'cancelled_at']);
         });
     }
 };

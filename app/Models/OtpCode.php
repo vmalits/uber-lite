@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\MassPrunable;
@@ -16,6 +17,8 @@ use Illuminate\Support\Carbon;
  * @property string $code
  * @property Carbon $expires_at
  * @property bool $used
+ * @property CarbonInterface $created_at
+ * @property CarbonInterface $updated_at
  */
 class OtpCode extends Model
 {

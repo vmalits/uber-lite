@@ -6,12 +6,14 @@ namespace App\Models;
 
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
+use App\Enums\UserStatus;
 use App\Notifications\Auth\VerifyEmailNotification;
 use Carbon\CarbonInterface;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -27,6 +29,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property CarbonInterface|null $email_verified_at
  * @property CarbonInterface|null $last_login_at
  * @property ProfileStep|null $profile_step
+ * @property UserStatus $status
+ * @property CarbonInterface|null $banned_at
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  */
@@ -51,6 +55,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at',
         'last_login_at',
         'profile_step',
+        'status',
+        'banned_at',
         'password',
     ];
 
@@ -65,6 +71,8 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'profile_step'      => ProfileStep::class,
             'role'              => UserRole::class,
+            'banned_at'         => 'datetime',
+            'status'            => UserStatus::class,
             'password'          => 'hashed',
         ];
     }
@@ -85,5 +93,13 @@ class User extends Authenticatable implements MustVerifyEmail
             userId: $this->id,
             emailHash: sha1($this->getEmailForVerification()),
         ));
+    }
+
+    /**
+     * @return HasMany<DriverBan, $this>
+     */
+    public function bans(): HasMany
+    {
+        return $this->hasMany(related: DriverBan::class, foreignKey: 'driver_id');
     }
 }

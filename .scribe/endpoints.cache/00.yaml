@@ -462,7 +462,7 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 01ke2agzragzyycfdttcy7csc2
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -480,7 +480,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      user_id: 01ke2agzragzyycfdttcy7csc2
+      user_id: architecto
       hash: 922815DfBeA128EaEAaaA185508FE078BecEfbbe
     queryParameters: []
     cleanQueryParameters: []
