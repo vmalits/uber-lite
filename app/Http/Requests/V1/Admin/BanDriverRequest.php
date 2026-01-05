@@ -9,6 +9,7 @@ use App\Enums\BanSource;
 use App\Enums\DriverBanType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Carbon;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
 final class BanDriverRequest extends FormRequest
@@ -37,7 +38,7 @@ final class BanDriverRequest extends FormRequest
 
             'ban_source' => [
                 'required',
-                new Enum(BanSource::class),
+                Rule::in([BanSource::ADMIN->value]),
             ],
 
             'expires_at' => [
@@ -66,7 +67,7 @@ final class BanDriverRequest extends FormRequest
                 'required'    => true,
             ],
             'ban_source' => [
-                'description' => 'Ban source (admin|system|automated)',
+                'description' => 'Ban source (admin)',
                 'example'     => 'admin',
                 'type'        => 'string',
                 'required'    => true,
@@ -80,7 +81,7 @@ final class BanDriverRequest extends FormRequest
         ];
     }
 
-    public function toDto(): CreateBanData
+    public function toBanDriverData(): CreateBanData
     {
         $expiresAt = $this->date('expires_at');
 

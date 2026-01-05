@@ -131,14 +131,12 @@ endpoints:
       ban_source:
         custom: []
         name: ban_source
-        description: 'Ban source (admin|system|automated).'
+        description: 'Ban source (admin).'
         required: true
         example: admin
         type: string
         enumValues:
           - admin
-          - system
-          - automated
         exampleWasSpecified: false
         nullable: false
         deprecated: false
@@ -166,6 +164,18 @@ endpoints:
         content: null
         headers: []
         description: 'Driver banned successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Unauthorized – not an admin'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Driver not found'
       -
         custom: []
         status: 409

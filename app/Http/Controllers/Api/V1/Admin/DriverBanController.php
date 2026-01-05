@@ -23,6 +23,8 @@ use Throwable;
 #[Header('Authorization', 'Bearer <token>')]
 #[Response(status: 200, description: 'Driver banned successfully.')]
 #[Response(status: 409, description: 'Driver with id [%s] is already banned')]
+#[Response(status: 403, description: 'Unauthorized – not an admin')]
+#[Response(status: 404, description: 'Driver not found')]
 final class DriverBanController extends Controller
 {
     public function __construct(
@@ -35,18 +37,15 @@ final class DriverBanController extends Controller
     public function __invoke(User $driver, BanDriverRequest $request): JsonResponse
     {
         try {
-            $dto = $request->toDto();
-            $ban = $this->banDriver->handle($driver, $dto);
+            $dto = $request->toBanDriverData();
+            $updatedBan = $this->banDriver->handle($driver, $dto);
 
             return ApiResponse::success(
-                data: DriverBanData::fromModel($ban),
+                data: DriverBanData::fromModel($updatedBan),
                 message: 'Driver banned successfully.',
             );
         } catch (DriverAlreadyBannedException $e) {
-            return ApiResponse::error(
-                message: $e->getMessage(),
-                status: 409,
-            );
+            return ApiResponse::error(message: $e->getMessage(), status: 409);
         }
     }
 }

@@ -22,7 +22,8 @@ final readonly class BanDriver
 
     public function handle(User $driver, CreateBanData $data): DriverBan
     {
-        if ($this->getActiveBanQuery->execute($driver)) {
+        $ban = $this->getActiveBanQuery->execute($driver);
+        if ($ban !== null) {
             throw DriverAlreadyBannedException::forDriver($driver);
         }
 
@@ -45,7 +46,8 @@ final readonly class BanDriver
             'banned_at' => now(),
         ]);
 
-        /** @var DriverBan $ban */
+        $ban->refresh();
+
         return $ban;
     }
 }

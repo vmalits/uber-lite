@@ -525,6 +525,20 @@ response.json()</code></pre></div>
 <code class="language-json" style="max-height: 300px;"></code>
  </pre>
             <blockquote>
+            <p>Example response (403, Unauthorized – not an admin):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Driver not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
             <p>Example response (409, Driver with id [%s] is already banned):</p>
         </blockquote>
                 <pre>
@@ -665,9 +679,9 @@ Must be one of:
                value="admin"
                data-component="body">
     <br>
-<p>Ban source (admin|system|automated). Example: <code>admin</code></p>
+<p>Ban source (admin). Example: <code>admin</code></p>
 Must be one of:
-<ul style="list-style-type: square;"><li><code>admin</code></li> <li><code>system</code></li> <li><code>automated</code></li></ul>
+<ul style="list-style-type: square;"><li><code>admin</code></li></ul>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expires_at</code></b>&nbsp;&nbsp;
