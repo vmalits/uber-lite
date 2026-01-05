@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
+use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
 
 Route::prefix('admin')
@@ -12,4 +13,8 @@ Route::prefix('admin')
         Route::post('drivers/{driver}/ban', [DriverBanController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.ban');
+        Route::post('drivers/{driver}/unban', [DriverUnbanController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.drivers.unban');
+
     });
