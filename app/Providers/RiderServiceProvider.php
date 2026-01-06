@@ -8,6 +8,8 @@ use App\Queries\Rider\GetActiveRideQuery;
 use App\Queries\Rider\GetActiveRideQueryInterface;
 use App\Queries\Rider\GetRideHistoryQuery;
 use App\Queries\Rider\GetRideHistoryQueryInterface;
+use App\Queries\Rider\GetRideStatsQuery;
+use App\Queries\Rider\GetRideStatsQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 final class RiderServiceProvider extends ServiceProvider
@@ -20,5 +22,7 @@ final class RiderServiceProvider extends ServiceProvider
         GetActiveRideQuery::class           => GetActiveRideQuery::class,
         GetRideHistoryQueryInterface::class => GetRideHistoryQuery::class,
         GetRideHistoryQuery::class          => GetRideHistoryQuery::class,
+        GetRideStatsQueryInterface::class   => GetRideStatsQuery::class,
+        GetRideStatsQuery::class            => GetRideStatsQuery::class,
     ];
 }
