@@ -14,13 +14,15 @@ use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
+use Knuckles\Scribe\Attributes\ResponseFromFile;
 
 #[Group('Rider')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
-#[Response(status: 200, description: 'Ride details returned successfully.')]
-#[Response(status: 404, description: 'Ride not found.')]
-#[Response(status: 403, description: 'Forbidden. Profile step isn\'t completed.')]
+#[ResponseFromFile('docs/examples/get_ride.json', status: 200)]
+#[Response(status: 401, description: 'Unauthorized - Invalid or missing token')]
+#[Response(status: 403, description: 'Forbidden - User does not have rider role, profile incomplete')]
+#[Response(status: 404, description: 'Ride not found')]
 final class GetRideController extends Controller
 {
     public function __invoke(Request $request, Ride $ride): JsonResponse
