@@ -16,13 +16,15 @@ use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
+use Knuckles\Scribe\Attributes\ResponseFromFile;
 
 #[Group('Rider')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
-#[Response(status: 200, description: 'Active ride data returned.')]
-#[Response(status: 200, description: 'No active ride found.')]
-#[Response(status: 403, description: 'Forbidden. Profile step isn\'t completed.')]
+#[ResponseFromFile('docs/examples/get_active_ride.json', status: 200)]
+#[Response(status: 200, description: 'No active ride found - Returns null data with message')]
+#[Response(status: 401, description: 'Unauthorized - Invalid or missing token')]
+#[Response(status: 403, description: 'Forbidden - User does not have rider role or profile incomplete')]
 final class GetActiveRideController extends Controller
 {
     public function __construct(

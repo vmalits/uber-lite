@@ -155,19 +155,64 @@ endpoints:
         status: 200
         content: null
         headers: []
-        description: 'Active ride data returned.'
+        description: 'No active ride found - Returns null data with message'
       -
         custom: []
         status: 200
+        content: |-
+          {
+            "success": true,
+            "data": {
+              "id": "01HGXJ8Z0M1A2B3C4D5E6F7G8H",
+              "rider_id": "01HGXJ8Z0M1A2B3C4D5E6F7G8I",
+              "driver_id": "01HGXJ8Z0M1A2B3C4D5E6F7G8J",
+              "origin_address": "123 Main St, New York, NY",
+              "origin_lat": 40.7128,
+              "origin_lng": -74.0060,
+              "destination_address": "456 Broadway, New York, NY",
+              "destination_lat": 40.7589,
+              "destination_lng": -73.9851,
+              "status": "accepted",
+              "price": null,
+              "estimated_price": 25.50,
+              "estimated_distance_km": 5.2,
+              "estimated_duration_min": 15,
+              "price_per_km": 6.50,
+              "price_per_minute": 1.20,
+              "base_fee": 25.00,
+              "origin_point": null,
+              "destination_point": null,
+              "arrived_at": null,
+              "started_at": null,
+              "cancelled_at": null,
+              "cancelled_by_type": null,
+              "cancelled_by_id": null,
+              "cancelled_reason": null,
+              "completed_at": null,
+              "created_at": {
+                "human": "5 minutes ago",
+                "string": "2024-01-06 10:00:00"
+              },
+              "updated_at": {
+                "human": "2 minutes ago",
+                "string": "2024-01-06 10:03:00"
+              }
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
         content: null
         headers: []
-        description: 'No active ride found.'
+        description: 'Unauthorized - Invalid or missing token'
       -
         custom: []
         status: 403
         content: null
         headers: []
-        description: "Forbidden. Profile step isn't completed."
+        description: 'Forbidden - User does not have rider role or profile incomplete'
     responseFields: []
     auth: []
     controller: null

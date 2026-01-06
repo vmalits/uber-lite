@@ -4889,21 +4889,66 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-rider-rides-active">
             <blockquote>
-            <p>Example response (200, Active ride data returned.):</p>
+            <p>Example response (200, No active ride found - Returns null data with message):</p>
         </blockquote>
                 <pre>
 
 <code class="language-json" style="max-height: 300px;"></code>
  </pre>
             <blockquote>
-            <p>Example response (200, No active ride found.):</p>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;01HGXJ8Z0M1A2B3C4D5E6F7G8H&quot;,
+        &quot;rider_id&quot;: &quot;01HGXJ8Z0M1A2B3C4D5E6F7G8I&quot;,
+        &quot;driver_id&quot;: &quot;01HGXJ8Z0M1A2B3C4D5E6F7G8J&quot;,
+        &quot;origin_address&quot;: &quot;123 Main St, New York, NY&quot;,
+        &quot;origin_lat&quot;: 40.7128,
+        &quot;origin_lng&quot;: -74.006,
+        &quot;destination_address&quot;: &quot;456 Broadway, New York, NY&quot;,
+        &quot;destination_lat&quot;: 40.7589,
+        &quot;destination_lng&quot;: -73.9851,
+        &quot;status&quot;: &quot;accepted&quot;,
+        &quot;price&quot;: null,
+        &quot;estimated_price&quot;: 25.5,
+        &quot;estimated_distance_km&quot;: 5.2,
+        &quot;estimated_duration_min&quot;: 15,
+        &quot;price_per_km&quot;: 6.5,
+        &quot;price_per_minute&quot;: 1.2,
+        &quot;base_fee&quot;: 25,
+        &quot;origin_point&quot;: null,
+        &quot;destination_point&quot;: null,
+        &quot;arrived_at&quot;: null,
+        &quot;started_at&quot;: null,
+        &quot;cancelled_at&quot;: null,
+        &quot;cancelled_by_type&quot;: null,
+        &quot;cancelled_by_id&quot;: null,
+        &quot;cancelled_reason&quot;: null,
+        &quot;completed_at&quot;: null,
+        &quot;created_at&quot;: {
+            &quot;human&quot;: &quot;5 minutes ago&quot;,
+            &quot;string&quot;: &quot;2024-01-06 10:00:00&quot;
+        },
+        &quot;updated_at&quot;: {
+            &quot;human&quot;: &quot;2 minutes ago&quot;,
+            &quot;string&quot;: &quot;2024-01-06 10:03:00&quot;
+        }
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized - Invalid or missing token):</p>
         </blockquote>
                 <pre>
 
 <code class="language-json" style="max-height: 300px;"></code>
  </pre>
             <blockquote>
-            <p>Example response (403, Forbidden. Profile step isn&#039;t completed.):</p>
+            <p>Example response (403, Forbidden - User does not have rider role or profile incomplete):</p>
         </blockquote>
                 <pre>
 
