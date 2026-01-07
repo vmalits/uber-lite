@@ -20,6 +20,7 @@ final class GetRideHistoryQuery implements GetRideHistoryQueryInterface
     public function execute(User $user, int $perPage): LengthAwarePaginator
     {
         $baseQuery = Ride::query()
+            ->with('rating')
             ->where('rider_id', $user->id)
             ->whereIn('status', [
                 RideStatus::COMPLETED,

@@ -1,0 +1,51 @@
+{
+  "success": true,
+  "message": "Ride rated successfully.",
+  "data": {
+    "id": "01kec121njjgtg1beabpm1es47",
+    "rider_id": "01kec121nddb9qdz07jq096y0w",
+    "driver_id": null,
+    "origin_address": "123 Main St, City",
+    "origin_lat": 40.7128,
+    "origin_lng": -74.0060,
+    "destination_address": "456 Elm St, City",
+    "destination_lat": 40.7589,
+    "destination_lng": -73.9851,
+    "status": "completed",
+    "price": 25.00,
+    "estimated_price": 22.50,
+    "estimated_distance_km": 5.5,
+    "estimated_duration_min": 15,
+    "price_per_km": 4.00,
+    "price_per_minute": 0.50,
+    "base_fee": 5.00,
+    "origin_point": null,
+    "destination_point": null,
+    "arrived_at": null,
+    "started_at": null,
+    "cancelled_at": null,
+    "cancelled_by_type": null,
+    "cancelled_by_id": null,
+    "cancelled_reason": null,
+    "completed_at": {
+      "human": "1 hour ago",
+      "string": "2026-01-07 12:00:00"
+    },
+    "rating": {
+      "rating": 5,
+      "comment": "Great ride!",
+      "created_at": {
+        "human": "55 minutes ago",
+        "string": "2026-01-07 12:05:00"
+      }
+    },
+    "created_at": {
+      "human": "2 hours ago",
+      "string": "2026-01-07 11:45:00"
+    },
+    "updated_at": {
+      "human": "55 minutes ago",
+      "string": "2026-01-07 12:05:00"
+    }
+  }
+}

@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @property-read string $id
@@ -49,6 +50,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property CarbonInterface $updated_at
  * @property-read User $rider
  * @property-read User|null $driver
+ * @property-read RideRating|null $rating
  */
 #[ObservedBy([RideObserver::class])]
 #[UseEloquentBuilder(RideBuilder::class)]
@@ -124,5 +126,18 @@ class Ride extends Model
     public function driver(): BelongsTo
     {
         return $this->belongsTo(related: User::class, foreignKey: 'driver_id');
+    }
+
+    /**
+     * @return HasOne<RideRating, $this>
+     */
+    public function rating(): HasOne
+    {
+        return $this->hasOne(related: RideRating::class);
+    }
+
+    public function canUpdateRating(RideRating $rating): bool
+    {
+        return $rating->updated_at->diffInHours(now()) >= 24;
     }
 }

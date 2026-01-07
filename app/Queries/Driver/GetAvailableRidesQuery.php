@@ -14,6 +14,7 @@ class GetAvailableRidesQuery implements GetAvailableRidesQueryInterface
     public function execute(int $perPage): LengthAwarePaginator
     {
         $baseQuery = Ride::query()
+            ->with('rating')
             ->where('status', RideStatus::PENDING)
             ->whereNull('driver_id');
 

@@ -66,4 +66,9 @@ final class RidePolicy
     {
         return $user->id === $ride->driver_id;
     }
+
+    public function rate(User $user, Ride $ride): bool
+    {
+        return $user->id === $ride->rider_id && $ride->status === RideStatus::COMPLETED;
+    }
 }

@@ -281,14 +281,14 @@ endpoints:
         name: id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01kec9rgj8pjv93vyeg072z148
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01kec9rgj8pjv93vyeg072z148
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -388,7 +388,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01kec9rgj8pjv93vyeg072z148
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -406,7 +406,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01kec9rgj8pjv93vyeg072z148
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -432,6 +432,161 @@ endpoints:
         content: null
         headers: []
         description: 'Ride cannot be cancelled in its current status.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/rider/rides/{ride_id}/rating'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: 01kec9rgj8pjv93vyeg072z148
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      ride:
+        custom: []
+        name: ride
+        description: 'ULID of the ride.'
+        required: true
+        example: 01jk9v6v9v6v9v6v9v6v9v6v9v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: 01kec9rgj8pjv93vyeg072z148
+      ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      rating:
+        custom: []
+        name: rating
+        description: 'Rating from 1 to 5. Must be at least 1. Must not be greater than 5.'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      comment:
+        custom: []
+        name: comment
+        description: 'Optional comment. Must not be greater than 1000 characters.'
+        required: false
+        example: 'Great ride!'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      rating: 5
+      comment: 'Great ride!'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Ride rated successfully.",
+            "data": {
+              "id": "01kec121njjgtg1beabpm1es47",
+              "rider_id": "01kec121nddb9qdz07jq096y0w",
+              "driver_id": null,
+              "origin_address": "123 Main St, City",
+              "origin_lat": 40.7128,
+              "origin_lng": -74.0060,
+              "destination_address": "456 Elm St, City",
+              "destination_lat": 40.7589,
+              "destination_lng": -73.9851,
+              "status": "completed",
+              "price": 25.00,
+              "estimated_price": 22.50,
+              "estimated_distance_km": 5.5,
+              "estimated_duration_min": 15,
+              "price_per_km": 4.00,
+              "price_per_minute": 0.50,
+              "base_fee": 5.00,
+              "origin_point": null,
+              "destination_point": null,
+              "arrived_at": null,
+              "started_at": null,
+              "cancelled_at": null,
+              "cancelled_by_type": null,
+              "cancelled_by_id": null,
+              "cancelled_reason": null,
+              "completed_at": {
+                "human": "1 hour ago",
+                "string": "2026-01-07 12:00:00"
+              },
+              "rating": {
+                "rating": 5,
+                "comment": "Great ride!",
+                "created_at": {
+                  "human": "55 minutes ago",
+                  "string": "2026-01-07 12:05:00"
+                }
+              },
+              "created_at": {
+                "human": "2 hours ago",
+                "string": "2026-01-07 11:45:00"
+              },
+              "updated_at": {
+                "human": "55 minutes ago",
+                "string": "2026-01-07 12:05:00"
+              }
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - You can only rate your own completed rides.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation failed or rating update restricted (e.g., within 24 hours).'
     responseFields: []
     auth: []
     controller: null

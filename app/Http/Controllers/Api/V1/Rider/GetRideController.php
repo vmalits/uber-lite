@@ -29,6 +29,8 @@ final class GetRideController extends Controller
     {
         $this->authorize('view', $ride);
 
+        $ride->load('rating');
+
         return ApiResponse::success(
             data: RideData::fromModel($ride),
         );
