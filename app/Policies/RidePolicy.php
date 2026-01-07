@@ -30,45 +30,48 @@ final class RidePolicy
     {
         return $user->isDriver()
             && $ride->status === RideStatus::PENDING
-            && $ride->driver_id === null;
+            && $ride->driver()->doesntExist();
     }
 
     public function view(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->rider_id;
+        return $ride->rider()->is($user)
+            || $ride->driver()->is($user);
     }
 
     public function cancel(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->rider_id
-            || $user->id === $ride->driver_id;
+        return $ride->rider()->is($user)
+            || $ride->driver()->is($user);
     }
 
     public function onTheWay(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->driver_id
+        return $ride->driver()->is($user)
             && $ride->status === RideStatus::ACCEPTED;
     }
 
     public function arrived(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->driver_id
+        return $ride->driver()->is($user)
             && $ride->status === RideStatus::ON_THE_WAY;
     }
 
     public function start(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->driver_id
+        return $ride->driver()->is($user)
             && $ride->status === RideStatus::ARRIVED;
     }
 
     public function complete(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->driver_id;
+        return $ride->driver()->is($user)
+            && $ride->status === RideStatus::STARTED;
     }
 
     public function rate(User $user, Ride $ride): bool
     {
-        return $user->id === $ride->rider_id && $ride->status === RideStatus::COMPLETED;
+        return $ride->rider()->is($user)
+            && $ride->status === RideStatus::COMPLETED;
     }
 }

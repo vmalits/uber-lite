@@ -87,7 +87,7 @@ test('driver cannot complete a ride that is not started', function (): void {
 
     $response = $this->postJson("/api/v1/driver/rides/{$ride->id}/complete");
 
-    $response->assertNotFound();
+    $response->assertForbidden();
 });
 
 test('driver with incomplete profile cannot complete ride', function (): void {
