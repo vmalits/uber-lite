@@ -204,7 +204,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 7, 2026</li>
+        <li>Last updated: January 8, 2026</li>
     </ul>
 </div>
 
@@ -1986,7 +1986,7 @@ response.json()</code></pre></div>
 <code class="language-json" style="max-height: 300px;"></code>
  </pre>
             <blockquote>
-            <p>Example response (422, Validation errors.):</p>
+            <p>Example response (422, Validation errors or email not verified.):</p>
         </blockquote>
                 <pre>
 

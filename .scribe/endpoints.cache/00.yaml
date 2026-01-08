@@ -350,7 +350,7 @@ endpoints:
         status: 422
         content: null
         headers: []
-        description: 'Validation errors.'
+        description: 'Validation errors or email not verified.'
     responseFields: []
     auth: []
     controller: null

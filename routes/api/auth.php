@@ -36,7 +36,7 @@ Route::prefix('auth')->group(function (): void {
         ->name('api.v1.auth.select-role');
 
     Route::post('complete-profile', [CompleteProfileController::class, '__invoke'])
-        ->middleware(['auth:sanctum', 'verified'])
+        ->middleware('auth:sanctum')
         ->name('api.v1.auth.complete-profile');
 
     Route::post('logout', [LogoutController::class, '__invoke'])

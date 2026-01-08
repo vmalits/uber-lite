@@ -3,10 +3,14 @@
 declare(strict_types=1);
 
 use App\Enums\ProfileStep;
+use App\Events\Auth\ProfileCompleted;
 use App\Models\User;
+use Illuminate\Support\Facades\Event;
 use Laravel\Sanctum\Sanctum;
 
 it('completes profile for a user with verified email', function (): void {
+    Event::fake();
+
     /** @var User $user */
     $user = User::factory()->create([
         'phone'             => '+37360000111',
@@ -45,9 +49,15 @@ it('completes profile for a user with verified email', function (): void {
     expect($user->first_name)->toBe('John')
         ->and($user->last_name)->toBe('Doe')
         ->and($user->profile_step)->toBe(ProfileStep::COMPLETED);
+
+    Event::assertDispatched(ProfileCompleted::class, static function (ProfileCompleted $event) use ($user) {
+        return $event->userId === $user->id
+            && $event->firstName === 'John'
+            && $event->lastName === 'Doe';
+    });
 });
 
-it('returns 403 when email is not verified', function (): void {
+it('returns 422 when email is not verified', function (): void {
     /** @var User $user */
     $user = User::factory()->create([
         'phone'             => '+37360000112',
@@ -63,10 +73,17 @@ it('returns 403 when email is not verified', function (): void {
         'last_name'  => 'Doe',
     ]);
 
-    $response->assertForbidden();
+    $response->assertUnprocessable()
+        ->assertJson([
+            'success' => false,
+            'message' => 'The given data was invalid.',
+            'errors'  => [
+                'email' => ['Profile email is not verified.'],
+            ],
+        ]);
 });
 
-it('returns 403 when email is not verified (no phone field in payload)', function (): void {
+it('returns 422 when email is not verified (no phone field in payload)', function (): void {
     /** @var User $user */
     $user = User::factory()->create([
         'phone'             => '+37360000114',
@@ -82,7 +99,14 @@ it('returns 403 when email is not verified (no phone field in payload)', functio
         'last_name'  => 'User',
     ]);
 
-    $response->assertForbidden();
+    $response->assertUnprocessable()
+        ->assertJson([
+            'success' => false,
+            'message' => 'The given data was invalid.',
+            'errors'  => [
+                'email' => ['Profile email is not verified.'],
+            ],
+        ]);
 });
 
 it('validates required fields', function (): void {
