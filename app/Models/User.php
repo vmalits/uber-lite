@@ -87,6 +87,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->role === UserRole::RIDER;
     }
 
+    public function isPhoneVerified(): bool
+    {
+        return $this->phone_verified_at !== null || $this->profile_step === ProfileStep::PHONE_VERIFIED;
+    }
+
+    public function isProfileCompleted(): bool
+    {
+        return $this->profile_step === ProfileStep::COMPLETED;
+    }
+
     public function sendEmailVerificationNotification(): void
     {
         $this->notify(new VerifyEmailNotification(

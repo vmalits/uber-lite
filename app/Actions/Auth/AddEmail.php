@@ -23,14 +23,12 @@ final readonly class AddEmail
         return $this->databaseManager->transaction(
             callback: function () use ($user, $email): bool {
 
-                $step = $user->profile_step?->value;
-                $phoneVerified = $user->phone_verified_at !== null || $step === ProfileStep::PHONE_VERIFIED->value;
-                if (! $phoneVerified) {
+                if (! $user->isPhoneVerified()) {
                     return false;
                 }
 
                 $user->email = $email;
-                if ($step !== ProfileStep::COMPLETED->value) {
+                if (! $user->isProfileCompleted()) {
                     $user->profile_step = ProfileStep::EMAIL_ADDED;
                 }
 
