@@ -4,11 +4,12 @@ rpc:
 
 server:
   command: 'php vendor/bin/rr-worker start'
+  relay: pipes
 
 http:
   address: 0.0.0.0:8080
   access_logs: true
-  middleware: [ "static", "headers", "gzip" ]
+  middleware: [ 'static', 'headers', 'gzip' ]
   pool:
     num_workers: 4
     allocate_timeout: 60s
@@ -30,11 +31,14 @@ http:
 jobs:
   pool:
     num_workers: 4
+
   pipelines:
     default:
-      driver: memory
-      config: { }
+      driver: redis
+      config:
+        addrs:
+          - redis:6379
+        queue: default
 
 logs:
-  mode: development
   level: debug

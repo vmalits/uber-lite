@@ -1,4 +1,35 @@
 services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: uber-lite-app
+    ports:
+      - "8080:8080"
+    environment:
+      - APP_ENV=local
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=uber
+      - DB_USERNAME=uber
+      - DB_PASSWORD=password
+      - REDIS_CLIENT=predis
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - .:/var/www
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
   postgres:
     image: postgis/postgis:17-3.5
     platform: linux/amd64
