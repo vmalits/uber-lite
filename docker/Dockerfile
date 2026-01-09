@@ -2,25 +2,24 @@ FROM php:8.4-cli-alpine
 
 # System deps
 RUN apk add --no-cache \
+    # Core build deps
     postgresql-dev \
     libzip-dev \
-    zip \
-    unzip \
-    git \
-    curl \
-    supervisor \
-    autoconf \
-    g++ \
-    make \
-    linux-headers
+    zip unzip git curl supervisor \
+    autoconf g++ make linux-headers \
+    # FULL GD + image format runtime libs (CRITICAL for tests)
+    gd-dev \
+    libjpeg-turbo-dev \
+    libpng-dev \
+    freetype-dev \
+    zlib-dev \
+    libwebp-dev \
+    # Redis stack deps
+    libgcc
 
 # Core PHP extensions
-RUN docker-php-ext-install \
-    pdo \
-    pdo_pgsql \
-    zip \
-    bcmath \
-    sockets
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg  \
+ && docker-php-ext-install -j$(nproc) pdo pdo_pgsql zip bcmath sockets gd
 
 # Redis stack
 RUN pecl install redis igbinary msgpack \

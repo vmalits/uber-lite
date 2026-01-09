@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
+use App\Http\Controllers\Api\V1\Rider\UploadAvatarController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('rider')
@@ -39,4 +40,7 @@ Route::prefix('rider')
 
         Route::get('stats', [GetRideStatsController::class, '__invoke'])
             ->name('api.v1.rider.stats');
+
+        Route::post('avatar', [UploadAvatarController::class, '__invoke'])
+            ->name('api.v1.rider.avatar');
     });
