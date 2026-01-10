@@ -128,7 +128,10 @@
                     <a href="#driver">Driver</a>
                 </li>
                                     <ul id="tocify-subheader-driver" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-active">
+                                                    <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-profile">
+                                <a href="#driver-GETapi-v1-driver-profile">GET api/v1/driver/profile</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-active">
                                 <a href="#driver-GETapi-v1-driver-rides-active">GET api/v1/driver/rides/active</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-available">
@@ -155,6 +158,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-location">
                                 <a href="#driver-POSTapi-v1-driver-location">POST api/v1/driver/location</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-avatar">
+                                <a href="#driver-POSTapi-v1-driver-avatar">POST api/v1/driver/avatar</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-rider" class="tocify-header">
@@ -162,7 +168,10 @@
                     <a href="#rider">Rider</a>
                 </li>
                                     <ul id="tocify-subheader-rider" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides">
+                                                    <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-profile">
+                                <a href="#rider-GETapi-v1-rider-profile">GET api/v1/rider/profile</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides">
                                 <a href="#rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides-active">
@@ -182,6 +191,9 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-stats">
                                 <a href="#rider-GETapi-v1-rider-stats">GET api/v1/rider/stats</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-avatar">
+                                <a href="#rider-POSTapi-v1-rider-avatar">POST api/v1/rider/avatar</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -204,7 +216,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 8, 2026</li>
+        <li>Last updated: January 10, 2026</li>
     </ul>
 </div>
 
@@ -2785,7 +2797,185 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="driver-GETapi-v1-driver-rides-active">GET api/v1/driver/rides/active</h2>
+                                <h2 id="driver-GETapi-v1-driver-profile">GET api/v1/driver/profile</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-driver-profile">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/driver/profile" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/profile"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/profile';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/profile'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-driver-profile">
+            <blockquote>
+            <p>Example response (200, Driver profile retrieved successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-driver-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-driver-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-driver-profile"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-driver-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-driver-profile">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-driver-profile" data-method="GET"
+      data-path="api/v1/driver/profile"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-driver-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-driver-profile"
+                    onclick="tryItOut('GETapi-v1-driver-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-driver-profile"
+                    onclick="cancelTryOut('GETapi-v1-driver-profile');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-driver-profile"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/driver/profile</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-driver-profile"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-driver-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-driver-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="driver-GETapi-v1-driver-rides-active">GET api/v1/driver/rides/active</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -4530,11 +4720,379 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
+                    <h2 id="driver-POSTapi-v1-driver-avatar">POST api/v1/driver/avatar</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-driver-avatar">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/driver/avatar" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "avatar=@/tmp/phpb7ik44e805km9pLPoNP" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/avatar"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('avatar', document.querySelector('input[name="avatar"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/avatar';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'multipart/form-data',
+            'Accept' =&gt; 'application/json',
+        ],
+        'multipart' =&gt; [
+            [
+                'name' =&gt; 'avatar',
+                'contents' =&gt; fopen('/tmp/phpb7ik44e805km9pLPoNP', 'r')
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/avatar'
+files = {
+  'avatar': open('/tmp/phpb7ik44e805km9pLPoNP', 'rb')}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'multipart/form-data',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, files=files)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-driver-avatar">
+            <blockquote>
+            <p>Example response (200, Avatar uploaded successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-driver-avatar" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-driver-avatar"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-driver-avatar"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-driver-avatar" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-driver-avatar">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-driver-avatar" data-method="POST"
+      data-path="api/v1/driver/avatar"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-driver-avatar', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-driver-avatar"
+                    onclick="tryItOut('POSTapi-v1-driver-avatar');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-driver-avatar"
+                    onclick="cancelTryOut('POSTapi-v1-driver-avatar');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-driver-avatar"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/driver/avatar</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-driver-avatar"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-driver-avatar"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-driver-avatar"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="avatar"                data-endpoint="POSTapi-v1-driver-avatar"
+               value=""
+               data-component="body">
+    <br>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpb7ik44e805km9pLPoNP</code></p>
+        </div>
+        </form>
+
                 <h1 id="rider">Rider</h1>
 
     
 
-                                <h2 id="rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</h2>
+                                <h2 id="rider-GETapi-v1-rider-profile">GET api/v1/rider/profile</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-rider-profile">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/rider/profile" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/profile"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/profile';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/profile'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-rider-profile">
+            <blockquote>
+            <p>Example response (200, Rider profile retrieved successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-rider-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-rider-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-rider-profile"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-rider-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-rider-profile">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-rider-profile" data-method="GET"
+      data-path="api/v1/rider/profile"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-rider-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-rider-profile"
+                    onclick="tryItOut('GETapi-v1-rider-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-rider-profile"
+                    onclick="cancelTryOut('GETapi-v1-rider-profile');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-rider-profile"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/rider/profile</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-rider-profile"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-rider-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-rider-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6137,6 +6695,196 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                    <h2 id="rider-POSTapi-v1-rider-avatar">POST api/v1/rider/avatar</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-rider-avatar">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/rider/avatar" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "avatar=@/tmp/php3qf5abftmd0k7EcbFkO" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/avatar"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('avatar', document.querySelector('input[name="avatar"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/avatar';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'multipart/form-data',
+            'Accept' =&gt; 'application/json',
+        ],
+        'multipart' =&gt; [
+            [
+                'name' =&gt; 'avatar',
+                'contents' =&gt; fopen('/tmp/php3qf5abftmd0k7EcbFkO', 'r')
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/avatar'
+files = {
+  'avatar': open('/tmp/php3qf5abftmd0k7EcbFkO', 'rb')}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'multipart/form-data',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, files=files)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-rider-avatar">
+            <blockquote>
+            <p>Example response (200, Avatar uploaded successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-rider-avatar" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-rider-avatar"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-rider-avatar"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-rider-avatar" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-rider-avatar">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-rider-avatar" data-method="POST"
+      data-path="api/v1/rider/avatar"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-rider-avatar', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-rider-avatar"
+                    onclick="tryItOut('POSTapi-v1-rider-avatar');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-rider-avatar"
+                    onclick="cancelTryOut('POSTapi-v1-rider-avatar');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-rider-avatar"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/rider/avatar</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-rider-avatar"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-rider-avatar"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-rider-avatar"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="avatar"                data-endpoint="POSTapi-v1-rider-avatar"
+               value=""
+               data-component="body">
+    <br>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php3qf5abftmd0k7EcbFkO</code></p>
+        </div>
+        </form>
 
                 <h1 id="ws">WS</h1>
 

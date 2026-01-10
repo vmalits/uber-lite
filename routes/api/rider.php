@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
+use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
 use App\Http\Controllers\Api\V1\Rider\UploadAvatarController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,9 @@ Route::prefix('rider')
         'profile_step:completed',
     ])
     ->group(function (): void {
+        Route::get('profile', [ProfileController::class, '__invoke'])
+            ->name('api.v1.rider.profile');
+
         Route::post('rides', [CreateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides');
 

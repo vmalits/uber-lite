@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\OnTheWayController;
+use App\Http\Controllers\Api\V1\Driver\ProfileController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
 use App\Http\Controllers\Api\V1\Driver\UpdateLocationController;
 use App\Http\Controllers\Api\V1\Driver\UploadAvatarController;
@@ -22,6 +23,8 @@ Route::prefix('driver')
         'profile_step:completed',
     ])
     ->group(function (): void {
+        Route::get('profile', [ProfileController::class, '__invoke'])
+            ->name('api.v1.driver.profile');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.active');
         Route::get('rides/available', [GetAvailableRidesController::class, '__invoke'])

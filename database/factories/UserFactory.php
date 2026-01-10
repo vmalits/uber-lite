@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\UserStatus;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -34,6 +35,7 @@ class UserFactory extends Factory
             'last_login_at'     => null,
             'role'              => null,
             'profile_step'      => null,
+            'status'            => UserStatus::ACTIVE,
         ];
     }
 

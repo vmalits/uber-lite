@@ -37,8 +37,8 @@ final class UploadAvatarRequest extends FormRequest
         return [
             'avatar' => [
                 'description' => 'Avatar image (jpg, png, webp, max 2MB)',
-                'example'     => 'avatar.jpg',
                 'type'        => 'file',
+                'file_type'   => 'image',
                 'required'    => true,
             ],
         ];
