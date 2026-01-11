@@ -29,16 +29,13 @@ http:
     forbid: [ ".php" ]
 
 jobs:
-  pool:
-    num_workers: 4
-
+  consume: [ "default" ]
   pipelines:
     default:
-      driver: redis
+      driver: memory
       config:
-        addrs:
-          - redis:6379
-        queue: default
+        priority: 10
+        prefetch: 10
 
 logs:
   level: debug

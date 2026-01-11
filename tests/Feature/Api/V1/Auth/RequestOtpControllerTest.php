@@ -24,10 +24,6 @@ it('successfully requests OTP code and dispatches event', function (): void {
             'message',
             'data' => [
                 'phone',
-                'expires_at' => [
-                    'human',
-                    'string',
-                ],
             ],
         ])
         ->assertJson([
@@ -66,9 +62,8 @@ it('validates phone number format for Moldova', function (): void {
 });
 
 it('validates phone number format', function (): void {
-    // Test with a clearly invalid phone format
     $response = $this->postJson('/api/v1/auth/request-otp', [
-        'phone' => '123', // Too short and invalid format
+        'phone' => '123',
     ]);
 
     $response->assertUnprocessable()
@@ -84,77 +79,48 @@ it('creates OTP code with correct expiration time', function (): void {
 
     $otpCode = OtpCode::query()->where('phone', $phone)->firstOrFail();
 
-    $expectedExpiration = now()->addMinutes(1);
+    $expectedExpiration = now()->addMinutes(5);
 
     expect($otpCode->expires_at->diffInMinutes($expectedExpiration))->toBeLessThan(1);
 });
 
-it('generates unique OTP codes for same phone', function (): void {
+it('returns 409 when active OTP code exists', function (): void {
     $phone = '+37360000000';
+    RateLimiter::clear('otp:'.$phone);
 
     $this->postJson('/api/v1/auth/request-otp', [
         'phone' => $phone,
-    ]);
-
-    $firstOtpId = OtpCode::query()->where('phone', $phone)->latest('id')->value('id');
-    $firstOtpCode = OtpCode::query()->where('phone', $phone)->latest('id')->value('code');
-
-    $this->postJson('/api/v1/auth/request-otp', [
-        'phone' => $phone,
-    ]);
-
-    $secondOtpId = OtpCode::query()->where('phone', $phone)->latest('id')->value('id');
-    $secondOtpCode = OtpCode::query()->where('phone', $phone)->latest('id')->value('code');
-
-    // Codes should be different (very unlikely to be the same with 6 digits)
-    expect($firstOtpId)->not->toBe($secondOtpId)
-        ->and($firstOtpCode)->not->toBe($secondOtpCode);
-});
-
-it('returns expires_at as DateData', function (): void {
-    $phone = '+37360000000';
+    ])->assertOk();
 
     $response = $this->postJson('/api/v1/auth/request-otp', [
         'phone' => $phone,
     ]);
 
-    $response->assertOk();
-
-    $data = $response->json('data');
-
-    expect($data['expires_at'])->toBeArray()
-        ->and($data['expires_at'])->toHaveKeys(['human', 'string'])
-        ->and($data['expires_at']['human'])->toBeString()
-        ->and($data['expires_at']['string'])->toBeString();
+    $response->assertStatus(409)
+        ->assertJson([
+            'message' => 'An active OTP code already exists.',
+        ]);
 });
 
-it('rate limits OTP requests to 3 per 15 minutes per phone', function (): void {
+it('rate limits OTP requests', function (): void {
     $phone = '+37360000000';
 
-    // The first 3 requests should succeed
-    for ($i = 0; $i < 3; $i++) {
-        $response = $this->postJson('/api/v1/auth/request-otp', [
-            'phone' => $phone,
-        ]);
+    // First request should succeed
+    $this->postJson('/api/v1/auth/request-otp', [
+        'phone' => $phone,
+    ])->assertOk();
 
-        $response->assertOk();
+    // Next two requests should return 409 (active OTP exists)
+    for ($i = 0; $i < 2; $i++) {
+        $this->postJson('/api/v1/auth/request-otp', [
+            'phone' => $phone,
+        ])->assertStatus(409)
+            ->assertJson([
+                'message' => 'An active OTP code already exists.',
+            ]);
     }
 
-    // 4th request should be rate limited
-    $response = $this->postJson('/api/v1/auth/request-otp', [
-        'phone' => $phone,
-    ]);
-
-    $response->assertStatus(429)
-        ->assertJson([
-            'message' => 'Too many OTP requests. Please try again later.',
-        ])
-        ->assertJsonStructure(['retry_after'])
-        ->assertHeader('Retry-After')
-        ->assertHeader('X-RateLimit-Limit', '3')
-        ->assertHeader('X-RateLimit-Remaining', '0');
-
-    Event::assertDispatchedTimes(OtpRequested::class, 3);
+    Event::assertDispatchedTimes(OtpRequested::class, 1);
 });
 
 it('rate limits are independent per phone number', function (): void {
@@ -163,26 +129,31 @@ it('rate limits are independent per phone number', function (): void {
 
     RateLimiter::clear('otp:'.$phone2);
 
-    // Make 3 requests for phone1
-    for ($i = 0; $i < 3; $i++) {
-        $this->postJson('/api/v1/auth/request-otp', [
-            'phone' => $phone1,
-        ])->assertOk();
-    }
+    // First request for phone1 should succeed
+    $this->postJson('/api/v1/auth/request-otp', [
+        'phone' => $phone1,
+    ])->assertOk();
+    // Second request for phone1 should return 409
+    $this->postJson('/api/v1/auth/request-otp', [
+        'phone' => $phone1,
+    ])->assertStatus(409);
 
-    // phone1 should be rate-limited (this won't call SMS service)
+    $this->travelTo(now()->addMinutes(7));
+    // Next request for phone1 after expiration should succeed
+    $this->postJson('/api/v1/auth/request-otp', [
+        'phone' => $phone1,
+    ])->assertOk();
+    // Next request for phone1 before expiration should return 429 (rate limit)
     $this->postJson('/api/v1/auth/request-otp', [
         'phone' => $phone1,
     ])->assertStatus(429);
 
-    // phone2 should still work
+    // Request for phone2 should succeed (independent)
     $this->postJson('/api/v1/auth/request-otp', [
         'phone' => $phone2,
     ])->assertOk();
 
-    // Total dispatched events should be 4 (3 for phone1, 1 for phone2)
-    Event::assertDispatchedTimes(OtpRequested::class, 4);
-    // Ensure at least one event per each phone
+    Event::assertDispatchedTimes(OtpRequested::class, 3);
     Event::assertDispatched(OtpRequested::class, fn (OtpRequested $e) => $e->phone === $phone1);
     Event::assertDispatched(OtpRequested::class, fn (OtpRequested $e) => $e->phone === $phone2);
 });

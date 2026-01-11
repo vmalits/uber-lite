@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 use App\Actions\Auth\CreateOtpCode;
 use App\Data\Auth\OtpCodeResponse;
 use App\Events\Auth\OtpResent;
+use App\Exceptions\Auth\ActiveOtpCodeAlreadyExistsException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\OtpCodeRequest;
 use App\Services\OtpService;
@@ -15,6 +16,7 @@ use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Response;
+use Psr\Log\LoggerInterface;
 use Random\RandomException;
 use Throwable;
 
@@ -27,6 +29,7 @@ class ResendOtpController extends Controller
         private readonly OtpService $otpService,
         private readonly CreateOtpCode $createOtpCode,
         private readonly EventsDispatcher $events,
+        private readonly LoggerInterface $logger,
     ) {}
 
     /**
@@ -37,13 +40,23 @@ class ResendOtpController extends Controller
     {
         $dto = $request->toDto();
 
-        $generatedCode = $this->otpService->generateOtpCode();
-        $otpCode = $this->createOtpCode->handle($dto->phone, $generatedCode);
+        $this->logger->info('OTP resend request received', ['phone' => $dto->phone]);
 
-        $this->events->dispatch(new OtpResent(phone: $dto->phone, otpCode: $generatedCode));
+        try {
+            $generatedCode = $this->otpService->generateOtpCode();
+            $otpCode = $this->createOtpCode->handle($dto->phone, $generatedCode);
 
-        return ApiResponse::success(
-            data: OtpCodeResponse::fromModel($otpCode),
-            message: 'OTP has been resent successfully.');
+            $this->logger->info('OTP code created for resend', ['phone' => $dto->phone, 'otp_id' => $otpCode->id]);
+
+            $this->events->dispatch(new OtpResent(phone: $dto->phone, otpCode: $generatedCode));
+
+            return ApiResponse::success(
+                data: OtpCodeResponse::fromModel($otpCode),
+                message: 'OTP has been resent successfully.');
+        } catch (ActiveOtpCodeAlreadyExistsException $e) {
+            $this->logger->warning('OTP resend failed - active code already exists', ['phone' => $dto->phone]);
+
+            return ApiResponse::error($e->getMessage(), 409);
+        }
     }
 }

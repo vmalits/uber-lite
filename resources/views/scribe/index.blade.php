@@ -216,7 +216,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 10, 2026</li>
+        <li>Last updated: January 11, 2026</li>
     </ul>
 </div>
 
@@ -1034,6 +1034,13 @@ response.json()</code></pre></div>
 <code class="language-json" style="max-height: 300px;"></code>
  </pre>
             <blockquote>
+            <p>Example response (409, An active OTP code already exists. Please use the resend endpoint.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
             <p>Example response (429, Too many OTP requests. Please try again later.):</p>
         </blockquote>
                 <pre>
@@ -1403,6 +1410,13 @@ response.json()</code></pre></div>
  </pre>
             <blockquote>
             <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (429, Too many failed attempts. Account temporarily locked.):</p>
         </blockquote>
                 <pre>
 
@@ -4738,7 +4752,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpb7ik44e805km9pLPoNP" </code></pre></div>
+    --form "avatar=@/tmp/phpl15vjeurd6488BNcGkD" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4776,7 +4790,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpb7ik44e805km9pLPoNP', 'r')
+                'contents' =&gt; fopen('/tmp/phpl15vjeurd6488BNcGkD', 'r')
             ],
         ],
     ]
@@ -4791,7 +4805,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpb7ik44e805km9pLPoNP', 'rb')}
+  'avatar': open('/tmp/phpl15vjeurd6488BNcGkD', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -4906,7 +4920,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpb7ik44e805km9pLPoNP</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpl15vjeurd6488BNcGkD</code></p>
         </div>
         </form>
 
@@ -6714,7 +6728,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php3qf5abftmd0k7EcbFkO" </code></pre></div>
+    --form "avatar=@/tmp/phps6senfmup2v0eBiOcJD" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6752,7 +6766,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php3qf5abftmd0k7EcbFkO', 'r')
+                'contents' =&gt; fopen('/tmp/phps6senfmup2v0eBiOcJD', 'r')
             ],
         ],
     ]
@@ -6767,7 +6781,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/php3qf5abftmd0k7EcbFkO', 'rb')}
+  'avatar': open('/tmp/phps6senfmup2v0eBiOcJD', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -6882,7 +6896,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php3qf5abftmd0k7EcbFkO</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phps6senfmup2v0eBiOcJD</code></p>
         </div>
         </form>
 

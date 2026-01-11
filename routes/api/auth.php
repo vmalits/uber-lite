@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\V1\Auth\SelectRoleController;
 use App\Http\Controllers\Api\V1\Auth\VerifyEmailController;
 use App\Http\Controllers\Api\V1\Auth\VerifyOtpController;
 use App\Http\Middleware\ThrottleOtpRequests;
+use App\Http\Middleware\ThrottleOtpVerifyAttempts;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth')->group(function (): void {
@@ -25,6 +26,7 @@ Route::prefix('auth')->group(function (): void {
         ->name('api.v1.auth.request-otp.resend');
 
     Route::post('verify-otp', [VerifyOtpController::class, '__invoke'])
+        ->middleware(ThrottleOtpVerifyAttempts::class)
         ->name('api.v1.auth.verify-otp');
 
     Route::post('add-email', [AddEmailController::class, '__invoke'])

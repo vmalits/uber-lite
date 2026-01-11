@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Actions\Auth\ResolveNextAction;
+use App\Actions\Auth\TrackOtpVerificationAttempt;
 use App\Actions\Auth\VerifyOtpCode;
 use App\Data\Auth\VerifyOtpResponse;
 use App\Enums\ProfileStep;
@@ -18,23 +19,38 @@ use Knuckles\Scribe\Attributes\Response;
 #[Group('Auth')]
 #[Response(status: 200, description: 'OTP verified successfully.')]
 #[Response(status: 422, description: 'Validation errors.')]
+#[Response(status: 429, description: 'Too many failed attempts. Account temporarily locked.')]
 class VerifyOtpController extends Controller
 {
     public function __construct(
         private readonly VerifyOtpCode $verifyOtpCode,
         private readonly ResolveNextAction $resolveNextAction,
+        private readonly TrackOtpVerificationAttempt $trackOtpVerificationAttempt,
     ) {}
 
     public function __invoke(VerifyOtpRequest $request): JsonResponse
     {
         $dto = $request->toDto();
 
+        if ($this->trackOtpVerificationAttempt->isBlocked($dto->phone)) {
+            $seconds = $this->trackOtpVerificationAttempt->getBlockRemainingSeconds($dto->phone);
+
+            return ApiResponse::tooManyRequests(
+                'Too many failed attempts. Please try again later.',
+                $seconds,
+            );
+        }
+
         $user = $this->verifyOtpCode->handle($dto->phone, $dto->code);
         if ($user === null) {
+            $this->trackOtpVerificationAttempt->trackFailedAttempt($dto->phone);
+
             return ApiResponse::validationError([
                 'code' => ['Invalid or expired code.'],
             ]);
         }
+
+        $this->trackOtpVerificationAttempt->resetFailedAttempts($dto->phone);
 
         $token = $user->createToken('auth')->plainTextToken;
         $nextAction = $this->resolveNextAction->handle($user)->value;

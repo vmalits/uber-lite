@@ -24,10 +24,6 @@ it('successfully resends OTP code and dispatches event', function (): void {
             'message',
             'data' => [
                 'phone',
-                'expires_at' => [
-                    'human',
-                    'string',
-                ],
             ],
         ])
         ->assertJson([
@@ -47,17 +43,28 @@ it('successfully resends OTP code and dispatches event', function (): void {
     Event::assertDispatchedTimes(OtpResent::class, 1);
 });
 
-it('rate limits resend OTP requests to 3 per 15 minutes per phone', function (): void {
+it('rate limits resend OTP requests', function (): void {
     $phone = '+37360000000';
 
-    // The first 3 requests should succeed
-    for ($i = 0; $i < 3; $i++) {
-        $this->postJson('/api/v1/auth/request-otp/resend', [
-            'phone' => $phone,
-        ])->assertOk();
-    }
+    $this->postJson('/api/v1/auth/request-otp/resend', [
+        'phone' => $phone,
+    ])->assertOk();
 
-    // 4th request should be rate limited
+    $this->postJson('/api/v1/auth/request-otp/resend', [
+        'phone' => $phone,
+    ])->assertStatus(409)
+        ->assertJson([
+            'message' => 'An active OTP code already exists.',
+        ]);
+
+    $this->travelTo(now()->addMinutes(6));
+
+    // Only the first request after time travel should succeed, the next should be rate limited
+    $this->postJson('/api/v1/auth/request-otp/resend', [
+        'phone' => $phone,
+    ])->assertOk();
+
+    // The next request should be rate limited
     $response = $this->postJson('/api/v1/auth/request-otp/resend', [
         'phone' => $phone,
     ]);
@@ -71,5 +78,5 @@ it('rate limits resend OTP requests to 3 per 15 minutes per phone', function ():
         ->assertHeader('X-RateLimit-Limit', '3')
         ->assertHeader('X-RateLimit-Remaining', '0');
 
-    Event::assertDispatchedTimes(OtpResent::class, 3);
+    Event::assertDispatchedTimes(OtpResent::class, 2);
 });

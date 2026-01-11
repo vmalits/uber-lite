@@ -47,6 +47,12 @@ endpoints:
         description: 'OTP has been requested successfully.'
       -
         custom: []
+        status: 409
+        content: null
+        headers: []
+        description: 'An active OTP code already exists. Please use the resend endpoint.'
+      -
+        custom: []
         status: 429
         content: null
         headers: []
@@ -173,6 +179,12 @@ endpoints:
         content: null
         headers: []
         description: 'Validation errors.'
+      -
+        custom: []
+        status: 429
+        content: null
+        headers: []
+        description: 'Too many failed attempts. Account temporarily locked.'
     responseFields: []
     auth: []
     controller: null
