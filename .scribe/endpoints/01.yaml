@@ -54,6 +54,86 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - PUT
+    uri: api/v1/rider/profile
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        custom: []
+        name: first_name
+        description: 'First name of the user. Must not be greater than 255 characters.'
+        required: false
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      last_name:
+        custom: []
+        name: last_name
+        description: 'Last name of the user. Must not be greater than 255 characters.'
+        required: false
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      first_name: John
+      last_name: Doe
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Rider profile updated successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: api/v1/rider/rides
     metadata:

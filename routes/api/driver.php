@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\V1\Driver\OnTheWayController;
 use App\Http\Controllers\Api\V1\Driver\ProfileController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
 use App\Http\Controllers\Api\V1\Driver\UpdateLocationController;
+use App\Http\Controllers\Api\V1\Driver\UpdateProfileController;
 use App\Http\Controllers\Api\V1\Driver\UploadAvatarController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,8 @@ Route::prefix('driver')
     ->group(function (): void {
         Route::get('profile', [ProfileController::class, '__invoke'])
             ->name('api.v1.driver.profile');
+        Route::put('profile', [UpdateProfileController::class, '__invoke'])
+            ->name('api.v1.driver.profile.update');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.active');
         Route::get('rides/available', [GetAvailableRidesController::class, '__invoke'])

@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
+use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
 use App\Http\Controllers\Api\V1\Rider\UploadAvatarController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,28 +24,22 @@ Route::prefix('rider')
     ->group(function (): void {
         Route::get('profile', [ProfileController::class, '__invoke'])
             ->name('api.v1.rider.profile');
-
+        Route::put('profile', [UpdateProfileController::class, '__invoke'])
+            ->name('api.v1.rider.profile.update');
         Route::post('rides', [CreateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides');
-
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.active');
-
         Route::get('rides/history', [GetRideHistoryController::class, '__invoke'])
             ->name('api.v1.rider.rides.history');
-
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.show');
-
         Route::post('rides/{ride}/cancel', [CancelRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.cancel');
-
         Route::put('rides/{ride}/rating', [RateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.rating');
-
         Route::get('stats', [GetRideStatsController::class, '__invoke'])
             ->name('api.v1.rider.stats');
-
         Route::post('avatar', [UploadAvatarController::class, '__invoke'])
             ->name('api.v1.rider.avatar');
     });
