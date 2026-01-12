@@ -8,6 +8,7 @@ use App\Enums\ProfileStep;
 use App\Enums\UserRole;
 use App\Enums\UserStatus;
 use App\Models\User;
+use App\Services\Avatar\AvatarUrlResolver;
 use Spatie\LaravelData\Data;
 
 final class ProfileResponse extends Data
@@ -18,13 +19,14 @@ final class ProfileResponse extends Data
         public ?string $email,
         public string $first_name,
         public string $last_name,
-        public ?string $avatar,
+        /** @var array<string, string|null> */
+        public ?array $avatar_urls,
         public ?UserRole $role,
         public ?ProfileStep $profile_step,
-        public UserStatus $status,
+        public ?UserStatus $status,
     ) {}
 
-    public static function fromUser(User $user, ?string $avatarUrl): self
+    public static function fromUser(User $user, AvatarUrlResolver $avatarResolver): self
     {
         return new self(
             id: $user->id,
@@ -32,7 +34,7 @@ final class ProfileResponse extends Data
             email: $user->email,
             first_name: $user->first_name ?? '',
             last_name: $user->last_name ?? '',
-            avatar: $avatarUrl,
+            avatar_urls: $avatarResolver->getAllUrls($user),
             role: $user->role,
             profile_step: $user->profile_step,
             status: $user->status,

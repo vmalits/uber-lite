@@ -26,7 +26,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string|null $email
  * @property string|null $first_name
  * @property string|null $last_name
- * @property string|null $avatar_path
+ * @property array<string, string>|null $avatar_paths
  * @property UserRole|null $role
  * @property CarbonInterface|null $phone_verified_at
  * @property CarbonInterface|null $email_verified_at
@@ -54,7 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'first_name',
         'last_name',
-        'avatar_path',
+        'avatar_paths',
         'role',
         'phone_verified_at',
         'email_verified_at',
@@ -79,6 +79,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'banned_at'         => 'datetime',
             'status'            => UserStatus::class,
             'password'          => 'hashed',
+            'avatar_paths'      => 'array',
         ];
     }
 

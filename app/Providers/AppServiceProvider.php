@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Services\Cache\UserCacheService;
 use Carbon\CarbonImmutable;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\RateLimiter;
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
         $this->configureUrl();
         $this->configureRateLimiting();
         $this->configureDate();
+
+        $this->app->singleton(UserCacheService::class, function () {
+            return new UserCacheService(cache: Cache::driver());
+        });
     }
 
     private function configureCommands(): void

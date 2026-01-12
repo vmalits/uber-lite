@@ -222,7 +222,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 11, 2026</li>
+        <li>Last updated: January 12, 2026</li>
     </ul>
 </div>
 
@@ -4987,7 +4987,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php28eaan3rprqe0bBeBfM" </code></pre></div>
+    --form "avatar=@/tmp/phpec48e0cle5fl3HMMFjE" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5025,7 +5025,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php28eaan3rprqe0bBeBfM', 'r')
+                'contents' =&gt; fopen('/tmp/phpec48e0cle5fl3HMMFjE', 'r')
             ],
         ],
     ]
@@ -5040,7 +5040,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/php28eaan3rprqe0bBeBfM', 'rb')}
+  'avatar': open('/tmp/phpec48e0cle5fl3HMMFjE', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -5054,7 +5054,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-POSTapi-v1-driver-avatar">
             <blockquote>
-            <p>Example response (200, Avatar uploaded successfully.):</p>
+            <p>Example response (200, Avatar upload processing started.):</p>
         </blockquote>
                 <pre>
 
@@ -5155,7 +5155,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php28eaan3rprqe0bBeBfM</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpec48e0cle5fl3HMMFjE</code></p>
         </div>
         </form>
 
@@ -7192,7 +7192,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpkb0eq5e6bs91cEPklCM" </code></pre></div>
+    --form "avatar=@/tmp/phpcrb0p67dteh3aLhGKDE" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7230,7 +7230,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpkb0eq5e6bs91cEPklCM', 'r')
+                'contents' =&gt; fopen('/tmp/phpcrb0p67dteh3aLhGKDE', 'r')
             ],
         ],
     ]
@@ -7245,7 +7245,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpkb0eq5e6bs91cEPklCM', 'rb')}
+  'avatar': open('/tmp/phpcrb0p67dteh3aLhGKDE', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -7259,7 +7259,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-POSTapi-v1-rider-avatar">
             <blockquote>
-            <p>Example response (200, Avatar uploaded successfully.):</p>
+            <p>Example response (200, Avatar upload processing started.):</p>
         </blockquote>
                 <pre>
 
@@ -7360,7 +7360,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpkb0eq5e6bs91cEPklCM</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpcrb0p67dteh3aLhGKDE</code></p>
         </div>
         </form>
 

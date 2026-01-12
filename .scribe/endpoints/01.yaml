@@ -827,7 +827,7 @@ endpoints:
         status: 200
         content: null
         headers: []
-        description: 'Avatar uploaded successfully.'
+        description: 'Avatar upload processing started.'
     responseFields: []
     auth: []
     controller: null

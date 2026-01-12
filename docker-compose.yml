@@ -17,15 +17,18 @@ services:
       - REDIS_CLIENT=predis
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - FILESYSTEM_DISK=s3
     depends_on:
       postgres:
         condition: service_healthy
       redis:
         condition: service_healthy
+      rustfs:
+        condition: service_healthy
     volumes:
       - .:/var/www
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
+      test: [ "CMD", "curl", "-f", "http://localhost:8080" ]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -123,6 +126,26 @@ services:
         soft: 65535
         hard: 65535
 
+  rustfs:
+    image: rustfs/rustfs:latest
+    container_name: uber-lite-rustfs
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - RUSTFS_ACCESS_KEY=rustfsadmin
+      - RUSTFS_SECRET_KEY=rustfsadmin
+      - RUSTFS_CONSOLE_ENABLE=true
+    volumes:
+      - rustfs_data:/data
+    healthcheck:
+      test: [ "CMD-SHELL", "nc -z localhost 9000" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    user: "10001:10001"
+
 volumes:
   pgdata:
+  rustfs_data:
   pgdata_test:

@@ -4,35 +4,26 @@ declare(strict_types=1);
 
 namespace App\Presenters\User;
 
-use App\Cache\UserCache;
 use App\Data\User\ProfileResponse;
 use App\Models\User;
-use App\Services\AvatarStorageService;
+use App\Services\Avatar\AvatarUrlService;
+use App\Services\Cache\UserCacheService;
 
 final readonly class UserProfilePresenter implements UserProfilePresenterInterface
 {
+    /**
+     * @param UserCacheService<ProfileResponse> $userCache
+     */
     public function __construct(
-        private AvatarStorageService $avatarStorage,
-        private UserCache $userCache,
+        private AvatarUrlService $avatarUrlService,
+        private UserCacheService $userCache,
     ) {}
 
     public function present(User $user): ProfileResponse
     {
-        /** @var ProfileResponse */
-        return $this->userCache->rememberProfile(
-            user: $user,
-            resolver: function () use ($user): ProfileResponse {
-                $user->refresh();
-                $avatarPath = $user->avatar_path ?? null;
-                $avatarUrl = $avatarPath !== null
-                    ? $this->avatarStorage->url($avatarPath)
-                    : null;
-
-                return ProfileResponse::fromUser(
-                    $user,
-                    $avatarUrl,
-                );
-            },
+        return $this->userCache->rememberUserProfile(
+            userId: $user->id,
+            callback: fn () => ProfileResponse::fromUser($user, $this->avatarUrlService),
         );
     }
 }

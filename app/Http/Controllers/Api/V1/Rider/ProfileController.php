@@ -23,7 +23,7 @@ use Knuckles\Scribe\Attributes\Response;
 #[Response(status: 403, description: 'Forbidden')]
 final class ProfileController extends Controller
 {
-    public function __construct(private UserProfilePresenter $presenter) {}
+    public function __construct(private readonly UserProfilePresenter $presenter) {}
 
     public function __invoke(#[CurrentUser] User $user): JsonResponse
     {

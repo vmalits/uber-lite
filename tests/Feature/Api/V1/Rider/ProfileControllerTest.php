@@ -25,7 +25,7 @@ test('returns rider profile for authenticated rider', function () {
             'email',
             'first_name',
             'last_name',
-            'avatar',
+            'avatar_urls',
             'role',
             'profile_step',
             'status',

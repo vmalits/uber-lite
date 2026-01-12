@@ -8,8 +8,9 @@ use App\Support\ApiResponse;
 use Closure;
 use Illuminate\Cache\RateLimiter;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
 
 final readonly class ThrottleOtpVerifyAttempts
 {
@@ -18,14 +19,16 @@ final readonly class ThrottleOtpVerifyAttempts
         private RateLimiter $rateLimiter,
     ) {}
 
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next): JsonResponse|Response
     {
         $phone = $request->input('phone');
         $ip = $request->ip();
 
         if ($phone === null || $ip === null) {
-            /** @phpstan-ignore return.type */
-            return $next($request);
+            /** @var Response $response */
+            $response = $next($request);
+
+            return $response;
         }
 
         /** @var int $maxAttempts */
@@ -33,8 +36,9 @@ final readonly class ThrottleOtpVerifyAttempts
         /** @var int $decayMinutes */
         $decayMinutes = $this->config->get('otp.verify.rate_limit.decay_minutes', 15);
 
-        /** @phpstan-ignore binaryOp.invalid */
-        $key = 'otp:verify:'.$ip.':'.$phone;
+        /** @var string $safePhone */
+        $safePhone = $phone;
+        $key = 'otp:verify:'.$ip.':'.$safePhone;
 
         if ($this->rateLimiter->tooManyAttempts($key, $maxAttempts)) {
             $seconds = $this->rateLimiter->availableIn($key);
@@ -53,11 +57,10 @@ final readonly class ThrottleOtpVerifyAttempts
 
         $this->rateLimiter->hit($key, $decayMinutes * 60);
 
+        /** @var Response $response */
         $response = $next($request);
-
         $remaining = $this->rateLimiter->remaining($key, $maxAttempts);
 
-        /** @phpstan-ignore method.nonObject, return.type */
         return $response->withHeaders([
             'X-RateLimit-Limit'     => (string) $maxAttempts,
             'X-RateLimit-Remaining' => (string) $remaining,

@@ -8,14 +8,17 @@
     "require": {
         "php": "^8.4",
         "denis660/laravel-centrifugo": "^5.2",
+        "intervention/image": "^3.11",
         "knuckleswtf/scribe": "^5.6",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
+        "league/flysystem-aws-s3-v3": "^3.30",
         "predis/predis": "^3.3",
         "propaganistas/laravel-phone": "^6.0",
         "roadrunner-php/laravel-bridge": "^6.0",
         "spatie/laravel-data": "^4.6",
+        "spatie/laravel-image-optimizer": "^1.8",
         "spatie/laravel-query-builder": "^6.3",
         "twilio/sdk": "^8.9"
     },

@@ -36,7 +36,7 @@ it('successfully updates driver profile', function (): void {
                 'email',
                 'role',
                 'profile_step',
-                'avatar',
+                'avatar_urls',
             ],
         ])
         ->assertJson([

@@ -5,23 +5,32 @@ declare(strict_types=1);
 namespace App\Actions\User;
 
 use App\Data\User\UploadAvatarData;
+use App\Enums\AvatarSize;
+use App\Jobs\ProcessAvatarImage;
 use App\Models\User;
-use App\Services\AvatarStorageService;
+use App\Services\Avatar\AvatarImagePipeline;
+use Random\RandomException;
 
 final readonly class UploadAvatar
 {
     public function __construct(
-        private AvatarStorageService $avatarStorageService,
+        private AvatarImagePipeline $pipeline,
     ) {}
 
-    public function handle(User $user, UploadAvatarData $data): string
+    /**
+     * @throws RandomException
+     *
+     * @return array{processing: bool, sizes: array<int, AvatarSize>}
+     */
+    public function handle(User $user, UploadAvatarData $data): array
     {
-        $path = $this->avatarStorageService->store($user, $data->avatar);
+        $tempFiles = $this->pipeline->process($data->avatar->getPathname());
 
-        $user->update([
-            'avatar_path' => $path,
-        ]);
+        ProcessAvatarImage::dispatch($user, $tempFiles);
 
-        return $path;
+        return [
+            'processing' => true,
+            'sizes'      => AvatarSize::cases(),
+        ];
     }
 }
