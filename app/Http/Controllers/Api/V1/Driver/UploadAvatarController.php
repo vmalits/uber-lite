@@ -8,7 +8,6 @@ use App\Actions\User\UploadAvatar;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\User\UploadAvatarRequest;
 use App\Models\User;
-use App\Services\Avatar\AvatarUrlService;
 use App\Support\ApiResponse;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\JsonResponse;
@@ -26,7 +25,6 @@ final class UploadAvatarController extends Controller
 {
     public function __construct(
         private readonly UploadAvatar $uploadAvatar,
-        private readonly AvatarUrlService $avatarUrlService,
     ) {}
 
     /**
@@ -40,10 +38,7 @@ final class UploadAvatarController extends Controller
         );
 
         return ApiResponse::success(
-            data: [
-                'processing' => $result['processing'],
-                'sizes'      => $this->avatarUrlService->getAllUrls($user),
-            ],
+            data: $result,
             message: 'Avatar upload processing started.',
         );
     }

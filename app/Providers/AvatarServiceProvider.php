@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Services\Avatar\AvatarImagePipeline;
+use App\Services\Avatar\AvatarUrlResolver;
 use App\Services\Avatar\AvatarUrlService;
 use App\Services\Avatar\Storage\AvatarStorageService;
 use App\Services\Cache\UserCacheService;
@@ -41,6 +42,8 @@ class AvatarServiceProvider extends ServiceProvider
                     baseUrl: $baseUrl,
                 );
             });
+
+        $this->app->bind(AvatarUrlResolver::class, AvatarUrlService::class);
     }
 
     public function boot(): void {}
