@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Driver;
 
 use App\Actions\User\UploadAvatar;
-use App\Enums\AvatarSize;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\User\UploadAvatarRequest;
 use App\Models\User;
@@ -40,15 +39,10 @@ final class UploadAvatarController extends Controller
             $request->toUploadAvatarData(),
         );
 
-        $urls = [];
-        foreach (AvatarSize::cases() as $size) {
-            $urls[$size->value] = $this->avatarUrlService->getUrl($user, $size);
-        }
-
         return ApiResponse::success(
             data: [
                 'processing' => $result['processing'],
-                'sizes'      => $urls,
+                'sizes'      => $this->avatarUrlService->getAllUrls($user),
             ],
             message: 'Avatar upload processing started.',
         );
