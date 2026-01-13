@@ -1,0 +1,73 @@
+name: Profile
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/profile/locale
+    metadata:
+      custom: []
+      groupName: Profile
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      locale:
+        custom: []
+        name: locale
+        description: 'User preferred locale. Supported values: ro (Romanian), ru (Russian), en (English).'
+        required: true
+        example: ro
+        type: string
+        enumValues:
+          - ro
+          - ru
+          - en
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      locale: ro
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |
+          {
+            "success": true,
+            "message": "Locale updated successfully.",
+            "locale": "en"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: null
+        headers: []
+        description: 'Invalid locale value.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

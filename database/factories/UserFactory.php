@@ -34,6 +34,7 @@ class UserFactory extends Factory
             'last_name'         => null,
             'last_login_at'     => null,
             'role'              => null,
+            'locale'            => 'en',
             'profile_step'      => null,
             'status'            => UserStatus::ACTIVE,
         ];

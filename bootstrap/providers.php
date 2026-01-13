@@ -9,4 +9,5 @@ return [
     App\Providers\RiderServiceProvider::class,
     App\Providers\DriverServiceProvider::class,
     App\Providers\TwilioServiceProvider::class,
+    App\Providers\LocaleServiceProvider::class,
 ];

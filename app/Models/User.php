@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\Locale;
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
 use App\Enums\UserStatus;
@@ -28,14 +29,15 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string|null $last_name
  * @property array<string, string>|null $avatar_paths
  * @property UserRole|null $role
+ * @property Locale|null $locale
  * @property CarbonInterface|null $phone_verified_at
  * @property CarbonInterface|null $email_verified_at
  * @property CarbonInterface|null $last_login_at
  * @property ProfileStep|null $profile_step
  * @property UserStatus $status
  * @property CarbonInterface|null $banned_at
- * @property CarbonInterface $created_at
- * @property CarbonInterface $updated_at
+ * @property CarbonInterface|null $created_at
+ * @property CarbonInterface|null $updated_at
  */
 #[ObservedBy([UserObserver::class])]
 class User extends Authenticatable implements MustVerifyEmail
@@ -56,6 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'last_name',
         'avatar_paths',
         'role',
+        'locale',
         'phone_verified_at',
         'email_verified_at',
         'last_login_at',
@@ -80,6 +83,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'status'            => UserStatus::class,
             'password'          => 'hashed',
             'avatar_paths'      => 'array',
+            'locale'            => Locale::class,
         ];
     }
 

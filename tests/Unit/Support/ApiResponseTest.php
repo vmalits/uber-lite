@@ -9,8 +9,10 @@ use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Testing\TestResponse;
 use Spatie\LaravelData\Data;
 
-it('returns success with message only', function (): void {
-    $response = TestResponse::fromBaseResponse(ApiResponse::success(message: 'OK'));
+$apiResponse = app(ApiResponse::class);
+
+it('returns success with message only', function () use ($apiResponse): void {
+    $response = TestResponse::fromBaseResponse($apiResponse->success(message: 'OK'));
 
     $response->assertOk()
         ->assertJson([
@@ -19,9 +21,9 @@ it('returns success with message only', function (): void {
         ]);
 });
 
-it('returns success with array data only', function (): void {
+it('returns success with array data only', function () use ($apiResponse): void {
     $payload = ['foo' => 'bar'];
-    $response = TestResponse::fromBaseResponse(ApiResponse::success($payload));
+    $response = TestResponse::fromBaseResponse($apiResponse->success($payload));
 
     $response->assertOk()
         ->assertJson([
@@ -29,11 +31,11 @@ it('returns success with array data only', function (): void {
         ]);
 });
 
-it('returns success with data, message, meta and custom headers', function (): void {
+it('returns success with data, message, meta and custom headers', function () use ($apiResponse): void {
     $payload = ['x' => 1];
     $meta = ['page' => 2];
     $response = TestResponse::fromBaseResponse(
-        ApiResponse::success($payload, 'Done', 200, $meta, ['X-Foo' => 'Bar']));
+        $apiResponse->success($payload, 'Done', 200, $meta, ['X-Foo' => 'Bar']));
 
     $response->assertOk()
         ->assertHeader('X-Foo', 'Bar')
@@ -44,8 +46,8 @@ it('returns success with data, message, meta and custom headers', function (): v
         ]);
 });
 
-it('returns created with 201 status', function (): void {
-    $response = TestResponse::fromBaseResponse(ApiResponse::created(['id' => 1], 'Created!'));
+it('returns created with 201 status', function () use ($apiResponse): void {
+    $response = TestResponse::fromBaseResponse($apiResponse->created(['id' => 1], 'Created!'));
 
     $response->assertCreated()
         ->assertJson([
@@ -54,15 +56,15 @@ it('returns created with 201 status', function (): void {
         ]);
 });
 
-it('returns no content with 204 and empty body', function (): void {
-    $response = TestResponse::fromBaseResponse(ApiResponse::noContent());
+it('returns no content with 204 and empty body', function () use ($apiResponse): void {
+    $response = TestResponse::fromBaseResponse($apiResponse->noContent());
 
     $response->assertStatus(204)
         ->assertExactJson([]);
 });
 
-it('returns error with message only', function (): void {
-    $response = TestResponse::fromBaseResponse(ApiResponse::error('Bad', 400));
+it('returns error with message only', function () use ($apiResponse): void {
+    $response = TestResponse::fromBaseResponse($apiResponse->error('Bad', 400));
 
     $response->assertStatus(400)
         ->assertJson([
@@ -70,10 +72,10 @@ it('returns error with message only', function (): void {
         ])->assertJsonMissing(['errors']);
 });
 
-it('returns error with message and errors and extra', function (): void {
+it('returns error with message and errors and extra', function () use ($apiResponse): void {
     $errors = ['field' => ['is invalid']];
     $extra = ['code' => 'E100'];
-    $response = TestResponse::fromBaseResponse(ApiResponse::error('Bad', 418, $errors, $extra));
+    $response = TestResponse::fromBaseResponse($apiResponse->error('Bad', 418, $errors, $extra));
 
     $response->assertStatus(418)
         ->assertJson([
@@ -83,9 +85,9 @@ it('returns error with message and errors and extra', function (): void {
         ]);
 });
 
-it('returns validationError (422) with errors', function (): void {
+it('returns validationError (422) with errors', function () use ($apiResponse): void {
     $errors = ['name' => ['required']];
-    $response = TestResponse::fromBaseResponse(ApiResponse::validationError($errors));
+    $response = TestResponse::fromBaseResponse($apiResponse->validationError($errors));
 
     $response->assertUnprocessable()
         ->assertJson([
@@ -94,14 +96,14 @@ it('returns validationError (422) with errors', function (): void {
         ]);
 });
 
-it('returns tooManyRequests with and without retry_after', function (): void {
-    $r1 = TestResponse::fromBaseResponse(ApiResponse::tooManyRequests('Too many', null));
+it('returns tooManyRequests with and without retry_after', function () use ($apiResponse): void {
+    $r1 = TestResponse::fromBaseResponse($apiResponse->tooManyRequests('Too many', null));
     $r1->assertStatus(429)
         ->assertJson([
             'message' => 'Too many',
         ])->assertJsonMissing(['retry_after']);
 
-    $r2 = TestResponse::fromBaseResponse(ApiResponse::tooManyRequests('Too many', 60));
+    $r2 = TestResponse::fromBaseResponse($apiResponse->tooManyRequests('Too many', 60));
     $r2->assertStatus(429)
         ->assertJson([
             'message'     => 'Too many',
@@ -109,30 +111,28 @@ it('returns tooManyRequests with and without retry_after', function (): void {
         ]);
 });
 
-it('returns unauthorized (401)', function (): void {
-    $response = TestResponse::fromBaseResponse(ApiResponse::unauthorized('No entry'));
+it('returns unauthorized (401)', function () use ($apiResponse): void {
+    $response = TestResponse::fromBaseResponse($apiResponse->unauthorized('No entry'));
     $response->assertStatus(401)->assertJson(['message' => 'No entry']);
 
-    $responseDefault = TestResponse::fromBaseResponse(ApiResponse::unauthorized());
+    $responseDefault = TestResponse::fromBaseResponse($apiResponse->unauthorized());
     $responseDefault->assertStatus(401)->assertJson(['message' => 'Unauthenticated.']);
 });
 
-it('returns forbidden (403)', function (): void {
-    $response = TestResponse::fromBaseResponse(ApiResponse::forbidden('Forbidden!'));
+it('returns forbidden (403)', function () use ($apiResponse): void {
+    $response = TestResponse::fromBaseResponse($apiResponse->forbidden('Forbidden!'));
     $response->assertStatus(403)->assertJson(['message' => 'Forbidden!']);
 
-    $responseDefault = TestResponse::fromBaseResponse(ApiResponse::forbidden());
+    $responseDefault = TestResponse::fromBaseResponse($apiResponse->forbidden());
     $responseDefault->assertStatus(403)->assertJson(['message' => 'Forbidden.']);
 });
 
-it('normalizes Data objects to array for data key', function (): void {
-    // Simple inline Data class for testing
-
+it('normalizes Data objects to array for data key', function () use ($apiResponse): void {
     $data = new class(1, 'x') extends Data
     {
         public function __construct(public int $a, public string $b) {}
     };
-    $response = TestResponse::fromBaseResponse(ApiResponse::success($data));
+    $response = TestResponse::fromBaseResponse($apiResponse->success($data));
 
     $response->assertOk()
         ->assertJson([
@@ -140,8 +140,7 @@ it('normalizes Data objects to array for data key', function (): void {
         ]);
 });
 
-it('normalizes LengthAwarePaginator into items and pagination', function (): void {
-    // Arrayable item
+it('normalizes LengthAwarePaginator into items and pagination', function () use ($apiResponse): void {
     $arrayable = new class implements Arrayable
     {
         public function toArray(): array
@@ -160,7 +159,7 @@ it('normalizes LengthAwarePaginator into items and pagination', function (): voi
         options: ['path' => '/test'],
     );
 
-    $response = TestResponse::fromBaseResponse(ApiResponse::success($paginator));
+    $response = TestResponse::fromBaseResponse($apiResponse->success($paginator));
 
     $response->assertOk()
         ->assertJsonPath('data.items.0.k', 'v')
@@ -171,7 +170,7 @@ it('normalizes LengthAwarePaginator into items and pagination', function (): voi
         ->assertJsonPath('data.pagination.last_page', 5);
 });
 
-it('normalizes Arrayable to array', function (): void {
+it('normalizes Arrayable to array', function () use ($apiResponse): void {
     $arrayable = new class implements Arrayable
     {
         public function toArray(): array
@@ -180,11 +179,11 @@ it('normalizes Arrayable to array', function (): void {
         }
     };
 
-    $response = TestResponse::fromBaseResponse(ApiResponse::success($arrayable));
+    $response = TestResponse::fromBaseResponse($apiResponse->success($arrayable));
     $response->assertOk()->assertJson(['data' => ['a' => 1]]);
 });
 
-it('passes through raw array data', function (): void {
-    $response = TestResponse::fromBaseResponse(ApiResponse::success(['z' => 9]));
+it('passes through raw array data', function () use ($apiResponse): void {
+    $response = TestResponse::fromBaseResponse($apiResponse->success(['z' => 9]));
     $response->assertOk()->assertJson(['data' => ['z' => 9]]);
 });

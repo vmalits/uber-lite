@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Middleware\CheckProfileStep;
 use App\Http\Middleware\CheckRole;
 use App\Http\Middleware\RequestIdMiddleware;
+use App\Http\Middleware\SetLocaleMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -20,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->prepend(RequestIdMiddleware::class);
+        $middleware->append(SetLocaleMiddleware::class);
         $middleware->alias([
             'role'         => CheckRole::class,
             'profile_step' => CheckProfileStep::class,

@@ -4,17 +4,20 @@ declare(strict_types=1);
 
 namespace App\Support;
 
+use App\Services\LocaleService;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\JsonResponse;
 use Spatie\LaravelData\Data;
 
-final class ApiResponse
+final readonly class ApiResponse
 {
+    public function __construct(private LocaleService $localeService) {}
+
     /**
      * Generic success response.
      *
-     * @param array<string, mixed>|Arrayable<int|string, mixed>|Data|LengthAwarePaginator<int, mixed>|null $data
+     * @param array<string, mixed>|Arrayable<string, mixed>|Data|LengthAwarePaginator<int, mixed>|null $data
      * @param array<string, mixed>|null $meta
      * @param array<string, string> $headers
      */
@@ -44,7 +47,7 @@ final class ApiResponse
     /**
      * 201 Created response with data.
      *
-     * @param array<string,mixed>|Arrayable<int|string,mixed>|Data $data
+     * @param array<string,mixed>|Arrayable<string, mixed>|Data $data
      */
     public static function created(array|Arrayable|Data $data, ?string $message = null): JsonResponse
     {
@@ -62,16 +65,22 @@ final class ApiResponse
     /**
      * 401 Unauthorized.
      */
-    public static function unauthorized(string $message = 'Unauthenticated.'): JsonResponse
+    public static function unauthorized(?string $message = null): JsonResponse
     {
+        $instance = app(self::class);
+        $message = $message ?? $instance->localeService->message('messages.errors.unauthorized');
+
         return self::error($message, 401);
     }
 
     /**
      * 403 Forbidden.
      */
-    public static function forbidden(string $message = 'Forbidden.'): JsonResponse
+    public static function forbidden(?string $message = null): JsonResponse
     {
+        $instance = app(self::class);
+        $message = $message ?? $instance->localeService->message('messages.errors.forbidden');
+
         return self::error($message, 403);
     }
 
@@ -104,20 +113,22 @@ final class ApiResponse
      *
      * @param array<string, array<int, string>|string> $errors
      */
-    public static function validationError(
-        array $errors,
-        string $message = 'The given data was invalid.',
-    ): JsonResponse {
+    public static function validationError(array $errors): JsonResponse
+    {
+        $instance = app(self::class);
+        $message = $instance->localeService->message('messages.errors.validation_failed');
+
         return self::error($message, 422, $errors);
     }
 
     /**
      * Too many requests helper (429) with optional retry_after seconds.
      */
-    public static function tooManyRequests(
-        string $message = 'Too many requests.',
-        ?int $retryAfter = null,
-    ): JsonResponse {
+    public static function tooManyRequests(?string $message = null, ?int $retryAfter = null): JsonResponse
+    {
+        $instance = app(self::class);
+        $message = $message ?? $instance->localeService->message('messages.errors.too_many_requests');
+
         $extra = [];
         if ($retryAfter !== null) {
             $extra['retry_after'] = $retryAfter;
@@ -129,7 +140,7 @@ final class ApiResponse
     /**
      * Normalize various data types to array for JSON payloads.
      *
-     * @param array<string, mixed>|Arrayable<int|string, mixed>|LengthAwarePaginator<int, mixed>|Data $data
+     * @param array<string, mixed>|Arrayable<string, mixed>|LengthAwarePaginator<int, mixed>|Data $data
      *
      * @return array<string, mixed>|array<int, mixed>
      */
