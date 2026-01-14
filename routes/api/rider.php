@@ -20,6 +20,7 @@ Route::prefix('rider')
         'verified',
         'role:rider',
         'profile_step:completed',
+        'set_locale',
     ])
     ->group(function (): void {
         Route::get('profile', [ProfileController::class, '__invoke'])

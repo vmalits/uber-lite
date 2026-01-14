@@ -35,10 +35,11 @@ return [
         'locale_updated' => 'Local actualizat cu succes',
     ],
     'ride' => [
-        'created'    => 'Cursa creată cu succes',
-        'cancelled'  => 'Cursa anulată cu succes',
-        'rated'      => 'Cursa evaluată cu succes',
-        'not_active' => 'Nu a fost găsită nicio cursă activă',
+        'created'        => 'Cursa creată cu succes',
+        'cancelled'      => 'Cursa anulată cu succes',
+        'rated'          => 'Cursa evaluată cu succes',
+        'not_active'     => 'Nu a fost găsită nicio cursă activă',
+        'already_active' => 'Ai deja o cursă activă.',
     ],
     'profile' => [
         'updated' => 'Profil actualizat cu succes',

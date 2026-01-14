@@ -35,10 +35,11 @@ return [
         'locale_updated' => 'Locale updated successfully',
     ],
     'ride' => [
-        'created'    => 'Ride created successfully.',
-        'cancelled'  => 'Ride cancelled successfully.',
-        'rated'      => 'Ride rated successfully.',
-        'not_active' => 'No active ride found.',
+        'created'        => 'Ride created successfully.',
+        'cancelled'      => 'Ride cancelled successfully.',
+        'rated'          => 'Ride rated successfully.',
+        'not_active'     => 'No active ride found.',
+        'already_active' => 'You already have an active ride.',
     ],
     'profile' => [
         'updated' => 'Profile updated successfully.',

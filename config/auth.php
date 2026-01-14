@@ -63,9 +63,8 @@ return [
 
     'providers' => [
         'users' => [
-            'driver'    => 'cached-eloquent',
-            'model'     => env('AUTH_MODEL', App\Models\User::class),
-            'cache_ttl' => env('AUTH_CACHE_TTL', 3600),
+            'driver' => 'eloquent',
+            'model'  => env('AUTH_MODEL', App\Models\User::class),
         ],
 
         // 'users' => [

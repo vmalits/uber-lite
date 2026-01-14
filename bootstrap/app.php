@@ -21,10 +21,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->prepend(RequestIdMiddleware::class);
-        $middleware->append(SetLocaleMiddleware::class);
         $middleware->alias([
             'role'         => CheckRole::class,
             'profile_step' => CheckProfileStep::class,
+            'set_locale'   => SetLocaleMiddleware::class,
         ]);
         $middleware->trustProxies();
         $middleware->throttleApi();

@@ -43,7 +43,7 @@ class CreateRideRequest extends FormRequest
                 ->exists();
 
             if ($hasActiveRide) {
-                $validator->errors()->add('ride', 'You already have an active ride.');
+                $validator->errors()->add('ride', __('messages.ride.already_active'));
             }
         });
     }

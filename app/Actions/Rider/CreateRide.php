@@ -31,17 +31,6 @@ final readonly class CreateRide
     {
         return $this->databaseManager->transaction(
             callback: function () use ($user, $data): Ride {
-                $hasActiveRide = Ride::query()
-                    ->where('rider_id', $user->id)
-                    ->active()
-                    ->lockForUpdate()
-                    ->exists();
-
-                if ($hasActiveRide) {
-                    throw ValidationException::withMessages([
-                        'ride' => ['You already have an active ride.'],
-                    ]);
-                }
 
                 $estimates = $this->estimationService->calculateEstimates($data);
 

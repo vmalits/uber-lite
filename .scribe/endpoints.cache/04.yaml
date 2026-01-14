@@ -95,14 +95,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: architecto
+        example: 01keykmepeb4q1b721z1n1qw2p
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: architecto
+      driver_id: 01keykmepeb4q1b721z1n1qw2p
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -214,14 +214,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: architecto
+        example: 01keykmepeb4q1b721z1n1qw2p
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: architecto
+      driver_id: 01keykmepeb4q1b721z1n1qw2p
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
