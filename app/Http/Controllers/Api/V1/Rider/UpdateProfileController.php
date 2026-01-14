@@ -41,7 +41,7 @@ final class UpdateProfileController extends Controller
 
         return ApiResponse::success(
             data: $this->presenter->present($user),
-            message: 'Profile updated successfully.',
+            message: __('messages.profile.updated'),
         );
     }
 }

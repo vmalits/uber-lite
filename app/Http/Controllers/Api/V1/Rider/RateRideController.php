@@ -52,7 +52,7 @@ final class RateRideController extends Controller
 
         return ApiResponse::success(
             data: RideData::fromModel($ride),
-            message: 'Ride rated successfully.',
+            message: __('messages.ride.rated'),
         );
     }
 }

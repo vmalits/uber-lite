@@ -43,7 +43,7 @@ final class CancelRideController extends Controller
 
         return ApiResponse::success(
             data: RideData::fromModel($ride),
-            message: 'Ride cancelled successfully.',
+            message: __('messages.ride.cancelled'),
         );
     }
 }

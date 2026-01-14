@@ -34,4 +34,16 @@ return [
         'deleted'        => 'Deleted successfully',
         'locale_updated' => 'Locale updated successfully',
     ],
+    'ride' => [
+        'created'    => 'Ride created successfully.',
+        'cancelled'  => 'Ride cancelled successfully.',
+        'rated'      => 'Ride rated successfully.',
+        'not_active' => 'No active ride found.',
+    ],
+    'profile' => [
+        'updated' => 'Profile updated successfully.',
+    ],
+    'avatar' => [
+        'upload_started' => 'Avatar upload processing started.',
+    ],
 ];

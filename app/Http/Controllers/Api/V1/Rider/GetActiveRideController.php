@@ -43,7 +43,7 @@ final class GetActiveRideController extends Controller
         if ($activeRide === null) {
             return ApiResponse::success(
                 data: null,
-                message: 'No active ride found.',
+                message: __('messages.ride.not_active'),
             );
         }
 

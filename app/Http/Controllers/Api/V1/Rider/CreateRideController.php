@@ -44,7 +44,7 @@ final class CreateRideController extends Controller
 
         return ApiResponse::created(
             data: RideData::fromModel($ride),
-            message: 'Ride created successfully.',
+            message: __('messages.ride.created'),
         );
     }
 }

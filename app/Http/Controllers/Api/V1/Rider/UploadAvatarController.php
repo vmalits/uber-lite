@@ -39,7 +39,7 @@ final class UploadAvatarController extends Controller
 
         return ApiResponse::success(
             data: $result,
-            message: 'Avatar upload processing started.',
+            message: __('messages.avatar.upload_started'),
         );
     }
 }
