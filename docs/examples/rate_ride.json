@@ -19,8 +19,6 @@
     "price_per_km": 4.00,
     "price_per_minute": 0.50,
     "base_fee": 5.00,
-    "origin_point": null,
-    "destination_point": null,
     "arrived_at": null,
     "started_at": null,
     "cancelled_at": null,

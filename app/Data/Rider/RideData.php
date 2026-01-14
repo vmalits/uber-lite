@@ -29,8 +29,6 @@ use Spatie\LaravelData\Data;
  * @param float|null $price_per_km
  * @param float|null $price_per_minute
  * @param float|null $base_fee
- * @param mixed $origin_point
- * @param mixed $destination_point
  * @param DateData|null $arrived_at
  * @param DateData|null $started_at
  * @param DateData|null $cancelled_at
@@ -62,8 +60,6 @@ final class RideData extends Data
         public ?float $price_per_km,
         public ?float $price_per_minute,
         public ?float $base_fee,
-        public mixed $origin_point,
-        public mixed $destination_point,
         public ?DateData $arrived_at,
         public ?DateData $started_at,
         public ?DateData $cancelled_at,
@@ -100,8 +96,6 @@ final class RideData extends Data
             price_per_km: $ride->price_per_km,
             price_per_minute: $ride->price_per_minute,
             base_fee: $ride->base_fee,
-            origin_point: $ride->origin_point,
-            destination_point: $ride->destination_point,
             arrived_at: $ride->arrived_at ? DateData::fromCarbon($ride->arrived_at) : null,
             started_at: $ride->started_at ? DateData::fromCarbon($ride->started_at) : null,
             cancelled_at: $ride->cancelled_at ? DateData::fromCarbon($ride->cancelled_at) : null,
