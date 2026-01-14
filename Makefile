@@ -71,7 +71,7 @@ tinker:         # php artisan tinker (in container)
 	$(DOCKER_COMPOSE) exec app php artisan tinker
 
 test:           # php artisan test (in container)
-	$(DOCKER_COMPOSE) exec app php artisan test
+	$(DOCKER_COMPOSE) exec -e APP_ENV=testing app php artisan test
 
 coverage:       # pest coverage (HTML + text) (in container)
 	$(DOCKER_COMPOSE) exec app vendor/bin/pest --type-coverage
