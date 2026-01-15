@@ -36,7 +36,7 @@ class EmailVerificationNotificationRequest extends FormRequest
             $user = $this->user();
 
             if ($user !== null && $user->email === null) {
-                $v->errors()->add('email', 'Email is not set.');
+                $v->errors()->add('email', __('messages.auth.email_not_set'));
             }
         });
     }

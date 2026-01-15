@@ -27,7 +27,7 @@ it('successfully requests OTP code and dispatches event', function (): void {
             ],
         ])
         ->assertJson([
-            'message' => 'OTP has been requested successfully.',
+            'message' => __('messages.auth.otp_requested'),
             'data'    => [
                 'phone' => $phone,
             ],

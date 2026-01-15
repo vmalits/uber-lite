@@ -52,7 +52,7 @@ class ResendOtpController extends Controller
 
             return ApiResponse::success(
                 data: OtpCodeResponse::fromModel($otpCode),
-                message: 'OTP has been resent successfully.');
+                message: __('messages.auth.otp_resent'));
         } catch (ActiveOtpCodeAlreadyExistsException $e) {
             $this->logger->warning('OTP resend failed - active code already exists', ['phone' => $dto->phone]);
 

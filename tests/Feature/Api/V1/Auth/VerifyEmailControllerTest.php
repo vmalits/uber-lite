@@ -31,7 +31,7 @@ it('verifies email using signed link and updates profile step', function (): voi
 
     $response->assertOk()
         ->assertJson([
-            'message' => 'Email verified successfully.',
+            'message' => __('messages.auth.email_verified'),
             'data'    => [
                 'user_id'      => $user->id,
                 'email'        => 'verifyme@example.com',

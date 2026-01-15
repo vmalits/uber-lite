@@ -53,7 +53,7 @@ class RequestOtpController extends Controller
 
             return ApiResponse::success(
                 data: OtpCodeResponse::fromModel($otpCode),
-                message: 'OTP has been requested successfully.');
+                message: __('messages.auth.otp_requested'));
         } catch (ActiveOtpCodeAlreadyExistsException $e) {
             $this->logger->warning('OTP creation failed - active code already exists', ['phone' => $dto->phone]);
 

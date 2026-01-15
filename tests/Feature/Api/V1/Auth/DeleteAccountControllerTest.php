@@ -26,7 +26,7 @@ it('deletes the authenticated account and revokes all tokens', function (): void
     $this->deleteJson('/api/v1/auth/delete-account')
         ->assertOk()
         ->assertJson([
-            'message' => 'Account deleted successfully.',
+            'message' => __('messages.auth.account_deleted'),
         ]);
 
     // User should be removed

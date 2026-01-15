@@ -25,8 +25,8 @@ class OtpCodeRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'phone.required' => 'Phone number is required.',
-            'phone.phone'    => 'Phone number is invalid.',
+            'phone.required' => __('messages.auth.phone_required'),
+            'phone.phone'    => __('messages.auth.phone_invalid'),
         ];
     }
 

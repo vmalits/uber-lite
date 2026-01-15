@@ -28,7 +28,7 @@ it('adds email for a user with verified phone', function (): void {
 
     $response->assertOk()
         ->assertJson([
-            'message' => 'Email added successfully.',
+            'message' => __('messages.auth.email_added'),
             'data'    => [
                 'email'        => 'user@gmail.com',
                 'profile_step' => ProfileStep::EMAIL_ADDED->value,

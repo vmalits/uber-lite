@@ -27,6 +27,6 @@ final class DeleteAccountController extends Controller
         $user->tokens()->delete();
         $user->delete();
 
-        return ApiResponse::success(message: 'Account deleted successfully.');
+        return ApiResponse::success(message: __('messages.auth.account_deleted'));
     }
 }

@@ -36,7 +36,7 @@ class VerifyOtpController extends Controller
             $seconds = $this->trackOtpVerificationAttempt->getBlockRemainingSeconds($dto->phone);
 
             return ApiResponse::tooManyRequests(
-                'Too many failed attempts. Please try again later.',
+                __('messages.auth.too_many_attempts'),
                 $seconds,
             );
         }
@@ -46,7 +46,7 @@ class VerifyOtpController extends Controller
             $this->trackOtpVerificationAttempt->trackFailedAttempt($dto->phone);
 
             return ApiResponse::validationError([
-                'code' => ['Invalid or expired code.'],
+                'code' => [__('messages.auth.invalid_or_expired_code')],
             ]);
         }
 
@@ -60,7 +60,7 @@ class VerifyOtpController extends Controller
                 profileStep: $user->profile_step ?? ProfileStep::PHONE_VERIFIED,
                 token: $token,
             ),
-            message: 'OTP verified successfully.',
+            message: __('messages.auth.verification_successful'),
             meta: ['next_action' => $nextAction]);
     }
 }

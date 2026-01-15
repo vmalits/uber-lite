@@ -38,7 +38,7 @@ final class EmailVerificationNotificationController extends Controller
             $next = $this->resolveNextAction->handle($user)->value;
 
             return ApiResponse::success(
-                message: 'Email is already verified.',
+                message: __('messages.auth.email_already_verified'),
                 meta: ['next_action' => $next],
             );
         }
@@ -46,7 +46,7 @@ final class EmailVerificationNotificationController extends Controller
         $this->events->dispatch(new EmailVerificationRequested(userId: $user->id));
 
         return ApiResponse::success(
-            message: 'Verification link sent.',
+            message: __('messages.auth.verification_link_sent'),
         );
     }
 }

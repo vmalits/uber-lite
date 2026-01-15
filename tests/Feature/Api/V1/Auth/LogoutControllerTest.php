@@ -17,7 +17,7 @@ it('logs out and revokes the current token', function (): void {
 
     $response->assertOk()
         ->assertJson([
-            'message' => 'Logged out successfully.',
+            'message' => __('messages.auth.logged_out'),
         ]);
 
     // Ensure the token has been revoked (no longer present in storage)

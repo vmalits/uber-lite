@@ -25,7 +25,7 @@ it('sends verification notification when email is set and not verified', functio
     $this->postJson('/api/v1/auth/email/verification-notification')
         ->assertOk()
         ->assertJson([
-            'message' => 'Verification link sent.',
+            'message' => __('messages.auth.verification_link_sent'),
         ]);
 
     Notification::assertSentTo($user, VerifyEmailNotification::class);
@@ -65,7 +65,7 @@ it('returns ok message when email already verified and does not send notificatio
     $this->postJson('/api/v1/auth/email/verification-notification')
         ->assertOk()
         ->assertJson([
-            'message' => 'Email is already verified.',
+            'message' => __('messages.auth.email_already_verified'),
         ]);
 
     Notification::assertNothingSent();

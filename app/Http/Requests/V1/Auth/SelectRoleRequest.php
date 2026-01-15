@@ -38,11 +38,11 @@ class SelectRoleRequest extends FormRequest
             $user = $this->user();
 
             if ($user->phone_verified_at === null) {
-                $validator->errors()->add('phone', 'Phone is not verified.');
+                $validator->errors()->add('phone', __('messages.auth.phone_not_verified_error'));
             }
 
             if ($user->role !== null) {
-                $validator->errors()->add('role', 'Role is already selected.');
+                $validator->errors()->add('role', __('messages.auth.role_already_selected'));
             }
         });
     }

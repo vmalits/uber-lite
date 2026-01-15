@@ -27,6 +27,6 @@ final class LogoutController extends Controller
 
         $user->currentAccessToken()->delete();
 
-        return ApiResponse::success(message: 'Logged out successfully.');
+        return ApiResponse::success(message: __('messages.auth.logged_out'));
     }
 }

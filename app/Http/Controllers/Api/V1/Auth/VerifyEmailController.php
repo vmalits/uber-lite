@@ -24,13 +24,13 @@ final class VerifyEmailController extends Controller
     {
         $expectedHash = sha1($user->getEmailForVerification());
         if (! hash_equals($expectedHash, $hash)) {
-            return ApiResponse::forbidden('Invalid verification link.');
+            return ApiResponse::forbidden(__('messages.auth.email_verify_link'));
         }
 
         if ($user->hasVerifiedEmail()) {
             return ApiResponse::success(
                 data: VerifyEmailResponse::fromUser($user, alreadyVerified: true),
-                message: 'Email already verified.',
+                message: __('messages.auth.email_already_verified'),
             );
         }
 
@@ -39,7 +39,7 @@ final class VerifyEmailController extends Controller
 
         return ApiResponse::success(
             data: VerifyEmailResponse::fromUser($user),
-            message: 'Email verified successfully.',
+            message: __('messages.auth.email_verified'),
         );
     }
 }

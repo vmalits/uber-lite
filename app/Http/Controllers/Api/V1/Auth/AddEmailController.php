@@ -47,7 +47,7 @@ class AddEmailController extends Controller
         $ok = $this->addEmail->handle($user, $dto->email);
         if (! $ok) {
             return ApiResponse::validationError([
-                'phone' => ['Phone is not verified.'],
+                'phone' => [__('messages.auth.phone_not_verified')],
             ]);
         }
 
@@ -60,7 +60,7 @@ class AddEmailController extends Controller
                 email: $dto->email,
                 profileStep: ProfileStep::EMAIL_ADDED,
             ),
-            message: 'Email added successfully.',
+            message: __('messages.auth.email_added'),
             meta: ['next_action' => $next->value],
         );
     }

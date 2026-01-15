@@ -48,7 +48,7 @@ final class SelectRoleController extends Controller
                 role: $dto->role,
                 profileStep: ($user->profile_step) ?? ProfileStep::PHONE_VERIFIED,
             ),
-            message: 'Role selected successfully.',
+            message: __('messages.auth.role_selected'),
             meta: [
                 'next_action' => $next,
             ],

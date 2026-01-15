@@ -32,7 +32,7 @@ it('completes profile for a user with verified email', function (): void {
 
     $response->assertOk()
         ->assertJson([
-            'message' => 'Profile completed successfully.',
+            'message' => __('messages.auth.profile_completed'),
             'data'    => [
                 'id'           => $user->id,
                 'phone'        => $user->phone,

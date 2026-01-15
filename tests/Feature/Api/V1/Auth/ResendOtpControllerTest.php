@@ -27,7 +27,7 @@ it('successfully resends OTP code and dispatches event', function (): void {
             ],
         ])
         ->assertJson([
-            'message' => 'OTP has been resent successfully.',
+            'message' => __('messages.auth.otp_resent'),
             'data'    => [
                 'phone' => $phone,
             ],

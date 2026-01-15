@@ -59,7 +59,7 @@ final class CompleteProfileController extends Controller
 
         return ApiResponse::success(
             data: CompleteProfileResponse::fromUser($user),
-            message: 'Profile completed successfully.',
+            message: __('messages.auth.profile_completed'),
             meta: ['next_action' => NextAction::DONE->value],
         );
     }

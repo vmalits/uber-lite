@@ -33,7 +33,7 @@ it('verifies OTP successfully and updates user', function (): void {
     // Then
     $response->assertOk()
         ->assertJson([
-            'message' => 'OTP verified successfully.',
+            'message' => __('messages.auth.verification_successful'),
             'data'    => [
                 'profile_step' => ProfileStep::PHONE_VERIFIED->value,
                 'token_type'   => 'Bearer',
@@ -80,7 +80,7 @@ it('skips registration steps for a returning user with completed profile', funct
     // Then
     $response->assertOk()
         ->assertJson([
-            'message' => 'OTP verified successfully.',
+            'message' => __('messages.auth.verification_successful'),
             'data'    => [
                 'profile_step' => ProfileStep::COMPLETED->value,
             ],
