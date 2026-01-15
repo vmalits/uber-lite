@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
+use App\Http\Controllers\Api\V1\Driver\GoOfflineController;
+use App\Http\Controllers\Api\V1\Driver\GoOnlineController;
 use App\Http\Controllers\Api\V1\Driver\OnTheWayController;
 use App\Http\Controllers\Api\V1\Driver\ProfileController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
@@ -29,6 +31,10 @@ Route::prefix('driver')
             ->name('api.v1.driver.profile');
         Route::put('profile', [UpdateProfileController::class, '__invoke'])
             ->name('api.v1.driver.profile.update');
+        Route::post('online', [GoOnlineController::class, '__invoke'])
+            ->name('api.v1.driver.online');
+        Route::post('offline', [GoOfflineController::class, '__invoke'])
+            ->name('api.v1.driver.offline');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.active');
         Route::get('rides/available', [GetAvailableRidesController::class, '__invoke'])

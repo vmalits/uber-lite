@@ -69,4 +69,11 @@ return [
     'avatar' => [
         'upload_started' => 'Încărcarea avatarului a început',
     ],
+    'driver' => [
+        'online'  => 'Acum ești online și disponibil pentru curse.',
+        'offline' => 'Acum ești offline.',
+    ],
+    'payment_methods' => [
+        'fetched' => 'Metodele de plată au fost preluate cu succes.',
+    ],
 ];

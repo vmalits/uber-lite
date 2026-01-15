@@ -69,4 +69,8 @@ return [
     'avatar' => [
         'upload_started' => 'Avatar upload processing started.',
     ],
+    'driver' => [
+        'online'  => 'You are now online and available for rides.',
+        'offline' => 'You are now offline and will not receive ride requests.',
+    ],
 ];
