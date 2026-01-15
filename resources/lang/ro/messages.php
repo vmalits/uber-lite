@@ -36,6 +36,8 @@ return [
     ],
     'ride' => [
         'created'        => 'Cursa creată cu succes',
+        'accepted'       => 'Cursa acceptată cu succes',
+        'completed'      => 'Cursa finalizată cu succes',
         'cancelled'      => 'Cursa anulată cu succes',
         'rated'          => 'Cursa evaluată cu succes',
         'not_active'     => 'Nu a fost găsită nicio cursă activă',

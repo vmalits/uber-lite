@@ -48,7 +48,7 @@ final class AcceptRideController extends Controller
         );
 
         return ApiResponse::success(
-            message: 'Ride accepted successfully.',
+            message: __('messages.ride.accepted'),
         );
     }
 }

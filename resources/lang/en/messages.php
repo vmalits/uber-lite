@@ -36,6 +36,8 @@ return [
     ],
     'ride' => [
         'created'        => 'Ride created successfully.',
+        'accepted'       => 'Ride accepted successfully.',
+        'completed'      => 'Ride completed successfully.',
         'cancelled'      => 'Ride cancelled successfully.',
         'rated'          => 'Ride rated successfully.',
         'not_active'     => 'No active ride found.',

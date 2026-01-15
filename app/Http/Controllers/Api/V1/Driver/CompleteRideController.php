@@ -48,7 +48,7 @@ final class CompleteRideController extends Controller
         );
 
         return ApiResponse::success(
-            message: 'Ride completed successfully.',
+            message: __('messages.ride.completed'),
         );
     }
 }

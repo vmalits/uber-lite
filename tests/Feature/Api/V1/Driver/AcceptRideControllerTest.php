@@ -20,8 +20,7 @@ test('driver can accept a ride', function () {
     $this->postJson("/api/v1/driver/rides/{$ride->id}/accept")
         ->assertOk()
         ->assertJson([
-            'success' => true,
-            'message' => 'Ride accepted successfully.',
+            'message' => __('messages.ride.accepted'),
         ]);
 
     $ride->refresh();

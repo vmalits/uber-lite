@@ -30,7 +30,7 @@ test('driver can complete their own started ride', function (): void {
 
     $response->assertOk()
         ->assertJson([
-            'message' => 'Ride completed successfully.',
+            'message' => __('messages.ride.completed'),
         ]);
 
     $this->assertDatabaseHas('rides', [
