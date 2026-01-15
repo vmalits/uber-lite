@@ -6,13 +6,13 @@ namespace App\Services\Ride;
 
 use App\Data\PricingConfig;
 use App\Data\Rider\CreateRideData;
-use App\Data\Rider\RideEstimationData;
+use App\Data\Rider\RideEstimateData;
 
 final class RideEstimationService
 {
     private const int EARTH_RADIUS_KM = 6371;
 
-    public function calculateEstimates(CreateRideData $data): RideEstimationData
+    public function calculateEstimates(CreateRideData $data): RideEstimateData
     {
         $distanceKm = $this->calculateDistanceKm(
             $data->origin_lat,
@@ -27,9 +27,9 @@ final class RideEstimationService
 
         $price = $this->calculatePrice($distanceKm, $durationMin);
 
-        return new RideEstimationData(
-            distance: round($distanceKm, 2),
-            duration: $durationMin,
+        return new RideEstimateData(
+            distance_km: round($distanceKm, 2),
+            duration_minutes: $durationMin,
             price: $price,
         );
     }
@@ -53,7 +53,7 @@ final class RideEstimationService
         return (int) ceil($distanceKm / 30 * 60);
     }
 
-    private function calculatePrice(float $distance, float $duration): float
+    private function calculatePrice(float $distance, float $duration): int
     {
         $pricing = PricingConfig::fromConfig();
 
@@ -64,6 +64,8 @@ final class RideEstimationService
 
         $price = max($price, $pricing->minimumFare);
 
-        return ceil($price / 5.0) * 5.0;
+        $roundedPrice = ceil($price / 5.0) * 5.0;
+
+        return (int) $roundedPrice;
     }
 }

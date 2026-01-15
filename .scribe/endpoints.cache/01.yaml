@@ -137,6 +137,128 @@ endpoints:
     custom: []
     httpMethods:
       - POST
+    uri: api/v1/rider/estimates
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      origin_address:
+        custom: []
+        name: origin_address
+        description: 'The starting address of the ride. Must not be greater than 255 characters.'
+        required: true
+        example: 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_lat:
+        custom: []
+        name: origin_lat
+        description: 'The latitude of the origin. Must be between -90 and 90.'
+        required: true
+        example: 47.0105
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_lng:
+        custom: []
+        name: origin_lng
+        description: 'The longitude of the origin. Must be between -180 and 180.'
+        required: true
+        example: 28.8638
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_address:
+        custom: []
+        name: destination_address
+        description: 'The destination address of the ride. Must not be greater than 255 characters.'
+        required: true
+        example: 'str. Mihai Eminescu, 50, Chișinău'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_lat:
+        custom: []
+        name: destination_lat
+        description: 'The latitude of the destination. Must be between -90 and 90.'
+        required: true
+        example: 47.0225
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_lng:
+        custom: []
+        name: destination_lng
+        description: 'The longitude of the destination. Must be between -180 and 180.'
+        required: true
+        example: 28.8353
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      origin_address: 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău'
+      origin_lat: 47.0105
+      origin_lng: 28.8638
+      destination_address: 'str. Mihai Eminescu, 50, Chișinău'
+      destination_lat: 47.0225
+      destination_lng: 28.8353
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Ride estimate calculated successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Profile not completed or active ride exists.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
     uri: api/v1/rider/rides
     metadata:
       custom: []
@@ -291,7 +413,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: |-
+        content: |
           {
             "success": true,
             "data": {
@@ -312,8 +434,6 @@ endpoints:
               "price_per_km": 6.50,
               "price_per_minute": 1.20,
               "base_fee": 25.00,
-              "origin_point": null,
-              "destination_point": null,
               "arrived_at": null,
               "started_at": null,
               "cancelled_at": null,
@@ -430,7 +550,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: |-
+        content: |
           {
             "success": true,
             "data": {
@@ -451,8 +571,6 @@ endpoints:
               "price_per_km": 6.50,
               "price_per_minute": 1.20,
               "base_fee": 25.00,
-              "origin_point": null,
-              "destination_point": null,
               "arrived_at": null,
               "started_at": null,
               "cancelled_at": null,
@@ -647,7 +765,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: |-
+        content: |
           {
             "success": true,
             "message": "Ride rated successfully.",
@@ -669,8 +787,6 @@ endpoints:
               "price_per_km": 4.00,
               "price_per_minute": 0.50,
               "base_fee": 5.00,
-              "origin_point": null,
-              "destination_point": null,
               "arrived_at": null,
               "started_at": null,
               "cancelled_at": null,

@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
+use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
@@ -27,6 +28,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.profile');
         Route::put('profile', [UpdateProfileController::class, '__invoke'])
             ->name('api.v1.rider.profile.update');
+        Route::post('estimates', [GetEstimateController::class, '__invoke'])
+            ->name('api.v1.rider.estimates');
         Route::post('rides', [CreateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])

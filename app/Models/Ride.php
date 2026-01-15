@@ -30,8 +30,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property float|null $destination_lat
  * @property float|null $destination_lng
  * @property RideStatus $status
- * @property float|null $price
- * @property float|null $estimated_price
+ * @property int|null $price
+ * @property int|null $estimated_price
  * @property float|null $estimated_distance_km
  * @property float|null $estimated_duration_min
  * @property float|null $price_per_km
@@ -97,8 +97,8 @@ class Ride extends Model
             'destination_lat'        => 'float',
             'destination_lng'        => 'float',
             'status'                 => RideStatus::class,
-            'price'                  => 'float',
-            'estimated_price'        => 'float',
+            'price'                  => 'integer',
+            'estimated_price'        => 'integer',
             'estimated_distance_km'  => 'float',
             'estimated_duration_min' => 'float',
             'price_per_km'           => 'float',

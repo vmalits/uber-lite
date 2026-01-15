@@ -25,8 +25,8 @@ db-logs:
 redis-logs:
 	$(DOCKER_COMPOSE) logs -f redis
 
-bash:           # Open bash in app container
-	$(DOCKER_COMPOSE) exec app bash
+bash:           # Open shell in app container
+	$(DOCKER_COMPOSE) exec app sh
 
 build:          # Build Docker images
 	$(DOCKER_COMPOSE) build

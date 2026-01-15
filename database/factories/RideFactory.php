@@ -38,14 +38,14 @@ class RideFactory extends Factory
             'destination_lat'       => $this->faker->latitude(),
             'destination_lng'       => $this->faker->longitude(),
             'status'                => $status,
-            'price'                 => $this->faker->randomFloat(2, 50, 500),
+            'price'                 => $this->faker->numberBetween(50, 500),
             'started_at'            => $startedAt,
             'completed_at'          => $completedAt,
             'estimated_distance_km' => $this->faker->randomFloat(1, 5, 50),
             'base_fee'              => 25.0,
             'price_per_km'          => 6.5,
             'price_per_minute'      => 1.2,
-            'estimated_price'       => $this->faker->randomFloat(2, 50, 500),
+            'estimated_price'       => $this->faker->numberBetween(50, 500),
         ];
     }
 }
