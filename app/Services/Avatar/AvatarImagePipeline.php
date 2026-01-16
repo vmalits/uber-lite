@@ -6,16 +6,19 @@ namespace App\Services\Avatar;
 
 use App\Enums\AvatarSize;
 use Illuminate\Support\Facades\File;
-use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Interfaces\ImageInterface;
 use Random\RandomException;
 use Spatie\ImageOptimizer\OptimizerChain;
-use Spatie\ImageOptimizer\OptimizerChainFactory;
 
-final class AvatarImagePipeline
+final readonly class AvatarImagePipeline
 {
     private const int WEBP_QUALITY = 85;
+
+    public function __construct(
+        private ImageManager $manager,
+        private OptimizerChain $optimizer,
+    ) {}
 
     /**
      * @throws RandomException
@@ -24,12 +27,10 @@ final class AvatarImagePipeline
      */
     public function process(string $sourceFilePath): array
     {
-        $optimizer = OptimizerChainFactory::create();
-
         $tempFiles = [];
 
         foreach (AvatarSize::cases() as $size) {
-            $tempFile = $this->processSize($sourceFilePath, $size->pixels(), $optimizer);
+            $tempFile = $this->processSize($sourceFilePath, $size->pixels());
             $tempFiles[$size->value] = $tempFile;
         }
 
@@ -39,15 +40,13 @@ final class AvatarImagePipeline
     /**
      * @throws RandomException
      */
-    private function processSize(string $sourceFilePath, int $pixels, OptimizerChain $optimizer): string
+    private function processSize(string $sourceFilePath, int $pixels): string
     {
-        $manager = new ImageManager(new Driver);
-
-        $image = $manager->read($sourceFilePath)->resize($pixels, $pixels);
+        $image = $this->manager->read($sourceFilePath)->resize($pixels, $pixels);
 
         $tempFile = $this->saveTempFile($image);
 
-        $optimizer->optimize($tempFile);
+        $this->optimizer->optimize($tempFile);
 
         return $tempFile;
     }

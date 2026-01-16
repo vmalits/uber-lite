@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
         $this->configureDate();
 
-        $this->app->singleton(UserCacheService::class, function () {
+        $this->app->bind(UserCacheService::class, function () {
             return new UserCacheService(cache: Cache::driver());
         });
     }
