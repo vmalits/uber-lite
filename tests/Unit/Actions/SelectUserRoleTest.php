@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Actions\Auth\SelectUserRole;
+use App\Actions\Auth\SelectUserRoleAction;
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
 use App\Models\User;
@@ -15,7 +15,7 @@ it('sets role when it is not set', function (): void {
         'role'              => null,
     ]);
 
-    $action = app(SelectUserRole::class);
+    $action = app(SelectUserRoleAction::class);
 
     $user = $action->handle($user, UserRole::RIDER);
 
@@ -31,7 +31,7 @@ it('does not change role when already set', function (): void {
         'role'              => UserRole::RIDER,
     ]);
 
-    $action = app(SelectUserRole::class);
+    $action = app(SelectUserRoleAction::class);
 
     $user = $action->handle($user, UserRole::DRIVER);
 
@@ -47,7 +47,7 @@ it('does not change role even if the same role passed', function (): void {
         'role'              => UserRole::DRIVER,
     ]);
 
-    $action = app(SelectUserRole::class);
+    $action = app(SelectUserRoleAction::class);
 
     $user = $action->handle($user, UserRole::DRIVER);
 

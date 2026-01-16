@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Driver\OnTheWay;
+use App\Actions\Driver\OnTheWayAction;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use App\Models\User;
@@ -32,7 +32,7 @@ use Throwable;
 final class OnTheWayController extends Controller
 {
     public function __construct(
-        private readonly OnTheWay $onTheWay,
+        private readonly OnTheWayAction $onTheWay,
     ) {}
 
     /**

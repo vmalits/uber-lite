@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Centrifugo;
 
-use App\Actions\Centrifugo\GenerateCentrifugoToken;
+use App\Actions\Centrifugo\GenerateCentrifugoTokenAction;
 use App\Data\Centrifugo\CentrifugoTokenData;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -23,7 +23,7 @@ use Knuckles\Scribe\Attributes\Response;
 final class TokenController extends Controller
 {
     public function __construct(
-        private readonly GenerateCentrifugoToken $generateToken,
+        private readonly GenerateCentrifugoTokenAction $generateToken,
     ) {}
 
     public function __invoke(Request $request): JsonResponse

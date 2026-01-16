@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Actions\Rider\CreateRide;
+use App\Actions\Rider\CreateRideAction;
 use App\Data\Rider\CreateRideData;
 use App\Enums\ProfileStep;
 use App\Enums\RideStatus;
@@ -29,7 +29,7 @@ it('allows rider with completed profile to create a ride', function () {
 
     $data = new CreateRideData(...$payload);
 
-    $action = app(CreateRide::class);
+    $action = app(CreateRideAction::class);
     $ride = $action->handle($user, $data);
 
     expect($ride)->toBeInstanceOf(App\Models\Ride::class)

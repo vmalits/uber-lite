@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Driver\UpdateLocation;
+use App\Actions\Driver\UpdateLocationAction;
 use App\Data\Driver\DriverLocationData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Driver\UpdateDriverLocationRequest;
@@ -25,7 +25,7 @@ use Knuckles\Scribe\Attributes\Response;
 final class UpdateLocationController extends Controller
 {
     public function __construct(
-        private readonly UpdateLocation $updateLocation,
+        private readonly UpdateLocationAction $updateLocation,
     ) {}
 
     public function __invoke(#[CurrentUser] User $user, UpdateDriverLocationRequest $request): JsonResponse

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Driver\AcceptRide;
+use App\Actions\Driver\AcceptRideAction;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use App\Models\User;
@@ -32,7 +32,7 @@ use Throwable;
 final class AcceptRideController extends Controller
 {
     public function __construct(
-        private readonly AcceptRide $acceptRide,
+        private readonly AcceptRideAction $acceptRide,
     ) {}
 
     /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Actions\Admin\BanDriver;
+use App\Actions\Admin\BanDriverAction;
 use App\Data\Admin\DriverBanData;
 use App\Exceptions\Driver\DriverAlreadyBannedException;
 use App\Http\Controllers\Controller;
@@ -28,7 +28,7 @@ use Throwable;
 final class DriverBanController extends Controller
 {
     public function __construct(
-        private readonly BanDriver $banDriver,
+        private readonly BanDriverAction $banDriver,
     ) {}
 
     /**

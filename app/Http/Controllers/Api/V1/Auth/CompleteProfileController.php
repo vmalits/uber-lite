@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Actions\Auth\CompleteProfile;
+use App\Actions\Auth\CompleteProfileAction;
 use App\Data\Auth\CompleteProfileResponse;
 use App\Enums\NextAction;
 use App\Events\Auth\ProfileCompleted;
@@ -29,7 +29,7 @@ use Throwable;
 final class CompleteProfileController extends Controller
 {
     public function __construct(
-        private readonly CompleteProfile $completeProfile,
+        private readonly CompleteProfileAction $completeProfile,
         private readonly EventsDispatcher $events,
     ) {}
 

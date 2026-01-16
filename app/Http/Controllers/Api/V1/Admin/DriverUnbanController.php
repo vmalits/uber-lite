@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Actions\Admin\UnbanDriver;
+use App\Actions\Admin\UnbanDriverAction;
 use App\Data\Admin\DriverBanData;
 use App\Exceptions\Driver\DriverNotBannedException;
 use App\Http\Controllers\Controller;
@@ -26,7 +26,7 @@ use Knuckles\Scribe\Attributes\Response;
 #[Response(status: 404, description: 'Driver not found')]
 final class DriverUnbanController extends Controller
 {
-    public function __construct(private readonly UnbanDriver $unbanDriver,
+    public function __construct(private readonly UnbanDriverAction $unbanDriver,
     ) {}
 
     public function __invoke(User $driver, UnbanDriverRequest $request): JsonResponse

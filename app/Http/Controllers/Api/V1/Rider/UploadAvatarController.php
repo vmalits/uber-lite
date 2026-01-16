@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Rider;
 
-use App\Actions\User\UploadAvatar;
+use App\Actions\User\UploadAvatarAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\User\UploadAvatarRequest;
 use App\Models\User;
@@ -24,7 +24,7 @@ use Random\RandomException;
 final class UploadAvatarController extends Controller
 {
     public function __construct(
-        private readonly UploadAvatar $uploadAvatar,
+        private readonly UploadAvatarAction $uploadAvatar,
     ) {}
 
     /**

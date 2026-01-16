@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Actions\Admin\AdminLogin;
+use App\Actions\Admin\AdminLoginAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Admin\AdminLoginRequest;
 use App\Support\ApiResponse;
@@ -18,7 +18,7 @@ use Knuckles\Scribe\Attributes\Response;
 final class LoginController extends Controller
 {
     public function __construct(
-        private readonly AdminLogin $adminLogin,
+        private readonly AdminLoginAction $adminLogin,
     ) {}
 
     public function __invoke(AdminLoginRequest $request): JsonResponse

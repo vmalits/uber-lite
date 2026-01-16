@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Driver\Arrived;
+use App\Actions\Driver\ArrivedAction;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use App\Models\User;
@@ -32,7 +32,7 @@ use Throwable;
 final class ArrivedController extends Controller
 {
     public function __construct(
-        private readonly Arrived $arrived,
+        private readonly ArrivedAction $arrived,
     ) {}
 
     /**

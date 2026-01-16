@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Actions\Auth\ResolveNextAction;
+use App\Actions\Auth\ResolveNextActionAction;
 use App\Enums\NextAction;
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
@@ -18,7 +18,7 @@ it('returns select_role when role is not selected', function (): void {
         'email_verified_at' => null,
     ]);
 
-    $resolver = app(ResolveNextAction::class);
+    $resolver = app(ResolveNextActionAction::class);
 
     expect($resolver->handle($user))->toBe(NextAction::SELECT_ROLE);
 });
@@ -33,7 +33,7 @@ it('returns add_email when role selected but email is absent', function (): void
         'email_verified_at' => null,
     ]);
 
-    $resolver = app(ResolveNextAction::class);
+    $resolver = app(ResolveNextActionAction::class);
 
     expect($resolver->handle($user))->toBe(NextAction::ADD_EMAIL);
 });
@@ -48,7 +48,7 @@ it('returns verify_email when email set but not verified', function (): void {
         'email_verified_at' => null,
     ]);
 
-    $resolver = app(ResolveNextAction::class);
+    $resolver = app(ResolveNextActionAction::class);
 
     expect($resolver->handle($user))->toBe(NextAction::VERIFY_EMAIL);
 });
@@ -63,7 +63,7 @@ it('returns complete_profile when email verified but profile not completed', fun
         'email_verified_at' => now(),
     ]);
 
-    $resolver = app(ResolveNextAction::class);
+    $resolver = app(ResolveNextActionAction::class);
 
     expect($resolver->handle($user))->toBe(NextAction::COMPLETE_PROFILE);
 });
@@ -78,7 +78,7 @@ it('returns done when everything completed', function (): void {
         'email_verified_at' => now(),
     ]);
 
-    $resolver = app(ResolveNextAction::class);
+    $resolver = app(ResolveNextActionAction::class);
 
     expect($resolver->handle($user))->toBe(NextAction::DONE);
 });
@@ -91,7 +91,7 @@ it('returns done when profile_step is completed even if role is missing', functi
         'role'              => null,
     ]);
 
-    $resolver = app(ResolveNextAction::class);
+    $resolver = app(ResolveNextActionAction::class);
 
     expect($resolver->handle($user))->toBe(NextAction::DONE);
 });

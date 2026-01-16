@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Profile\UpdateProfile;
+use App\Actions\Profile\UpdateProfileAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Profile\UpdateProfileRequest;
 use App\Models\User;
@@ -27,7 +27,7 @@ use Knuckles\Scribe\Attributes\Response;
 final class UpdateProfileController extends Controller
 {
     public function __construct(
-        private readonly UpdateProfile $updateProfile,
+        private readonly UpdateProfileAction $updateProfile,
         private readonly UserProfilePresenter $presenter,
     ) {}
 

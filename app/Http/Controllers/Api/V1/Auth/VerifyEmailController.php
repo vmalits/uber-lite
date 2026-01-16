@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Actions\Auth\VerifyEmail as VerifyEmailAction;
+use App\Actions\Auth\VerifyEmailAction;
 use App\Data\Auth\VerifyEmailResponse;
 use App\Http\Controllers\Controller;
 use App\Models\User;

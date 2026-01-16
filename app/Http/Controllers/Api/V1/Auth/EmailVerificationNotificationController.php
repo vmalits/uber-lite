@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Actions\Auth\ResolveNextAction;
+use App\Actions\Auth\ResolveNextActionAction;
 use App\Events\Auth\EmailVerificationRequested;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\EmailVerificationNotificationRequest;
@@ -26,7 +26,7 @@ final class EmailVerificationNotificationController extends Controller
 {
     public function __construct(
         private readonly EventsDispatcher $events,
-        private readonly ResolveNextAction $resolveNextAction,
+        private readonly ResolveNextActionAction $resolveNextAction,
     ) {}
 
     public function __invoke(EmailVerificationNotificationRequest $request): JsonResponse

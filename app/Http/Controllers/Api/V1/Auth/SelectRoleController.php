@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Actions\Auth\ResolveNextAction;
-use App\Actions\Auth\SelectUserRole;
+use App\Actions\Auth\ResolveNextActionAction;
+use App\Actions\Auth\SelectUserRoleAction;
 use App\Data\Auth\SelectRoleResponse;
 use App\Enums\ProfileStep;
 use App\Http\Controllers\Controller;
@@ -26,8 +26,8 @@ use Throwable;
 final class SelectRoleController extends Controller
 {
     public function __construct(
-        private readonly ResolveNextAction $resolveNextAction,
-        private readonly SelectUserRole $selectUserRole,
+        private readonly ResolveNextActionAction $resolveNextAction,
+        private readonly SelectUserRoleAction $selectUserRole,
     ) {}
 
     /**

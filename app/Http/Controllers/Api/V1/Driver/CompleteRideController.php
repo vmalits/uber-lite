@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Driver\Complete;
+use App\Actions\Driver\CompleteAction;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use App\Models\User;
@@ -32,7 +32,7 @@ use Throwable;
 final class CompleteRideController extends Controller
 {
     public function __construct(
-        private readonly Complete $complete,
+        private readonly CompleteAction $complete,
     ) {}
 
     /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Actions\Auth\CreateOtpCode;
+use App\Actions\Auth\CreateOtpCodeAction;
 use App\Data\Auth\OtpCodeResponse;
 use App\Events\Auth\OtpResent;
 use App\Exceptions\Auth\ActiveOtpCodeAlreadyExistsException;
@@ -27,7 +27,7 @@ class ResendOtpController extends Controller
 {
     public function __construct(
         private readonly OtpService $otpService,
-        private readonly CreateOtpCode $createOtpCode,
+        private readonly CreateOtpCodeAction $createOtpCode,
         private readonly EventsDispatcher $events,
         private readonly LoggerInterface $logger,
     ) {}

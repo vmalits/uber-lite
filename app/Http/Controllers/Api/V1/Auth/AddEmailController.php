@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Actions\Auth\AddEmail;
-use App\Actions\Auth\ResolveNextAction;
+use App\Actions\Auth\AddEmailAction;
+use App\Actions\Auth\ResolveNextActionAction;
 use App\Data\Auth\AddEmailResponse;
 use App\Enums\ProfileStep;
 use App\Events\Auth\EmailAdded;
@@ -29,9 +29,9 @@ use Throwable;
 class AddEmailController extends Controller
 {
     public function __construct(
-        private readonly AddEmail $addEmail,
+        private readonly AddEmailAction $addEmail,
         private readonly EventsDispatcher $events,
-        private readonly ResolveNextAction $resolveNextAction,
+        private readonly ResolveNextActionAction $resolveNextAction,
     ) {}
 
     /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Rider;
 
-use App\Actions\Rider\RateRide;
+use App\Actions\Rider\RateRideAction;
 use App\Data\Rider\RideData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Rider\RateRideRequest;
@@ -36,7 +36,7 @@ use Knuckles\Scribe\Attributes\UrlParam;
 final class RateRideController extends Controller
 {
     public function __construct(
-        private readonly RateRide $rateRide,
+        private readonly RateRideAction $rateRide,
     ) {}
 
     public function __invoke(RateRideRequest $request, Ride $ride): JsonResponse

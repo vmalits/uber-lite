@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Actions\Auth\ResolveNextAction;
-use App\Actions\Auth\TrackOtpVerificationAttempt;
-use App\Actions\Auth\VerifyOtpCode;
+use App\Actions\Auth\ResolveNextActionAction;
+use App\Actions\Auth\TrackOtpVerificationAttemptAction;
+use App\Actions\Auth\VerifyOtpCodeAction;
 use App\Data\Auth\VerifyOtpResponse;
 use App\Enums\ProfileStep;
 use App\Http\Controllers\Controller;
@@ -23,9 +23,9 @@ use Knuckles\Scribe\Attributes\Response;
 class VerifyOtpController extends Controller
 {
     public function __construct(
-        private readonly VerifyOtpCode $verifyOtpCode,
-        private readonly ResolveNextAction $resolveNextAction,
-        private readonly TrackOtpVerificationAttempt $trackOtpVerificationAttempt,
+        private readonly VerifyOtpCodeAction $verifyOtpCode,
+        private readonly ResolveNextActionAction $resolveNextAction,
+        private readonly TrackOtpVerificationAttemptAction $trackOtpVerificationAttempt,
     ) {}
 
     public function __invoke(VerifyOtpRequest $request): JsonResponse

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use App\Actions\Admin\CreateAdmin;
+use App\Actions\Admin\CreateAdminAction;
 use App\Data\Admin\CreateAdminData;
 use Exception;
 use Illuminate\Console\Command;
@@ -20,7 +20,7 @@ final class CreateAdminCommand extends Command
 {
     public function __construct(
         private readonly LoggerInterface $logger,
-        private readonly CreateAdmin $createAdmin,
+        private readonly CreateAdminAction $createAdmin,
     ) {
         parent::__construct();
     }
@@ -114,7 +114,7 @@ final class CreateAdminCommand extends Command
     /**
      * @param array{phone: string, email: string|null, password: string} $data
      */
-    private function createAdmin(CreateAdmin $createAdmin, array $data): bool
+    private function createAdmin(CreateAdminAction $createAdmin, array $data): bool
     {
         try {
             $createAdmin->handle(new CreateAdminData(

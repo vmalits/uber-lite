@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Driver\CancelRide;
+use App\Actions\Driver\CancelRideAction;
 use App\Data\Rider\RideData;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
@@ -32,7 +32,7 @@ use Knuckles\Scribe\Attributes\UrlParam;
 final class CancelRideController extends Controller
 {
     public function __construct(
-        private readonly CancelRide $cancelRide,
+        private readonly CancelRideAction $cancelRide,
     ) {}
 
     public function __invoke(Ride $ride): JsonResponse

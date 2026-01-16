@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
-use App\Actions\Driver\Start;
+use App\Actions\Driver\StartAction;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use App\Models\User;
@@ -32,7 +32,7 @@ use Throwable;
 final class StartController extends Controller
 {
     public function __construct(
-        private readonly Start $start,
+        private readonly StartAction $start,
     ) {}
 
     /**
