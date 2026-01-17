@@ -10,6 +10,8 @@ use App\Queries\Rider\GetRideHistoryQuery;
 use App\Queries\Rider\GetRideHistoryQueryInterface;
 use App\Queries\Rider\GetRideStatsQuery;
 use App\Queries\Rider\GetRideStatsQueryInterface;
+use App\Queries\Rider\SearchLocationsQuery;
+use App\Queries\Rider\SearchLocationsQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 final class RiderServiceProvider extends ServiceProvider
@@ -18,11 +20,13 @@ final class RiderServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetActiveRideQueryInterface::class  => GetActiveRideQuery::class,
-        GetActiveRideQuery::class           => GetActiveRideQuery::class,
-        GetRideHistoryQueryInterface::class => GetRideHistoryQuery::class,
-        GetRideHistoryQuery::class          => GetRideHistoryQuery::class,
-        GetRideStatsQueryInterface::class   => GetRideStatsQuery::class,
-        GetRideStatsQuery::class            => GetRideStatsQuery::class,
+        GetActiveRideQueryInterface::class   => GetActiveRideQuery::class,
+        GetActiveRideQuery::class            => GetActiveRideQuery::class,
+        GetRideHistoryQueryInterface::class  => GetRideHistoryQuery::class,
+        GetRideHistoryQuery::class           => GetRideHistoryQuery::class,
+        GetRideStatsQueryInterface::class    => GetRideStatsQuery::class,
+        GetRideStatsQuery::class             => GetRideStatsQuery::class,
+        SearchLocationsQueryInterface::class => SearchLocationsQuery::class,
+        SearchLocationsQuery::class          => SearchLocationsQuery::class,
     ];
 }

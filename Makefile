@@ -42,8 +42,12 @@ build-no-cache: # Build Docker images without cache
 rr:             # Start RoadRunner in container
 	$(DOCKER_COMPOSE) exec app rr serve -c .rr.yaml
 
-reset:          # Reset RoadRunner in container
-	$(DOCKER_COMPOSE) exec app rr reset -c .rr.yaml
+reset:          # Reset RoadRunner (requires app to be running)
+	@if docker compose ps app | grep -q "Up"; then \
+		docker compose exec app rr reset -c .rr.yaml; \
+	else \
+		echo "Error: app container is not running. Run 'make up' first."; \
+	fi
 
 watch: rr
 
@@ -91,6 +95,25 @@ lint:           # pint --test + phpstan analyse (in container)
 
 docs:           # scribe:generate (in container)
 	$(DOCKER_COMPOSE) exec app php artisan scribe:generate
+
+# =============================================================================
+# Nominatim (in main docker-compose.yml)
+# =============================================================================
+.PHONY: nominatim-logs nominatim-status nominatim-test nominatim-redis-clear
+
+nominatim-logs: # Show Nominatim logs
+	docker compose logs -f nominatim
+
+nominatim-status: # Check Nominatim status
+	@echo "Checking Nominatim status..."
+	@curl -s http://localhost:8081/status 2>&1 || echo "Nominatim is not responding yet"
+
+nominatim-test: # Test Nominatim search
+	@echo "Testing Nominatim search..."
+	@curl -s "http://localhost:8081/search?q=Chisinau&format=json&limit=2&countrycodes=MD"
+
+nominatim-redis-clear: # Clear Redis geocoding cache
+	docker compose exec redis redis-cli KEYS "geocoding:*" | xargs docker compose exec redis redis-cli DEL
 
 # =============================================================================
 # Project setup (in Docker container)

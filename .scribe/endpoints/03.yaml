@@ -374,7 +374,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -392,7 +392,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01keykwhytqkr67pxcxkhd57g4
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -436,7 +436,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -454,7 +454,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01keykwhytqkr67pxcxkhd57g4
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -498,7 +498,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -516,7 +516,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01keykwhytqkr67pxcxkhd57g4
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -560,7 +560,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -578,7 +578,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01keykwhytqkr67pxcxkhd57g4
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -622,7 +622,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -640,7 +640,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01keykwhytqkr67pxcxkhd57g4
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -684,7 +684,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -702,7 +702,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01keykwhytqkr67pxcxkhd57g4
+      ride_id: architecto
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []

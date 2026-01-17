@@ -21,7 +21,7 @@ http:
     max_jobs: 100
     supervisor:
       exec_ttl: 120s
-      max_worker_memory: 256M
+      max_worker_memory: 128
   headers:
     response:
       X-Powered-By: "RoadRunner"

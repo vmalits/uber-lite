@@ -95,14 +95,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: 01keykmepeb4q1b721z1n1qw2p
+        example: 01kf44etm9f1bk8ytpy3jrja8z
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: 01keykmepeb4q1b721z1n1qw2p
+      driver_id: 01kf44etm9f1bk8ytpy3jrja8z
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -214,14 +214,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: 01keykmepeb4q1b721z1n1qw2p
+        example: 01kf44etm9f1bk8ytpy3jrja8z
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: 01keykmepeb4q1b721z1n1qw2p
+      driver_id: 01kf44etm9f1bk8ytpy3jrja8z
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:

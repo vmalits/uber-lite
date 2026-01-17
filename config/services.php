@@ -45,4 +45,21 @@ return [
             'from'  => env('TWILIO_FROM'),
         ],
     ],
+
+    'geocoding' => [
+        'driver'    => env('GEOCODING_DRIVER', 'nominatim'),
+        'cache_ttl' => env('GEOCODING_CACHE_TTL', 86400),
+
+        'nominatim' => [
+            'url' => env('NOMINATIM_URL', 'http://localhost:8081'),
+        ],
+
+        'google' => [
+            'api_key' => env('GOOGLE_MAPS_API_KEY'),
+        ],
+
+        'mapbox' => [
+            'access_token' => env('MAPBOX_ACCESS_TOKEN'),
+        ],
+    ],
 ];

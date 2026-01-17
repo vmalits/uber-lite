@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
+use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
 use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
 use App\Http\Controllers\Api\V1\Rider\UploadAvatarController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,8 @@ Route::prefix('rider')
         'set_locale',
     ])
     ->group(function (): void {
+        Route::get('locations/search', [SearchLocationsController::class, '__invoke'])
+            ->name('api.v1.rider.locations.search');
         Route::get('profile', [ProfileController::class, '__invoke'])
             ->name('api.v1.rider.profile');
         Route::put('profile', [UpdateProfileController::class, '__invoke'])

@@ -7,6 +7,98 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/rider/locations/search
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      query:
+        custom: []
+        name: query
+        description: 'Search query (address, place name)'
+        required: true
+        example: 'Stefan cel Mare'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      lat:
+        custom: []
+        name: lat
+        description: 'User current latitude (for better results)'
+        required: false
+        example: 47.0105
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      lng:
+        custom: []
+        name: lng
+        description: 'User current longitude (for better results)'
+        required: false
+        example: 28.8638
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Maximum number of results'
+        required: false
+        example: 5
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      query: 'Stefan cel Mare'
+      lat: 47.0105
+      lng: 28.8638
+      limit: 5
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Locations found successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/rider/profile
     metadata:
       custom: []
@@ -533,14 +625,14 @@ endpoints:
         name: id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01keykwhytqkr67pxcxkhd57g4
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -638,7 +730,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -656,7 +748,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01keykwhytqkr67pxcxkhd57g4
+      ride_id: architecto
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -712,7 +804,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01keykwhytqkr67pxcxkhd57g4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -730,7 +822,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01keykwhytqkr67pxcxkhd57g4
+      ride_id: architecto
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
