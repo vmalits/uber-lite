@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
+use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
@@ -28,6 +29,8 @@ Route::prefix('rider')
     ->group(function (): void {
         Route::get('locations/search', [SearchLocationsController::class, '__invoke'])
             ->name('api.v1.rider.locations.search');
+        Route::get('favorites', [GetFavoriteLocationsController::class, '__invoke'])
+            ->name('api.v1.rider.favorites.index');
         Route::post('favorites', [AddFavoriteLocationController::class, '__invoke'])
             ->name('api.v1.rider.favorites.store');
         Route::get('profile', [ProfileController::class, '__invoke'])
