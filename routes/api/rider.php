@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Api\V1\Rider\AddFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
@@ -27,6 +28,8 @@ Route::prefix('rider')
     ->group(function (): void {
         Route::get('locations/search', [SearchLocationsController::class, '__invoke'])
             ->name('api.v1.rider.locations.search');
+        Route::post('favorites', [AddFavoriteLocationController::class, '__invoke'])
+            ->name('api.v1.rider.favorites.store');
         Route::get('profile', [ProfileController::class, '__invoke'])
             ->name('api.v1.rider.profile');
         Route::put('profile', [UpdateProfileController::class, '__invoke'])

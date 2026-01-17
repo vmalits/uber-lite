@@ -14,6 +14,7 @@ use Carbon\CarbonInterface;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -38,6 +39,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property CarbonInterface|null $banned_at
  * @property CarbonInterface|null $created_at
  * @property CarbonInterface|null $updated_at
+ * @property-read Collection<int, FavoriteLocation> $favorites
  */
 #[ObservedBy([UserObserver::class])]
 class User extends Authenticatable implements MustVerifyEmail
@@ -121,5 +123,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function bans(): HasMany
     {
         return $this->hasMany(related: DriverBan::class, foreignKey: 'driver_id');
+    }
+
+    /**
+     * @return HasMany<FavoriteLocation, $this>
+     */
+    public function favorites(): HasMany
+    {
+        return $this->hasMany(related: FavoriteLocation::class, foreignKey: 'user_id');
     }
 }

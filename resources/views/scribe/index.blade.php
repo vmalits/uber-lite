@@ -190,6 +190,9 @@
                                                     <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-locations-search">
                                 <a href="#rider-GETapi-v1-rider-locations-search">GET api/v1/rider/locations/search</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-favorites">
+                                <a href="#rider-POSTapi-v1-rider-favorites">POST api/v1/rider/favorites</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-profile">
                                 <a href="#rider-GETapi-v1-rider-profile">GET api/v1/rider/profile</a>
                             </li>
@@ -479,7 +482,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/admin/drivers/01kf44etm9f1bk8ytpy3jrja8z/ban" \
+    "http://localhost:8080/api/v1/admin/drivers/architecto/ban" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -494,7 +497,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/admin/drivers/01kf44etm9f1bk8ytpy3jrja8z/ban"
+    "http://localhost:8080/api/v1/admin/drivers/architecto/ban"
 );
 
 const headers = {
@@ -519,7 +522,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/admin/drivers/01kf44etm9f1bk8ytpy3jrja8z/ban';
+$url = 'http://localhost:8080/api/v1/admin/drivers/architecto/ban';
 $response = $client-&gt;post(
     $url,
     [
@@ -544,7 +547,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/admin/drivers/01kf44etm9f1bk8ytpy3jrja8z/ban'
+url = 'http://localhost:8080/api/v1/admin/drivers/architecto/ban'
 payload = {
     "reason": "Violation of rules",
     "ban_type": "temporary",
@@ -683,10 +686,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="driver_id"                data-endpoint="POSTapi-v1-admin-drivers--driver_id--ban"
-               value="01kf44etm9f1bk8ytpy3jrja8z"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the driver. Example: <code>01kf44etm9f1bk8ytpy3jrja8z</code></p>
+<p>The ID of the driver. Example: <code>architecto</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -757,7 +760,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/admin/drivers/01kf44etm9f1bk8ytpy3jrja8z/unban" \
+    "http://localhost:8080/api/v1/admin/drivers/architecto/unban" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -769,7 +772,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/admin/drivers/01kf44etm9f1bk8ytpy3jrja8z/unban"
+    "http://localhost:8080/api/v1/admin/drivers/architecto/unban"
 );
 
 const headers = {
@@ -791,7 +794,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/admin/drivers/01kf44etm9f1bk8ytpy3jrja8z/unban';
+$url = 'http://localhost:8080/api/v1/admin/drivers/architecto/unban';
 $response = $client-&gt;post(
     $url,
     [
@@ -813,7 +816,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/admin/drivers/01kf44etm9f1bk8ytpy3jrja8z/unban'
+url = 'http://localhost:8080/api/v1/admin/drivers/architecto/unban'
 payload = {
     "reason": "Ban lifted after review"
 }
@@ -949,10 +952,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="driver_id"                data-endpoint="POSTapi-v1-admin-drivers--driver_id--unban"
-               value="01kf44etm9f1bk8ytpy3jrja8z"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the driver. Example: <code>01kf44etm9f1bk8ytpy3jrja8z</code></p>
+<p>The ID of the driver. Example: <code>architecto</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2505,14 +2508,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/auth/email/verify/01kf44etm9f1bk8ytpy3jrja8z/922815DfBeA128EaEAaaA185508FE078BecEfbbe" \
+    --get "http://localhost:8080/api/v1/auth/email/verify/architecto/922815DfBeA128EaEAaaA185508FE078BecEfbbe" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/auth/email/verify/01kf44etm9f1bk8ytpy3jrja8z/922815DfBeA128EaEAaaA185508FE078BecEfbbe"
+    "http://localhost:8080/api/v1/auth/email/verify/architecto/922815DfBeA128EaEAaaA185508FE078BecEfbbe"
 );
 
 const headers = {
@@ -2528,7 +2531,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/auth/email/verify/01kf44etm9f1bk8ytpy3jrja8z/922815DfBeA128EaEAaaA185508FE078BecEfbbe';
+$url = 'http://localhost:8080/api/v1/auth/email/verify/architecto/922815DfBeA128EaEAaaA185508FE078BecEfbbe';
 $response = $client-&gt;get(
     $url,
     [
@@ -2546,7 +2549,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8080/api/v1/auth/email/verify/01kf44etm9f1bk8ytpy3jrja8z/922815DfBeA128EaEAaaA185508FE078BecEfbbe'
+url = 'http://localhost:8080/api/v1/auth/email/verify/architecto/922815DfBeA128EaEAaaA185508FE078BecEfbbe'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -2652,10 +2655,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-v1-auth-email-verify--user_id---hash-"
-               value="01kf44etm9f1bk8ytpy3jrja8z"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>01kf44etm9f1bk8ytpy3jrja8z</code></p>
+<p>The ID of the user. Example: <code>architecto</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hash</code></b>&nbsp;&nbsp;
@@ -5388,7 +5391,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php1j2ve4ctquvs2MeHAgB" </code></pre></div>
+    --form "avatar=@/tmp/phpqn95h22kkj8c4efpOmH" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5426,7 +5429,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php1j2ve4ctquvs2MeHAgB', 'r')
+                'contents' =&gt; fopen('/tmp/phpqn95h22kkj8c4efpOmH', 'r')
             ],
         ],
     ]
@@ -5441,7 +5444,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/php1j2ve4ctquvs2MeHAgB', 'rb')}
+  'avatar': open('/tmp/phpqn95h22kkj8c4efpOmH', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -5556,7 +5559,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php1j2ve4ctquvs2MeHAgB</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpqn95h22kkj8c4efpOmH</code></p>
         </div>
         </form>
 
@@ -6020,6 +6023,260 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Maximum number of results Example: <code>5</code></p>
             </div>
                 </form>
+
+                    <h2 id="rider-POSTapi-v1-rider-favorites">POST api/v1/rider/favorites</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-rider-favorites">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/rider/favorites" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Дом\",
+    \"lat\": 47.01,
+    \"lng\": 28.863,
+    \"address\": \"Strada Stefan cel Mare 123, Chisinau\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/favorites"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Дом",
+    "lat": 47.01,
+    "lng": 28.863,
+    "address": "Strada Stefan cel Mare 123, Chisinau"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/favorites';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Дом',
+            'lat' =&gt; 47.01,
+            'lng' =&gt; 28.863,
+            'address' =&gt; 'Strada Stefan cel Mare 123, Chisinau',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/favorites'
+payload = {
+    "name": "Дом",
+    "lat": 47.01,
+    "lng": 28.863,
+    "address": "Strada Stefan cel Mare 123, Chisinau"
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-rider-favorites">
+            <blockquote>
+            <p>Example response (200, Favorite location added successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-rider-favorites" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-rider-favorites"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-rider-favorites"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-rider-favorites" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-rider-favorites">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-rider-favorites" data-method="POST"
+      data-path="api/v1/rider/favorites"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-rider-favorites', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-rider-favorites"
+                    onclick="tryItOut('POSTapi-v1-rider-favorites');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-rider-favorites"
+                    onclick="cancelTryOut('POSTapi-v1-rider-favorites');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-rider-favorites"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/rider/favorites</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-rider-favorites"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-rider-favorites"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-rider-favorites"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-v1-rider-favorites"
+               value="Дом"
+               data-component="body">
+    <br>
+<p>The name of the favorite location. Must not be greater than 50 characters. Example: <code>Дом</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>lat</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="lat"                data-endpoint="POSTapi-v1-rider-favorites"
+               value="47.01"
+               data-component="body">
+    <br>
+<p>The latitude of the location. Must be between -90 and 90. Example: <code>47.01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>lng</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="lng"                data-endpoint="POSTapi-v1-rider-favorites"
+               value="28.863"
+               data-component="body">
+    <br>
+<p>The longitude of the location. Must be between -180 and 180. Example: <code>28.863</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="POSTapi-v1-rider-favorites"
+               value="Strada Stefan cel Mare 123, Chisinau"
+               data-component="body">
+    <br>
+<p>The address of the favorite location. Must not be greater than 255 characters. Example: <code>Strada Stefan cel Mare 123, Chisinau</code></p>
+        </div>
+        </form>
 
                     <h2 id="rider-GETapi-v1-rider-profile">GET api/v1/rider/profile</h2>
 
@@ -8330,7 +8587,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php85rsaar4gvqoehogcpA" </code></pre></div>
+    --form "avatar=@/tmp/php6pfe897qfnps7DGDJFH" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8368,7 +8625,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php85rsaar4gvqoehogcpA', 'r')
+                'contents' =&gt; fopen('/tmp/php6pfe897qfnps7DGDJFH', 'r')
             ],
         ],
     ]
@@ -8383,7 +8640,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/php85rsaar4gvqoehogcpA', 'rb')}
+  'avatar': open('/tmp/php6pfe897qfnps7DGDJFH', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -8498,7 +8755,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php85rsaar4gvqoehogcpA</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php6pfe897qfnps7DGDJFH</code></p>
         </div>
         </form>
 

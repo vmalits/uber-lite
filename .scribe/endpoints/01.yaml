@@ -96,6 +96,104 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: api/v1/rider/favorites
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'The name of the favorite location. Must not be greater than 50 characters.'
+        required: true
+        example: Дом
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      lat:
+        custom: []
+        name: lat
+        description: 'The latitude of the location. Must be between -90 and 90.'
+        required: true
+        example: 47.01
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      lng:
+        custom: []
+        name: lng
+        description: 'The longitude of the location. Must be between -180 and 180.'
+        required: true
+        example: 28.863
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      address:
+        custom: []
+        name: address
+        description: 'The address of the favorite location. Must not be greater than 255 characters.'
+        required: true
+        example: 'Strada Stefan cel Mare 123, Chisinau'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: Дом
+      lat: 47.01
+      lng: 28.863
+      address: 'Strada Stefan cel Mare 123, Chisinau'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Favorite location added successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: api/v1/rider/profile
     metadata:

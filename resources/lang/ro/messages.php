@@ -73,6 +73,10 @@ return [
         'online'  => 'Acum ești online și disponibil pentru curse.',
         'offline' => 'Acum ești offline.',
     ],
+    'favorite' => [
+        'location_added'   => 'Locația favorită adăugată cu succes.',
+        'location_removed' => 'Locația favorită eliminată cu succes.',
+    ],
     'payment_methods' => [
         'fetched' => 'Metodele de plată au fost preluate cu succes.',
     ],
