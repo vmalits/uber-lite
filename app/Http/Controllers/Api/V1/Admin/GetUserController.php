@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Api\V1\Admin;
 use App\Data\User\UserData;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Queries\Admin\GetUserQueryInterface;
 use App\Services\Avatar\AvatarUrlService;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
@@ -25,15 +26,16 @@ use Knuckles\Scribe\Attributes\Response;
 final class GetUserController extends Controller
 {
     public function __construct(
+        private readonly GetUserQueryInterface $query,
         private readonly AvatarUrlService $avatarResolver,
     ) {}
 
-    public function __invoke(User $user): JsonResponse
+    public function __invoke(string $user): JsonResponse
     {
-        $this->authorize('view', $user);
+        $userData = UserData::fromModel($this->query->execute($user), $this->avatarResolver);
 
-        return ApiResponse::success(
-            UserData::fromModel($user, $this->avatarResolver),
-        );
+        $this->authorize('view', User::findOrFail($user));
+
+        return ApiResponse::success($userData);
     }
 }

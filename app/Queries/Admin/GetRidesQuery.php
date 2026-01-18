@@ -11,7 +11,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final readonly class GetRidesQuery
+final readonly class GetRidesQuery implements GetRidesQueryInterface
 {
     /**
      * @return LengthAwarePaginator<int, Ride>

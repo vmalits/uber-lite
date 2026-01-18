@@ -12,7 +12,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final readonly class GetUsersQuery
+final readonly class GetUsersQuery implements GetUsersQueryInterface
 {
     /**
      * @return LengthAwarePaginator<int, User>

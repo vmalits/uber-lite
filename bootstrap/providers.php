@@ -7,6 +7,7 @@ return [
     App\Providers\AuthServiceProvider::class,
     App\Providers\AvatarServiceProvider::class,
     App\Providers\RiderServiceProvider::class,
+    App\Providers\AdminServiceProvider::class,
     App\Providers\DriverServiceProvider::class,
     App\Providers\TwilioServiceProvider::class,
     App\Providers\LocaleServiceProvider::class,

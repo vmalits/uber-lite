@@ -8,7 +8,7 @@ use App\Data\User\UserData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Admin\GetUsersRequest;
 use App\Models\User;
-use App\Queries\Admin\GetUsersQuery;
+use App\Queries\Admin\GetUsersQueryInterface;
 use App\Services\Avatar\AvatarUrlService;
 use App\Support\ApiResponse;
 use App\Support\PaginationHelper;
@@ -38,7 +38,7 @@ use Knuckles\Scribe\Attributes\Response;
 final class GetUsersController extends Controller
 {
     public function __construct(
-        private readonly GetUsersQuery $getUsersQuery,
+        private readonly GetUsersQueryInterface $getUsersQuery,
         private readonly AvatarUrlService $avatarResolver,
     ) {}
 

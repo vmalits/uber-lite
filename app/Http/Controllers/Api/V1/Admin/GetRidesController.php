@@ -8,7 +8,7 @@ use App\Data\Rider\RideData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Admin\GetRidesRequest;
 use App\Models\Ride;
-use App\Queries\Admin\GetRidesQuery;
+use App\Queries\Admin\GetRidesQueryInterface;
 use App\Support\ApiResponse;
 use App\Support\PaginationHelper;
 use Illuminate\Http\JsonResponse;
@@ -33,7 +33,7 @@ use Knuckles\Scribe\Attributes\Response;
 final class GetRidesController extends Controller
 {
     public function __construct(
-        private readonly GetRidesQuery $getRidesQuery,
+        private readonly GetRidesQueryInterface $getRidesQuery,
     ) {}
 
     public function __invoke(GetRidesRequest $request): JsonResponse
