@@ -5,7 +5,6 @@ declare(strict_types=1);
 use App\Enums\UserRole;
 use App\Enums\UserStatus;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 it('returns paginated users list for admin', function () {
     $admin = User::factory()->create([

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
 use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
+use App\Http\Controllers\Api\V1\Admin\GetUserController;
 use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
 
@@ -14,6 +15,9 @@ Route::prefix('admin')
         Route::get('users', [GetUsersController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.index');
+        Route::get('users/{user}', [GetUserController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.users.show');
         Route::post('drivers/{driver}/ban', [DriverBanController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.ban');

@@ -73,6 +73,368 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - GET
+    uri: api/v1/admin/users
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of items per page'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      role:
+        custom: []
+        name: role
+        description: 'Filter by user role (admin, driver, rider)'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Filter by user status (active, inactive, banned)'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      banned:
+        custom: []
+        name: banned
+        description: 'Filter banned users (true/false)'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'filter[phone]':
+        custom: []
+        name: 'filter[phone]'
+        description: 'Filter by phone number (partial match)'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'filter[email]':
+        custom: []
+        name: 'filter[email]'
+        description: 'Filter by email (partial match)'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'filter[first_name]':
+        custom: []
+        name: 'filter[first_name]'
+        description: 'Filter by first name (partial match)'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'filter[last_name]':
+        custom: []
+        name: 'filter[last_name]'
+        description: 'Filter by last name (partial match)'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort field (prefix with - for descending)'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 15
+      role: architecto
+      status: architecto
+      banned: false
+      'filter[phone]': architecto
+      'filter[email]': architecto
+      'filter[first_name]': architecto
+      'filter[last_name]': architecto
+      sort: architecto
+    bodyParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      role:
+        custom: []
+        name: role
+        description: 'Filter by user role.'
+        required: false
+        example: admin
+        type: string
+        enumValues:
+          - admin
+          - rider
+          - driver
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Filter by user status.'
+        required: false
+        example: active
+        type: string
+        enumValues:
+          - active
+          - inactive
+          - banned
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      banned:
+        custom: []
+        name: banned
+        description: 'Filter banned users (true/false).'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter:
+        custom: []
+        name: filter
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.phone:
+        custom: []
+        name: filter.phone
+        description: 'Filter by phone number (partial match).'
+        required: false
+        example: '+3736'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.email:
+        custom: []
+        name: filter.email
+        description: 'Filter by email (partial match).'
+        required: false
+        example: example
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.first_name:
+        custom: []
+        name: filter.first_name
+        description: 'Filter by first name (partial match).'
+        required: false
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.last_name:
+        custom: []
+        name: filter.last_name
+        description: 'Filter by last name (partial match).'
+        required: false
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort field (prefix with - for descending).'
+        required: false
+        example: '-created_at'
+        type: string
+        enumValues:
+          - created_at
+          - '-created_at'
+          - updated_at
+          - '-updated_at'
+          - last_login_at
+          - '-last_login_at'
+          - phone
+          - '-phone'
+          - email
+          - '-email'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      per_page: 15
+      role: admin
+      status: active
+      banned: false
+      filter:
+        phone: '+3736'
+        email: example
+        first_name: John
+        last_name: Doe
+      sort: '-created_at'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Paginated users list retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/users/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'User details retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'User not found.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: 'api/v1/admin/drivers/{driver_id}/ban'
     metadata:
