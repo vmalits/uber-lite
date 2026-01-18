@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
+use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
@@ -33,6 +34,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.favorites.index');
         Route::post('favorites', [AddFavoriteLocationController::class, '__invoke'])
             ->name('api.v1.rider.favorites.store');
+        Route::delete('favorites/{favorite}', [DeleteFavoriteLocationController::class, '__invoke'])
+            ->name('api.v1.rider.favorites.destroy');
         Route::get('profile', [ProfileController::class, '__invoke'])
             ->name('api.v1.rider.profile');
         Route::put('profile', [UpdateProfileController::class, '__invoke'])

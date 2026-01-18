@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Policies\FavoriteLocationPolicy;
 use Carbon\CarbonInterface;
 use Database\Factories\FavoriteLocationFactory;
 use Illuminate\Database\Eloquent\Attributes\UseFactory;
+use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +26,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read User $user
  */
 #[UseFactory(FavoriteLocationFactory::class)]
+#[UsePolicy(FavoriteLocationPolicy::class)]
 class FavoriteLocation extends Model
 {
     /** @use HasFactory<FavoriteLocationFactory> */

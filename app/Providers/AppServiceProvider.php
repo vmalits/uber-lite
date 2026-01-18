@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $this->configureUrl();
         $this->configureRateLimiting();
         $this->configureDate();
+        $this->configureRoutePatterns();
 
         $this->app->bind(UserCacheService::class, function () {
             return new UserCacheService(cache: Cache::driver());
@@ -60,5 +62,10 @@ class AppServiceProvider extends ServiceProvider
     private function configureDate(): void
     {
         Date::use(CarbonImmutable::class);
+    }
+
+    private function configureRoutePatterns(): void
+    {
+        Route::pattern('ulid', '[0-9a-fA-F]{26}');
     }
 }
