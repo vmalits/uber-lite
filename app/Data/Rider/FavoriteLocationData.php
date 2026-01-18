@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Data\Rider;
 
+use App\Data\DateData;
 use App\Models\FavoriteLocation;
 use Spatie\LaravelData\Data;
 
@@ -15,7 +16,8 @@ final class FavoriteLocationData extends Data
         public float $lat,
         public float $lng,
         public string $address,
-        public string $created_at,
+        public DateData $created_at,
+        public DateData $updated_at,
     ) {}
 
     public static function fromModel(FavoriteLocation $model): self
@@ -26,7 +28,8 @@ final class FavoriteLocationData extends Data
             lat: $model->lat,
             lng: $model->lng,
             address: $model->address,
-            created_at: $model->created_at->toIso8601String(),
+            created_at: DateData::fromCarbon($model->created_at),
+            updated_at: DateData::fromCarbon($model->updated_at),
         );
     }
 }

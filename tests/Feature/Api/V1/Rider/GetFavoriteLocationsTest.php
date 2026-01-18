@@ -38,7 +38,8 @@ test('can get favorite locations', function (): void {
                         'lat',
                         'lng',
                         'address',
-                        'created_at',
+                        'created_at' => ['human', 'string'],
+                        'updated_at' => ['human', 'string'],
                     ],
                 ],
                 'pagination' => [
