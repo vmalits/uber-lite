@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
 use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
 use App\Http\Controllers\Api\V1\Admin\GetUserController;
@@ -18,6 +19,9 @@ Route::prefix('admin')
         Route::get('users/{user}', [GetUserController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.show');
+        Route::delete('users/{user}', [DeleteUserController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.users.destroy');
         Route::post('drivers/{driver}/ban', [DriverBanController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.ban');
