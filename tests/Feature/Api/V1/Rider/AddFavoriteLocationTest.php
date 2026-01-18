@@ -8,19 +8,15 @@ use App\Models\User;
 
 use function Pest\Laravel\actingAs;
 
-beforeEach(function () {
+test('can add favorite location', function (): void {
     $user = User::factory()->create([
-        'role'         => UserRole::RIDER,
-        'profile_step' => ProfileStep::COMPLETED,
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
     ]);
 
-    $user->phone_verified_at = now();
-    $user->email_verified_at = now();
-    $user->save();
-});
-
-test('can add favorite location', function (): void {
-    actingAs(User::first())
+    actingAs($user)
         ->postJson(route('api.v1.rider.favorites.store'), [
             'name'    => 'Дом',
             'lat'     => 47.010,
@@ -46,7 +42,14 @@ test('can add favorite location', function (): void {
 });
 
 test('validation fails for required fields', function (): void {
-    actingAs(User::first())
+    $user = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    actingAs($user)
         ->postJson(route('api.v1.rider.favorites.store'), [
             'address' => 'Some address',
         ])

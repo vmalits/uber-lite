@@ -9,19 +9,13 @@ use App\Models\User;
 
 use function Pest\Laravel\actingAs;
 
-beforeEach(function () {
-    $user = User::factory()->create([
-        'role'         => UserRole::RIDER,
-        'profile_step' => ProfileStep::COMPLETED,
-    ]);
-
-    $user->phone_verified_at = now();
-    $user->email_verified_at = now();
-    $user->save();
-});
-
 test('can get favorite locations', function (): void {
-    $user = User::first();
+    $user = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
 
     FavoriteLocation::factory()->count(3)->create(['user_id' => $user->id]);
 
@@ -53,7 +47,12 @@ test('can get favorite locations', function (): void {
 });
 
 test('favorite locations are paginated', function (): void {
-    $user = User::first();
+    $user = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
 
     FavoriteLocation::factory()->count(15)->create(['user_id' => $user->id]);
 
@@ -65,10 +64,17 @@ test('favorite locations are paginated', function (): void {
 });
 
 test('only own favorite locations are returned', function (): void {
-    $user = User::first();
+    $user = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
     $otherUser = User::factory()->create([
-        'role'         => UserRole::RIDER,
-        'profile_step' => ProfileStep::COMPLETED,
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
     ]);
 
     FavoriteLocation::factory()->count(3)->create(['user_id' => $user->id]);
@@ -81,7 +87,12 @@ test('only own favorite locations are returned', function (): void {
 });
 
 test('favorite locations are ordered by created_at desc', function (): void {
-    $user = User::first();
+    $user = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
 
     $first = FavoriteLocation::factory()->create([
         'user_id'    => $user->id,
