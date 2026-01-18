@@ -37,8 +37,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property ProfileStep|null $profile_step
  * @property UserStatus $status
  * @property CarbonInterface|null $banned_at
- * @property CarbonInterface|null $created_at
- * @property CarbonInterface|null $updated_at
+ * @property CarbonInterface $created_at
+ * @property CarbonInterface $updated_at
  * @property-read Collection<int, FavoriteLocation> $favorites
  */
 #[ObservedBy([UserObserver::class])]
@@ -97,6 +97,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isRider(): bool
     {
         return $this->role === UserRole::RIDER;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === UserRole::ADMIN;
     }
 
     public function isPhoneVerified(): bool
