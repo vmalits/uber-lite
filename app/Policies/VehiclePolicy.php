@@ -19,4 +19,9 @@ final class VehiclePolicy
     {
         return $user->role === UserRole::DRIVER && $vehicle->driver_id === $user->id;
     }
+
+    public function delete(User $user, Vehicle $vehicle): bool
+    {
+        return $user->role === UserRole::DRIVER && $vehicle->driver_id === $user->id;
+    }
 }

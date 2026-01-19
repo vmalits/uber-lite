@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\Driver\AddVehicleController;
 use App\Http\Controllers\Api\V1\Driver\ArrivedController;
 use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
+use App\Http\Controllers\Api\V1\Driver\DeleteVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\GoOfflineController;
@@ -61,4 +62,6 @@ Route::prefix('driver')
             ->name('api.v1.driver.vehicle.add');
         Route::put('vehicle/{vehicle}', [UpdateVehicleController::class, '__invoke'])
             ->name('api.v1.driver.vehicle.update');
+        Route::delete('vehicle/{vehicle}', [DeleteVehicleController::class, '__invoke'])
+            ->name('api.v1.driver.vehicle.delete');
     });
