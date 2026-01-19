@@ -29,7 +29,7 @@ final readonly class CachedGeocodingService implements GeocodingServiceInterface
 
         $cached = $this->cache->get($cacheKey);
         if (\is_array($cached) && array_is_list($cached)) {
-            $result = array_filter($cached, function ($item) {
+            $result = array_filter($cached, function (mixed $item): bool {
                 if (! \is_array($item)) {
                     return false;
                 }
@@ -42,7 +42,7 @@ final readonly class CachedGeocodingService implements GeocodingServiceInterface
                 return true;
             });
             /** @var array<int, array<string, mixed>> $result */
-            $hydrated = array_map(fn ($item) => LocationSuggestionData::fromArray($item), $result);
+            $hydrated = array_map(fn (array $item): LocationSuggestionData => LocationSuggestionData::fromArray($item), $result);
             if (\count($hydrated) === \count($cached)) {
                 $this->logger->debug('Geocoding cache hit', ['query' => $query]);
 

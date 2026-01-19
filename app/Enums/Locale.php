@@ -25,7 +25,6 @@ enum Locale: string
 
     public static function fromValue(string $value): ?self
     {
-        return array_find(self::cases(), fn ($case) => $case->value === $value);
-
+        return array_find(self::cases(), fn (self $case): bool => $case->value === $value);
     }
 }

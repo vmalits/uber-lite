@@ -7,14 +7,16 @@ namespace App\Providers;
 use Illuminate\Auth\EloquentUserProvider;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
+use Illuminate\Contracts\Hashing\Hasher;
+use Illuminate\Database\Eloquent\Model;
 
 final class CachedUserProvider extends EloquentUserProvider
 {
     public function __construct(
         private readonly CacheRepository $cache,
         private readonly int $cacheTtl,
-        $hasher,
-        $model,
+        Hasher $hasher,
+        string $model,
     ) {
         parent::__construct($hasher, $model);
     }
@@ -26,13 +28,17 @@ final class CachedUserProvider extends EloquentUserProvider
      */
     public function retrieveById($identifier): ?Authenticatable
     {
-        // @phpstan-ignore binaryOp.invalid
-        $cacheKey = 'user:'.$identifier;
+        /** @var string|int $identifier */
+        $id = (string) $identifier;
+        $cacheKey = 'user:'.$id;
 
+        /** @var (Authenticatable&Model)|null */
         return $this->cache->remember(
             key: $cacheKey,
             ttl: $this->cacheTtl,
-            callback: fn () => parent::retrieveById($identifier),
+            callback: function () use ($identifier): ?Authenticatable {
+                return parent::retrieveById($identifier);
+            },
         );
     }
 }

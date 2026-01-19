@@ -30,7 +30,7 @@ final readonly class UserCache
         User $user,
         Closure $resolver,
         int $ttl = 3600,
-    ) {
+    ): mixed {
         /** @var TCacheValue */
         return $this->cache->tags($this->tag($user))
             ->remember('profile', $ttl, $resolver);

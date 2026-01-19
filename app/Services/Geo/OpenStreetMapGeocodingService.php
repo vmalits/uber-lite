@@ -42,17 +42,12 @@ final readonly class OpenStreetMapGeocodingService extends AbstractGeocodingServ
                 return [];
             }
             // Ensure $data is an array<int, array<string, mixed>>
-            $data = array_values(array_filter($data, function ($item) {
+            $data = array_values(array_filter($data, static function (mixed $item): bool {
                 if (! \is_array($item)) {
                     return false;
                 }
-                foreach (array_keys($item) as $key) {
-                    if (! \is_string($key)) {
-                        return false;
-                    }
-                }
 
-                return true;
+                return array_all(array_keys($item), static fn (mixed $key): bool => \is_string($key));
             }));
             /** @var array<int, array<string, mixed>> $data */
             $suggestions = $this->parseResponseArray($data);
