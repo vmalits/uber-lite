@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
 use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
+use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
 use App\Http\Controllers\Api\V1\Admin\GetRideController;
 use App\Http\Controllers\Api\V1\Admin\GetRidesController;
@@ -25,6 +26,9 @@ Route::prefix('admin')
         Route::get('drivers', [GetDriversController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.index');
+        Route::get('drivers/{driver}', [GetDriverController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.drivers.show');
         Route::get('rides', [GetRidesController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.rides.index');

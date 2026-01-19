@@ -40,6 +40,11 @@ use Laravel\Sanctum\HasApiTokens;
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  * @property-read Collection<int, FavoriteLocation> $favorites
+ * @property-read int|null $total_rides
+ * @property-read int|null $completed_rides
+ * @property-read int|null $cancelled_rides
+ * @property-read float|null $driver_ride_ratings_avg_rating
+ * @property-read float|null $total_earned
  */
 #[ObservedBy([UserObserver::class])]
 class User extends Authenticatable implements MustVerifyEmail
@@ -136,5 +141,21 @@ class User extends Authenticatable implements MustVerifyEmail
     public function favorites(): HasMany
     {
         return $this->hasMany(related: FavoriteLocation::class, foreignKey: 'user_id');
+    }
+
+    /**
+     * @return HasMany<Ride, $this>
+     */
+    public function driverRides(): HasMany
+    {
+        return $this->hasMany(related: Ride::class, foreignKey: 'driver_id');
+    }
+
+    /**
+     * @return HasMany<Ride, $this>
+     */
+    public function riderRides(): HasMany
+    {
+        return $this->hasMany(related: Ride::class, foreignKey: 'rider_id');
     }
 }
