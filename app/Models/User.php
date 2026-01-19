@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -45,6 +46,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read int|null $cancelled_rides
  * @property-read float|null $driver_ride_ratings_avg_rating
  * @property-read float|null $total_earned
+ * @property-read Vehicle|null $vehicle
  */
 #[ObservedBy([UserObserver::class])]
 class User extends Authenticatable implements MustVerifyEmail
@@ -157,5 +159,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function riderRides(): HasMany
     {
         return $this->hasMany(related: Ride::class, foreignKey: 'rider_id');
+    }
+
+    /**
+     * @return HasOne<Vehicle, $this>
+     */
+    public function vehicle(): HasOne
+    {
+        return $this->hasOne(related: Vehicle::class, foreignKey: 'driver_id');
     }
 }

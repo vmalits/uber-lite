@@ -77,4 +77,10 @@ return [
         'location_added'   => 'Favorite location added successfully.',
         'location_removed' => 'Favorite location removed successfully.',
     ],
+    'vehicle' => [
+        'added' => 'Vehicle added successfully.',
+    ],
+    'payment_methods' => [
+        'fetched' => 'Payment methods fetched successfully.',
+    ],
 ];

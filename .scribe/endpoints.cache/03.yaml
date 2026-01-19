@@ -853,3 +853,313 @@ endpoints:
     controller: null
     method: null
     route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/driver/vehicle
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      brand:
+        custom: []
+        name: brand
+        description: 'The brand of the vehicle. Must not be greater than 255 characters.'
+        required: true
+        example: Toyota
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      model:
+        custom: []
+        name: model
+        description: 'The model of the vehicle. Must not be greater than 255 characters.'
+        required: true
+        example: Camry
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      year:
+        custom: []
+        name: year
+        description: 'The manufacturing year of the vehicle. Must be between 1990 and 2026.'
+        required: true
+        example: 2022
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      color:
+        custom: []
+        name: color
+        description: 'The color of the vehicle. Must not be greater than 255 characters.'
+        required: true
+        example: Black
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      plate_number:
+        custom: []
+        name: plate_number
+        description: 'The license plate number of the vehicle. Must not be greater than 20 characters.'
+        required: true
+        example: AA1234BB
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      vehicle_type:
+        custom: []
+        name: vehicle_type
+        description: 'The type of the vehicle.'
+        required: true
+        example: sedan
+        type: string
+        enumValues:
+          - sedan
+          - suv
+          - minivan
+          - hatchback
+          - coupe
+          - pickup
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      seats:
+        custom: []
+        name: seats
+        description: 'The number of seats in the vehicle. Must be between 1 and 20.'
+        required: true
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      brand: Toyota
+      model: Camry
+      year: 2022
+      color: Black
+      plate_number: AA1234BB
+      vehicle_type: sedan
+      seats: 4
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Vehicle added successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/driver/vehicle/{id}'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the vehicle.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      brand:
+        custom: []
+        name: brand
+        description: 'The brand of the vehicle. Must not be greater than 255 characters.'
+        required: true
+        example: Toyota
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      model:
+        custom: []
+        name: model
+        description: 'The model of the vehicle. Must not be greater than 255 characters.'
+        required: true
+        example: Camry
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      year:
+        custom: []
+        name: year
+        description: 'The manufacturing year of the vehicle. Must be between 1990 and 2026.'
+        required: true
+        example: 2022
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      color:
+        custom: []
+        name: color
+        description: 'The color of the vehicle. Must not be greater than 255 characters.'
+        required: true
+        example: Black
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      plate_number:
+        custom: []
+        name: plate_number
+        description: 'The license plate number of the vehicle. Must not be greater than 20 characters.'
+        required: true
+        example: AA1234BB
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      vehicle_type:
+        custom: []
+        name: vehicle_type
+        description: 'The type of the vehicle.'
+        required: true
+        example: sedan
+        type: string
+        enumValues:
+          - sedan
+          - suv
+          - minivan
+          - hatchback
+          - coupe
+          - pickup
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      seats:
+        custom: []
+        name: seats
+        description: 'The number of seats in the vehicle. Must be between 1 and 20.'
+        required: true
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      brand: Toyota
+      model: Camry
+      year: 2022
+      color: Black
+      plate_number: AA1234BB
+      vehicle_type: sedan
+      seats: 4
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Vehicle updated successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Vehicle not found'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

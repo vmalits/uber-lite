@@ -77,6 +77,9 @@ return [
         'location_added'   => 'Locația favorită adăugată cu succes.',
         'location_removed' => 'Locația favorită eliminată cu succes.',
     ],
+    'vehicle' => [
+        'added' => 'Vehicul adăugat cu succes.',
+    ],
     'payment_methods' => [
         'fetched' => 'Metodele de plată au fost preluate cu succes.',
     ],

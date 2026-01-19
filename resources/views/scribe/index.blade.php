@@ -87,6 +87,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-drivers">
                                 <a href="#admin-GETapi-v1-admin-drivers">GET api/v1/admin/drivers</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-drivers--id-">
+                                <a href="#admin-GETapi-v1-admin-drivers--id-">GET api/v1/admin/drivers/{id}</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-rides">
                                 <a href="#admin-GETapi-v1-admin-rides">GET api/v1/admin/rides</a>
                             </li>
@@ -187,6 +190,12 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-avatar">
                                 <a href="#driver-POSTapi-v1-driver-avatar">POST api/v1/driver/avatar</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-vehicle">
+                                <a href="#driver-POSTapi-v1-driver-vehicle">POST api/v1/driver/vehicle</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="driver-PUTapi-v1-driver-vehicle--id-">
+                                <a href="#driver-PUTapi-v1-driver-vehicle--id-">PUT api/v1/driver/vehicle/{id}</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -1706,6 +1715,204 @@ Must be one of:
 <ul style="list-style-type: square;"><li><code>created_at</code></li> <li><code>-created_at</code></li> <li><code>updated_at</code></li> <li><code>-updated_at</code></li> <li><code>last_login_at</code></li> <li><code>-last_login_at</code></li> <li><code>phone</code></li> <li><code>-phone</code></li> <li><code>email</code></li> <li><code>-email</code></li></ul>
         </div>
         </form>
+
+                    <h2 id="admin-GETapi-v1-admin-drivers--id-">GET api/v1/admin/drivers/{id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-admin-drivers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/admin/drivers/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/drivers/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/drivers/architecto';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/drivers/architecto'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-admin-drivers--id-">
+            <blockquote>
+            <p>Example response (200, Driver details with statistics retrieved successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden - not an admin.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Driver not found.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-admin-drivers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-admin-drivers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-admin-drivers--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-admin-drivers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-admin-drivers--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-admin-drivers--id-" data-method="GET"
+      data-path="api/v1/admin/drivers/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-admin-drivers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-admin-drivers--id-"
+                    onclick="tryItOut('GETapi-v1-admin-drivers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-admin-drivers--id-"
+                    onclick="cancelTryOut('GETapi-v1-admin-drivers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-admin-drivers--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/admin/drivers/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-admin-drivers--id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-admin-drivers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-admin-drivers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-v1-admin-drivers--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the driver. Example: <code>architecto</code></p>
+            </div>
+                    </form>
 
                     <h2 id="admin-GETapi-v1-admin-rides">GET api/v1/admin/rides</h2>
 
@@ -7404,7 +7611,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpnu313e20goi78FjkGcF" </code></pre></div>
+    --form "avatar=@/tmp/phpfb8hj581lfe9diCKOhj" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7442,7 +7649,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpnu313e20goi78FjkGcF', 'r')
+                'contents' =&gt; fopen('/tmp/phpfb8hj581lfe9diCKOhj', 'r')
             ],
         ],
     ]
@@ -7457,7 +7664,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpnu313e20goi78FjkGcF', 'rb')}
+  'avatar': open('/tmp/phpfb8hj581lfe9diCKOhj', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -7572,7 +7779,649 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpnu313e20goi78FjkGcF</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpfb8hj581lfe9diCKOhj</code></p>
+        </div>
+        </form>
+
+                    <h2 id="driver-POSTapi-v1-driver-vehicle">POST api/v1/driver/vehicle</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-driver-vehicle">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/driver/vehicle" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"brand\": \"Toyota\",
+    \"model\": \"Camry\",
+    \"year\": 2022,
+    \"color\": \"Black\",
+    \"plate_number\": \"AA1234BB\",
+    \"vehicle_type\": \"sedan\",
+    \"seats\": 4
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/vehicle"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "brand": "Toyota",
+    "model": "Camry",
+    "year": 2022,
+    "color": "Black",
+    "plate_number": "AA1234BB",
+    "vehicle_type": "sedan",
+    "seats": 4
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/vehicle';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'brand' =&gt; 'Toyota',
+            'model' =&gt; 'Camry',
+            'year' =&gt; 2022,
+            'color' =&gt; 'Black',
+            'plate_number' =&gt; 'AA1234BB',
+            'vehicle_type' =&gt; 'sedan',
+            'seats' =&gt; 4,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/vehicle'
+payload = {
+    "brand": "Toyota",
+    "model": "Camry",
+    "year": 2022,
+    "color": "Black",
+    "plate_number": "AA1234BB",
+    "vehicle_type": "sedan",
+    "seats": 4
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-driver-vehicle">
+            <blockquote>
+            <p>Example response (201, Vehicle added successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-driver-vehicle" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-driver-vehicle"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-driver-vehicle"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-driver-vehicle" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-driver-vehicle">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-driver-vehicle" data-method="POST"
+      data-path="api/v1/driver/vehicle"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-driver-vehicle', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-driver-vehicle"
+                    onclick="tryItOut('POSTapi-v1-driver-vehicle');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-driver-vehicle"
+                    onclick="cancelTryOut('POSTapi-v1-driver-vehicle');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-driver-vehicle"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/driver/vehicle</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-driver-vehicle"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>brand</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="brand"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="Toyota"
+               data-component="body">
+    <br>
+<p>The brand of the vehicle. Must not be greater than 255 characters. Example: <code>Toyota</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>model</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="model"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="Camry"
+               data-component="body">
+    <br>
+<p>The model of the vehicle. Must not be greater than 255 characters. Example: <code>Camry</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>year</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="year"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="2022"
+               data-component="body">
+    <br>
+<p>The manufacturing year of the vehicle. Must be between 1990 and 2026. Example: <code>2022</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="Black"
+               data-component="body">
+    <br>
+<p>The color of the vehicle. Must not be greater than 255 characters. Example: <code>Black</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plate_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="plate_number"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="AA1234BB"
+               data-component="body">
+    <br>
+<p>The license plate number of the vehicle. Must not be greater than 20 characters. Example: <code>AA1234BB</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>vehicle_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="vehicle_type"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="sedan"
+               data-component="body">
+    <br>
+<p>The type of the vehicle. Example: <code>sedan</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>sedan</code></li> <li><code>suv</code></li> <li><code>minivan</code></li> <li><code>hatchback</code></li> <li><code>coupe</code></li> <li><code>pickup</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>seats</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="seats"                data-endpoint="POSTapi-v1-driver-vehicle"
+               value="4"
+               data-component="body">
+    <br>
+<p>The number of seats in the vehicle. Must be between 1 and 20. Example: <code>4</code></p>
+        </div>
+        </form>
+
+                    <h2 id="driver-PUTapi-v1-driver-vehicle--id-">PUT api/v1/driver/vehicle/{id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-driver-vehicle--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8080/api/v1/driver/vehicle/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"brand\": \"Toyota\",
+    \"model\": \"Camry\",
+    \"year\": 2022,
+    \"color\": \"Black\",
+    \"plate_number\": \"AA1234BB\",
+    \"vehicle_type\": \"sedan\",
+    \"seats\": 4
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/vehicle/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "brand": "Toyota",
+    "model": "Camry",
+    "year": 2022,
+    "color": "Black",
+    "plate_number": "AA1234BB",
+    "vehicle_type": "sedan",
+    "seats": 4
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/vehicle/architecto';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'brand' =&gt; 'Toyota',
+            'model' =&gt; 'Camry',
+            'year' =&gt; 2022,
+            'color' =&gt; 'Black',
+            'plate_number' =&gt; 'AA1234BB',
+            'vehicle_type' =&gt; 'sedan',
+            'seats' =&gt; 4,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/vehicle/architecto'
+payload = {
+    "brand": "Toyota",
+    "model": "Camry",
+    "year": 2022,
+    "color": "Black",
+    "plate_number": "AA1234BB",
+    "vehicle_type": "sedan",
+    "seats": 4
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-driver-vehicle--id-">
+            <blockquote>
+            <p>Example response (200, Vehicle updated successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Vehicle not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-driver-vehicle--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-driver-vehicle--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-driver-vehicle--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-driver-vehicle--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-driver-vehicle--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-driver-vehicle--id-" data-method="PUT"
+      data-path="api/v1/driver/vehicle/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-driver-vehicle--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-driver-vehicle--id-"
+                    onclick="tryItOut('PUTapi-v1-driver-vehicle--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-driver-vehicle--id-"
+                    onclick="cancelTryOut('PUTapi-v1-driver-vehicle--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-driver-vehicle--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/driver/vehicle/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the vehicle. Example: <code>architecto</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>brand</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="brand"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="Toyota"
+               data-component="body">
+    <br>
+<p>The brand of the vehicle. Must not be greater than 255 characters. Example: <code>Toyota</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>model</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="model"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="Camry"
+               data-component="body">
+    <br>
+<p>The model of the vehicle. Must not be greater than 255 characters. Example: <code>Camry</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>year</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="year"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="2022"
+               data-component="body">
+    <br>
+<p>The manufacturing year of the vehicle. Must be between 1990 and 2026. Example: <code>2022</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="Black"
+               data-component="body">
+    <br>
+<p>The color of the vehicle. Must not be greater than 255 characters. Example: <code>Black</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plate_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="plate_number"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="AA1234BB"
+               data-component="body">
+    <br>
+<p>The license plate number of the vehicle. Must not be greater than 20 characters. Example: <code>AA1234BB</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>vehicle_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="vehicle_type"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="sedan"
+               data-component="body">
+    <br>
+<p>The type of the vehicle. Example: <code>sedan</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>sedan</code></li> <li><code>suv</code></li> <li><code>minivan</code></li> <li><code>hatchback</code></li> <li><code>coupe</code></li> <li><code>pickup</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>seats</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="seats"                data-endpoint="PUTapi-v1-driver-vehicle--id-"
+               value="4"
+               data-component="body">
+    <br>
+<p>The number of seats in the vehicle. Must be between 1 and 20. Example: <code>4</code></p>
         </div>
         </form>
 
@@ -10967,7 +11816,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php81g743vfns0nfEedBlE" </code></pre></div>
+    --form "avatar=@/tmp/php95s82t0pvsbc4NleGAj" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -11005,7 +11854,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php81g743vfns0nfEedBlE', 'r')
+                'contents' =&gt; fopen('/tmp/php95s82t0pvsbc4NleGAj', 'r')
             ],
         ],
     ]
@@ -11020,7 +11869,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/php81g743vfns0nfEedBlE', 'rb')}
+  'avatar': open('/tmp/php95s82t0pvsbc4NleGAj', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -11135,7 +11984,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php81g743vfns0nfEedBlE</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php95s82t0pvsbc4NleGAj</code></p>
         </div>
         </form>
 

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Driver\AcceptRideController;
+use App\Http\Controllers\Api\V1\Driver\AddVehicleController;
 use App\Http\Controllers\Api\V1\Driver\ArrivedController;
 use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Api\V1\Driver\ProfileController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
 use App\Http\Controllers\Api\V1\Driver\UpdateLocationController;
 use App\Http\Controllers\Api\V1\Driver\UpdateProfileController;
+use App\Http\Controllers\Api\V1\Driver\UpdateVehicleController;
 use App\Http\Controllers\Api\V1\Driver\UploadAvatarController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,4 +57,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.location');
         Route::post('avatar', [UploadAvatarController::class, '__invoke'])
             ->name('api.v1.driver.avatar');
+        Route::post('vehicle', [AddVehicleController::class, '__invoke'])
+            ->name('api.v1.driver.vehicle.add');
+        Route::put('vehicle/{vehicle}', [UpdateVehicleController::class, '__invoke'])
+            ->name('api.v1.driver.vehicle.update');
     });
