@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Queries\Admin\GetDriversQuery;
+use App\Queries\Admin\GetDriversQueryInterface;
 use App\Queries\Admin\GetRideQuery;
 use App\Queries\Admin\GetRideQueryInterface;
 use App\Queries\Admin\GetRidesQuery;
@@ -20,9 +22,10 @@ final class AdminServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetUsersQueryInterface::class => GetUsersQuery::class,
-        GetUserQueryInterface::class  => GetUserQuery::class,
-        GetRidesQueryInterface::class => GetRidesQuery::class,
-        GetRideQueryInterface::class  => GetRideQuery::class,
+        GetDriversQueryInterface::class => GetDriversQuery::class,
+        GetUsersQueryInterface::class   => GetUsersQuery::class,
+        GetUserQueryInterface::class    => GetUserQuery::class,
+        GetRidesQueryInterface::class   => GetRidesQuery::class,
+        GetRideQueryInterface::class    => GetRideQuery::class,
     ];
 }
