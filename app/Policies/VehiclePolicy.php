@@ -20,6 +20,11 @@ final class VehiclePolicy
         return $user->role === UserRole::DRIVER;
     }
 
+    public function view(User $user, Vehicle $vehicle): bool
+    {
+        return $user->role === UserRole::DRIVER && $vehicle->driver_id === $user->id;
+    }
+
     public function update(User $user, Vehicle $vehicle): bool
     {
         return $user->role === UserRole::DRIVER && $vehicle->driver_id === $user->id;

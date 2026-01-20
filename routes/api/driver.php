@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
 use App\Http\Controllers\Api\V1\Driver\DeleteVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
+use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetVehiclesController;
 use App\Http\Controllers\Api\V1\Driver\GoOfflineController;
 use App\Http\Controllers\Api\V1\Driver\GoOnlineController;
@@ -61,6 +62,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.avatar');
         Route::get('vehicles', [GetVehiclesController::class, '__invoke'])
             ->name('api.v1.driver.vehicles');
+        Route::get('vehicle/{vehicle}', [GetVehicleController::class, '__invoke'])
+            ->name('api.v1.driver.vehicle');
         Route::post('vehicle', [AddVehicleController::class, '__invoke'])
             ->name('api.v1.driver.vehicle.add');
         Route::put('vehicle/{vehicle}', [UpdateVehicleController::class, '__invoke'])
