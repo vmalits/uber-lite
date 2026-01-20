@@ -23,14 +23,9 @@ final class RiderServiceProvider extends ServiceProvider
      */
     public array $bindings = [
         GetActiveRideQueryInterface::class        => GetActiveRideQuery::class,
-        GetActiveRideQuery::class                 => GetActiveRideQuery::class,
         GetFavoriteLocationsQueryInterface::class => GetFavoriteLocationsQuery::class,
-        GetFavoriteLocationsQuery::class          => GetFavoriteLocationsQuery::class,
         GetRideHistoryQueryInterface::class       => GetRideHistoryQuery::class,
-        GetRideHistoryQuery::class                => GetRideHistoryQuery::class,
         GetRideStatsQueryInterface::class         => GetRideStatsQuery::class,
-        GetRideStatsQuery::class                  => GetRideStatsQuery::class,
         SearchLocationsQueryInterface::class      => SearchLocationsQuery::class,
-        SearchLocationsQuery::class               => SearchLocationsQuery::class,
     ];
 }

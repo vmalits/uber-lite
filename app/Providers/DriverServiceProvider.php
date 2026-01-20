@@ -10,6 +10,8 @@ use App\Queries\Driver\GetActiveRideQuery;
 use App\Queries\Driver\GetActiveRideQueryInterface;
 use App\Queries\Driver\GetAvailableRidesQuery;
 use App\Queries\Driver\GetAvailableRidesQueryInterface;
+use App\Queries\Driver\GetVehiclesQuery;
+use App\Queries\Driver\GetVehiclesQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 final class DriverServiceProvider extends ServiceProvider
@@ -19,10 +21,8 @@ final class DriverServiceProvider extends ServiceProvider
      */
     public array $bindings = [
         GetAvailableRidesQueryInterface::class => GetAvailableRidesQuery::class,
-        GetAvailableRidesQuery::class          => GetAvailableRidesQuery::class,
         GetActiveRideQueryInterface::class     => GetActiveRideQuery::class,
-        GetActiveRideQuery::class              => GetActiveRideQuery::class,
-        GetActiveBanQuery::class               => GetActiveBanQuery::class,
         GetActiveBanQueryInterface::class      => GetActiveBanQuery::class,
+        GetVehiclesQueryInterface::class       => GetVehiclesQuery::class,
     ];
 }

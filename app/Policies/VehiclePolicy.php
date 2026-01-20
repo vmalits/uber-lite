@@ -10,6 +10,11 @@ use App\Models\Vehicle;
 
 final class VehiclePolicy
 {
+    public function viewAny(User $user): bool
+    {
+        return $user->role === UserRole::DRIVER;
+    }
+
     public function create(User $user): bool
     {
         return $user->role === UserRole::DRIVER;
