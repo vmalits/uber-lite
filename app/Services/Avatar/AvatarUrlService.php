@@ -6,16 +6,11 @@ namespace App\Services\Avatar;
 
 use App\Enums\AvatarSize;
 use App\Models\User;
-use App\Services\Cache\UserCacheService;
 use Illuminate\Filesystem\FilesystemAdapter;
 
 final readonly class AvatarUrlService implements AvatarUrlResolver
 {
-    /**
-     * @param UserCacheService<string|null> $userCache
-     */
     public function __construct(
-        private UserCacheService $userCache,
         private FilesystemAdapter $storage,
         private ?string $cdnUrl = null,
         private string $baseUrl = '',
@@ -23,11 +18,7 @@ final readonly class AvatarUrlService implements AvatarUrlResolver
 
     public function getUrl(User $user, AvatarSize $size): ?string
     {
-        return $this->userCache->rememberAvatarUrl(
-            $user,
-            $size->value,
-            fn () => $this->getUrlInternal($user, $size),
-        );
+        return $this->getUrlInternal($user, $size);
     }
 
     /** @return array<string, string|null> */
@@ -40,19 +31,6 @@ final readonly class AvatarUrlService implements AvatarUrlResolver
         }
 
         return $urls;
-    }
-
-    public function invalidate(User $user): void
-    {
-        $this->userCache->forgetAvatarUrls($user);
-    }
-
-    /** @return array<string, string|null> */
-    public function refresh(User $user): array
-    {
-        $this->invalidate($user);
-
-        return $this->getAllUrls($user);
     }
 
     private function getUrlInternal(User $user, AvatarSize $size): ?string

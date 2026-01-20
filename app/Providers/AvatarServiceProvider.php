@@ -7,7 +7,6 @@ namespace App\Providers;
 use App\Services\Avatar\AvatarImagePipeline;
 use App\Services\Avatar\AvatarUrlResolver;
 use App\Services\Avatar\AvatarUrlService;
-use App\Services\Cache\UserCacheService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
@@ -33,7 +32,6 @@ class AvatarServiceProvider extends ServiceProvider
             $disk = $this->getDisk();
 
             return new AvatarUrlService(
-                userCache: $app->make(UserCacheService::class),
                 storage: Storage::disk($disk),
                 cdnUrl: $cdnUrl,
                 baseUrl: $baseUrl,

@@ -9,11 +9,9 @@ use App\Enums\ProfileStep;
 use App\Enums\UserRole;
 use App\Enums\UserStatus;
 use App\Notifications\Auth\VerifyEmailNotification;
-use App\Observers\UserObserver;
 use Carbon\CarbonInterface;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -47,7 +45,6 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read float|null $total_earned
  * @property-read Collection<int, Vehicle> $vehicles
  */
-#[ObservedBy([UserObserver::class])]
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
