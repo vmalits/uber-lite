@@ -80,6 +80,9 @@ return [
     'vehicle' => [
         'added' => 'Vehicle added successfully.',
     ],
+    'support' => [
+        'ticket_created' => 'Support ticket created successfully.',
+    ],
     'payment_methods' => [
         'fetched' => 'Payment methods fetched successfully.',
     ],

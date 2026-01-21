@@ -11,4 +11,5 @@ Route::prefix('v1')->group(function (): void {
     require __DIR__.'/api/driver.php';
     require __DIR__.'/api/admin.php';
     require __DIR__.'/api/profile.php';
+    require __DIR__.'/api/support.php';
 });

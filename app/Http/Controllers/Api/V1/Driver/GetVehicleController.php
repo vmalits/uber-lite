@@ -15,12 +15,11 @@ use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
-use Knuckles\Scribe\Attributes\ResponseFromApiResource;
 
 #[Group('Driver')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
-#[ResponseFromApiResource(VehicleData::class, status: 200, description: 'Vehicle retrieved successfully')]
+#[Response(status: 200, description: 'Vehicle retrieved successfully')]
 #[Response(status: 401, description: 'Unauthenticated')]
 #[Response(status: 403, description: 'Forbidden')]
 #[Response(status: 404, description: 'Vehicle not found')]

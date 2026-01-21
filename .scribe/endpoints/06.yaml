@@ -1,0 +1,77 @@
+name: Support
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/support/tickets
+    metadata:
+      custom: []
+      groupName: Support
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      subject:
+        custom: []
+        name: subject
+        description: 'The subject of the support ticket. Must not be greater than 255 characters.'
+        required: true
+        example: 'Issue with payment'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      message:
+        custom: []
+        name: message
+        description: 'The detailed message of the support ticket. Must not be greater than 5000 characters.'
+        required: true
+        example: 'I was charged twice for my last ride.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      subject: 'Issue with payment'
+      message: 'I was charged twice for my last ride.'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Support ticket created successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation failed.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
