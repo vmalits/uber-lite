@@ -12,4 +12,5 @@ return [
     App\Providers\TwilioServiceProvider::class,
     App\Providers\LocaleServiceProvider::class,
     App\Providers\GeoServiceProvider::class,
+    App\Providers\SupportServiceProvider::class,
 ];
