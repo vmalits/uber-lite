@@ -40,4 +40,29 @@ final class GetTicketsRequest extends FormRequest
             ],
         ];
     }
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    public function queryParameters(): array
+    {
+        return [
+            'per_page' => [
+                'description' => 'Number of items per page.',
+                'example'     => 15,
+            ],
+            'filter[status]' => [
+                'description' => 'Filter tickets by status (open, closed, pending).',
+                'example'     => 'open',
+            ],
+            'filter[subject]' => [
+                'description' => 'Filter tickets by subject (partial match).',
+                'example'     => 'Payment',
+            ],
+            'sort' => [
+                'description' => 'Sort field (prefix with - for descending). Supported: created_at, updated_at, status.',
+                'example'     => '-created_at',
+            ],
+        ];
+    }
 }

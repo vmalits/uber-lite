@@ -18,16 +18,11 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
-use Knuckles\Scribe\Attributes\QueryParam;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Support')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
-#[QueryParam('per_page', 'integer', 'Number of items per page', false, 15)]
-#[QueryParam('filter[status]', 'string', 'Filter by ticket status', false)]
-#[QueryParam('filter[subject]', 'string', 'Filter by subject', false)]
-#[QueryParam('sort', 'string', 'Sort field (prefix with - for descending)', false)]
 #[Response(status: 200, description: 'Paginated support tickets list retrieved successfully.')]
 #[Response(status: 401, description: 'Unauthorized.')]
 final class GetTicketsController extends Controller
