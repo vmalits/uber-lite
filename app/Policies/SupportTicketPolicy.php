@@ -26,7 +26,7 @@ final class SupportTicketPolicy
 
     public function update(User $user, SupportTicket $ticket): bool
     {
-        return $ticket->user_id === $user->id;
+        return $ticket->user_id === $user->id || $user->isAdmin();
     }
 
     public function delete(User $user, SupportTicket $ticket): bool

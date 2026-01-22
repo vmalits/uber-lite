@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\UserRole;
 use App\Enums\UserStatus;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -38,6 +39,13 @@ class UserFactory extends Factory
             'profile_step'      => null,
             'status'            => UserStatus::ACTIVE,
         ];
+    }
+
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes): array => [
+            'role' => UserRole::ADMIN,
+        ]);
     }
 
     /**
