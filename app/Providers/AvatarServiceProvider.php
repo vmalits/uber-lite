@@ -21,14 +21,14 @@ class AvatarServiceProvider extends ServiceProvider
         $cdnUrl = $this->getCdnUrl();
         $baseUrl = $this->getBaseUrl();
 
-        $this->app->singleton(AvatarImagePipeline::class, function () {
+        $this->app->scoped(AvatarImagePipeline::class, function () {
             return new AvatarImagePipeline(
                 manager: new ImageManager(new Driver),
                 optimizer: OptimizerChainFactory::create(),
             );
         });
 
-        $this->app->singleton(AvatarUrlService::class, function (Application $app) use ($cdnUrl, $baseUrl) {
+        $this->app->scoped(AvatarUrlService::class, function (Application $app) use ($cdnUrl, $baseUrl) {
             $disk = $this->getDisk();
 
             return new AvatarUrlService(

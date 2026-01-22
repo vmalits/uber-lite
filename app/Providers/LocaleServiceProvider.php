@@ -11,6 +11,6 @@ final class LocaleServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton(LocaleService::class);
+        $this->app->scoped(LocaleService::class);
     }
 }

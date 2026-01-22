@@ -19,17 +19,17 @@ final class GeoServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton(FakeGeocodingService::class);
-        $this->app->singleton(OpenStreetMapGeocodingService::class);
+        $this->app->scoped(FakeGeocodingService::class);
+        $this->app->scoped(OpenStreetMapGeocodingService::class);
 
-        $this->app->singleton(NominatimGeocodingService::class, function (): NominatimGeocodingService {
+        $this->app->scoped(NominatimGeocodingService::class, function (): NominatimGeocodingService {
             return NominatimGeocodingService::fromConfig(
                 http: $this->app->make(Factory::class),
                 logger: $this->app->make(LoggerInterface::class),
             );
         });
 
-        $this->app->singleton(GeocodingServiceInterface::class, function (): GeocodingServiceInterface {
+        $this->app->scoped(GeocodingServiceInterface::class, function (): GeocodingServiceInterface {
             $driverValue = config('services.geocoding.driver', 'osm');
             $driver = \is_string($driverValue) ? GeocodingDriver::fromValue($driverValue) : null;
             $driver = $driver ?? GeocodingDriver::OSM;

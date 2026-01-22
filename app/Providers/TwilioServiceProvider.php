@@ -14,7 +14,7 @@ class TwilioServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton(
+        $this->app->scoped(
             SmsServiceInterface::class,
             function (Application $app) {
                 $driver = config('services.sms.driver');
