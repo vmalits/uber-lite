@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property string $id
@@ -56,5 +57,13 @@ class SupportTicket extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(related: User::class);
+    }
+
+    /**
+     * @return HasMany<SupportTicketComment, $this>
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(related: SupportTicketComment::class, foreignKey: 'ticket_id');
     }
 }
