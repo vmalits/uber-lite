@@ -179,6 +179,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-bans--id-">
                                 <a href="#driver-GETapi-v1-driver-bans--id-">GET api/v1/driver/bans/{id}</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-tickets--ticket_id--comments">
+                                <a href="#driver-POSTapi-v1-driver-tickets--ticket_id--comments">POST api/v1/driver/tickets/{ticket_id}/comments</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-available">
                                 <a href="#driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</a>
                             </li>
@@ -6703,6 +6706,251 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="driver-POSTapi-v1-driver-tickets--ticket_id--comments">POST api/v1/driver/tickets/{ticket_id}/comments</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-driver-tickets--ticket_id--comments">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/driver/tickets/architecto/comments" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"message\": \"I have additional details about this issue.\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/driver/tickets/architecto/comments"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "message": "I have additional details about this issue."
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/driver/tickets/architecto/comments';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'message' =&gt; 'I have additional details about this issue.',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/driver/tickets/architecto/comments'
+payload = {
+    "message": "I have additional details about this issue."
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-driver-tickets--ticket_id--comments">
+            <blockquote>
+            <p>Example response (201, Support ticket comment created successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Support ticket not found.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-driver-tickets--ticket_id--comments" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-driver-tickets--ticket_id--comments"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-driver-tickets--ticket_id--comments"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-driver-tickets--ticket_id--comments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-driver-tickets--ticket_id--comments">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-driver-tickets--ticket_id--comments" data-method="POST"
+      data-path="api/v1/driver/tickets/{ticket_id}/comments"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-driver-tickets--ticket_id--comments', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-driver-tickets--ticket_id--comments"
+                    onclick="tryItOut('POSTapi-v1-driver-tickets--ticket_id--comments');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-driver-tickets--ticket_id--comments"
+                    onclick="cancelTryOut('POSTapi-v1-driver-tickets--ticket_id--comments');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-driver-tickets--ticket_id--comments"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/driver/tickets/{ticket_id}/comments</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-driver-tickets--ticket_id--comments"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-driver-tickets--ticket_id--comments"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-driver-tickets--ticket_id--comments"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ticket_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ticket_id"                data-endpoint="POSTapi-v1-driver-tickets--ticket_id--comments"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the ticket. Example: <code>architecto</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ticket</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ticket"                data-endpoint="POSTapi-v1-driver-tickets--ticket_id--comments"
+               value="01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z"
+               data-component="url">
+    <br>
+<p>ULID of the support ticket. Example: <code>01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>message</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="message"                data-endpoint="POSTapi-v1-driver-tickets--ticket_id--comments"
+               value="I have additional details about this issue."
+               data-component="body">
+    <br>
+<p>Comment message for the support ticket. Must not be greater than 5000 characters. Example: <code>I have additional details about this issue.</code></p>
+        </div>
+        </form>
+
                     <h2 id="driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</h2>
 
 <p>
@@ -8288,7 +8536,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php695jd16qukfi8aHbhPA" </code></pre></div>
+    --form "avatar=@/tmp/phpj08u79hipga0eHpgLgf" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8326,7 +8574,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php695jd16qukfi8aHbhPA', 'r')
+                'contents' =&gt; fopen('/tmp/phpj08u79hipga0eHpgLgf', 'r')
             ],
         ],
     ]
@@ -8341,7 +8589,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/php695jd16qukfi8aHbhPA', 'rb')}
+  'avatar': open('/tmp/phpj08u79hipga0eHpgLgf', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -8456,7 +8704,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php695jd16qukfi8aHbhPA</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpj08u79hipga0eHpgLgf</code></p>
         </div>
         </form>
 
@@ -13067,7 +13315,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpn05iugfct1brdhHIndp" </code></pre></div>
+    --form "avatar=@/tmp/phpf8qbso4vgcit7ImmHhe" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -13105,7 +13353,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpn05iugfct1brdhHIndp', 'r')
+                'contents' =&gt; fopen('/tmp/phpf8qbso4vgcit7ImmHhe', 'r')
             ],
         ],
     ]
@@ -13120,7 +13368,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpn05iugfct1brdhHIndp', 'rb')}
+  'avatar': open('/tmp/phpf8qbso4vgcit7ImmHhe', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -13235,7 +13483,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpn05iugfct1brdhHIndp</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpf8qbso4vgcit7ImmHhe</code></p>
         </div>
         </form>
 

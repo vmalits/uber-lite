@@ -422,6 +422,104 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: 'api/v1/driver/tickets/{ticket_id}/comments'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ticket_id:
+        custom: []
+        name: ticket_id
+        description: 'The ID of the ticket.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      ticket:
+        custom: []
+        name: ticket
+        description: 'ULID of the support ticket.'
+        required: true
+        example: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ticket_id: architecto
+      ticket: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      message:
+        custom: []
+        name: message
+        description: 'Comment message for the support ticket. Must not be greater than 5000 characters.'
+        required: true
+        example: 'I have additional details about this issue.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      message: 'I have additional details about this issue.'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Support ticket comment created successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden.
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Support ticket not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: api/v1/driver/rides/available
     metadata:
