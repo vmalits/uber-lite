@@ -50,7 +50,7 @@ final class GetDriversRequest extends FormRequest
     /**
      * @return array<string, array<string, mixed>>
      */
-    public function bodyParameters(): array
+    public function queryParameters(): array
     {
         return [
             'per_page' => [

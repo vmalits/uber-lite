@@ -549,24 +549,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/admin/users?per_page=15&amp;role=architecto&amp;status=architecto&amp;banned=&amp;filter%5Bphone%5D=architecto&amp;filter%5Bemail%5D=architecto&amp;filter%5Bfirst_name%5D=architecto&amp;filter%5Blast_name%5D=architecto&amp;sort=architecto" \
+    --get "http://localhost:8080/api/v1/admin/users?per_page=15&amp;role=admin&amp;status=active&amp;banned=&amp;filter[phone]=%2B3736&amp;filter[email]=example&amp;filter[first_name]=John&amp;filter[last_name]=Doe&amp;sort=-created_at" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"per_page\": 15,
-    \"role\": \"admin\",
-    \"status\": \"active\",
-    \"banned\": false,
-    \"filter\": {
-        \"phone\": \"+3736\",
-        \"email\": \"example\",
-        \"first_name\": \"John\",
-        \"last_name\": \"Doe\"
-    },
-    \"sort\": \"-created_at\"
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -576,14 +562,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 const params = {
     "per_page": "15",
-    "role": "architecto",
-    "status": "architecto",
+    "role": "admin",
+    "status": "active",
     "banned": "0",
-    "filter[phone]": "architecto",
-    "filter[email]": "architecto",
-    "filter[first_name]": "architecto",
-    "filter[last_name]": "architecto",
-    "sort": "architecto",
+    "filter[phone]": "+3736",
+    "filter[email]": "example",
+    "filter[first_name]": "John",
+    "filter[last_name]": "Doe",
+    "sort": "-created_at",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -594,24 +580,9 @@ const headers = {
     "Accept": "application/json",
 };
 
-let body = {
-    "per_page": 15,
-    "role": "admin",
-    "status": "active",
-    "banned": false,
-    "filter": {
-        "phone": "+3736",
-        "email": "example",
-        "first_name": "John",
-        "last_name": "Doe"
-    },
-    "sort": "-created_at"
-};
-
 fetch(url, {
     method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 
@@ -628,26 +599,13 @@ $response = $client-&gt;get(
         ],
         'query' =&gt; [
             'per_page' =&gt; '15',
-            'role' =&gt; 'architecto',
-            'status' =&gt; 'architecto',
-            'banned' =&gt; '0',
-            'filter[phone]' =&gt; 'architecto',
-            'filter[email]' =&gt; 'architecto',
-            'filter[first_name]' =&gt; 'architecto',
-            'filter[last_name]' =&gt; 'architecto',
-            'sort' =&gt; 'architecto',
-        ],
-        'json' =&gt; [
-            'per_page' =&gt; 15,
             'role' =&gt; 'admin',
             'status' =&gt; 'active',
-            'banned' =&gt; false,
-            'filter' =&gt; [
-                'phone' =&gt; '+3736',
-                'email' =&gt; 'example',
-                'first_name' =&gt; 'John',
-                'last_name' =&gt; 'Doe',
-            ],
+            'banned' =&gt; '0',
+            'filter[phone]' =&gt; '+3736',
+            'filter[email]' =&gt; 'example',
+            'filter[first_name]' =&gt; 'John',
+            'filter[last_name]' =&gt; 'Doe',
             'sort' =&gt; '-created_at',
         ],
     ]
@@ -661,29 +619,16 @@ print_r(json_decode((string) $body));</code></pre></div>
 import json
 
 url = 'http://localhost:8080/api/v1/admin/users'
-payload = {
-    "per_page": 15,
-    "role": "admin",
-    "status": "active",
-    "banned": false,
-    "filter": {
-        "phone": "+3736",
-        "email": "example",
-        "first_name": "John",
-        "last_name": "Doe"
-    },
-    "sort": "-created_at"
-}
 params = {
   'per_page': '15',
-  'role': 'architecto',
-  'status': 'architecto',
+  'role': 'admin',
+  'status': 'active',
   'banned': '0',
-  'filter[phone]': 'architecto',
-  'filter[email]': 'architecto',
-  'filter[first_name]': 'architecto',
-  'filter[last_name]': 'architecto',
-  'sort': 'architecto',
+  'filter[phone]': '+3736',
+  'filter[email]': 'example',
+  'filter[first_name]': 'John',
+  'filter[last_name]': 'Doe',
+  'sort': '-created_at',
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -691,7 +636,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers, json=payload, params=params)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()</code></pre></div>
 
 </span>
@@ -813,7 +758,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="15"
                data-component="query">
     <br>
-<p>Number of items per page Example: <code>15</code></p>
+<p>Number of items per page. Must be at least 2. Must not be greater than 50. Example: <code>15</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
@@ -822,10 +767,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="role"                data-endpoint="GETapi-v1-admin-users"
-               value="architecto"
+               value="admin"
                data-component="query">
     <br>
-<p>Filter by user role (admin, driver, rider) Example: <code>architecto</code></p>
+<p>Filter by user role. Example: <code>admin</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>admin</code></li> <li><code>rider</code></li> <li><code>driver</code></li></ul>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -834,10 +781,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-v1-admin-users"
-               value="architecto"
+               value="active"
                data-component="query">
     <br>
-<p>Filter by user status (active, inactive, banned) Example: <code>architecto</code></p>
+<p>Filter by user status. Example: <code>active</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>active</code></li> <li><code>inactive</code></li> <li><code>banned</code></li></ul>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>banned</code></b>&nbsp;&nbsp;
@@ -859,55 +808,67 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Filter banned users (true/false) Example: <code>false</code></p>
+<p>Filter banned users (true/false). Example: <code>false</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[phone]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi-v1-admin-users"
+               value=""
+               data-component="query">
+    <br>
+
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter.phone</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[phone]"                data-endpoint="GETapi-v1-admin-users"
-               value="architecto"
+                              name="filter.phone"                data-endpoint="GETapi-v1-admin-users"
+               value="+3736"
                data-component="query">
     <br>
-<p>Filter by phone number (partial match) Example: <code>architecto</code></p>
+<p>Filter by phone number (partial match). Example: <code>+3736</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[email]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter.email</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[email]"                data-endpoint="GETapi-v1-admin-users"
-               value="architecto"
+                              name="filter.email"                data-endpoint="GETapi-v1-admin-users"
+               value="example"
                data-component="query">
     <br>
-<p>Filter by email (partial match) Example: <code>architecto</code></p>
+<p>Filter by email (partial match). Example: <code>example</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[first_name]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter.first_name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[first_name]"                data-endpoint="GETapi-v1-admin-users"
-               value="architecto"
+                              name="filter.first_name"                data-endpoint="GETapi-v1-admin-users"
+               value="John"
                data-component="query">
     <br>
-<p>Filter by first name (partial match) Example: <code>architecto</code></p>
+<p>Filter by first name (partial match). Example: <code>John</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[last_name]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter.last_name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[last_name]"                data-endpoint="GETapi-v1-admin-users"
-               value="architecto"
+                              name="filter.last_name"                data-endpoint="GETapi-v1-admin-users"
+               value="Doe"
                data-component="query">
     <br>
-<p>Filter by last name (partial match) Example: <code>architecto</code></p>
+<p>Filter by last name (partial match). Example: <code>Doe</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
@@ -916,149 +877,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-v1-admin-users"
-               value="architecto"
-               data-component="query">
-    <br>
-<p>Sort field (prefix with - for descending) Example: <code>architecto</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-v1-admin-users"
-               value="15"
-               data-component="body">
-    <br>
-<p>Number of items per page. Must be at least 2. Must not be greater than 50. Example: <code>15</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="role"                data-endpoint="GETapi-v1-admin-users"
-               value="admin"
-               data-component="body">
-    <br>
-<p>Filter by user role. Example: <code>admin</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>admin</code></li> <li><code>rider</code></li> <li><code>driver</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="GETapi-v1-admin-users"
-               value="active"
-               data-component="body">
-    <br>
-<p>Filter by user status. Example: <code>active</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>active</code></li> <li><code>inactive</code></li> <li><code>banned</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>banned</code></b>&nbsp;&nbsp;
-<small>boolean</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <label data-endpoint="GETapi-v1-admin-users" style="display: none">
-            <input type="radio" name="banned"
-                   value="true"
-                   data-endpoint="GETapi-v1-admin-users"
-                   data-component="body"             >
-            <code>true</code>
-        </label>
-        <label data-endpoint="GETapi-v1-admin-users" style="display: none">
-            <input type="radio" name="banned"
-                   value="false"
-                   data-endpoint="GETapi-v1-admin-users"
-                   data-component="body"             >
-            <code>false</code>
-        </label>
-    <br>
-<p>Filter banned users (true/false). Example: <code>false</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-<br>
-
-            </summary>
-                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.phone"                data-endpoint="GETapi-v1-admin-users"
-               value="+3736"
-               data-component="body">
-    <br>
-<p>Filter by phone number (partial match). Example: <code>+3736</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.email"                data-endpoint="GETapi-v1-admin-users"
-               value="example"
-               data-component="body">
-    <br>
-<p>Filter by email (partial match). Example: <code>example</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.first_name"                data-endpoint="GETapi-v1-admin-users"
-               value="John"
-               data-component="body">
-    <br>
-<p>Filter by first name (partial match). Example: <code>John</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.last_name"                data-endpoint="GETapi-v1-admin-users"
-               value="Doe"
-               data-component="body">
-    <br>
-<p>Filter by last name (partial match). Example: <code>Doe</code></p>
-                    </div>
-                                    </details>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="sort"                data-endpoint="GETapi-v1-admin-users"
                value="-created_at"
-               data-component="body">
+               data-component="query">
     <br>
 <p>Sort field (prefix with - for descending). Example: <code>-created_at</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>created_at</code></li> <li><code>-created_at</code></li> <li><code>updated_at</code></li> <li><code>-updated_at</code></li> <li><code>last_login_at</code></li> <li><code>-last_login_at</code></li> <li><code>phone</code></li> <li><code>-phone</code></li> <li><code>email</code></li> <li><code>-email</code></li></ul>
-        </div>
-        </form>
+            </div>
+                </form>
 
                     <h2 id="admin-GETapi-v1-admin-users--id-">GET api/v1/admin/users/{id}</h2>
 
@@ -1272,23 +1098,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/admin/drivers?per_page=15&amp;status=architecto&amp;banned=&amp;filter%5Bphone%5D=architecto&amp;filter%5Bemail%5D=architecto&amp;filter%5Bfirst_name%5D=architecto&amp;filter%5Blast_name%5D=architecto&amp;sort=architecto" \
+    --get "http://localhost:8080/api/v1/admin/drivers?per_page=15&amp;status=active&amp;banned=&amp;filter[phone]=%2B3736&amp;filter[email]=example&amp;filter[first_name]=John&amp;filter[last_name]=Doe&amp;sort=-created_at" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"per_page\": 15,
-    \"status\": \"active\",
-    \"banned\": false,
-    \"filter\": {
-        \"phone\": \"+3736\",
-        \"email\": \"example\",
-        \"first_name\": \"John\",
-        \"last_name\": \"Doe\"
-    },
-    \"sort\": \"-created_at\"
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1298,13 +1111,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 const params = {
     "per_page": "15",
-    "status": "architecto",
+    "status": "active",
     "banned": "0",
-    "filter[phone]": "architecto",
-    "filter[email]": "architecto",
-    "filter[first_name]": "architecto",
-    "filter[last_name]": "architecto",
-    "sort": "architecto",
+    "filter[phone]": "+3736",
+    "filter[email]": "example",
+    "filter[first_name]": "John",
+    "filter[last_name]": "Doe",
+    "sort": "-created_at",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1315,23 +1128,9 @@ const headers = {
     "Accept": "application/json",
 };
 
-let body = {
-    "per_page": 15,
-    "status": "active",
-    "banned": false,
-    "filter": {
-        "phone": "+3736",
-        "email": "example",
-        "first_name": "John",
-        "last_name": "Doe"
-    },
-    "sort": "-created_at"
-};
-
 fetch(url, {
     method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 
@@ -1348,24 +1147,12 @@ $response = $client-&gt;get(
         ],
         'query' =&gt; [
             'per_page' =&gt; '15',
-            'status' =&gt; 'architecto',
-            'banned' =&gt; '0',
-            'filter[phone]' =&gt; 'architecto',
-            'filter[email]' =&gt; 'architecto',
-            'filter[first_name]' =&gt; 'architecto',
-            'filter[last_name]' =&gt; 'architecto',
-            'sort' =&gt; 'architecto',
-        ],
-        'json' =&gt; [
-            'per_page' =&gt; 15,
             'status' =&gt; 'active',
-            'banned' =&gt; false,
-            'filter' =&gt; [
-                'phone' =&gt; '+3736',
-                'email' =&gt; 'example',
-                'first_name' =&gt; 'John',
-                'last_name' =&gt; 'Doe',
-            ],
+            'banned' =&gt; '0',
+            'filter[phone]' =&gt; '+3736',
+            'filter[email]' =&gt; 'example',
+            'filter[first_name]' =&gt; 'John',
+            'filter[last_name]' =&gt; 'Doe',
             'sort' =&gt; '-created_at',
         ],
     ]
@@ -1379,27 +1166,15 @@ print_r(json_decode((string) $body));</code></pre></div>
 import json
 
 url = 'http://localhost:8080/api/v1/admin/drivers'
-payload = {
-    "per_page": 15,
-    "status": "active",
-    "banned": false,
-    "filter": {
-        "phone": "+3736",
-        "email": "example",
-        "first_name": "John",
-        "last_name": "Doe"
-    },
-    "sort": "-created_at"
-}
 params = {
   'per_page': '15',
-  'status': 'architecto',
+  'status': 'active',
   'banned': '0',
-  'filter[phone]': 'architecto',
-  'filter[email]': 'architecto',
-  'filter[first_name]': 'architecto',
-  'filter[last_name]': 'architecto',
-  'sort': 'architecto',
+  'filter[phone]': '+3736',
+  'filter[email]': 'example',
+  'filter[first_name]': 'John',
+  'filter[last_name]': 'Doe',
+  'sort': '-created_at',
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -1407,7 +1182,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers, json=payload, params=params)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()</code></pre></div>
 
 </span>
@@ -1529,7 +1304,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="15"
                data-component="query">
     <br>
-<p>Number of items per page Example: <code>15</code></p>
+<p>Number of items per page. Must be at least 2. Must not be greater than 50. Example: <code>15</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -1538,10 +1313,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-v1-admin-drivers"
-               value="architecto"
+               value="active"
                data-component="query">
     <br>
-<p>Filter by user status (active, inactive, banned) Example: <code>architecto</code></p>
+<p>Filter by user status. Example: <code>active</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>active</code></li> <li><code>inactive</code></li> <li><code>banned</code></li></ul>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>banned</code></b>&nbsp;&nbsp;
@@ -1563,55 +1340,67 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Filter banned drivers (true/false) Example: <code>false</code></p>
+<p>Filter banned drivers (true/false). Example: <code>false</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[phone]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi-v1-admin-drivers"
+               value=""
+               data-component="query">
+    <br>
+
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter.phone</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[phone]"                data-endpoint="GETapi-v1-admin-drivers"
-               value="architecto"
+                              name="filter.phone"                data-endpoint="GETapi-v1-admin-drivers"
+               value="+3736"
                data-component="query">
     <br>
-<p>Filter by phone number (partial match) Example: <code>architecto</code></p>
+<p>Filter by phone number (partial match). Example: <code>+3736</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[email]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter.email</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[email]"                data-endpoint="GETapi-v1-admin-drivers"
-               value="architecto"
+                              name="filter.email"                data-endpoint="GETapi-v1-admin-drivers"
+               value="example"
                data-component="query">
     <br>
-<p>Filter by email (partial match) Example: <code>architecto</code></p>
+<p>Filter by email (partial match). Example: <code>example</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[first_name]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter.first_name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[first_name]"                data-endpoint="GETapi-v1-admin-drivers"
-               value="architecto"
+                              name="filter.first_name"                data-endpoint="GETapi-v1-admin-drivers"
+               value="John"
                data-component="query">
     <br>
-<p>Filter by first name (partial match) Example: <code>architecto</code></p>
+<p>Filter by first name (partial match). Example: <code>John</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[last_name]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter.last_name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[last_name]"                data-endpoint="GETapi-v1-admin-drivers"
-               value="architecto"
+                              name="filter.last_name"                data-endpoint="GETapi-v1-admin-drivers"
+               value="Doe"
                data-component="query">
     <br>
-<p>Filter by last name (partial match) Example: <code>architecto</code></p>
+<p>Filter by last name (partial match). Example: <code>Doe</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
@@ -1620,135 +1409,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-v1-admin-drivers"
-               value="architecto"
-               data-component="query">
-    <br>
-<p>Sort field (prefix with - for descending) Example: <code>architecto</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-v1-admin-drivers"
-               value="15"
-               data-component="body">
-    <br>
-<p>Number of items per page. Must be at least 2. Must not be greater than 50. Example: <code>15</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="GETapi-v1-admin-drivers"
-               value="active"
-               data-component="body">
-    <br>
-<p>Filter by user status. Example: <code>active</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>active</code></li> <li><code>inactive</code></li> <li><code>banned</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>banned</code></b>&nbsp;&nbsp;
-<small>boolean</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <label data-endpoint="GETapi-v1-admin-drivers" style="display: none">
-            <input type="radio" name="banned"
-                   value="true"
-                   data-endpoint="GETapi-v1-admin-drivers"
-                   data-component="body"             >
-            <code>true</code>
-        </label>
-        <label data-endpoint="GETapi-v1-admin-drivers" style="display: none">
-            <input type="radio" name="banned"
-                   value="false"
-                   data-endpoint="GETapi-v1-admin-drivers"
-                   data-component="body"             >
-            <code>false</code>
-        </label>
-    <br>
-<p>Filter banned drivers (true/false). Example: <code>false</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-<br>
-
-            </summary>
-                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.phone"                data-endpoint="GETapi-v1-admin-drivers"
-               value="+3736"
-               data-component="body">
-    <br>
-<p>Filter by phone number (partial match). Example: <code>+3736</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.email"                data-endpoint="GETapi-v1-admin-drivers"
-               value="example"
-               data-component="body">
-    <br>
-<p>Filter by email (partial match). Example: <code>example</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.first_name"                data-endpoint="GETapi-v1-admin-drivers"
-               value="John"
-               data-component="body">
-    <br>
-<p>Filter by first name (partial match). Example: <code>John</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.last_name"                data-endpoint="GETapi-v1-admin-drivers"
-               value="Doe"
-               data-component="body">
-    <br>
-<p>Filter by last name (partial match). Example: <code>Doe</code></p>
-                    </div>
-                                    </details>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="sort"                data-endpoint="GETapi-v1-admin-drivers"
                value="-created_at"
-               data-component="body">
+               data-component="query">
     <br>
 <p>Sort field (prefix with - for descending). Example: <code>-created_at</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>created_at</code></li> <li><code>-created_at</code></li> <li><code>updated_at</code></li> <li><code>-updated_at</code></li> <li><code>last_login_at</code></li> <li><code>-last_login_at</code></li> <li><code>phone</code></li> <li><code>-phone</code></li> <li><code>email</code></li> <li><code>-email</code></li></ul>
-        </div>
-        </form>
+            </div>
+                </form>
 
                     <h2 id="admin-GETapi-v1-admin-drivers--id-">GET api/v1/admin/drivers/{id}</h2>
 
@@ -1962,20 +1630,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/admin/rides?per_page=15&amp;status=architecto&amp;filter%5Brider_id%5D=architecto&amp;filter%5Bdriver_id%5D=architecto&amp;sort=architecto" \
+    --get "http://localhost:8080/api/v1/admin/rides?per_page=15&amp;status=completed&amp;filter[rider_id]=01h7x9b6w5e8v2k4n8m0p3q5r1&amp;filter[driver_id]=01h7x9b6w5e8v2k4n8m0p3q5r2&amp;sort=-created_at" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"per_page\": 15,
-    \"status\": \"completed\",
-    \"filter\": {
-        \"rider_id\": \"01h7x9b6w5e8v2k4n8m0p3q5r1\",
-        \"driver_id\": \"01h7x9b6w5e8v2k4n8m0p3q5r2\"
-    },
-    \"sort\": \"-created_at\"
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1985,10 +1643,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 const params = {
     "per_page": "15",
-    "status": "architecto",
-    "filter[rider_id]": "architecto",
-    "filter[driver_id]": "architecto",
-    "sort": "architecto",
+    "status": "completed",
+    "filter[rider_id]": "01h7x9b6w5e8v2k4n8m0p3q5r1",
+    "filter[driver_id]": "01h7x9b6w5e8v2k4n8m0p3q5r2",
+    "sort": "-created_at",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1999,20 +1657,9 @@ const headers = {
     "Accept": "application/json",
 };
 
-let body = {
-    "per_page": 15,
-    "status": "completed",
-    "filter": {
-        "rider_id": "01h7x9b6w5e8v2k4n8m0p3q5r1",
-        "driver_id": "01h7x9b6w5e8v2k4n8m0p3q5r2"
-    },
-    "sort": "-created_at"
-};
-
 fetch(url, {
     method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 
@@ -2029,18 +1676,9 @@ $response = $client-&gt;get(
         ],
         'query' =&gt; [
             'per_page' =&gt; '15',
-            'status' =&gt; 'architecto',
-            'filter[rider_id]' =&gt; 'architecto',
-            'filter[driver_id]' =&gt; 'architecto',
-            'sort' =&gt; 'architecto',
-        ],
-        'json' =&gt; [
-            'per_page' =&gt; 15,
             'status' =&gt; 'completed',
-            'filter' =&gt; [
-                'rider_id' =&gt; '01h7x9b6w5e8v2k4n8m0p3q5r1',
-                'driver_id' =&gt; '01h7x9b6w5e8v2k4n8m0p3q5r2',
-            ],
+            'filter[rider_id]' =&gt; '01h7x9b6w5e8v2k4n8m0p3q5r1',
+            'filter[driver_id]' =&gt; '01h7x9b6w5e8v2k4n8m0p3q5r2',
             'sort' =&gt; '-created_at',
         ],
     ]
@@ -2054,21 +1692,12 @@ print_r(json_decode((string) $body));</code></pre></div>
 import json
 
 url = 'http://localhost:8080/api/v1/admin/rides'
-payload = {
-    "per_page": 15,
-    "status": "completed",
-    "filter": {
-        "rider_id": "01h7x9b6w5e8v2k4n8m0p3q5r1",
-        "driver_id": "01h7x9b6w5e8v2k4n8m0p3q5r2"
-    },
-    "sort": "-created_at"
-}
 params = {
   'per_page': '15',
-  'status': 'architecto',
-  'filter[rider_id]': 'architecto',
-  'filter[driver_id]': 'architecto',
-  'sort': 'architecto',
+  'status': 'completed',
+  'filter[rider_id]': '01h7x9b6w5e8v2k4n8m0p3q5r1',
+  'filter[driver_id]': '01h7x9b6w5e8v2k4n8m0p3q5r2',
+  'sort': '-created_at',
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -2076,7 +1705,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers, json=payload, params=params)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()</code></pre></div>
 
 </span>
@@ -2198,7 +1827,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="15"
                data-component="query">
     <br>
-<p>Number of items per page Example: <code>15</code></p>
+<p>Number of items per page. Must be at least 2. Must not be greater than 50. Example: <code>15</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -2207,34 +1836,48 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-v1-admin-rides"
-               value="architecto"
+               value="completed"
                data-component="query">
     <br>
-<p>Filter by ride status Example: <code>architecto</code></p>
+<p>Filter by ride status. Example: <code>completed</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>pending</code></li> <li><code>accepted</code></li> <li><code>on_the_way</code></li> <li><code>arrived</code></li> <li><code>started</code></li> <li><code>completed</code></li> <li><code>cancelled</code></li></ul>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[rider_id]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi-v1-admin-rides"
+               value=""
+               data-component="query">
+    <br>
+
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter.rider_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[rider_id]"                data-endpoint="GETapi-v1-admin-rides"
-               value="architecto"
+                              name="filter.rider_id"                data-endpoint="GETapi-v1-admin-rides"
+               value="01h7x9b6w5e8v2k4n8m0p3q5r1"
                data-component="query">
     <br>
-<p>Filter by rider ID Example: <code>architecto</code></p>
+<p>Filter by rider ID. Example: <code>01h7x9b6w5e8v2k4n8m0p3q5r1</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>filter[driver_id]</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>filter.driver_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="filter[driver_id]"                data-endpoint="GETapi-v1-admin-rides"
-               value="architecto"
+                              name="filter.driver_id"                data-endpoint="GETapi-v1-admin-rides"
+               value="01h7x9b6w5e8v2k4n8m0p3q5r2"
                data-component="query">
     <br>
-<p>Filter by driver ID Example: <code>architecto</code></p>
+<p>Filter by driver ID. Example: <code>01h7x9b6w5e8v2k4n8m0p3q5r2</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
@@ -2243,89 +1886,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-v1-admin-rides"
-               value="architecto"
-               data-component="query">
-    <br>
-<p>Sort field (prefix with - for descending) Example: <code>architecto</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-v1-admin-rides"
-               value="15"
-               data-component="body">
-    <br>
-<p>Number of items per page. Must be at least 2. Must not be greater than 50. Example: <code>15</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="GETapi-v1-admin-rides"
-               value="completed"
-               data-component="body">
-    <br>
-<p>Filter by ride status. Example: <code>completed</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>pending</code></li> <li><code>accepted</code></li> <li><code>on_the_way</code></li> <li><code>arrived</code></li> <li><code>started</code></li> <li><code>completed</code></li> <li><code>cancelled</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-<br>
-
-            </summary>
-                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>rider_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.rider_id"                data-endpoint="GETapi-v1-admin-rides"
-               value="01h7x9b6w5e8v2k4n8m0p3q5r1"
-               data-component="body">
-    <br>
-<p>Filter by rider ID. Example: <code>01h7x9b6w5e8v2k4n8m0p3q5r1</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>driver_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="filter.driver_id"                data-endpoint="GETapi-v1-admin-rides"
-               value="01h7x9b6w5e8v2k4n8m0p3q5r2"
-               data-component="body">
-    <br>
-<p>Filter by driver ID. Example: <code>01h7x9b6w5e8v2k4n8m0p3q5r2</code></p>
-                    </div>
-                                    </details>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="sort"                data-endpoint="GETapi-v1-admin-rides"
                value="-created_at"
-               data-component="body">
+               data-component="query">
     <br>
 <p>Sort field (prefix with - for descending). Example: <code>-created_at</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>created_at</code></li> <li><code>-created_at</code></li> <li><code>updated_at</code></li> <li><code>-updated_at</code></li> <li><code>price</code></li> <li><code>-price</code></li> <li><code>status</code></li> <li><code>-status</code></li></ul>
-        </div>
-        </form>
+            </div>
+                </form>
 
                     <h2 id="admin-GETapi-v1-admin-rides--id-">GET api/v1/admin/rides/{id}</h2>
 
@@ -7924,7 +7492,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpgbeqk1bvnhgjePfkmDM" </code></pre></div>
+    --form "avatar=@/tmp/php9hre9tp23gh7bkEfIJo" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7962,7 +7530,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpgbeqk1bvnhgjePfkmDM', 'r')
+                'contents' =&gt; fopen('/tmp/php9hre9tp23gh7bkEfIJo', 'r')
             ],
         ],
     ]
@@ -7977,7 +7545,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpgbeqk1bvnhgjePfkmDM', 'rb')}
+  'avatar': open('/tmp/php9hre9tp23gh7bkEfIJo', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -8092,7 +7660,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpgbeqk1bvnhgjePfkmDM</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php9hre9tp23gh7bkEfIJo</code></p>
         </div>
         </form>
 
@@ -12703,7 +12271,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phps7v55fiplqob9FmjeLL" </code></pre></div>
+    --form "avatar=@/tmp/phppfuvlic06i4j1nBHaJn" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -12741,7 +12309,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phps7v55fiplqob9FmjeLL', 'r')
+                'contents' =&gt; fopen('/tmp/phppfuvlic06i4j1nBHaJn', 'r')
             ],
         ],
     ]
@@ -12756,7 +12324,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phps7v55fiplqob9FmjeLL', 'rb')}
+  'avatar': open('/tmp/phppfuvlic06i4j1nBHaJn', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -12871,7 +12439,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phps7v55fiplqob9FmjeLL</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phppfuvlic06i4j1nBHaJn</code></p>
         </div>
         </form>
 

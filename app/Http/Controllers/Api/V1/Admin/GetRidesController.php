@@ -16,17 +16,11 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
-use Knuckles\Scribe\Attributes\QueryParam;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Admin')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
-#[QueryParam('per_page', 'integer', 'Number of items per page', false, 15)]
-#[QueryParam('status', 'string', 'Filter by ride status', false)]
-#[QueryParam('filter[rider_id]', 'string', 'Filter by rider ID', false)]
-#[QueryParam('filter[driver_id]', 'string', 'Filter by driver ID', false)]
-#[QueryParam('sort', 'string', 'Sort field (prefix with - for descending)', false)]
 #[Response(status: 200, description: 'Paginated rides list retrieved successfully.')]
 #[Response(status: 401, description: 'Unauthorized.')]
 #[Response(status: 403, description: 'Forbidden - not an admin.')]

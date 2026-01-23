@@ -17,20 +17,11 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
-use Knuckles\Scribe\Attributes\QueryParam;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Admin')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
-#[QueryParam('per_page', 'integer', 'Number of items per page', false, 15)]
-#[QueryParam('status', 'string', 'Filter by user status (active, inactive, banned)', false)]
-#[QueryParam('banned', 'boolean', 'Filter banned drivers (true/false)', false)]
-#[QueryParam('filter[phone]', 'string', 'Filter by phone number (partial match)', false)]
-#[QueryParam('filter[email]', 'string', 'Filter by email (partial match)', false)]
-#[QueryParam('filter[first_name]', 'string', 'Filter by first name (partial match)', false)]
-#[QueryParam('filter[last_name]', 'string', 'Filter by last name (partial match)', false)]
-#[QueryParam('sort', 'string', 'Sort field (prefix with - for descending)', false)]
 #[Response(status: 200, description: 'Paginated drivers list retrieved successfully.')]
 #[Response(status: 401, description: 'Unauthorized.')]
 #[Response(status: 403, description: 'Forbidden - not an admin.')]

@@ -95,116 +95,6 @@ endpoints:
       per_page:
         custom: []
         name: per_page
-        description: 'Number of items per page'
-        required: false
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      role:
-        custom: []
-        name: role
-        description: 'Filter by user role (admin, driver, rider)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: 'Filter by user status (active, inactive, banned)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      banned:
-        custom: []
-        name: banned
-        description: 'Filter banned users (true/false)'
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[phone]':
-        custom: []
-        name: 'filter[phone]'
-        description: 'Filter by phone number (partial match)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[email]':
-        custom: []
-        name: 'filter[email]'
-        description: 'Filter by email (partial match)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[first_name]':
-        custom: []
-        name: 'filter[first_name]'
-        description: 'Filter by first name (partial match)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[last_name]':
-        custom: []
-        name: 'filter[last_name]'
-        description: 'Filter by last name (partial match)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      sort:
-        custom: []
-        name: sort
-        description: 'Sort field (prefix with - for descending)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanQueryParameters:
-      per_page: 15
-      role: architecto
-      status: architecto
-      banned: false
-      'filter[phone]': architecto
-      'filter[email]': architecto
-      'filter[first_name]': architecto
-      'filter[last_name]': architecto
-      sort: architecto
-    bodyParameters:
-      per_page:
-        custom: []
-        name: per_page
         description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
         required: false
         example: 15
@@ -328,7 +218,7 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-    cleanBodyParameters:
+    cleanQueryParameters:
       per_page: 15
       role: admin
       status: active
@@ -339,6 +229,8 @@ endpoints:
         first_name: John
         last_name: Doe
       sort: '-created_at'
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
@@ -457,104 +349,6 @@ endpoints:
       per_page:
         custom: []
         name: per_page
-        description: 'Number of items per page'
-        required: false
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: 'Filter by user status (active, inactive, banned)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      banned:
-        custom: []
-        name: banned
-        description: 'Filter banned drivers (true/false)'
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[phone]':
-        custom: []
-        name: 'filter[phone]'
-        description: 'Filter by phone number (partial match)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[email]':
-        custom: []
-        name: 'filter[email]'
-        description: 'Filter by email (partial match)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[first_name]':
-        custom: []
-        name: 'filter[first_name]'
-        description: 'Filter by first name (partial match)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[last_name]':
-        custom: []
-        name: 'filter[last_name]'
-        description: 'Filter by last name (partial match)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      sort:
-        custom: []
-        name: sort
-        description: 'Sort field (prefix with - for descending)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanQueryParameters:
-      per_page: 15
-      status: architecto
-      banned: false
-      'filter[phone]': architecto
-      'filter[email]': architecto
-      'filter[first_name]': architecto
-      'filter[last_name]': architecto
-      sort: architecto
-    bodyParameters:
-      per_page:
-        custom: []
-        name: per_page
         description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
         required: false
         example: 15
@@ -664,7 +458,7 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-    cleanBodyParameters:
+    cleanQueryParameters:
       per_page: 15
       status: active
       banned: false
@@ -674,6 +468,8 @@ endpoints:
         first_name: John
         last_name: Doe
       sort: '-created_at'
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
@@ -792,68 +588,6 @@ endpoints:
       per_page:
         custom: []
         name: per_page
-        description: 'Number of items per page'
-        required: false
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: 'Filter by ride status'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[rider_id]':
-        custom: []
-        name: 'filter[rider_id]'
-        description: 'Filter by rider ID'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'filter[driver_id]':
-        custom: []
-        name: 'filter[driver_id]'
-        description: 'Filter by driver ID'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      sort:
-        custom: []
-        name: sort
-        description: 'Sort field (prefix with - for descending)'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanQueryParameters:
-      per_page: 15
-      status: architecto
-      'filter[rider_id]': architecto
-      'filter[driver_id]': architecto
-      sort: architecto
-    bodyParameters:
-      per_page:
-        custom: []
-        name: per_page
         description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
         required: false
         example: 15
@@ -932,13 +666,15 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-    cleanBodyParameters:
+    cleanQueryParameters:
       per_page: 15
       status: completed
       filter:
         rider_id: 01h7x9b6w5e8v2k4n8m0p3q5r1
         driver_id: 01h7x9b6w5e8v2k4n8m0p3q5r2
       sort: '-created_at'
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
