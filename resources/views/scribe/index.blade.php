@@ -105,6 +105,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="admin-POSTapi-v1-admin-drivers--driver_id--unban">
                                 <a href="#admin-POSTapi-v1-admin-drivers--driver_id--unban">POST api/v1/admin/drivers/{driver_id}/unban</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-tickets">
+                                <a href="#admin-GETapi-v1-admin-tickets">GET api/v1/admin/tickets</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-auth" class="tocify-header">
@@ -311,7 +314,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 22, 2026</li>
+        <li>Last updated: January 23, 2026</li>
     </ul>
 </div>
 
@@ -3222,6 +3225,285 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Reason for unbanning the driver. Must not be greater than 500 characters. Example: <code>Ban lifted after review</code></p>
         </div>
         </form>
+
+                    <h2 id="admin-GETapi-v1-admin-tickets">GET api/v1/admin/tickets</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-admin-tickets">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/admin/tickets?per_page=20&amp;status=open&amp;filter[user_id]=01HZY1K8QK8ZQ2V6J8F4K8Q2V6&amp;filter[subject]=Issue+with+ride&amp;sort=-created_at" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/tickets"
+);
+
+const params = {
+    "per_page": "20",
+    "status": "open",
+    "filter[user_id]": "01HZY1K8QK8ZQ2V6J8F4K8Q2V6",
+    "filter[subject]": "Issue with ride",
+    "sort": "-created_at",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/tickets';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'per_page' =&gt; '20',
+            'status' =&gt; 'open',
+            'filter[user_id]' =&gt; '01HZY1K8QK8ZQ2V6J8F4K8Q2V6',
+            'filter[subject]' =&gt; 'Issue with ride',
+            'sort' =&gt; '-created_at',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/tickets'
+params = {
+  'per_page': '20',
+  'status': 'open',
+  'filter[user_id]': '01HZY1K8QK8ZQ2V6J8F4K8Q2V6',
+  'filter[subject]': 'Issue with ride',
+  'sort': '-created_at',
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-admin-tickets">
+            <blockquote>
+            <p>Example response (200, Paginated support tickets list retrieved successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden - not an admin.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-admin-tickets" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-admin-tickets"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-admin-tickets"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-admin-tickets" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-admin-tickets">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-admin-tickets" data-method="GET"
+      data-path="api/v1/admin/tickets"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-admin-tickets', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-admin-tickets"
+                    onclick="tryItOut('GETapi-v1-admin-tickets');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-admin-tickets"
+                    onclick="cancelTryOut('GETapi-v1-admin-tickets');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-admin-tickets"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/admin/tickets</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-admin-tickets"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-admin-tickets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-admin-tickets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="per_page"                data-endpoint="GETapi-v1-admin-tickets"
+               value="20"
+               data-component="query">
+    <br>
+<p>Number of items per page. Must be at least 2. Must not be greater than 50. Example: <code>20</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="GETapi-v1-admin-tickets"
+               value="open"
+               data-component="query">
+    <br>
+<p>Filter by ticket status. Example: <code>open</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>open</code></li> <li><code>closed</code></li> <li><code>pending</code></li></ul>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi-v1-admin-tickets"
+               value=""
+               data-component="query">
+    <br>
+
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter.user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="filter.user_id"                data-endpoint="GETapi-v1-admin-tickets"
+               value="01HZY1K8QK8ZQ2V6J8F4K8Q2V6"
+               data-component="query">
+    <br>
+<p>Filter by user ID (ULID). Must be 26 characters. Example: <code>01HZY1K8QK8ZQ2V6J8F4K8Q2V6</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter.subject</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="filter.subject"                data-endpoint="GETapi-v1-admin-tickets"
+               value="Issue with ride"
+               data-component="query">
+    <br>
+<p>Filter by subject (partial match). Example: <code>Issue with ride</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="sort"                data-endpoint="GETapi-v1-admin-tickets"
+               value="-created_at"
+               data-component="query">
+    <br>
+<p>Sort field (prefix with - for descending). Example: <code>-created_at</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>created_at</code></li> <li><code>-created_at</code></li> <li><code>updated_at</code></li> <li><code>-updated_at</code></li> <li><code>subject</code></li> <li><code>-subject</code></li> <li><code>status</code></li> <li><code>-status</code></li></ul>
+            </div>
+                </form>
 
                 <h1 id="auth">Auth</h1>
 
@@ -7642,7 +7924,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpkbgckror2k8obPnMMLf" </code></pre></div>
+    --form "avatar=@/tmp/phpgbeqk1bvnhgjePfkmDM" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7680,7 +7962,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpkbgckror2k8obPnMMLf', 'r')
+                'contents' =&gt; fopen('/tmp/phpgbeqk1bvnhgjePfkmDM', 'r')
             ],
         ],
     ]
@@ -7695,7 +7977,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpkbgckror2k8obPnMMLf', 'rb')}
+  'avatar': open('/tmp/phpgbeqk1bvnhgjePfkmDM', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -7810,7 +8092,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpkbgckror2k8obPnMMLf</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpgbeqk1bvnhgjePfkmDM</code></p>
         </div>
         </form>
 
@@ -12421,7 +12703,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phphdfe0ai3sb7q5iaoOde" </code></pre></div>
+    --form "avatar=@/tmp/phps7v55fiplqob9FmjeLL" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -12459,7 +12741,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phphdfe0ai3sb7q5iaoOde', 'r')
+                'contents' =&gt; fopen('/tmp/phps7v55fiplqob9FmjeLL', 'r')
             ],
         ],
     ]
@@ -12474,7 +12756,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phphdfe0ai3sb7q5iaoOde', 'rb')}
+  'avatar': open('/tmp/phps7v55fiplqob9FmjeLL', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -12589,7 +12871,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phphdfe0ai3sb7q5iaoOde</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phps7v55fiplqob9FmjeLL</code></p>
         </div>
         </form>
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
 use App\Http\Controllers\Api\V1\Admin\GetRideController;
 use App\Http\Controllers\Api\V1\Admin\GetRidesController;
+use App\Http\Controllers\Api\V1\Admin\GetTicketsController;
 use App\Http\Controllers\Api\V1\Admin\GetUserController;
 use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
@@ -44,4 +45,7 @@ Route::prefix('admin')
         Route::post('drivers/{driver}/unban', [DriverUnbanController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.unban');
+        Route::get('tickets', [GetTicketsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.tickets.index');
     });

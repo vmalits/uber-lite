@@ -1297,3 +1297,136 @@ endpoints:
     controller: null
     method: null
     route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/admin/tickets
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Filter by ticket status.'
+        required: false
+        example: open
+        type: string
+        enumValues:
+          - open
+          - closed
+          - pending
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter:
+        custom: []
+        name: filter
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.user_id:
+        custom: []
+        name: filter.user_id
+        description: 'Filter by user ID (ULID). Must be 26 characters.'
+        required: false
+        example: 01HZY1K8QK8ZQ2V6J8F4K8Q2V6
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.subject:
+        custom: []
+        name: filter.subject
+        description: 'Filter by subject (partial match).'
+        required: false
+        example: 'Issue with ride'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort field (prefix with - for descending).'
+        required: false
+        example: '-created_at'
+        type: string
+        enumValues:
+          - created_at
+          - '-created_at'
+          - updated_at
+          - '-updated_at'
+          - subject
+          - '-subject'
+          - status
+          - '-status'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 20
+      status: open
+      filter:
+        user_id: 01HZY1K8QK8ZQ2V6J8F4K8Q2V6
+        subject: 'Issue with ride'
+      sort: '-created_at'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Paginated support tickets list retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

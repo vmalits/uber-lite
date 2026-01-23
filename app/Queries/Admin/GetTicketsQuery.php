@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Queries\Support;
+namespace App\Queries\Admin;
 
 use App\Enums\SupportTicketStatus;
 use App\Models\SupportTicket;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -17,10 +16,9 @@ final readonly class GetTicketsQuery implements GetTicketsQueryInterface
     /**
      * @return LengthAwarePaginator<int, SupportTicket>
      */
-    public function execute(User $user, int $perPage): LengthAwarePaginator
+    public function execute(int $perPage): LengthAwarePaginator
     {
         $baseQuery = SupportTicket::query()
-            ->where('user_id', $user->id)
             ->with(['user']);
 
         return QueryBuilder::for($baseQuery)
@@ -30,11 +28,13 @@ final readonly class GetTicketsQuery implements GetTicketsQueryInterface
                         $query->where('status', $value);
                     }
                 }),
+                AllowedFilter::exact('user_id'),
                 AllowedFilter::partial('subject'),
             ])
             ->allowedSorts([
                 'created_at',
                 'updated_at',
+                'subject',
                 'status',
             ])
             ->defaultSort('-created_at')
