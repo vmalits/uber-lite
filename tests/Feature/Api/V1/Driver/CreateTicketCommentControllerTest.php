@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
+use App\Events\Support\SupportTicketCommentCreated;
 use App\Models\SupportTicket;
 use App\Models\User;
+use Illuminate\Support\Facades\Event;
 use Laravel\Sanctum\Sanctum;
 
 it('creates a support ticket comment for driver', function (): void {
@@ -14,6 +16,8 @@ it('creates a support ticket comment for driver', function (): void {
         'profile_step' => ProfileStep::COMPLETED,
     ]);
     $ticket = SupportTicket::factory()->create(['user_id' => $driver->id]);
+
+    Event::fake([SupportTicketCommentCreated::class]);
 
     Sanctum::actingAs($driver);
 
@@ -28,6 +32,8 @@ it('creates a support ticket comment for driver', function (): void {
         ->assertJsonPath('data.ticket_id', $ticket->id)
         ->assertJsonPath('data.user_id', $driver->id)
         ->assertJsonPath('data.message', $payload['message']);
+
+    Event::assertDispatched(SupportTicketCommentCreated::class);
 
     $this->assertDatabaseHas('support_ticket_comments', [
         'ticket_id' => $ticket->id,
