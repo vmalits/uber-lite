@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
 use App\Http\Controllers\Api\V1\Admin\GetRideController;
 use App\Http\Controllers\Api\V1\Admin\GetRidesController;
+use App\Http\Controllers\Api\V1\Admin\GetTicketCommentsController;
 use App\Http\Controllers\Api\V1\Admin\GetTicketController;
 use App\Http\Controllers\Api\V1\Admin\GetTicketsController;
 use App\Http\Controllers\Api\V1\Admin\GetUserController;
@@ -52,4 +53,7 @@ Route::prefix('admin')
         Route::get('tickets/{ticket}', [GetTicketController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.tickets.show');
+        Route::get('tickets/{ticket}/comments', [GetTicketCommentsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.tickets.comments.index');
     });
