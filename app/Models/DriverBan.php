@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Builders\DriverBanBuilder;
+use App\Policies\DriverBanPolicy;
 use Carbon\CarbonInterface;
 use Database\Factories\DriverBanFactory;
 use Illuminate\Database\Eloquent\Attributes\UseEloquentBuilder;
+use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +34,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property CarbonInterface $updated_at
  */
 #[UseEloquentBuilder(DriverBanBuilder::class)]
+#[UsePolicy(DriverBanPolicy::class)]
 class DriverBan extends Model
 {
     /**  @use HasFactory<DriverBanFactory> */
