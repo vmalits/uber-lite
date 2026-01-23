@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\Driver\ArrivedController;
 use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
 use App\Http\Controllers\Api\V1\Driver\DeleteVehicleController;
+use App\Http\Controllers\Api\V1\Driver\GetActiveBansController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
@@ -42,6 +43,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.offline');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.active');
+        Route::get('bans/active', [GetActiveBansController::class, '__invoke'])
+            ->name('api.v1.driver.bans.active');
         Route::get('rides/available', [GetAvailableRidesController::class, '__invoke'])
             ->name('api.v1.driver.rides.available');
         Route::post('rides/{ride}/accept', [AcceptRideController::class, '__invoke'])

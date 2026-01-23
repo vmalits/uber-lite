@@ -6,6 +6,8 @@ namespace App\Providers;
 
 use App\Queries\Driver\GetActiveBanQuery;
 use App\Queries\Driver\GetActiveBanQueryInterface;
+use App\Queries\Driver\GetActiveBansQuery;
+use App\Queries\Driver\GetActiveBansQueryInterface;
 use App\Queries\Driver\GetActiveRideQuery;
 use App\Queries\Driver\GetActiveRideQueryInterface;
 use App\Queries\Driver\GetAvailableRidesQuery;
@@ -23,6 +25,7 @@ final class DriverServiceProvider extends ServiceProvider
         GetAvailableRidesQueryInterface::class => GetAvailableRidesQuery::class,
         GetActiveRideQueryInterface::class     => GetActiveRideQuery::class,
         GetActiveBanQueryInterface::class      => GetActiveBanQuery::class,
+        GetActiveBansQueryInterface::class     => GetActiveBansQuery::class,
         GetVehiclesQueryInterface::class       => GetVehiclesQuery::class,
     ];
 }
