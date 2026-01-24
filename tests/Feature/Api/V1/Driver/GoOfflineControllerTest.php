@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Enums\DriverAvailabilityStatus;
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
-use App\Models\DriverLocation;
 use App\Models\User;
+use Illuminate\Contracts\Redis\Factory as RedisFactory;
 use Laravel\Sanctum\Sanctum;
 
 it('driver can go offline', function (): void {
@@ -15,12 +14,12 @@ it('driver can go offline', function (): void {
         'profile_step' => ProfileStep::COMPLETED,
     ]);
 
-    DriverLocation::factory()->create([
-        'driver_id' => $user->id,
-        'status'    => DriverAvailabilityStatus::ONLINE,
-    ]);
-
     Sanctum::actingAs($user);
+
+    $this->postJson('/api/v1/driver/online', [
+        'latitude'  => 47.0105,
+        'longitude' => 28.8638,
+    ]);
 
     $response = $this->postJson('/api/v1/driver/offline');
 
@@ -33,58 +32,18 @@ it('driver can go offline', function (): void {
         ->assertJsonPath('data.driver_id', $user->id)
         ->assertJsonPath('data.status', 'offline');
 
-    $location = DriverLocation::where('driver_id', $user->id)->first();
+    $redis = app(RedisFactory::class)->connection();
+    $state = $redis->get("driver:{$user->id}:state");
+    $location = $redis->get("driver:{$user->id}:location");
+    $geoScore = $redis->zscore('drivers:geo', $user->id);
+    $isOnline = $redis->sismember('drivers:online', $user->id);
 
-    expect($location)->not->toBeNull()
-        ->and($location->status)->toBe(DriverAvailabilityStatus::OFFLINE);
-});
+    $hasGeo = $geoScore !== false && $geoScore !== null;
 
-it('updates existing location when going offline', function (): void {
-    $user = User::factory()->verified()->create([
-        'role'         => UserRole::DRIVER,
-        'profile_step' => ProfileStep::COMPLETED,
-    ]);
-
-    DriverLocation::factory()->create([
-        'driver_id' => $user->id,
-        'status'    => DriverAvailabilityStatus::ONLINE,
-    ]);
-
-    Sanctum::actingAs($user);
-
-    $response = $this->postJson('/api/v1/driver/offline');
-
-    $response->assertOk();
-
-    $location = DriverLocation::where('driver_id', $user->id)->first();
-
-    expect($location->status)->toBe(DriverAvailabilityStatus::OFFLINE);
-});
-
-it('keeps last known location when going offline', function (): void {
-    $user = User::factory()->verified()->create([
-        'role'         => UserRole::DRIVER,
-        'profile_step' => ProfileStep::COMPLETED,
-    ]);
-
-    DriverLocation::factory()->create([
-        'driver_id' => $user->id,
-        'lat'       => 47.0105,
-        'lng'       => 28.8638,
-        'status'    => DriverAvailabilityStatus::ONLINE,
-    ]);
-
-    Sanctum::actingAs($user);
-
-    $response = $this->postJson('/api/v1/driver/offline');
-
-    $response->assertOk();
-
-    $location = DriverLocation::where('driver_id', $user->id)->first();
-
-    expect($location->lat)->toBe(47.0105)
-        ->and($location->lng)->toBe(28.8638)
-        ->and($location->status)->toBe(DriverAvailabilityStatus::OFFLINE);
+    expect($state)->toBeNull()
+        ->and($location)->toBeNull()
+        ->and($hasGeo)->toBeFalse()
+        ->and((int) $isOnline)->toBe(0);
 });
 
 it('denies offline for driver with incomplete profile', function (): void {
@@ -117,27 +76,4 @@ it('denies offline for unauthenticated user', function (): void {
     $response = $this->postJson('/api/v1/driver/offline');
 
     $response->assertUnauthorized();
-});
-
-it('updates last_active_at when going offline', function (): void {
-    $user = User::factory()->verified()->create([
-        'role'         => UserRole::DRIVER,
-        'profile_step' => ProfileStep::COMPLETED,
-    ]);
-
-    $oldTime = now()->subMinutes(5);
-
-    DriverLocation::factory()->create([
-        'driver_id'      => $user->id,
-        'status'         => DriverAvailabilityStatus::ONLINE,
-        'last_active_at' => $oldTime,
-    ]);
-
-    Sanctum::actingAs($user);
-
-    $this->postJson('/api/v1/driver/offline');
-
-    $location = DriverLocation::where('driver_id', $user->id)->first();
-
-    expect($location->last_active_at->gt($oldTime))->toBeTrue();
 });

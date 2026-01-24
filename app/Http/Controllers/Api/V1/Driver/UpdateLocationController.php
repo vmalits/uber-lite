@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Driver;
 
 use App\Actions\Driver\UpdateLocationAction;
-use App\Data\Driver\DriverLocationData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Driver\UpdateDriverLocationRequest;
 use App\Models\User;
@@ -38,7 +37,7 @@ final class UpdateLocationController extends Controller
         );
 
         return ApiResponse::success(
-            data: DriverLocationData::fromModel($location),
+            data: $location,
             message: 'Driver location updated successfully.',
         );
     }

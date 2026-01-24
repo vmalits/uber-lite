@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Driver;
 
 use App\Actions\Driver\GoOnlineAction;
-use App\Data\Driver\DriverLocationData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Driver\GoOnlineRequest;
 use App\Models\User;
@@ -39,7 +38,7 @@ final class GoOnlineController extends Controller
         );
 
         return ApiResponse::success(
-            data: DriverLocationData::fromModel($location),
+            data: $location,
             message: __('messages.driver.online'),
         );
     }

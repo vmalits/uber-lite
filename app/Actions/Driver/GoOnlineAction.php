@@ -4,26 +4,31 @@ declare(strict_types=1);
 
 namespace App\Actions\Driver;
 
-use App\Enums\DriverAvailabilityStatus;
-use App\Models\DriverLocation;
+use App\Data\Driver\DriverRealtimeLocationData;
 use App\Models\User;
+use App\Services\Centrifugo\DriverLocationPublisher;
+use App\Services\Driver\DriverLocationUpdater;
 
 readonly class GoOnlineAction
 {
     public function __construct(
-        private DriverLocation $location,
+        private DriverLocationUpdater $updater,
+        private DriverLocationPublisher $publisher,
     ) {}
 
-    public function handle(User $driver, float $latitude, float $longitude): DriverLocation
+    public function handle(User $driver, float $latitude, float $longitude): DriverRealtimeLocationData
     {
-        return $this->location->updateOrCreate(
-            ['driver_id' => $driver->id],
-            [
-                'status'         => DriverAvailabilityStatus::ONLINE,
-                'lat'            => $latitude,
-                'lng'            => $longitude,
-                'last_active_at' => now(),
-            ],
+        $result = $this->updater->update(
+            driverId: $driver->id,
+            lat: $latitude,
+            lng: $longitude,
+            timestamp: time(),
         );
+
+        if ($result->shouldPublish) {
+            $this->publisher->publish($result->snapshot);
+        }
+
+        return $result->snapshot;
     }
 }

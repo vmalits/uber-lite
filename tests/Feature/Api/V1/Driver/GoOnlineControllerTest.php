@@ -2,12 +2,16 @@
 
 declare(strict_types=1);
 
-use App\Enums\DriverAvailabilityStatus;
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
-use App\Models\DriverLocation;
 use App\Models\User;
+use Illuminate\Contracts\Redis\Factory as RedisFactory;
+use Illuminate\Support\Facades\Config;
 use Laravel\Sanctum\Sanctum;
+
+beforeEach(function (): void {
+    Config::set('driver_location.publish.enabled', false);
+});
 
 it('driver can go online with valid coordinates', function (): void {
     $user = User::factory()->verified()->create([
@@ -35,21 +39,22 @@ it('driver can go online with valid coordinates', function (): void {
         ->assertJsonPath('data.lat', 47.0105)
         ->assertJsonPath('data.lng', 28.8638);
 
-    $location = DriverLocation::where('driver_id', $user->id)->first();
+    $redis = app(RedisFactory::class)->connection();
+    $state = $redis->get("driver:{$user->id}:state");
+    $locationJson = $redis->get("driver:{$user->id}:location");
+    $location = is_string($locationJson) ? json_decode($locationJson, true) : null;
 
-    expect($location)->not->toBeNull()
-        ->and($location->status)->toBe(DriverAvailabilityStatus::ONLINE)
-        ->and($location->lat)->toBe(47.0105)
-        ->and($location->lng)->toBe(28.8638);
+    expect($state)->toBe('online')
+        ->and(is_array($location))->toBeTrue()
+        ->and((float) $location['lat'])->toBe(47.0105)
+        ->and((float) $location['lng'])->toBe(28.8638);
 });
 
-it('creates location record if driver has none', function (): void {
+it('updates redis location when going online again', function (): void {
     $user = User::factory()->verified()->create([
         'role'         => UserRole::DRIVER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
-
-    expect(DriverLocation::where('driver_id', $user->id)->count())->toBe(0);
 
     Sanctum::actingAs($user);
 
@@ -58,36 +63,20 @@ it('creates location record if driver has none', function (): void {
         'longitude' => 28.8638,
     ]);
 
-    expect(DriverLocation::where('driver_id', $user->id)->count())->toBe(1);
-});
-
-it('updates existing location when going online', function (): void {
-    $user = User::factory()->verified()->create([
-        'role'         => UserRole::DRIVER,
-        'profile_step' => ProfileStep::COMPLETED,
-    ]);
-
-    DriverLocation::factory()->create([
-        'driver_id' => $user->id,
-        'lat'       => 10.0,
-        'lng'       => 20.0,
-        'status'    => DriverAvailabilityStatus::OFFLINE,
-    ]);
-
-    Sanctum::actingAs($user);
-
     $response = $this->postJson('/api/v1/driver/online', [
-        'latitude'  => 47.0105,
-        'longitude' => 28.8638,
+        'latitude'  => 47.1111,
+        'longitude' => 28.9999,
     ]);
 
     $response->assertOk();
 
-    $location = DriverLocation::where('driver_id', $user->id)->first();
+    $redis = app(RedisFactory::class)->connection();
+    $locationJson = $redis->get("driver:{$user->id}:location");
+    $location = is_string($locationJson) ? json_decode($locationJson, true) : null;
 
-    expect($location->lat)->toBe(47.0105)
-        ->and($location->lng)->toBe(28.8638)
-        ->and($location->status)->toBe(DriverAvailabilityStatus::ONLINE);
+    expect(is_array($location))->toBeTrue()
+        ->and((float) $location['lat'])->toBe(47.1111)
+        ->and((float) $location['lng'])->toBe(28.9999);
 });
 
 it('denies online for driver with incomplete profile', function (): void {

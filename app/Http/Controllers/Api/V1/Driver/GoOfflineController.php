@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1\Driver;
 
 use App\Actions\Driver\GoOfflineAction;
-use App\Data\Driver\DriverLocationData;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Support\ApiResponse;
@@ -33,7 +32,7 @@ final class GoOfflineController extends Controller
         $location = $this->goOfflineAction->handle($user);
 
         return ApiResponse::success(
-            data: DriverLocationData::fromModel($location),
+            data: $location,
             message: __('messages.driver.offline'),
         );
     }

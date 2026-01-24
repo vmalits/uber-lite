@@ -24,9 +24,10 @@ final class ProfileResponse extends Data
         public ?UserRole $role,
         public ?ProfileStep $profile_step,
         public ?UserStatus $status,
+        public ?bool $is_online,
     ) {}
 
-    public static function fromUser(User $user, AvatarUrlResolver $avatarResolver): self
+    public static function fromUser(User $user, AvatarUrlResolver $avatarResolver, ?bool $isOnline): self
     {
         return new self(
             id: $user->id,
@@ -38,6 +39,7 @@ final class ProfileResponse extends Data
             role: $user->role,
             profile_step: $user->profile_step,
             status: $user->status,
+            is_online: $isOnline,
         );
     }
 }

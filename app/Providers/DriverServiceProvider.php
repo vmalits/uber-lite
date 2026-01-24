@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Queries\Driver\FindNearbyDriversQuery;
+use App\Queries\Driver\FindNearbyDriversQueryInterface;
 use App\Queries\Driver\GetActiveBanQuery;
 use App\Queries\Driver\GetActiveBanQueryInterface;
 use App\Queries\Driver\GetActiveBansQuery;
@@ -27,5 +29,6 @@ final class DriverServiceProvider extends ServiceProvider
         GetActiveBanQueryInterface::class      => GetActiveBanQuery::class,
         GetActiveBansQueryInterface::class     => GetActiveBansQuery::class,
         GetVehiclesQueryInterface::class       => GetVehiclesQuery::class,
+        FindNearbyDriversQueryInterface::class => FindNearbyDriversQuery::class,
     ];
 }
