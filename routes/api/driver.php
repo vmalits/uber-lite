@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\GetBanController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
+use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetVehiclesController;
 use App\Http\Controllers\Api\V1\Driver\GoOfflineController;
@@ -48,6 +49,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.offline');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.active');
+        Route::get('rides/history', [GetRideHistoryController::class, '__invoke'])
+            ->name('api.v1.driver.rides.history');
         Route::get('bans/active', [GetActiveBansController::class, '__invoke'])
             ->name('api.v1.driver.bans.active');
         Route::get('bans/{ban}', [GetBanController::class, '__invoke'])

@@ -16,6 +16,8 @@ use App\Queries\Driver\GetAvailableRidesQuery;
 use App\Queries\Driver\GetAvailableRidesQueryInterface;
 use App\Queries\Driver\GetDriverStatsQuery;
 use App\Queries\Driver\GetDriverStatsQueryInterface;
+use App\Queries\Driver\GetRideHistoryQuery;
+use App\Queries\Driver\GetRideHistoryQueryInterface;
 use App\Queries\Driver\GetVehiclesQuery;
 use App\Queries\Driver\GetVehiclesQueryInterface;
 use Illuminate\Support\ServiceProvider;
@@ -33,5 +35,6 @@ final class DriverServiceProvider extends ServiceProvider
         GetVehiclesQueryInterface::class       => GetVehiclesQuery::class,
         FindNearbyDriversQueryInterface::class => FindNearbyDriversQuery::class,
         GetDriverStatsQueryInterface::class    => GetDriverStatsQuery::class,
+        GetRideHistoryQueryInterface::class    => GetRideHistoryQuery::class,
     ];
 }

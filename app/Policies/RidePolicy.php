@@ -13,7 +13,9 @@ final class RidePolicy
 {
     public function viewAny(User $user): bool
     {
-        return $user->isAdmin() || $user->role === UserRole::RIDER;
+        return $user->isAdmin()
+            || $user->role === UserRole::RIDER
+            || ($user->role === UserRole::DRIVER);
     }
 
     public function viewAvailable(User $user): bool
