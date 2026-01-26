@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\V1\Driver\GetActiveBansController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\GetBanController;
+use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetVehiclesController;
 use App\Http\Controllers\Api\V1\Driver\GoOfflineController;
@@ -39,6 +40,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.profile');
         Route::put('profile', [UpdateProfileController::class, '__invoke'])
             ->name('api.v1.driver.profile.update');
+        Route::get('stats', [GetDriverStatsController::class, '__invoke'])
+            ->name('api.v1.driver.stats');
         Route::post('online', [GoOnlineController::class, '__invoke'])
             ->name('api.v1.driver.online');
         Route::post('offline', [GoOfflineController::class, '__invoke'])

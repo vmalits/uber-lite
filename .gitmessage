@@ -1,0 +1,29 @@
+# Conventional Commits
+# Format: <type>(<scope>): <short summary>
+#
+# Types:
+# feat     – new feature
+# fix      – bug fix
+# docs     – documentation only
+# style    – formatting, spacing, semicolons; no code change
+# refactor – code restructure, no new features or fixes
+# perf     – performance improvement
+# test     – adding or updating tests
+# chore    – maintenance, build, tooling, dependencies
+#
+# Rules:
+# - Use imperative tense: "Add", "Fix", "Update"
+# - Limit subject to ~50 characters, no period at end
+# - Optional scope for module/feature: feat(auth), fix(cart)
+# - Body (optional): explain WHAT and WHY, wrap at 72 chars
+# - Footer (optional): references to issues, breaking changes
+#
+# Examples:
+# feat(auth): add passwordless login via email
+# fix(cart): correct total calculation for discounts
+# docs(readme): update installation instructions
+# style(ui): fix button alignment on homepage
+# refactor(api): simplify user service logic
+# perf(db): optimize query for orders
+# test(order): add unit tests for order cancellation
+# chore(deps): update Laravel to 12.5

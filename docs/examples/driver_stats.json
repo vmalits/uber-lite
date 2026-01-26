@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "data": {
+    "total_rides": 50,
+    "completed_rides": 45,
+    "cancelled_rides": 5,
+    "completion_rate": 90.0,
+    "average_rating": 4.8,
+    "average_earnings_per_ride": 25.5,
+    "total_earned": 1147.5
+  }
+}
