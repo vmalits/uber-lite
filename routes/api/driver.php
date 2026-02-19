@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\V1\Driver\GetActiveBansController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\GetBanController;
+use App\Http\Controllers\Api\V1\Driver\GetCurrentLocationController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
 use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
@@ -73,6 +74,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.rides.cancel');
         Route::post('location', UpdateLocationController::class)
             ->name('api.v1.driver.location');
+        Route::get('location/current', [GetCurrentLocationController::class, '__invoke'])
+            ->name('api.v1.driver.location.current');
         Route::post('avatar', [UploadAvatarController::class, '__invoke'])
             ->name('api.v1.driver.avatar');
         Route::get('vehicles', [GetVehiclesController::class, '__invoke'])

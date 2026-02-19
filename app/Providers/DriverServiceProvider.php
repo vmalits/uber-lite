@@ -14,6 +14,8 @@ use App\Queries\Driver\GetActiveRideQuery;
 use App\Queries\Driver\GetActiveRideQueryInterface;
 use App\Queries\Driver\GetAvailableRidesQuery;
 use App\Queries\Driver\GetAvailableRidesQueryInterface;
+use App\Queries\Driver\GetCurrentLocationQuery;
+use App\Queries\Driver\GetCurrentLocationQueryInterface;
 use App\Queries\Driver\GetDriverStatsQuery;
 use App\Queries\Driver\GetDriverStatsQueryInterface;
 use App\Queries\Driver\GetRideHistoryQuery;
@@ -28,13 +30,14 @@ final class DriverServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetAvailableRidesQueryInterface::class => GetAvailableRidesQuery::class,
-        GetActiveRideQueryInterface::class     => GetActiveRideQuery::class,
-        GetActiveBanQueryInterface::class      => GetActiveBanQuery::class,
-        GetActiveBansQueryInterface::class     => GetActiveBansQuery::class,
-        GetVehiclesQueryInterface::class       => GetVehiclesQuery::class,
-        FindNearbyDriversQueryInterface::class => FindNearbyDriversQuery::class,
-        GetDriverStatsQueryInterface::class    => GetDriverStatsQuery::class,
-        GetRideHistoryQueryInterface::class    => GetRideHistoryQuery::class,
+        GetAvailableRidesQueryInterface::class  => GetAvailableRidesQuery::class,
+        GetActiveRideQueryInterface::class      => GetActiveRideQuery::class,
+        GetActiveBanQueryInterface::class       => GetActiveBanQuery::class,
+        GetActiveBansQueryInterface::class      => GetActiveBansQuery::class,
+        GetVehiclesQueryInterface::class        => GetVehiclesQuery::class,
+        FindNearbyDriversQueryInterface::class  => FindNearbyDriversQuery::class,
+        GetDriverStatsQueryInterface::class     => GetDriverStatsQuery::class,
+        GetRideHistoryQueryInterface::class     => GetRideHistoryQuery::class,
+        GetCurrentLocationQueryInterface::class => GetCurrentLocationQuery::class,
     ];
 }
