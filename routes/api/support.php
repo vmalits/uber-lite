@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Api\V1\Support\CreateTicketCommentController;
 use App\Http\Controllers\Api\V1\Support\CreateTicketController;
 use App\Http\Controllers\Api\V1\Support\GetTicketCommentsController;
 use App\Http\Controllers\Api\V1\Support\GetTicketsController;
@@ -15,13 +16,13 @@ Route::prefix('support')
         Route::get('tickets', [GetTicketsController::class, '__invoke'])
             ->name('api.v1.support.tickets.index');
         Route::get('tickets/{ticket}', [ShowTicketController::class, '__invoke'])
-            ->name('api.v1.support.tickets.show')
-            ->whereUlid('ticket');
+            ->name('api.v1.support.tickets.show');
         Route::post('tickets', [CreateTicketController::class, '__invoke'])
             ->name('api.v1.support.tickets.store');
         Route::get('tickets/{ticket}/comments', [GetTicketCommentsController::class, '__invoke'])
-            ->name('api.v1.support.tickets.comments.index')
-            ->whereUlid('ticket');
+            ->name('api.v1.support.tickets.comments.index');
+        Route::post('tickets/{ticket}/comments', [CreateTicketCommentController::class, '__invoke'])
+            ->name('api.v1.support.tickets.comments.store');
         Route::put('tickets/{ticket}/status', [UpdateTicketStatusController::class, '__invoke'])
             ->name('api.v1.support.tickets.status.update')
             ->whereUlid('ticket');
