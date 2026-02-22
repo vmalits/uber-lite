@@ -6,7 +6,7 @@ use App\Enums\RideStatus;
 
 it('has all expected cases', function () {
     $expected = [
-        'PENDING', 'ACCEPTED', 'ON_THE_WAY', 'ARRIVED', 'STARTED', 'COMPLETED', 'CANCELLED',
+        'PENDING', 'ACCEPTED', 'ON_THE_WAY', 'ARRIVED', 'STARTED', 'COMPLETED', 'CANCELLED', 'SCHEDULED',
     ];
     $actual = array_map(fn ($c) => $c->name, RideStatus::cases());
     expect($actual)->toEqualCanonicalizing($expected);
@@ -14,6 +14,7 @@ it('has all expected cases', function () {
 
 it('correctly identifies active statuses', function () {
     $active = [
+        RideStatus::SCHEDULED,
         RideStatus::PENDING,
         RideStatus::ACCEPTED,
         RideStatus::ON_THE_WAY,
@@ -35,6 +36,7 @@ it('correctly identifies final statuses', function () {
         expect($status->isFinal())->toBeTrue();
     }
     $notFinal = [
+        RideStatus::SCHEDULED,
         RideStatus::PENDING,
         RideStatus::ACCEPTED,
         RideStatus::ON_THE_WAY,

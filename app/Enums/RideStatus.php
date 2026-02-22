@@ -6,6 +6,7 @@ namespace App\Enums;
 
 enum RideStatus: string
 {
+    case SCHEDULED = 'scheduled';
     case PENDING = 'pending';
     case ACCEPTED = 'accepted';
     case ON_THE_WAY = 'on_the_way';
@@ -18,6 +19,7 @@ enum RideStatus: string
     public function isActive(): bool
     {
         return \in_array($this, [
+            self::SCHEDULED,
             self::PENDING,
             self::ACCEPTED,
             self::ON_THE_WAY,

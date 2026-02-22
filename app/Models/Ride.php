@@ -46,6 +46,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string|null $cancelled_by_id
  * @property string|null $cancelled_reason
  * @property CarbonInterface|null $completed_at
+ * @property CarbonInterface|null $scheduled_at
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  * @property-read User $rider
@@ -87,6 +88,7 @@ class Ride extends Model
         'cancelled_by_id',
         'cancelled_reason',
         'completed_at',
+        'scheduled_at',
     ];
 
     protected function casts(): array
@@ -109,6 +111,7 @@ class Ride extends Model
             'cancelled_by_type'      => ActorType::class,
             'cancelled_at'           => 'datetime',
             'completed_at'           => 'datetime',
+            'scheduled_at'           => 'datetime',
         ];
     }
 

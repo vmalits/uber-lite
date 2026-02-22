@@ -232,6 +232,74 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - GET
+    uri: 'api/v1/rider/favorites/{id}'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the favorite.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Favorite location retrieved successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Favorite location not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - DELETE
     uri: 'api/v1/rider/favorites/{id}'
     metadata:
@@ -660,6 +728,140 @@ endpoints:
         content: null
         headers: []
         description: 'Ride created successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Profile not completed.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/rider/rides/scheduled
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      origin_address:
+        custom: []
+        name: origin_address
+        description: 'The starting address of the ride. Must not be greater than 255 characters.'
+        required: true
+        example: 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_lat:
+        custom: []
+        name: origin_lat
+        description: 'The latitude of the origin. Must be between -90 and 90.'
+        required: true
+        example: 47.0105
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_lng:
+        custom: []
+        name: origin_lng
+        description: 'The longitude of the origin. Must be between -180 and 180.'
+        required: true
+        example: 28.8638
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_address:
+        custom: []
+        name: destination_address
+        description: 'The destination address of the ride. Must not be greater than 255 characters.'
+        required: true
+        example: 'str. Mihai Eminescu, 50, Chișinău'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_lat:
+        custom: []
+        name: destination_lat
+        description: 'The latitude of the destination. Must be between -90 and 90.'
+        required: true
+        example: 47.0225
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_lng:
+        custom: []
+        name: destination_lng
+        description: 'The longitude of the destination. Must be between -180 and 180.'
+        required: true
+        example: 28.8353
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      scheduled_at:
+        custom: []
+        name: scheduled_at
+        description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
+        required: true
+        example: '2026-02-22 17:31:10'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      origin_address: 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău'
+      origin_lat: 47.0105
+      origin_lng: 28.8638
+      destination_address: 'str. Mihai Eminescu, 50, Chișinău'
+      destination_lat: 47.0225
+      destination_lng: 28.8353
+      scheduled_at: '2026-02-22 17:31:10'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Ride scheduled successfully.'
       -
         custom: []
         status: 403

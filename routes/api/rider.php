@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
+use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
 use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
 use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
 use App\Http\Controllers\Api\V1\Rider\UploadAvatarController;
@@ -47,6 +48,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.estimates');
         Route::post('rides', [CreateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides');
+        Route::post('rides/scheduled', [ScheduleRideController::class, '__invoke'])
+            ->name('api.v1.rider.rides.scheduled');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.active');
         Route::get('rides/history', [GetRideHistoryController::class, '__invoke'])

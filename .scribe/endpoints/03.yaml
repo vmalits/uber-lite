@@ -134,6 +134,68 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - GET
+    uri: api/v1/driver/stats
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |
+          {
+            "success": true,
+            "data": {
+              "total_rides": 50,
+              "completed_rides": 45,
+              "cancelled_rides": 5,
+              "completion_rate": 90.0,
+              "average_rating": 4.8,
+              "average_earnings_per_ride": 25.5,
+              "total_earned": 1147.5
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: 'Unauthorized - Invalid or missing token'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - User does not have driver role or profile incomplete'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: api/v1/driver/online
     metadata:
@@ -282,6 +344,44 @@ endpoints:
         content: null
         headers: []
         description: "Forbidden. Profile step isn't completed."
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/driver/rides/history
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Paginated ride history retrieved successfully.'
     responseFields: []
     auth: []
     controller: null
@@ -1024,6 +1124,56 @@ endpoints:
         content: null
         headers: []
         description: "Forbidden. Profile step isn't completed."
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/driver/location/current
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Driver current location retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
     responseFields: []
     auth: []
     controller: null

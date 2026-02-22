@@ -55,6 +55,7 @@ return [
     ],
     'ride' => [
         'created'             => 'Ride created successfully.',
+        'scheduled'           => 'Ride scheduled successfully.',
         'accepted'            => 'Ride accepted successfully.',
         'completed'           => 'Ride completed successfully.',
         'cancelled'           => 'Ride cancelled successfully.',
