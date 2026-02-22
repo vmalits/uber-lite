@@ -7,6 +7,10 @@ namespace App\Enums;
 final class RideTransitions
 {
     public const array MAP = [
+        RideStatus::SCHEDULED->value => [
+            RideStatus::PENDING,
+            RideStatus::CANCELLED,
+        ],
         RideStatus::PENDING->value => [
             RideStatus::ACCEPTED,
             RideStatus::CANCELLED,

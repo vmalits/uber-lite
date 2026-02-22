@@ -21,6 +21,7 @@ final class RideBuilder extends Builder
     public function active(): self
     {
         return $this->whereIn('status', [
+            RideStatus::SCHEDULED,
             RideStatus::PENDING,
             RideStatus::ACCEPTED,
             RideStatus::ON_THE_WAY,

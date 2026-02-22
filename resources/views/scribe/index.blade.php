@@ -9085,7 +9085,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpsnv8t9mv39g32AKljKJ" </code></pre></div>
+    --form "avatar=@/tmp/phpn3sf66ggior13FoEJkC" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -9123,7 +9123,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpsnv8t9mv39g32AKljKJ', 'r')
+                'contents' =&gt; fopen('/tmp/phpn3sf66ggior13FoEJkC', 'r')
             ],
         ],
     ]
@@ -9138,7 +9138,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpsnv8t9mv39g32AKljKJ', 'rb')}
+  'avatar': open('/tmp/phpn3sf66ggior13FoEJkC', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -9253,7 +9253,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpsnv8t9mv39g32AKljKJ</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpn3sf66ggior13FoEJkC</code></p>
         </div>
         </form>
 
@@ -12757,7 +12757,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-02-22 17:31:10\"
+    \"scheduled_at\": \"2026-02-22 17:40:45\"
 }"
 </code></pre></div>
 
@@ -12780,7 +12780,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-02-22 17:31:10"
+    "scheduled_at": "2026-02-22 17:40:45"
 };
 
 fetch(url, {
@@ -12808,7 +12808,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-02-22 17:31:10',
+            'scheduled_at' =&gt; '2026-02-22 17:40:45',
         ],
     ]
 );
@@ -12828,7 +12828,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-02-22 17:31:10"
+    "scheduled_at": "2026-02-22 17:40:45"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -13027,10 +13027,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-02-22 17:31:10"
+               value="2026-02-22 17:40:45"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-02-22 17:31:10</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-02-22 17:40:45</code></p>
         </div>
         </form>
 
@@ -14364,7 +14364,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpldue3gil6qk02OmAlGI" </code></pre></div>
+    --form "avatar=@/tmp/phplidmj8t3htj1dJKdOcB" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -14402,7 +14402,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpldue3gil6qk02OmAlGI', 'r')
+                'contents' =&gt; fopen('/tmp/phplidmj8t3htj1dJKdOcB', 'r')
             ],
         ],
     ]
@@ -14417,7 +14417,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpldue3gil6qk02OmAlGI', 'rb')}
+  'avatar': open('/tmp/phplidmj8t3htj1dJKdOcB', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -14532,7 +14532,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpldue3gil6qk02OmAlGI</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phplidmj8t3htj1dJKdOcB</code></p>
         </div>
         </form>
 

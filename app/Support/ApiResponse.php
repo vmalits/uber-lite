@@ -17,7 +17,6 @@ final readonly class ApiResponse
     /**
      * Generic success response.
      *
-     * @param array<string, mixed>|Arrayable<string, mixed>|Data|LengthAwarePaginator<int, mixed>|null $data
      * @param array<string, mixed>|null $meta
      * @param array<string, string> $headers
      */
@@ -140,7 +139,6 @@ final readonly class ApiResponse
     /**
      * Normalize various data types to array for JSON payloads.
      *
-     * @param array<string, mixed>|Arrayable<string, mixed>|LengthAwarePaginator<int, mixed>|Data $data
      *
      * @return array<string, mixed>|array<int, mixed>
      */
@@ -169,6 +167,6 @@ final readonly class ApiResponse
             return $data->toArray();
         }
 
-        return $data;
+        return (array) $data;
     }
 }

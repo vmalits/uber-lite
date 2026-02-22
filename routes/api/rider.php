@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
+use App\Http\Controllers\Api\V1\Rider\GetScheduledRidesController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
 use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
@@ -48,10 +49,12 @@ Route::prefix('rider')
             ->name('api.v1.rider.estimates');
         Route::post('rides', [CreateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides');
-        Route::post('rides/scheduled', [ScheduleRideController::class, '__invoke'])
-            ->name('api.v1.rider.rides.scheduled');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.active');
+        Route::get('rides/scheduled', [GetScheduledRidesController::class, '__invoke'])
+            ->name('api.v1.rider.rides.scheduled.index');
+        Route::post('rides/scheduled', [ScheduleRideController::class, '__invoke'])
+            ->name('api.v1.rider.rides.scheduled.store');
         Route::get('rides/history', [GetRideHistoryController::class, '__invoke'])
             ->name('api.v1.rider.rides.history');
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
