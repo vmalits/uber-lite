@@ -248,6 +248,16 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-ride" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="ride">
+                    <a href="#ride">Ride</a>
+                </li>
+                                    <ul id="tocify-subheader-ride" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="ride-POSTapi-v1-rider-rides--ride_id--share">
+                                <a href="#ride-POSTapi-v1-rider-rides--ride_id--share">POST api/v1/rider/rides/{ride_id}/share</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-rider" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="rider">
                     <a href="#rider">Rider</a>
@@ -9258,7 +9268,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php12dd7su0o1080MlEMoL" </code></pre></div>
+    --form "avatar=@/tmp/phpp97hqltg8231eCNcCbP" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -9296,7 +9306,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php12dd7su0o1080MlEMoL', 'r')
+                'contents' =&gt; fopen('/tmp/phpp97hqltg8231eCNcCbP', 'r')
             ],
         ],
     ]
@@ -9311,7 +9321,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/php12dd7su0o1080MlEMoL', 'rb')}
+  'avatar': open('/tmp/phpp97hqltg8231eCNcCbP', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -9426,7 +9436,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php12dd7su0o1080MlEMoL</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpp97hqltg8231eCNcCbP</code></p>
         </div>
         </form>
 
@@ -10859,6 +10869,303 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>User preferred locale. Supported values: ro (Romanian), ru (Russian), en (English). Example: <code>ro</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>ro</code></li> <li><code>ru</code></li> <li><code>en</code></li></ul>
+        </div>
+        </form>
+
+                <h1 id="ride">Ride</h1>
+
+    
+
+                                <h2 id="ride-POSTapi-v1-rider-rides--ride_id--share">POST api/v1/rider/rides/{ride_id}/share</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-rider-rides--ride_id--share">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/rider/rides/architecto/share" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"contact_name\": \"John Doe\",
+    \"contact_phone\": \"+1234567890\",
+    \"contact_email\": \"john@example.com\",
+    \"message\": \"This is my current ride. Stay safe!\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/rides/architecto/share"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "contact_name": "John Doe",
+    "contact_phone": "+1234567890",
+    "contact_email": "john@example.com",
+    "message": "This is my current ride. Stay safe!"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/rides/architecto/share';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'contact_name' =&gt; 'John Doe',
+            'contact_phone' =&gt; '+1234567890',
+            'contact_email' =&gt; 'john@example.com',
+            'message' =&gt; 'This is my current ride. Stay safe!',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/rides/architecto/share'
+payload = {
+    "contact_name": "John Doe",
+    "contact_phone": "+1234567890",
+    "contact_email": "john@example.com",
+    "message": "This is my current ride. Stay safe!"
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-rider-rides--ride_id--share">
+            <blockquote>
+            <p>Example response (201, Ride shared successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden - You can only share your own rides.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Ride not found.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation failed.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-rider-rides--ride_id--share" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-rider-rides--ride_id--share"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-rider-rides--ride_id--share"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-rider-rides--ride_id--share" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-rider-rides--ride_id--share">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-rider-rides--ride_id--share" data-method="POST"
+      data-path="api/v1/rider/rides/{ride_id}/share"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-rider-rides--ride_id--share', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-rider-rides--ride_id--share"
+                    onclick="tryItOut('POSTapi-v1-rider-rides--ride_id--share');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-rider-rides--ride_id--share"
+                    onclick="cancelTryOut('POSTapi-v1-rider-rides--ride_id--share');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-rider-rides--ride_id--share"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/rider/rides/{ride_id}/share</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ride_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ride_id"                data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the ride. Example: <code>architecto</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ride</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ride"                data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="01jk9v6v9v6v9v6v9v6v9v6v9v"
+               data-component="url">
+    <br>
+<p>ULID of the ride. Example: <code>01jk9v6v9v6v9v6v9v6v9v6v9v</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>contact_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="contact_name"                data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="John Doe"
+               data-component="body">
+    <br>
+<p>Name of the contact person to share the ride with. Must not be greater than 255 characters. Example: <code>John Doe</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>contact_phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="contact_phone"                data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="+1234567890"
+               data-component="body">
+    <br>
+<p>Phone number of the contact person. Must not be greater than 20 characters. Example: <code>+1234567890</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>contact_email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="contact_email"                data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="john@example.com"
+               data-component="body">
+    <br>
+<p>Email address of the contact person (optional). Must be a valid email address. Must not be greater than 255 characters. Example: <code>john@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>message</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="message"                data-endpoint="POSTapi-v1-rider-rides--ride_id--share"
+               value="This is my current ride. Stay safe!"
+               data-component="body">
+    <br>
+<p>Custom message to include with the ride share notification. Must not be greater than 500 characters. Example: <code>This is my current ride. Stay safe!</code></p>
         </div>
         </form>
 
@@ -13315,7 +13622,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-02-22 18:08:13\"
+    \"scheduled_at\": \"2026-02-22 18:54:35\"
 }"
 </code></pre></div>
 
@@ -13338,7 +13645,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-02-22 18:08:13"
+    "scheduled_at": "2026-02-22 18:54:35"
 };
 
 fetch(url, {
@@ -13366,7 +13673,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-02-22 18:08:13',
+            'scheduled_at' =&gt; '2026-02-22 18:54:35',
         ],
     ]
 );
@@ -13386,7 +13693,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-02-22 18:08:13"
+    "scheduled_at": "2026-02-22 18:54:35"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -13585,10 +13892,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-02-22 18:08:13"
+               value="2026-02-22 18:54:35"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-02-22 18:08:13</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-02-22 18:54:35</code></p>
         </div>
         </form>
 
@@ -14878,7 +15185,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpmrddv6to8hhj9MfenfK" </code></pre></div>
+    --form "avatar=@/tmp/php5co5phs3b8ud9eEFcMO" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -14916,7 +15223,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpmrddv6to8hhj9MfenfK', 'r')
+                'contents' =&gt; fopen('/tmp/php5co5phs3b8ud9eEFcMO', 'r')
             ],
         ],
     ]
@@ -14931,7 +15238,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpmrddv6to8hhj9MfenfK', 'rb')}
+  'avatar': open('/tmp/php5co5phs3b8ud9eEFcMO', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -15046,7 +15353,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpmrddv6to8hhj9MfenfK</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php5co5phs3b8ud9eEFcMO</code></p>
         </div>
         </form>
 

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Api\V1\Ride\ShareRideController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
@@ -66,6 +67,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.cancel');
         Route::put('rides/{ride}/rating', [RateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.rating');
+        Route::post('rides/{ride}/share', [ShareRideController::class, '__invoke'])
+            ->name('api.v1.rider.rides.share');
         Route::get('stats', [GetRideStatsController::class, '__invoke'])
             ->name('api.v1.rider.stats');
         Route::post('avatar', [UploadAvatarController::class, '__invoke'])

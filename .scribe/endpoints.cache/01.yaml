@@ -973,7 +973,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-02-22 18:08:13'
+        example: '2026-02-22 18:54:35'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -986,7 +986,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-02-22 18:08:13'
+      scheduled_at: '2026-02-22 18:54:35'
     fileParameters: []
     responses:
       -

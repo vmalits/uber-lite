@@ -76,4 +76,9 @@ final class RidePolicy
         return $ride->rider()->is($user)
             && $ride->status === RideStatus::COMPLETED;
     }
+
+    public function share(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user);
+    }
 }

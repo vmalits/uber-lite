@@ -60,6 +60,7 @@ return [
         'completed'           => 'Ride completed successfully.',
         'cancelled'           => 'Ride cancelled successfully.',
         'rated'               => 'Ride rated successfully.',
+        'shared'              => 'Ride shared successfully.',
         'not_active'          => 'No active ride found.',
         'already_active'      => 'You already have an active ride.',
         'estimate_calculated' => 'Estimate calculated successfully.',
