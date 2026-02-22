@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\Rider\CreateRideController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
+use App\Http\Controllers\Api\V1\Rider\GetFareBreakdownController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
@@ -59,6 +60,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.history');
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.show');
+        Route::get('rides/{ride}/fare-breakdown', [GetFareBreakdownController::class, '__invoke'])
+            ->name('api.v1.rider.rides.fare-breakdown');
         Route::post('rides/{ride}/cancel', [CancelRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.cancel');
         Route::put('rides/{ride}/rating', [RateRideController::class, '__invoke'])

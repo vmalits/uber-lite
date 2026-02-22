@@ -18,6 +18,8 @@ use App\Queries\Driver\GetCurrentLocationQuery;
 use App\Queries\Driver\GetCurrentLocationQueryInterface;
 use App\Queries\Driver\GetDriverStatsQuery;
 use App\Queries\Driver\GetDriverStatsQueryInterface;
+use App\Queries\Driver\GetHeatmapQuery;
+use App\Queries\Driver\GetHeatmapQueryInterface;
 use App\Queries\Driver\GetRideHistoryQuery;
 use App\Queries\Driver\GetRideHistoryQueryInterface;
 use App\Queries\Driver\GetVehiclesQuery;
@@ -39,5 +41,6 @@ final class DriverServiceProvider extends ServiceProvider
         GetDriverStatsQueryInterface::class     => GetDriverStatsQuery::class,
         GetRideHistoryQueryInterface::class     => GetRideHistoryQuery::class,
         GetCurrentLocationQueryInterface::class => GetCurrentLocationQuery::class,
+        GetHeatmapQueryInterface::class         => GetHeatmapQuery::class,
     ];
 }

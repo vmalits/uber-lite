@@ -748,6 +748,137 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - GET
+    uri: api/v1/rider/rides/active
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'No active ride found - Returns null data with message'
+      -
+        custom: []
+        status: 200
+        content: |
+          {
+            "success": true,
+            "data": {
+              "id": "01HGXJ8Z0M1A2B3C4D5E6F7G8H",
+              "rider_id": "01HGXJ8Z0M1A2B3C4D5E6F7G8I",
+              "driver_id": "01HGXJ8Z0M1A2B3C4D5E6F7G8J",
+              "origin_address": "123 Main St, New York, NY",
+              "origin_lat": 40.7128,
+              "origin_lng": -74.0060,
+              "destination_address": "456 Broadway, New York, NY",
+              "destination_lat": 40.7589,
+              "destination_lng": -73.9851,
+              "status": "accepted",
+              "price": null,
+              "estimated_price": 25.50,
+              "estimated_distance_km": 5.2,
+              "estimated_duration_min": 15,
+              "price_per_km": 6.50,
+              "price_per_minute": 1.20,
+              "base_fee": 25.00,
+              "arrived_at": null,
+              "started_at": null,
+              "cancelled_at": null,
+              "cancelled_by_type": null,
+              "cancelled_by_id": null,
+              "cancelled_reason": null,
+              "completed_at": null,
+              "created_at": {
+                "human": "5 minutes ago",
+                "string": "2024-01-06 10:00:00"
+              },
+              "updated_at": {
+                "human": "2 minutes ago",
+                "string": "2024-01-06 10:03:00"
+              }
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: 'Unauthorized - Invalid or missing token'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - User does not have rider role or profile incomplete'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/rider/rides/scheduled
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Paginated scheduled rides retrieved successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: api/v1/rider/rides/scheduled
     metadata:
@@ -840,7 +971,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-02-22 17:40:45'
+        example: '2026-02-22 18:08:13'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -853,7 +984,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-02-22 17:40:45'
+      scheduled_at: '2026-02-22 18:08:13'
     fileParameters: []
     responses:
       -
@@ -874,99 +1005,6 @@ endpoints:
         content: null
         headers: []
         description: 'Validation errors.'
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/v1/rider/rides/active
-    metadata:
-      custom: []
-      groupName: Rider
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer <token>'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 200
-        content: null
-        headers: []
-        description: 'No active ride found - Returns null data with message'
-      -
-        custom: []
-        status: 200
-        content: |
-          {
-            "success": true,
-            "data": {
-              "id": "01HGXJ8Z0M1A2B3C4D5E6F7G8H",
-              "rider_id": "01HGXJ8Z0M1A2B3C4D5E6F7G8I",
-              "driver_id": "01HGXJ8Z0M1A2B3C4D5E6F7G8J",
-              "origin_address": "123 Main St, New York, NY",
-              "origin_lat": 40.7128,
-              "origin_lng": -74.0060,
-              "destination_address": "456 Broadway, New York, NY",
-              "destination_lat": 40.7589,
-              "destination_lng": -73.9851,
-              "status": "accepted",
-              "price": null,
-              "estimated_price": 25.50,
-              "estimated_distance_km": 5.2,
-              "estimated_duration_min": 15,
-              "price_per_km": 6.50,
-              "price_per_minute": 1.20,
-              "base_fee": 25.00,
-              "arrived_at": null,
-              "started_at": null,
-              "cancelled_at": null,
-              "cancelled_by_type": null,
-              "cancelled_by_id": null,
-              "cancelled_reason": null,
-              "completed_at": null,
-              "created_at": {
-                "human": "5 minutes ago",
-                "string": "2024-01-06 10:00:00"
-              },
-              "updated_at": {
-                "human": "2 minutes ago",
-                "string": "2024-01-06 10:03:00"
-              }
-            }
-          }
-        headers: []
-        description: ''
-      -
-        custom: []
-        status: 401
-        content: null
-        headers: []
-        description: 'Unauthorized - Invalid or missing token'
-      -
-        custom: []
-        status: 403
-        content: null
-        headers: []
-        description: 'Forbidden - User does not have rider role or profile incomplete'
     responseFields: []
     auth: []
     controller: null
@@ -1110,6 +1148,56 @@ endpoints:
         content: null
         headers: []
         description: 'Ride not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/rider/rides/{ride_id}/fare-breakdown'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Fare breakdown retrieved successfully.'
     responseFields: []
     auth: []
     controller: null

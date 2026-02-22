@@ -6,6 +6,8 @@ namespace App\Providers;
 
 use App\Queries\Rider\GetActiveRideQuery;
 use App\Queries\Rider\GetActiveRideQueryInterface;
+use App\Queries\Rider\GetFareBreakdownQuery;
+use App\Queries\Rider\GetFareBreakdownQueryInterface;
 use App\Queries\Rider\GetFavoriteLocationQuery;
 use App\Queries\Rider\GetFavoriteLocationQueryInterface;
 use App\Queries\Rider\GetFavoriteLocationsQuery;
@@ -27,6 +29,7 @@ final class RiderServiceProvider extends ServiceProvider
      */
     public array $bindings = [
         GetActiveRideQueryInterface::class        => GetActiveRideQuery::class,
+        GetFareBreakdownQueryInterface::class     => GetFareBreakdownQuery::class,
         GetFavoriteLocationQueryInterface::class  => GetFavoriteLocationQuery::class,
         GetFavoriteLocationsQueryInterface::class => GetFavoriteLocationsQuery::class,
         GetRideHistoryQueryInterface::class       => GetRideHistoryQuery::class,
