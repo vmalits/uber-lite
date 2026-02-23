@@ -55,10 +55,13 @@ return [
     ],
     'ride' => [
         'created'             => 'Cursa creată cu succes',
+        'scheduled'           => 'Cursa programată cu succes',
         'accepted'            => 'Cursa acceptată cu succes',
         'completed'           => 'Cursa finalizată cu succes',
         'cancelled'           => 'Cursa anulată cu succes',
         'rated'               => 'Cursa evaluată cu succes',
+        'shared'              => 'Cursa partajată cu succes',
+        'split'               => 'Cursa împărțită cu succes',
         'not_active'          => 'Nu a fost găsită nicio cursă activă',
         'already_active'      => 'Ai deja o cursă activă.',
         'estimate_calculated' => 'Estimarea calculată cu succes.',

@@ -13,10 +13,12 @@ use Database\Factories\RideFactory;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Attributes\UseEloquentBuilder;
 use Illuminate\Database\Eloquent\Attributes\UseFactory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -52,6 +54,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property-read User $rider
  * @property-read User|null $driver
  * @property-read RideRating|null $rating
+ * @property-read Collection<int, RideSplit> $splits
  */
 #[ObservedBy([RideObserver::class])]
 #[UseEloquentBuilder(RideBuilder::class)]
@@ -137,6 +140,14 @@ class Ride extends Model
     public function rating(): HasOne
     {
         return $this->hasOne(related: RideRating::class);
+    }
+
+    /**
+     * @return HasMany<RideSplit, $this>
+     */
+    public function splits(): HasMany
+    {
+        return $this->hasMany(RideSplit::class);
     }
 
     public function canUpdateRating(RideRating $rating): bool

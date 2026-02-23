@@ -81,4 +81,9 @@ final class RidePolicy
     {
         return $ride->rider()->is($user);
     }
+
+    public function split(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user);
+    }
 }
