@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\GetBanController;
 use App\Http\Controllers\Api\V1\Driver\GetCurrentLocationController;
+use App\Http\Controllers\Api\V1\Driver\GetDailyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
 use App\Http\Controllers\Api\V1\Driver\GetHeatmapController;
 use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
@@ -45,6 +46,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.profile.update');
         Route::get('stats', [GetDriverStatsController::class, '__invoke'])
             ->name('api.v1.driver.stats');
+        Route::get('earnings/daily', [GetDailyEarningsController::class, '__invoke'])
+            ->name('api.v1.driver.earnings.daily');
         Route::get('heatmap', [GetHeatmapController::class, '__invoke'])
             ->name('api.v1.driver.heatmap');
         Route::post('online', [GoOnlineController::class, '__invoke'])

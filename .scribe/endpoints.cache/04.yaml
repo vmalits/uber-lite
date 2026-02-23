@@ -199,6 +199,80 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/driver/earnings/daily
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      from:
+        custom: []
+        name: from
+        description: 'Start date (Y-m-d). Defaults to 30 days ago.'
+        required: false
+        example: '2026-01-01'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      to:
+        custom: []
+        name: to
+        description: 'End date (Y-m-d). Defaults to today.'
+        required: false
+        example: '2026-01-31'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      from: '2026-01-01'
+      to: '2026-01-31'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Daily earnings retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/driver/heatmap
     metadata:
       custom: []
