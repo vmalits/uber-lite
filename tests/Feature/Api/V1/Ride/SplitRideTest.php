@@ -11,6 +11,7 @@ use App\Notifications\Ride\RideSplitNotification;
 use Illuminate\Support\Facades\Notification;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\getJson;
 use function Pest\Laravel\postJson;
 
 test('rider can split their ride', function (): void {
@@ -261,4 +262,105 @@ test('can split ride with multiple participants', function (): void {
         ->assertJsonCount(3, 'data.invitations');
 
     $this->assertEquals(3, RideSplit::where('ride_id', $ride->id)->count());
+});
+
+test('rider can get their ride splits', function (): void {
+    /** @var User $rider */
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $ride = Ride::factory()->create(['rider_id' => $rider->id]);
+
+    RideSplit::factory()->create([
+        'ride_id'           => $ride->id,
+        'participant_name'  => 'John Doe',
+        'participant_email' => 'john@example.com',
+        'participant_phone' => '+1234567890',
+        'share'             => 50.00,
+    ]);
+
+    RideSplit::factory()->create([
+        'ride_id'          => $ride->id,
+        'participant_name' => 'Jane Doe',
+        'share'            => 25.00,
+    ]);
+
+    actingAs($rider)
+        ->getJson("/api/v1/ride/{$ride->id}/splits")
+        ->assertStatus(200)
+        ->assertJsonPath('success', true)
+        ->assertJsonPath('data.ride_id', $ride->id)
+        ->assertJsonCount(2, 'data.splits')
+        ->assertJsonStructure([
+            'data' => [
+                'ride_id',
+                'splits' => [
+                    '*' => [
+                        'id',
+                        'participant_name',
+                        'participant_email',
+                        'participant_phone',
+                        'share',
+                    ],
+                ],
+            ],
+        ]);
+});
+
+test('rider gets empty splits when none exist', function (): void {
+    /** @var User $rider */
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $ride = Ride::factory()->create(['rider_id' => $rider->id]);
+
+    actingAs($rider)
+        ->getJson("/api/v1/ride/{$ride->id}/splits")
+        ->assertStatus(200)
+        ->assertJsonPath('data.ride_id', $ride->id)
+        ->assertJsonCount(0, 'data.splits');
+});
+
+test('rider cannot get splits of another riders ride', function (): void {
+    /** @var User $rider */
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    /** @var User $otherRider */
+    $otherRider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $ride = Ride::factory()->create(['rider_id' => $otherRider->id]);
+
+    RideSplit::factory()->create([
+        'ride_id'          => $ride->id,
+        'participant_name' => 'John Doe',
+    ]);
+
+    actingAs($rider)
+        ->getJson("/api/v1/ride/{$ride->id}/splits")
+        ->assertStatus(403);
+});
+
+test('unauthenticated user cannot get ride splits', function (): void {
+    $ride = Ride::factory()->create();
+
+    getJson("/api/v1/ride/{$ride->id}/splits")
+        ->assertStatus(401);
 });
