@@ -281,6 +281,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-favorites">
                                 <a href="#rider-POSTapi-v1-rider-favorites">POST api/v1/rider/favorites</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-routes-favorite">
+                                <a href="#rider-POSTapi-v1-rider-routes-favorite">POST api/v1/rider/routes/favorite</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-favorites--id-">
                                 <a href="#rider-GETapi-v1-rider-favorites--id-">GET api/v1/rider/favorites/{id}</a>
                             </li>
@@ -302,20 +305,11 @@
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides-active">
                                 <a href="#rider-GETapi-v1-rider-rides-active">GET api/v1/rider/rides/active</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides-scheduled">
-                                <a href="#rider-GETapi-v1-rider-rides-scheduled">GET api/v1/rider/rides/scheduled</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides-scheduled">
-                                <a href="#rider-POSTapi-v1-rider-rides-scheduled">POST api/v1/rider/rides/scheduled</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides-history">
                                 <a href="#rider-GETapi-v1-rider-rides-history">GET api/v1/rider/rides/history</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides--id-">
                                 <a href="#rider-GETapi-v1-rider-rides--id-">GET api/v1/rider/rides/{id}</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides--ride_id--fare-breakdown">
-                                <a href="#rider-GETapi-v1-rider-rides--ride_id--fare-breakdown">GET api/v1/rider/rides/{ride_id}/fare-breakdown</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides--ride_id--cancel">
                                 <a href="#rider-POSTapi-v1-rider-rides--ride_id--cancel">POST api/v1/rider/rides/{ride_id}/cancel</a>
@@ -9495,7 +9489,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpsaap3e9u1j1j1hJeKoK" </code></pre></div>
+    --form "avatar=@/tmp/php1j2ersvb06dfeGABnFG" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -9533,7 +9527,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpsaap3e9u1j1j1hJeKoK', 'r')
+                'contents' =&gt; fopen('/tmp/php1j2ersvb06dfeGABnFG', 'r')
             ],
         ],
     ]
@@ -9548,7 +9542,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpsaap3e9u1j1j1hJeKoK', 'rb')}
+  'avatar': open('/tmp/php1j2ersvb06dfeGABnFG', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -9663,7 +9657,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpsaap3e9u1j1j1hJeKoK</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php1j2ersvb06dfeGABnFG</code></p>
         </div>
         </form>
 
@@ -12606,6 +12600,326 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
+                    <h2 id="rider-POSTapi-v1-rider-routes-favorite">POST api/v1/rider/routes/favorite</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-rider-routes-favorite">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/rider/routes/favorite" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Home to Work\",
+    \"origin_address\": \"123 Main St, New York\",
+    \"origin_lat\": 40.7128,
+    \"origin_lng\": -74.006,
+    \"destination_address\": \"456 Park Ave, New York\",
+    \"destination_lat\": 40.7589,
+    \"destination_lng\": -73.9851,
+    \"type\": \"work\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/routes/favorite"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Home to Work",
+    "origin_address": "123 Main St, New York",
+    "origin_lat": 40.7128,
+    "origin_lng": -74.006,
+    "destination_address": "456 Park Ave, New York",
+    "destination_lat": 40.7589,
+    "destination_lng": -73.9851,
+    "type": "work"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/routes/favorite';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Home to Work',
+            'origin_address' =&gt; '123 Main St, New York',
+            'origin_lat' =&gt; 40.7128,
+            'origin_lng' =&gt; -74.006,
+            'destination_address' =&gt; '456 Park Ave, New York',
+            'destination_lat' =&gt; 40.7589,
+            'destination_lng' =&gt; -73.9851,
+            'type' =&gt; 'work',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/routes/favorite'
+payload = {
+    "name": "Home to Work",
+    "origin_address": "123 Main St, New York",
+    "origin_lat": 40.7128,
+    "origin_lng": -74.006,
+    "destination_address": "456 Park Ave, New York",
+    "destination_lat": 40.7589,
+    "destination_lng": -73.9851,
+    "type": "work"
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-rider-routes-favorite">
+            <blockquote>
+            <p>Example response (201, Favorite route created successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation failed):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-rider-routes-favorite" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-rider-routes-favorite"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-rider-routes-favorite"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-rider-routes-favorite" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-rider-routes-favorite">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-rider-routes-favorite" data-method="POST"
+      data-path="api/v1/rider/routes/favorite"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-rider-routes-favorite', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-rider-routes-favorite"
+                    onclick="tryItOut('POSTapi-v1-rider-routes-favorite');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-rider-routes-favorite"
+                    onclick="cancelTryOut('POSTapi-v1-rider-routes-favorite');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-rider-routes-favorite"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/rider/routes/favorite</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="Home to Work"
+               data-component="body">
+    <br>
+<p>Route name (e.g., Home-Work). Must not be greater than 255 characters. Example: <code>Home to Work</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>origin_address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="origin_address"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="123 Main St, New York"
+               data-component="body">
+    <br>
+<p>Origin address. Must not be greater than 500 characters. Example: <code>123 Main St, New York</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>origin_lat</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="origin_lat"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="40.7128"
+               data-component="body">
+    <br>
+<p>Origin latitude. Must be between -90 and 90. Example: <code>40.7128</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>origin_lng</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="origin_lng"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="-74.006"
+               data-component="body">
+    <br>
+<p>Origin longitude. Must be between -180 and 180. Example: <code>-74.006</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>destination_address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="destination_address"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="456 Park Ave, New York"
+               data-component="body">
+    <br>
+<p>Destination address. Must not be greater than 500 characters. Example: <code>456 Park Ave, New York</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>destination_lat</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="destination_lat"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="40.7589"
+               data-component="body">
+    <br>
+<p>Destination latitude. Must be between -90 and 90. Example: <code>40.7589</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>destination_lng</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="destination_lng"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="-73.9851"
+               data-component="body">
+    <br>
+<p>Destination longitude. Must be between -180 and 180. Example: <code>-73.9851</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="type"                data-endpoint="POSTapi-v1-rider-routes-favorite"
+               value="work"
+               data-component="body">
+    <br>
+<p>Route type (home, work, gym, other). Example: <code>work</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>home</code></li> <li><code>work</code></li> <li><code>gym</code></li> <li><code>other</code></li></ul>
+        </div>
+        </form>
+
                     <h2 id="rider-GETapi-v1-rider-favorites--id-">GET api/v1/rider/favorites/{id}</h2>
 
 <p>
@@ -14207,472 +14521,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-rides-scheduled">GET api/v1/rider/rides/scheduled</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-rider-rides-scheduled">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/rides/scheduled" \
-    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/scheduled"
-);
-
-const headers = {
-    "Authorization": "Bearer &amp;lt;token&amp;gt;",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/scheduled';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer &lt;token&gt;',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8080/api/v1/rider/rides/scheduled'
-headers = {
-  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-rider-rides-scheduled">
-            <blockquote>
-            <p>Example response (200, Paginated scheduled rides retrieved successfully.):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;"></code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-rider-rides-scheduled" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-rider-rides-scheduled"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-rider-rides-scheduled"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-rider-rides-scheduled" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-rider-rides-scheduled">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-rider-rides-scheduled" data-method="GET"
-      data-path="api/v1/rider/rides/scheduled"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-rider-rides-scheduled', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-rider-rides-scheduled"
-                    onclick="tryItOut('GETapi-v1-rider-rides-scheduled');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-rider-rides-scheduled"
-                    onclick="cancelTryOut('GETapi-v1-rider-rides-scheduled');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-rider-rides-scheduled"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/rider/rides/scheduled</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-rider-rides-scheduled"
-               value="Bearer <token>"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer &lt;token&gt;</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-rider-rides-scheduled"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-rider-rides-scheduled"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="rider-POSTapi-v1-rider-rides-scheduled">POST api/v1/rider/rides/scheduled</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-rider-rides-scheduled">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/v1/rider/rides/scheduled" \
-    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"origin_address\": \"bd. Ștefan cel Mare și Sfânt, 1, Chișinău\",
-    \"origin_lat\": 47.0105,
-    \"origin_lng\": 28.8638,
-    \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
-    \"destination_lat\": 47.0225,
-    \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-02-23 16:53:01\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/scheduled"
-);
-
-const headers = {
-    "Authorization": "Bearer &amp;lt;token&amp;gt;",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "origin_address": "bd. Ștefan cel Mare și Sfânt, 1, Chișinău",
-    "origin_lat": 47.0105,
-    "origin_lng": 28.8638,
-    "destination_address": "str. Mihai Eminescu, 50, Chișinău",
-    "destination_lat": 47.0225,
-    "destination_lng": 28.8353,
-    "scheduled_at": "2026-02-23 16:53:01"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/scheduled';
-$response = $client-&gt;post(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer &lt;token&gt;',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'origin_address' =&gt; 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău',
-            'origin_lat' =&gt; 47.0105,
-            'origin_lng' =&gt; 28.8638,
-            'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
-            'destination_lat' =&gt; 47.0225,
-            'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-02-23 16:53:01',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8080/api/v1/rider/rides/scheduled'
-payload = {
-    "origin_address": "bd. Ștefan cel Mare și Sfânt, 1, Chișinău",
-    "origin_lat": 47.0105,
-    "origin_lng": 28.8638,
-    "destination_address": "str. Mihai Eminescu, 50, Chișinău",
-    "destination_lat": 47.0225,
-    "destination_lng": 28.8353,
-    "scheduled_at": "2026-02-23 16:53:01"
-}
-headers = {
-  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-rider-rides-scheduled">
-            <blockquote>
-            <p>Example response (201, Ride scheduled successfully.):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;"></code>
- </pre>
-            <blockquote>
-            <p>Example response (403, Profile not completed.):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;"></code>
- </pre>
-            <blockquote>
-            <p>Example response (422, Validation errors.):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;"></code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-v1-rider-rides-scheduled" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-rider-rides-scheduled"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-rider-rides-scheduled"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-rider-rides-scheduled" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-rider-rides-scheduled">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-rider-rides-scheduled" data-method="POST"
-      data-path="api/v1/rider/rides/scheduled"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-rider-rides-scheduled', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-rider-rides-scheduled"
-                    onclick="tryItOut('POSTapi-v1-rider-rides-scheduled');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-rider-rides-scheduled"
-                    onclick="cancelTryOut('POSTapi-v1-rider-rides-scheduled');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-rider-rides-scheduled"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/rider/rides/scheduled</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="Bearer <token>"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer &lt;token&gt;</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>origin_address</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="origin_address"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="bd. Ștefan cel Mare și Sfânt, 1, Chișinău"
-               data-component="body">
-    <br>
-<p>The starting address of the ride. Must not be greater than 255 characters. Example: <code>bd. Ștefan cel Mare și Sfânt, 1, Chișinău</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>origin_lat</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="origin_lat"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="47.0105"
-               data-component="body">
-    <br>
-<p>The latitude of the origin. Must be between -90 and 90. Example: <code>47.0105</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>origin_lng</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="origin_lng"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="28.8638"
-               data-component="body">
-    <br>
-<p>The longitude of the origin. Must be between -180 and 180. Example: <code>28.8638</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>destination_address</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="destination_address"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="str. Mihai Eminescu, 50, Chișinău"
-               data-component="body">
-    <br>
-<p>The destination address of the ride. Must not be greater than 255 characters. Example: <code>str. Mihai Eminescu, 50, Chișinău</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>destination_lat</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="destination_lat"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="47.0225"
-               data-component="body">
-    <br>
-<p>The latitude of the destination. Must be between -90 and 90. Example: <code>47.0225</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>destination_lng</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="destination_lng"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="28.8353"
-               data-component="body">
-    <br>
-<p>The longitude of the destination. Must be between -180 and 180. Example: <code>28.8353</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>scheduled_at</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-02-23 16:53:01"
-               data-component="body">
-    <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-02-23 16:53:01</code></p>
-        </div>
-        </form>
-
                     <h2 id="rider-GETapi-v1-rider-rides-history">GET api/v1/rider/rides/history</h2>
 
 <p>
@@ -15064,183 +14912,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-rider-rides--id-"
-               value="architecto"
-               data-component="url">
-    <br>
-<p>The ID of the ride. Example: <code>architecto</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="rider-GETapi-v1-rider-rides--ride_id--fare-breakdown">GET api/v1/rider/rides/{ride_id}/fare-breakdown</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-rider-rides--ride_id--fare-breakdown">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/rides/architecto/fare-breakdown" \
-    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/v1/rider/rides/architecto/fare-breakdown"
-);
-
-const headers = {
-    "Authorization": "Bearer &amp;lt;token&amp;gt;",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8080/api/v1/rider/rides/architecto/fare-breakdown';
-$response = $client-&gt;get(
-    $url,
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer &lt;token&gt;',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://localhost:8080/api/v1/rider/rides/architecto/fare-breakdown'
-headers = {
-  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-rider-rides--ride_id--fare-breakdown">
-            <blockquote>
-            <p>Example response (200, Fare breakdown retrieved successfully.):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;"></code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-rider-rides--ride_id--fare-breakdown" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-rider-rides--ride_id--fare-breakdown"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-rider-rides--ride_id--fare-breakdown"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-rider-rides--ride_id--fare-breakdown" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-rider-rides--ride_id--fare-breakdown">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-rider-rides--ride_id--fare-breakdown" data-method="GET"
-      data-path="api/v1/rider/rides/{ride_id}/fare-breakdown"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-rider-rides--ride_id--fare-breakdown', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-rider-rides--ride_id--fare-breakdown"
-                    onclick="tryItOut('GETapi-v1-rider-rides--ride_id--fare-breakdown');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-rider-rides--ride_id--fare-breakdown"
-                    onclick="cancelTryOut('GETapi-v1-rider-rides--ride_id--fare-breakdown');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-rider-rides--ride_id--fare-breakdown"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/rider/rides/{ride_id}/fare-breakdown</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-rider-rides--ride_id--fare-breakdown"
-               value="Bearer <token>"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer &lt;token&gt;</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-rider-rides--ride_id--fare-breakdown"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-rider-rides--ride_id--fare-breakdown"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>ride_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="ride_id"                data-endpoint="GETapi-v1-rider-rides--ride_id--fare-breakdown"
                value="architecto"
                data-component="url">
     <br>
@@ -15959,7 +15630,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpg9c0lid7dl56cCekmlJ" </code></pre></div>
+    --form "avatar=@/tmp/phpgdh5a0kg2rkf6bOIDdE" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -15997,7 +15668,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpg9c0lid7dl56cCekmlJ', 'r')
+                'contents' =&gt; fopen('/tmp/phpgdh5a0kg2rkf6bOIDdE', 'r')
             ],
         ],
     ]
@@ -16012,7 +15683,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpg9c0lid7dl56cCekmlJ', 'rb')}
+  'avatar': open('/tmp/phpgdh5a0kg2rkf6bOIDdE', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -16127,7 +15798,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpg9c0lid7dl56cCekmlJ</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpgdh5a0kg2rkf6bOIDdE</code></p>
         </div>
         </form>
 

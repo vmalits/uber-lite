@@ -81,6 +81,9 @@ return [
         'location_added'   => 'Favorite location added successfully.',
         'location_removed' => 'Favorite location removed successfully.',
     ],
+    'rider' => [
+        'favorite_route_added' => 'Favorite route added successfully.',
+    ],
     'vehicle' => [
         'added' => 'Vehicle added successfully.',
     ],

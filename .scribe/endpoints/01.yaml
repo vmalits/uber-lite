@@ -232,6 +232,156 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: api/v1/rider/routes/favorite
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Route name (e.g., Home-Work). Must not be greater than 255 characters.'
+        required: true
+        example: 'Home to Work'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_address:
+        custom: []
+        name: origin_address
+        description: 'Origin address. Must not be greater than 500 characters.'
+        required: true
+        example: '123 Main St, New York'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_lat:
+        custom: []
+        name: origin_lat
+        description: 'Origin latitude. Must be between -90 and 90.'
+        required: true
+        example: 40.7128
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_lng:
+        custom: []
+        name: origin_lng
+        description: 'Origin longitude. Must be between -180 and 180.'
+        required: true
+        example: -74.006
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_address:
+        custom: []
+        name: destination_address
+        description: 'Destination address. Must not be greater than 500 characters.'
+        required: true
+        example: '456 Park Ave, New York'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_lat:
+        custom: []
+        name: destination_lat
+        description: 'Destination latitude. Must be between -90 and 90.'
+        required: true
+        example: 40.7589
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_lng:
+        custom: []
+        name: destination_lng
+        description: 'Destination longitude. Must be between -180 and 180.'
+        required: true
+        example: -73.9851
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'Route type (home, work, gym, other).'
+        required: false
+        example: work
+        type: string
+        enumValues:
+          - home
+          - work
+          - gym
+          - other
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: 'Home to Work'
+      origin_address: '123 Main St, New York'
+      origin_lat: 40.7128
+      origin_lng: -74.006
+      destination_address: '456 Park Ave, New York'
+      destination_lat: 40.7589
+      destination_lng: -73.9851
+      type: work
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Favorite route created successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation failed'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: 'api/v1/rider/favorites/{id}'
     metadata:
@@ -842,178 +992,6 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: api/v1/rider/rides/scheduled
-    metadata:
-      custom: []
-      groupName: Rider
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer <token>'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 200
-        content: null
-        headers: []
-        description: 'Paginated scheduled rides retrieved successfully.'
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/v1/rider/rides/scheduled
-    metadata:
-      custom: []
-      groupName: Rider
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer <token>'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      origin_address:
-        custom: []
-        name: origin_address
-        description: 'The starting address of the ride. Must not be greater than 255 characters.'
-        required: true
-        example: 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      origin_lat:
-        custom: []
-        name: origin_lat
-        description: 'The latitude of the origin. Must be between -90 and 90.'
-        required: true
-        example: 47.0105
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      origin_lng:
-        custom: []
-        name: origin_lng
-        description: 'The longitude of the origin. Must be between -180 and 180.'
-        required: true
-        example: 28.8638
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      destination_address:
-        custom: []
-        name: destination_address
-        description: 'The destination address of the ride. Must not be greater than 255 characters.'
-        required: true
-        example: 'str. Mihai Eminescu, 50, Chișinău'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      destination_lat:
-        custom: []
-        name: destination_lat
-        description: 'The latitude of the destination. Must be between -90 and 90.'
-        required: true
-        example: 47.0225
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      destination_lng:
-        custom: []
-        name: destination_lng
-        description: 'The longitude of the destination. Must be between -180 and 180.'
-        required: true
-        example: 28.8353
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      scheduled_at:
-        custom: []
-        name: scheduled_at
-        description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
-        required: true
-        example: '2026-02-23 16:53:01'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      origin_address: 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău'
-      origin_lat: 47.0105
-      origin_lng: 28.8638
-      destination_address: 'str. Mihai Eminescu, 50, Chișinău'
-      destination_lat: 47.0225
-      destination_lng: 28.8353
-      scheduled_at: '2026-02-23 16:53:01'
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 201
-        content: null
-        headers: []
-        description: 'Ride scheduled successfully.'
-      -
-        custom: []
-        status: 403
-        content: null
-        headers: []
-        description: 'Profile not completed.'
-      -
-        custom: []
-        status: 422
-        content: null
-        headers: []
-        description: 'Validation errors.'
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
     uri: api/v1/rider/rides/history
     metadata:
       custom: []
@@ -1148,56 +1126,6 @@ endpoints:
         content: null
         headers: []
         description: 'Ride not found'
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: 'api/v1/rider/rides/{ride_id}/fare-breakdown'
-    metadata:
-      custom: []
-      groupName: Rider
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer <token>'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      ride_id:
-        custom: []
-        name: ride_id
-        description: 'The ID of the ride.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      ride_id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 200
-        content: null
-        headers: []
-        description: 'Fare breakdown retrieved successfully.'
     responseFields: []
     auth: []
     controller: null
