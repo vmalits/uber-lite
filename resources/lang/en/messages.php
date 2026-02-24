@@ -65,6 +65,7 @@ return [
         'not_active'          => 'No active ride found.',
         'already_active'      => 'You already have an active ride.',
         'estimate_calculated' => 'Estimate calculated successfully.',
+        'note_updated'        => 'Ride note updated successfully.',
     ],
     'profile' => [
         'updated' => 'Profile updated successfully.',

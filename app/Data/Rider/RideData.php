@@ -37,6 +37,7 @@ use Spatie\LaravelData\Data;
  * @param string|null $cancelled_reason
  * @param ?DateData $completed_at
  * @param ?DateData $scheduled_at
+ * @param string|null $rider_note
  * @param RideRatingData|null $rating
  * @param DateData $created_at
  * @param DateData $updated_at
@@ -69,6 +70,7 @@ final class RideData extends Data
         public ?string $cancelled_reason,
         public ?DateData $completed_at,
         public ?DateData $scheduled_at,
+        public ?string $rider_note,
         public ?RideRatingData $rating,
         public DateData $created_at,
         public DateData $updated_at,
@@ -106,6 +108,7 @@ final class RideData extends Data
             cancelled_reason: $ride->cancelled_reason,
             completed_at: $ride->completed_at ? DateData::fromCarbon($ride->completed_at) : null,
             scheduled_at: $ride->scheduled_at ? DateData::fromCarbon($ride->scheduled_at) : null,
+            rider_note: $ride->rider_note,
             rating: $rating ? RideRatingData::fromModel($rating) : null,
             created_at: DateData::fromCarbon($ride->created_at),
             updated_at: DateData::fromCarbon($ride->updated_at),

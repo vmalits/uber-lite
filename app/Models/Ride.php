@@ -49,6 +49,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string|null $cancelled_reason
  * @property CarbonInterface|null $completed_at
  * @property CarbonInterface|null $scheduled_at
+ * @property string|null $rider_note
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  * @property-read User $rider
@@ -92,6 +93,7 @@ class Ride extends Model
         'cancelled_reason',
         'completed_at',
         'scheduled_at',
+        'rider_note',
     ];
 
     protected function casts(): array

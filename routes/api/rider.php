@@ -26,6 +26,7 @@ use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
 use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
 use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
+use App\Http\Controllers\Api\V1\Rider\UpdateRideNoteController;
 use App\Http\Controllers\Api\V1\Rider\UploadAvatarController;
 use Illuminate\Support\Facades\Route;
 
@@ -78,6 +79,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.show');
         Route::get('rides/{ride}/fare-breakdown', [GetFareBreakdownController::class, '__invoke'])
             ->name('api.v1.rider.rides.fare-breakdown');
+        Route::put('rides/{ride}/note', [UpdateRideNoteController::class, '__invoke'])
+            ->name('api.v1.rider.rides.note');
         Route::post('rides/{ride}/cancel', [CancelRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.cancel');
         Route::put('rides/{ride}/rating', [RateRideController::class, '__invoke'])
