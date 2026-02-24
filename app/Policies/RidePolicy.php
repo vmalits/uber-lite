@@ -92,4 +92,10 @@ final class RidePolicy
         return $ride->rider()->is($user)
             && \in_array($ride->status, [RideStatus::SCHEDULED, RideStatus::PENDING], true);
     }
+
+    public function updateScheduled(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && $ride->status === RideStatus::SCHEDULED;
+    }
 }

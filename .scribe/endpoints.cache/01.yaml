@@ -1558,7 +1558,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-02-24 16:24:44'
+        example: '2026-02-24 16:59:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1571,7 +1571,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-02-24 16:24:44'
+      scheduled_at: '2026-02-24 16:59:14'
     fileParameters: []
     responses:
       -
@@ -1586,6 +1586,158 @@ endpoints:
         content: null
         headers: []
         description: 'Profile not completed.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/rider/rides/scheduled/{ride_id}'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      origin_address:
+        custom: []
+        name: origin_address
+        description: 'The updated starting address of the ride. Must not be greater than 255 characters.'
+        required: false
+        example: 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_lat:
+        custom: []
+        name: origin_lat
+        description: 'The latitude of the origin. This field is required when <code>origin_address</code> is present. Must be between -90 and 90.'
+        required: false
+        example: 47.0105
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      origin_lng:
+        custom: []
+        name: origin_lng
+        description: 'The longitude of the origin. This field is required when <code>origin_address</code> is present. Must be between -180 and 180.'
+        required: false
+        example: 28.8638
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_address:
+        custom: []
+        name: destination_address
+        description: 'The updated destination address of the ride. Must not be greater than 255 characters.'
+        required: false
+        example: 'str. Mihai Eminescu, 50, Chișinău'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_lat:
+        custom: []
+        name: destination_lat
+        description: 'The latitude of the destination. This field is required when <code>destination_address</code> is present. Must be between -90 and 90.'
+        required: false
+        example: 47.0225
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      destination_lng:
+        custom: []
+        name: destination_lng
+        description: 'The longitude of the destination. This field is required when <code>destination_address</code> is present. Must be between -180 and 180.'
+        required: false
+        example: 28.8353
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      scheduled_at:
+        custom: []
+        name: scheduled_at
+        description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
+        required: false
+        example: '2026-02-24 17:59:14'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      origin_address: 'bd. Ștefan cel Mare și Sfânt, 1, Chișinău'
+      origin_lat: 47.0105
+      origin_lng: 28.8638
+      destination_address: 'str. Mihai Eminescu, 50, Chișinău'
+      destination_lat: 47.0225
+      destination_lng: 28.8353
+      scheduled_at: '2026-02-24 17:59:14'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Scheduled ride updated successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Cannot update this ride.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
       -
         custom: []
         status: 422
