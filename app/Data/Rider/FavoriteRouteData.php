@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Data\Rider;
 
+use App\Data\DateData;
+use App\Models\FavoriteRoute;
 use Spatie\LaravelData\Data;
 
 final class FavoriteRouteData extends Data
@@ -17,6 +19,9 @@ final class FavoriteRouteData extends Data
         public float $destinationLat,
         public float $destinationLng,
         public ?string $type = null,
+        public ?string $id = null,
+        public ?DateData $createdAt = null,
+        public ?DateData $updatedAt = null,
     ) {}
 
     /**
@@ -33,6 +38,23 @@ final class FavoriteRouteData extends Data
             destinationLat: $data['destination_lat'],
             destinationLng: $data['destination_lng'],
             type: $data['type'] ?? null,
+        );
+    }
+
+    public static function fromModel(FavoriteRoute $model): self
+    {
+        return new self(
+            name: $model->name,
+            originAddress: $model->origin_address,
+            originLat: $model->origin_lat,
+            originLng: $model->origin_lng,
+            destinationAddress: $model->destination_address,
+            destinationLat: $model->destination_lat,
+            destinationLng: $model->destination_lng,
+            type: $model->type?->value,
+            id: $model->id,
+            createdAt: DateData::fromCarbon($model->created_at),
+            updatedAt: DateData::fromCarbon($model->updated_at),
         );
     }
 }
