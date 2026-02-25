@@ -97,4 +97,20 @@ return [
     'payment_methods' => [
         'fetched' => 'Payment methods fetched successfully.',
     ],
+    'promo' => [
+        'created'             => 'Promo code created successfully.',
+        'updated'             => 'Promo code updated successfully.',
+        'deleted'             => 'Promo code deleted successfully.',
+        'applied'             => 'Promo code applied successfully.',
+        'removed'             => 'Promo code removed successfully.',
+        'invalid_or_expired'  => 'This promo code is invalid or has expired.',
+        'already_used'        => 'You have already used this promo code.',
+        'minimum_not_met'     => 'Minimum order amount of :minimum MDL required.',
+        'usage_limit_reached' => 'This promo code has reached its usage limit.',
+        'invalid_ride_status' => 'Cannot apply promo code to this ride.',
+        'already_applied'     => 'A promo code is already applied to this ride.',
+        'not_found'           => 'Promo code not found.',
+        'credits_adjusted'    => 'Credits adjusted successfully.',
+        'referral_applied'    => 'Referral code applied successfully.',
+    ],
 ];
