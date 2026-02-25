@@ -1303,3 +1303,603 @@ endpoints:
     controller: null
     method: null
     route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/admin/promo-codes
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 3b5fbe75-b1fe-4df2-9b87-05ef46fda80d
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/admin/promo-codes
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        custom: []
+        name: code
+        description: 'Unique promo code. Must not be greater than 50 characters.'
+        required: true
+        example: SUMMER2024
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      title:
+        custom: []
+        name: title
+        description: 'Display title for the promo code. Must not be greater than 255 characters.'
+        required: true
+        example: 'Summer Discount'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Optional description.'
+        required: false
+        example: 'Get 20% off your summer rides!'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      discount_type:
+        custom: []
+        name: discount_type
+        description: 'Type of discount: fixed or percentage.'
+        required: true
+        example: percentage
+        type: string
+        enumValues:
+          - fixed
+          - percentage
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      discount_value:
+        custom: []
+        name: discount_value
+        description: 'Discount value (MDL for fixed, % for percentage). Must be at least 1.'
+        required: true
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      max_discount_amount:
+        custom: []
+        name: max_discount_amount
+        description: 'Maximum discount amount for percentage type. Must be at least 1.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      min_order_amount:
+        custom: []
+        name: min_order_amount
+        description: 'Minimum order amount to apply promo. Must be at least 0.'
+        required: false
+        example: 50
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      usage_limit:
+        custom: []
+        name: usage_limit
+        description: 'Total number of uses allowed. Must be at least 1.'
+        required: false
+        example: 1000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      usage_limit_per_user:
+        custom: []
+        name: usage_limit_per_user
+        description: 'Number of uses per user. Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      starts_at:
+        custom: []
+        name: starts_at
+        description: 'When the promo becomes active. Must be a valid date.'
+        required: false
+        example: '2024-06-01 00:00:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      expires_at:
+        custom: []
+        name: expires_at
+        description: 'When the promo expires. Must be a valid date. Must be a date after or equal to <code>starts_at</code>.'
+        required: false
+        example: '2024-08-31 23:59:59'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Whether the promo code is active.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      code: SUMMER2024
+      title: 'Summer Discount'
+      description: 'Get 20% off your summer rides!'
+      discount_type: percentage
+      discount_value: 20
+      max_discount_amount: 100
+      min_order_amount: 50
+      usage_limit: 1000
+      usage_limit_per_user: 1
+      starts_at: '2024-06-01 00:00:00'
+      expires_at: '2024-08-31 23:59:59'
+      is_active: false
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Promo code created successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/promo-codes/{promoCode_id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      promoCode_id:
+        custom: []
+        name: promoCode_id
+        description: 'The ID of the promoCode.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      promoCode_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 760fa6b6-1013-46c0-9885-e174da88384c
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/promo-codes/{promoCode_id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      promoCode_id:
+        custom: []
+        name: promoCode_id
+        description: 'The ID of the promoCode.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      promoCode_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        custom: []
+        name: code
+        description: 'Unique promo code. Must not be greater than 50 characters.'
+        required: true
+        example: SUMMER2024
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      title:
+        custom: []
+        name: title
+        description: 'Display title for the promo code. Must not be greater than 255 characters.'
+        required: true
+        example: 'Summer Discount'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Optional description.'
+        required: false
+        example: 'Get 20% off your summer rides!'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      discount_type:
+        custom: []
+        name: discount_type
+        description: 'Type of discount: fixed or percentage.'
+        required: true
+        example: percentage
+        type: string
+        enumValues:
+          - fixed
+          - percentage
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      discount_value:
+        custom: []
+        name: discount_value
+        description: 'Discount value (MDL for fixed, % for percentage). Must be at least 1.'
+        required: true
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      max_discount_amount:
+        custom: []
+        name: max_discount_amount
+        description: 'Maximum discount amount for percentage type. Must be at least 1.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      min_order_amount:
+        custom: []
+        name: min_order_amount
+        description: 'Minimum order amount to apply promo. Must be at least 0.'
+        required: false
+        example: 50
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      usage_limit:
+        custom: []
+        name: usage_limit
+        description: 'Total number of uses allowed. Must be at least 1.'
+        required: false
+        example: 1000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      usage_limit_per_user:
+        custom: []
+        name: usage_limit_per_user
+        description: 'Number of uses per user. Must be at least 1.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      starts_at:
+        custom: []
+        name: starts_at
+        description: 'When the promo becomes active. Must be a valid date.'
+        required: false
+        example: '2024-06-01 00:00:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      expires_at:
+        custom: []
+        name: expires_at
+        description: 'When the promo expires. Must be a valid date. Must be a date after or equal to <code>starts_at</code>.'
+        required: false
+        example: '2024-08-31 23:59:59'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Whether the promo code is active.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      code: SUMMER2024
+      title: 'Summer Discount'
+      description: 'Get 20% off your summer rides!'
+      discount_type: percentage
+      discount_value: 20
+      max_discount_amount: 100
+      min_order_amount: 50
+      usage_limit: 1000
+      usage_limit_per_user: 1
+      starts_at: '2024-06-01 00:00:00'
+      expires_at: '2024-08-31 23:59:59'
+      is_active: false
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Promo code updated successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/promo-codes/{promoCode_id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      promoCode_id:
+        custom: []
+        name: promoCode_id
+        description: 'The ID of the promoCode.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      promoCode_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/users/{user_id}/credits'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      user_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      amount:
+        custom: []
+        name: amount
+        description: 'Amount to add (positive) or deduct (negative).'
+        required: true
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Reason for the adjustment. Must not be greater than 255 characters.'
+        required: true
+        example: 'Compensation for cancelled ride'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      amount: 100
+      description: 'Compensation for cancelled ride'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Credits adjusted successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
