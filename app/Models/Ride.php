@@ -33,6 +33,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property float|null $destination_lng
  * @property RideStatus $status
  * @property int|null $price
+ * @property int|null $discount_amount
+ * @property string|null $promo_code_id
  * @property int|null $estimated_price
  * @property float|null $estimated_distance_km
  * @property float|null $estimated_duration_min
@@ -56,6 +58,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property-read User|null $driver
  * @property-read RideRating|null $rating
  * @property-read Collection<int, RideSplit> $splits
+ * @property-read PromoCode|null $promoCode
  */
 #[ObservedBy([RideObserver::class])]
 #[UseEloquentBuilder(RideBuilder::class)]
@@ -77,6 +80,8 @@ class Ride extends Model
         'destination_lng',
         'status',
         'price',
+        'discount_amount',
+        'promo_code_id',
         'estimated_price',
         'estimated_distance_km',
         'estimated_duration_min',
@@ -105,6 +110,7 @@ class Ride extends Model
             'destination_lng'        => 'float',
             'status'                 => RideStatus::class,
             'price'                  => 'integer',
+            'discount_amount'        => 'integer',
             'estimated_price'        => 'integer',
             'estimated_distance_km'  => 'float',
             'estimated_duration_min' => 'float',
@@ -150,6 +156,14 @@ class Ride extends Model
     public function splits(): HasMany
     {
         return $this->hasMany(RideSplit::class);
+    }
+
+    /**
+     * @return BelongsTo<PromoCode, $this>
+     */
+    public function promoCode(): BelongsTo
+    {
+        return $this->belongsTo(PromoCode::class);
     }
 
     public function canUpdateRating(RideRating $rating): bool

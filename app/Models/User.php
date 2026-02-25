@@ -35,6 +35,10 @@ use Laravel\Sanctum\HasApiTokens;
  * @property ProfileStep|null $profile_step
  * @property UserStatus $status
  * @property CarbonInterface|null $banned_at
+ * @property string|null $referral_code
+ * @property int $credits_balance
+ * @property string|null $referred_by
+ * @property CarbonInterface|null $referred_at
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  * @property-read Collection<int, FavoriteLocation> $favorites
@@ -44,6 +48,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read float|null $driver_ride_ratings_avg_rating
  * @property-read float|null $total_earned
  * @property-read Collection<int, Vehicle> $vehicles
+ * @property-read Collection<int, CreditTransaction> $creditTransactions
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -71,6 +76,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'status',
         'banned_at',
         'password',
+        'referral_code',
+        'credits_balance',
+        'referred_by',
+        'referred_at',
     ];
 
     /**
@@ -89,6 +98,8 @@ class User extends Authenticatable implements MustVerifyEmail
             'password'          => 'hashed',
             'avatar_paths'      => 'array',
             'locale'            => Locale::class,
+            'credits_balance'   => 'integer',
+            'referred_at'       => 'datetime',
         ];
     }
 
@@ -163,5 +174,22 @@ class User extends Authenticatable implements MustVerifyEmail
     public function vehicles(): HasMany
     {
         return $this->hasMany(related: Vehicle::class, foreignKey: 'driver_id');
+    }
+
+    /**
+     * @return HasMany<CreditTransaction, $this>
+     */
+    public function creditTransactions(): HasMany
+    {
+        return $this->hasMany(related: CreditTransaction::class, foreignKey: 'user_id');
+    }
+
+    public function generateReferralCode(): string
+    {
+        $code = strtoupper(substr(md5((string) $this->id), 0, 8));
+
+        $this->update(['referral_code' => $code]);
+
+        return $code;
     }
 }
