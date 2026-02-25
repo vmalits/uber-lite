@@ -98,4 +98,10 @@ final class RidePolicy
         return $ride->rider()->is($user)
             && $ride->status === RideStatus::SCHEDULED;
     }
+
+    public function applyPromoCode(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && \in_array($ride->status, [RideStatus::SCHEDULED, RideStatus::PENDING], true);
+    }
 }
