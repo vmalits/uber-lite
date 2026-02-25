@@ -5,11 +5,14 @@ declare(strict_types=1);
 use App\Http\Controllers\Api\V1\Ride\ShareRideController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteRouteController;
+use App\Http\Controllers\Api\V1\Rider\ApplyPromoCodeController;
+use App\Http\Controllers\Api\V1\Rider\ApplyReferralCodeController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
+use App\Http\Controllers\Api\V1\Rider\GetCreditsController;
 use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
 use App\Http\Controllers\Api\V1\Rider\GetFareBreakdownController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationController;
@@ -22,6 +25,7 @@ use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
 use App\Http\Controllers\Api\V1\Rider\GetScheduledRidesController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
+use App\Http\Controllers\Api\V1\Rider\RemovePromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
 use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
 use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteRouteController;
@@ -92,6 +96,14 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.share');
         Route::get('stats', [GetRideStatsController::class, '__invoke'])
             ->name('api.v1.rider.stats');
+        Route::get('credits', [GetCreditsController::class, '__invoke'])
+            ->name('api.v1.rider.credits');
+        Route::post('referrals/apply', [ApplyReferralCodeController::class, '__invoke'])
+            ->name('api.v1.rider.referrals.apply');
+        Route::post('rides/{ride}/promo-code', [ApplyPromoCodeController::class, '__invoke'])
+            ->name('api.v1.rider.rides.promo-code.apply');
+        Route::delete('rides/{ride}/promo-code', [RemovePromoCodeController::class, '__invoke'])
+            ->name('api.v1.rider.rides.promo-code.remove');
         Route::post('avatar', [UploadAvatarController::class, '__invoke'])
             ->name('api.v1.rider.avatar');
     });

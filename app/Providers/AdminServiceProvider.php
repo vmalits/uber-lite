@@ -10,6 +10,8 @@ use App\Queries\Admin\GetDriverQuery;
 use App\Queries\Admin\GetDriverQueryInterface;
 use App\Queries\Admin\GetDriversQuery;
 use App\Queries\Admin\GetDriversQueryInterface;
+use App\Queries\Admin\GetPromoCodesQuery;
+use App\Queries\Admin\GetPromoCodesQueryInterface;
 use App\Queries\Admin\GetRideQuery;
 use App\Queries\Admin\GetRideQueryInterface;
 use App\Queries\Admin\GetRidesQuery;
@@ -35,6 +37,7 @@ final class AdminServiceProvider extends ServiceProvider
         GetRideQueryInterface::class           => GetRideQuery::class,
         GetTicketsQueryInterface::class        => GetTicketsQuery::class,
         GetDriverQueryInterface::class         => GetDriverQuery::class,
+        GetPromoCodesQueryInterface::class     => GetPromoCodesQuery::class,
         DriverProfilePresenterInterface::class => DriverProfilePresenter::class,
     ];
 }
