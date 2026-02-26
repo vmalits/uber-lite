@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteRouteController;
+use App\Http\Controllers\Api\V1\Rider\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetCreditsController;
 use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRoutesController;
+use App\Http\Controllers\Api\V1\Rider\GetLevelController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
@@ -96,6 +98,10 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.share');
         Route::get('stats', [GetRideStatsController::class, '__invoke'])
             ->name('api.v1.rider.stats');
+        Route::get('achievements', [GetAchievementsController::class, '__invoke'])
+            ->name('api.v1.rider.achievements');
+        Route::get('level', [GetLevelController::class, '__invoke'])
+            ->name('api.v1.rider.level');
         Route::get('credits', [GetCreditsController::class, '__invoke'])
             ->name('api.v1.rider.credits');
         Route::post('referrals/apply', [ApplyReferralCodeController::class, '__invoke'])

@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
 use App\Http\Controllers\Api\V1\Driver\CreateTicketCommentController;
 use App\Http\Controllers\Api\V1\Driver\DeleteVehicleController;
+use App\Http\Controllers\Api\V1\Driver\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveBansController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Api\V1\Driver\GetCurrentLocationController;
 use App\Http\Controllers\Api\V1\Driver\GetDailyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
 use App\Http\Controllers\Api\V1\Driver\GetHeatmapController;
+use App\Http\Controllers\Api\V1\Driver\GetLevelController;
 use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetVehiclesController;
@@ -46,6 +48,10 @@ Route::prefix('driver')
             ->name('api.v1.driver.profile.update');
         Route::get('stats', [GetDriverStatsController::class, '__invoke'])
             ->name('api.v1.driver.stats');
+        Route::get('achievements', [GetAchievementsController::class, '__invoke'])
+            ->name('api.v1.driver.achievements');
+        Route::get('level', [GetLevelController::class, '__invoke'])
+            ->name('api.v1.driver.level');
         Route::get('earnings/daily', [GetDailyEarningsController::class, '__invoke'])
             ->name('api.v1.driver.earnings.daily');
         Route::get('heatmap', [GetHeatmapController::class, '__invoke'])
