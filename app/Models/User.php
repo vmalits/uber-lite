@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -49,6 +50,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read float|null $total_earned
  * @property-read Collection<int, Vehicle> $vehicles
  * @property-read Collection<int, CreditTransaction> $creditTransactions
+ * @property-read UserLevel|null $level
+ * @property-read Collection<int, UserAchievement> $userAchievements
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -191,5 +194,21 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->update(['referral_code' => $code]);
 
         return $code;
+    }
+
+    /**
+     * @return HasOne<UserLevel, $this>
+     */
+    public function level(): HasOne
+    {
+        return $this->hasOne(UserLevel::class);
+    }
+
+    /**
+     * @return HasMany<UserAchievement, $this>
+     */
+    public function userAchievements(): HasMany
+    {
+        return $this->hasMany(UserAchievement::class);
     }
 }
