@@ -88,4 +88,10 @@ return [
     'payment_methods' => [
         'fetched' => 'Metodele de plată au fost preluate cu succes.',
     ],
+    'safety' => [
+        'contact_added'         => 'Contact de urgență adăugat cu succes.',
+        'contact_deleted'       => 'Contact de urgență șters cu succes.',
+        'sos_sent'              => 'Alerta SOS trimisă contactelor tale de urgență.',
+        'no_emergency_contacts' => 'Nu s-au găsit contacte de urgență. Te rugăm să adaugi contacte mai întâi.',
+    ],
 ];

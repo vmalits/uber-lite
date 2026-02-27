@@ -11,7 +11,7 @@ use App\Models\UserLevel;
 
 final readonly class AwardXpAction
 {
-    public function execute(User $user, int $points): UserLevel
+    public function handle(User $user, int $points): UserLevel
     {
         $userLevel = UserLevel::query()->firstOrCreate(
             ['user_id' => $user->id],

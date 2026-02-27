@@ -22,7 +22,7 @@ it('awards xp when achievement is unlocked', function () {
     ]);
 
     $action = app(UnlockAchievementAction::class);
-    $action->execute($user, $achievement);
+    $action->handle($user, $achievement);
 
     $userLevel = UserLevel::where('user_id', $user->id)->first();
 
@@ -37,7 +37,7 @@ it('dispatches achievement unlocked event', function () {
     ]);
 
     $action = app(UnlockAchievementAction::class);
-    $action->execute($user, $achievement);
+    $action->handle($user, $achievement);
 
     Event::assertDispatched(AchievementUnlocked::class, function ($event) use ($user, $achievement) {
         return $event->user->id === $user->id
@@ -58,7 +58,7 @@ it('includes tier and xp in dispatched event', function () {
     ]);
 
     $action = app(UnlockAchievementAction::class);
-    $action->execute($user, $achievement);
+    $action->handle($user, $achievement);
 
     Event::assertDispatched(AchievementUnlocked::class, function ($event) {
         return $event->tier === 'silver'
@@ -72,8 +72,8 @@ it('accumulates xp from multiple achievements', function () {
     $achievement2 = Achievement::factory()->create(['points_reward' => 20]);
 
     $action = app(UnlockAchievementAction::class);
-    $action->execute($user, $achievement1);
-    $action->execute($user, $achievement2);
+    $action->handle($user, $achievement1);
+    $action->handle($user, $achievement2);
 
     $userLevel = UserLevel::where('user_id', $user->id)->first();
 

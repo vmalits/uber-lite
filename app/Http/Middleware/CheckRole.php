@@ -22,7 +22,9 @@ final class CheckRole
             return ApiResponse::unauthorized();
         }
 
-        if ($user->role === null || $user->role->value !== $role) {
+        $roles = explode('|', $role);
+
+        if ($user->role === null || ! \in_array($user->role->value, $roles, true)) {
             return ApiResponse::forbidden();
         }
 

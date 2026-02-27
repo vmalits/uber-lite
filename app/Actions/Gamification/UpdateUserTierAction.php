@@ -6,7 +6,7 @@ namespace App\Actions\Gamification;
 
 final readonly class UpdateUserTierAction
 {
-    public function execute(int $xp): string
+    public function handle(int $xp): string
     {
         if ($xp >= 5000) {
             return 'platinum';

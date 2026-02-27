@@ -52,6 +52,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read Collection<int, CreditTransaction> $creditTransactions
  * @property-read UserLevel|null $level
  * @property-read Collection<int, UserAchievement> $userAchievements
+ * @property-read Collection<int, EmergencyContact> $emergencyContacts
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -201,7 +202,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function level(): HasOne
     {
-        return $this->hasOne(UserLevel::class);
+        return $this->hasOne(related: UserLevel::class);
     }
 
     /**
@@ -209,6 +210,14 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function userAchievements(): HasMany
     {
-        return $this->hasMany(UserAchievement::class);
+        return $this->hasMany(related: UserAchievement::class);
+    }
+
+    /**
+     * @return HasMany<EmergencyContact, $this>
+     */
+    public function emergencyContacts(): HasMany
+    {
+        return $this->hasMany(related: EmergencyContact::class);
     }
 }

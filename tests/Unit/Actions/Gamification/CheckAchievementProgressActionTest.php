@@ -20,7 +20,7 @@ it('returns null for inactive achievement', function () {
     ]);
 
     $action = app(CheckAchievementProgressAction::class);
-    $result = $action->execute($user, 'test_achievement');
+    $result = $action->handle($user, 'test_achievement');
 
     expect($result)->toBeNull();
 });
@@ -29,7 +29,7 @@ it('returns null for non-existent achievement', function () {
     $user = User::factory()->create();
 
     $action = app(CheckAchievementProgressAction::class);
-    $result = $action->execute($user, 'non_existent');
+    $result = $action->handle($user, 'non_existent');
 
     expect($result)->toBeNull();
 });
@@ -43,7 +43,7 @@ it('creates user achievement with zero progress', function () {
     ]);
 
     $action = app(CheckAchievementProgressAction::class);
-    $result = $action->execute($user, 'test_achievement', 0);
+    $result = $action->handle($user, 'test_achievement', 0);
 
     expect($result)->toBeInstanceOf(UserAchievement::class)
         ->and($result->progress)->toBe(0)
@@ -59,8 +59,8 @@ it('increments progress', function () {
     ]);
 
     $action = app(CheckAchievementProgressAction::class);
-    $action->execute($user, 'test_achievement', 3);
-    $result = $action->execute($user, 'test_achievement', 2);
+    $action->handle($user, 'test_achievement', 3);
+    $result = $action->handle($user, 'test_achievement', 2);
 
     expect($result->progress)->toBe(5);
 });
@@ -75,7 +75,7 @@ it('completes achievement when target reached', function () {
     ]);
 
     $action = app(CheckAchievementProgressAction::class);
-    $result = $action->execute($user, 'test_achievement', 5);
+    $result = $action->handle($user, 'test_achievement', 5);
 
     expect($result->completed_at)->not->toBeNull()
         ->and($result->isCompleted())->toBeTrue();
@@ -97,7 +97,7 @@ it('does not increment completed achievement', function () {
     ]);
 
     $action = app(CheckAchievementProgressAction::class);
-    $result = $action->execute($user, 'test_achievement', 10);
+    $result = $action->handle($user, 'test_achievement', 10);
 
     expect($result->progress)->toBe(5);
 });
@@ -111,7 +111,7 @@ it('handles increment by parameter', function () {
     ]);
 
     $action = app(CheckAchievementProgressAction::class);
-    $result = $action->execute($user, 'test_achievement', 25);
+    $result = $action->handle($user, 'test_achievement', 25);
 
     expect($result->progress)->toBe(25);
 });

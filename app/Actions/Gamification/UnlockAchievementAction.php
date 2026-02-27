@@ -14,9 +14,9 @@ final readonly class UnlockAchievementAction
         private AwardXpAction $awardXp,
     ) {}
 
-    public function execute(User $user, Achievement $achievement): void
+    public function handle(User $user, Achievement $achievement): void
     {
-        $userLevel = $this->awardXp->execute($user, $achievement->points_reward);
+        $userLevel = $this->awardXp->handle($user, $achievement->points_reward);
 
         AchievementUnlocked::dispatch(
             $user,

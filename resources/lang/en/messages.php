@@ -115,4 +115,10 @@ return [
         'credits_adjusted'    => 'Credits adjusted successfully.',
         'referral_applied'    => 'Referral code applied successfully.',
     ],
+    'safety' => [
+        'contact_added'         => 'Emergency contact added successfully.',
+        'contact_deleted'       => 'Emergency contact deleted successfully.',
+        'sos_sent'              => 'SOS alert sent to your emergency contacts.',
+        'no_emergency_contacts' => 'No emergency contacts found. Please add contacts first.',
+    ],
 ];

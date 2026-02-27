@@ -15,7 +15,7 @@ final readonly class CheckAchievementProgressAction
         private UnlockAchievementAction $unlockAchievement,
     ) {}
 
-    public function execute(User $user, string $achievementKey, int $incrementBy = 1): ?UserAchievement
+    public function handle(User $user, string $achievementKey, int $incrementBy = 1): ?UserAchievement
     {
         $achievement = Achievement::where('key', $achievementKey)
             ->where('is_active', true)
@@ -43,7 +43,7 @@ final readonly class CheckAchievementProgressAction
             $userAchievement->completed_at = now();
             $userAchievement->save();
 
-            $this->unlockAchievement->execute($user, $achievement);
+            $this->unlockAchievement->handle($user, $achievement);
 
             return $userAchievement;
         }
@@ -59,11 +59,11 @@ final readonly class CheckAchievementProgressAction
             ->where('status', 'completed')
             ->count();
 
-        $this->execute($user, "{$category->value}_first_ride", $completedRides >= 1 ? 1 : 0);
-        $this->execute($user, "{$category->value}_10_rides", min($completedRides, 10));
-        $this->execute($user, "{$category->value}_50_rides", min($completedRides, 50));
-        $this->execute($user, "{$category->value}_100_rides", min($completedRides, 100));
-        $this->execute($user, "{$category->value}_500_rides", min($completedRides, 500));
+        $this->handle($user, "{$category->value}_first_ride", $completedRides >= 1 ? 1 : 0);
+        $this->handle($user, "{$category->value}_10_rides", min($completedRides, 10));
+        $this->handle($user, "{$category->value}_50_rides", min($completedRides, 50));
+        $this->handle($user, "{$category->value}_100_rides", min($completedRides, 100));
+        $this->handle($user, "{$category->value}_500_rides", min($completedRides, 500));
     }
 
     public function checkRating(User $user, float $averageRating): void
@@ -71,17 +71,17 @@ final readonly class CheckAchievementProgressAction
         $completedRides = $user->driverRides()->where('status', 'completed')->count();
 
         if ($completedRides >= 100 && $averageRating >= 4.9) {
-            $this->execute($user, 'driver_five_star', 1);
+            $this->handle($user, 'driver_five_star', 1);
         }
     }
 
     public function checkSpending(User $user, int $totalSpent): void
     {
-        $this->execute($user, 'rider_big_spender', min($totalSpent, 1000));
+        $this->handle($user, 'rider_big_spender', min($totalSpent, 1000));
     }
 
     public function checkUniqueDestinations(User $user, int $uniqueCount): void
     {
-        $this->execute($user, 'rider_explorer', min($uniqueCount, 10));
+        $this->handle($user, 'rider_explorer', min($uniqueCount, 10));
     }
 }
