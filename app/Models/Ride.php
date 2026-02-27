@@ -52,6 +52,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property CarbonInterface|null $completed_at
  * @property CarbonInterface|null $scheduled_at
  * @property string|null $rider_note
+ * @property string|null $ride_pin
+ * @property CarbonInterface|null $pin_verified_at
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  * @property-read User $rider
@@ -99,6 +101,8 @@ class Ride extends Model
         'completed_at',
         'scheduled_at',
         'rider_note',
+        'ride_pin',
+        'pin_verified_at',
     ];
 
     protected function casts(): array
@@ -123,6 +127,7 @@ class Ride extends Model
             'cancelled_at'           => 'datetime',
             'completed_at'           => 'datetime',
             'scheduled_at'           => 'datetime',
+            'pin_verified_at'        => 'datetime',
         ];
     }
 
@@ -155,7 +160,7 @@ class Ride extends Model
      */
     public function splits(): HasMany
     {
-        return $this->hasMany(RideSplit::class);
+        return $this->hasMany(related: RideSplit::class);
     }
 
     /**
@@ -163,11 +168,38 @@ class Ride extends Model
      */
     public function promoCode(): BelongsTo
     {
-        return $this->belongsTo(PromoCode::class);
+        return $this->belongsTo(related: PromoCode::class);
     }
 
     public function canUpdateRating(RideRating $rating): bool
     {
         return $rating->updated_at->diffInHours(now()) >= 24;
+    }
+
+    public function generatePin(): string
+    {
+        $pin = str_pad((string) random_int(0, 9999), 4, '0', STR_PAD_LEFT);
+
+        $this->ride_pin = $pin;
+        $this->save();
+
+        return $pin;
+    }
+
+    public function verifyPin(): bool
+    {
+        if ($this->pin_verified_at !== null) {
+            return false;
+        }
+
+        $this->pin_verified_at = now();
+        $this->save();
+
+        return true;
+    }
+
+    public function isPinVerified(): bool
+    {
+        return $this->pin_verified_at !== null;
     }
 }

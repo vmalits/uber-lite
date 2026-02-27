@@ -35,6 +35,7 @@ use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
 use App\Http\Controllers\Api\V1\Rider\UpdateRideNoteController;
 use App\Http\Controllers\Api\V1\Rider\UpdateScheduledRideController;
 use App\Http\Controllers\Api\V1\Rider\UploadAvatarController;
+use App\Http\Controllers\Api\V1\Rider\VerifyPinController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('rider')
@@ -96,6 +97,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.rating');
         Route::post('rides/{ride}/share', [ShareRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.share');
+        Route::post('rides/{ride}/verify-pin', [VerifyPinController::class, '__invoke'])
+            ->name('api.v1.rider.rides.verify-pin');
         Route::get('stats', [GetRideStatsController::class, '__invoke'])
             ->name('api.v1.rider.stats');
         Route::get('achievements', [GetAchievementsController::class, '__invoke'])

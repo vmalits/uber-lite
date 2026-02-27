@@ -47,3 +47,40 @@ test('driver cannot accept a non-pending ride', function () {
     $this->postJson("/api/v1/driver/rides/{$ride->id}/accept")
         ->assertForbidden();
 });
+
+test('PIN is generated when driver accepts a ride', function () {
+    $driver = User::factory()->create([
+        'role'              => UserRole::DRIVER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'email_verified_at' => now(),
+    ]);
+    $ride = Ride::factory()->create(['status' => RideStatus::PENDING]);
+
+    expect($ride->ride_pin)->toBeNull();
+
+    $this->actingAs($driver);
+    $this->postJson("/api/v1/driver/rides/{$ride->id}/accept")
+        ->assertOk();
+
+    $ride->refresh();
+    expect($ride->ride_pin)->not->toBeNull()
+        ->and($ride->ride_pin)->toBeString()
+        ->and(strlen($ride->ride_pin))->toBe(4)
+        ->and(preg_match('/^\d{4}$/', $ride->ride_pin))->toBe(1);
+});
+
+test('PIN is not verified when generated', function () {
+    $driver = User::factory()->create([
+        'role'              => UserRole::DRIVER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'email_verified_at' => now(),
+    ]);
+    $ride = Ride::factory()->create(['status' => RideStatus::PENDING]);
+
+    $this->actingAs($driver);
+    $this->postJson("/api/v1/driver/rides/{$ride->id}/accept")
+        ->assertOk();
+
+    $ride->refresh();
+    expect($ride->pin_verified_at)->toBeNull();
+});

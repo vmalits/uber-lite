@@ -104,4 +104,17 @@ final class RidePolicy
         return $ride->rider()->is($user)
             && \in_array($ride->status, [RideStatus::SCHEDULED, RideStatus::PENDING], true);
     }
+
+    public function verifyPin(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && $ride->driver()->exists()
+            && \in_array(
+                $ride->status, [
+                    RideStatus::ACCEPTED,
+                    RideStatus::ON_THE_WAY,
+                    RideStatus::ARRIVED,
+                ],
+                true);
+    }
 }

@@ -37,6 +37,8 @@ final readonly class AcceptRideAction
                     'driver_id' => $driverId,
                 ]);
 
+                $lockedRide->generatePin();
+
                 $this->stateMachine->transition(
                     ride: $lockedRide,
                     to: RideStatus::ACCEPTED,

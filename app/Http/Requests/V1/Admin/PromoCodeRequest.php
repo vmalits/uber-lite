@@ -26,11 +26,11 @@ final class PromoCodeRequest extends FormRequest
         $promoCodeId = $promoCode?->id;
 
         return [
-            'code'                 => [
+            'code' => [
                 'required',
                 'string',
                 'max:50',
-                Rule::unique('promo_codes', 'code')->ignore($promoCodeId)
+                Rule::unique('promo_codes', 'code')->ignore($promoCodeId),
             ],
             'title'                => ['required', 'string', 'max:255'],
             'description'          => ['nullable', 'string'],

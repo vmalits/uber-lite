@@ -38,6 +38,8 @@ use Spatie\LaravelData\Data;
  * @param ?DateData $completed_at
  * @param ?DateData $scheduled_at
  * @param string|null $rider_note
+ * @param string|null $ride_pin
+ * @param DateData|null $pin_verified_at
  * @param RideRatingData|null $rating
  * @param DateData $created_at
  * @param DateData $updated_at
@@ -71,6 +73,8 @@ final class RideData extends Data
         public ?DateData $completed_at,
         public ?DateData $scheduled_at,
         public ?string $rider_note,
+        public ?string $ride_pin,
+        public ?DateData $pin_verified_at,
         public ?RideRatingData $rating,
         public DateData $created_at,
         public DateData $updated_at,
@@ -109,6 +113,8 @@ final class RideData extends Data
             completed_at: $ride->completed_at ? DateData::fromCarbon($ride->completed_at) : null,
             scheduled_at: $ride->scheduled_at ? DateData::fromCarbon($ride->scheduled_at) : null,
             rider_note: $ride->rider_note,
+            ride_pin: $ride->ride_pin,
+            pin_verified_at: $ride->pin_verified_at ? DateData::fromCarbon($ride->pin_verified_at) : null,
             rating: $rating ? RideRatingData::fromModel($rating) : null,
             created_at: DateData::fromCarbon($ride->created_at),
             updated_at: DateData::fromCarbon($ride->updated_at),
