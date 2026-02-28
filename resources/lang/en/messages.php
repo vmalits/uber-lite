@@ -121,4 +121,10 @@ return [
         'sos_sent'              => 'SOS alert sent to your emergency contacts.',
         'no_emergency_contacts' => 'No emergency contacts found. Please add contacts first.',
     ],
+    'streak' => [
+        'level_up_subject'  => 'Congratulations! Your streak level increased!',
+        'level_up_greeting' => 'Great news, :name!',
+        'level_up_message'  => "You've reached a :level by riding :streak days in a row! You now get a :discount% discount on all rides.",
+        'keep_going'        => 'Keep riding daily to unlock even bigger discounts!',
+    ],
 ];

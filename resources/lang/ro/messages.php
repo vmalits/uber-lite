@@ -94,4 +94,10 @@ return [
         'sos_sent'              => 'Alerta SOS trimisă contactelor tale de urgență.',
         'no_emergency_contacts' => 'Nu s-au găsit contacte de urgență. Te rugăm să adaugi contacte mai întâi.',
     ],
+    'streak' => [
+        'level_up_subject'  => 'Felicitări! Nivelul tău de serie a crescut!',
+        'level_up_greeting' => 'Vești bune, :name!',
+        'level_up_message'  => 'Ai atins nivelul :level călătorind :streak zile la rând! Acum primești o reducere de :discount% la toate călătoriile.',
+        'keep_going'        => 'Continuă să călătorești zilnic pentru a debloca reduceri și mai mari!',
+    ],
 ];

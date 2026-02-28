@@ -25,6 +25,7 @@ use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
 use App\Http\Controllers\Api\V1\Rider\GetScheduledRidesController;
+use App\Http\Controllers\Api\V1\Rider\GetStreakController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
 use App\Http\Controllers\Api\V1\Rider\RemovePromoCodeController;
@@ -105,6 +106,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.achievements');
         Route::get('level', [GetLevelController::class, '__invoke'])
             ->name('api.v1.rider.level');
+        Route::get('streak', [GetStreakController::class, '__invoke'])
+            ->name('api.v1.rider.streak');
         Route::get('credits', [GetCreditsController::class, '__invoke'])
             ->name('api.v1.rider.credits');
         Route::post('referrals/apply', [ApplyReferralCodeController::class, '__invoke'])

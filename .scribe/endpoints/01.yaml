@@ -1556,7 +1556,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-02-27 23:50:34'
+        example: '2026-02-28 23:57:12'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1569,7 +1569,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-02-27 23:50:34'
+      scheduled_at: '2026-02-28 23:57:12'
     fileParameters: []
     responses:
       -
@@ -1702,7 +1702,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-02-28 00:50:34'
+        example: '2026-03-01 00:57:12'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1715,7 +1715,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-02-28 00:50:34'
+      scheduled_at: '2026-03-01 00:57:12'
     fileParameters: []
     responses:
       -
@@ -2478,6 +2478,56 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/rider/streak
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"data":{"current_streak":7,"longest_streak":14,"level":"silver","discount_percent":10,"days_to_next_level":7,"last_ride_date":"2026-02-28","is_active":true}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/rider/credits
     metadata:
       custom: []
@@ -2509,7 +2559,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 02c225cd-0db2-429e-9877-f0f7570a15bc
+          x-request-id: df7bde5d-924f-44e4-a372-35236b82facd
         description: null
     responseFields: []
     auth: []
