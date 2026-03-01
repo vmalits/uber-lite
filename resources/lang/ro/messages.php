@@ -75,10 +75,11 @@ return [
         'upload_started' => 'Încărcarea avatarului a început',
     ],
     'driver' => [
-        'online'                  => 'Acum ești online și disponibil pentru curse.',
-        'offline'                 => 'Acum ești offline.',
-        'earnings_fetched'        => 'Câștigurile zilnice au fost preluate cu succes.',
-        'weekly_earnings_fetched' => 'Câștigurile săptămânale au fost preluate cu succes.',
+        'online'                   => 'Acum ești online și disponibil pentru curse.',
+        'offline'                  => 'Acum ești offline.',
+        'earnings_fetched'         => 'Câștigurile zilnice au fost preluate cu succes.',
+        'weekly_earnings_fetched'  => 'Câștigurile săptămânale au fost preluate cu succes.',
+        'monthly_earnings_fetched' => 'Câștigurile lunare au fost preluate cu succes.',
     ],
     'favorite' => [
         'location_added'   => 'Locația favorită adăugată cu succes.',

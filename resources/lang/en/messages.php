@@ -77,10 +77,11 @@ return [
         'upload_started' => 'Avatar upload processing started.',
     ],
     'driver' => [
-        'online'                  => 'You are now online and available for rides.',
-        'offline'                 => 'You are now offline and will not receive ride requests.',
-        'earnings_fetched'        => 'Daily earnings retrieved successfully.',
-        'weekly_earnings_fetched' => 'Weekly earnings retrieved successfully.',
+        'online'                   => 'You are now online and available for rides.',
+        'offline'                  => 'You are now offline and will not receive ride requests.',
+        'earnings_fetched'         => 'Daily earnings retrieved successfully.',
+        'weekly_earnings_fetched'  => 'Weekly earnings retrieved successfully.',
+        'monthly_earnings_fetched' => 'Monthly earnings retrieved successfully.',
     ],
     'favorite' => [
         'location_added'   => 'Favorite location added successfully.',
