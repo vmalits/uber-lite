@@ -22,6 +22,8 @@ use App\Queries\Driver\GetDriverStatsQuery;
 use App\Queries\Driver\GetDriverStatsQueryInterface;
 use App\Queries\Driver\GetHeatmapQuery;
 use App\Queries\Driver\GetHeatmapQueryInterface;
+use App\Queries\Driver\GetMonthlyEarningsQuery;
+use App\Queries\Driver\GetMonthlyEarningsQueryInterface;
 use App\Queries\Driver\GetRideHistoryQuery;
 use App\Queries\Driver\GetRideHistoryQueryInterface;
 use App\Queries\Driver\GetVehiclesQuery;
@@ -48,5 +50,6 @@ final class DriverServiceProvider extends ServiceProvider
         GetCurrentLocationQueryInterface::class => GetCurrentLocationQuery::class,
         GetDailyEarningsQueryInterface::class   => GetDailyEarningsQuery::class,
         GetWeeklyEarningsQueryInterface::class  => GetWeeklyEarningsQuery::class,
+        GetMonthlyEarningsQueryInterface::class => GetMonthlyEarningsQuery::class,
     ];
 }

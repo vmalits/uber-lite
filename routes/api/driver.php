@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\V1\Driver\GetDailyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
 use App\Http\Controllers\Api\V1\Driver\GetHeatmapController;
 use App\Http\Controllers\Api\V1\Driver\GetLevelController;
+use App\Http\Controllers\Api\V1\Driver\GetMonthlyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetVehiclesController;
@@ -57,6 +58,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.earnings.daily');
         Route::get('earnings/weekly', [GetWeeklyEarningsController::class, '__invoke'])
             ->name('api.v1.driver.earnings.weekly');
+        Route::get('earnings/monthly', [GetMonthlyEarningsController::class, '__invoke'])
+            ->name('api.v1.driver.earnings.monthly');
         Route::get('heatmap', [GetHeatmapController::class, '__invoke'])
             ->name('api.v1.driver.heatmap');
         Route::post('online', [GoOnlineController::class, '__invoke'])
