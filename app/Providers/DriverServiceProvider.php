@@ -26,6 +26,8 @@ use App\Queries\Driver\GetRideHistoryQuery;
 use App\Queries\Driver\GetRideHistoryQueryInterface;
 use App\Queries\Driver\GetVehiclesQuery;
 use App\Queries\Driver\GetVehiclesQueryInterface;
+use App\Queries\Driver\GetWeeklyEarningsQuery;
+use App\Queries\Driver\GetWeeklyEarningsQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 final class DriverServiceProvider extends ServiceProvider
@@ -45,5 +47,6 @@ final class DriverServiceProvider extends ServiceProvider
         GetRideHistoryQueryInterface::class     => GetRideHistoryQuery::class,
         GetCurrentLocationQueryInterface::class => GetCurrentLocationQuery::class,
         GetDailyEarningsQueryInterface::class   => GetDailyEarningsQuery::class,
+        GetWeeklyEarningsQueryInterface::class  => GetWeeklyEarningsQuery::class,
     ];
 }
