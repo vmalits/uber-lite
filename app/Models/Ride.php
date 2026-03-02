@@ -59,6 +59,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property-read User $rider
  * @property-read User|null $driver
  * @property-read RideRating|null $rating
+ * @property-read RideTip|null $tip
  * @property-read Collection<int, RideSplit> $splits
  * @property-read PromoCode|null $promoCode
  */
@@ -153,6 +154,14 @@ class Ride extends Model
     public function rating(): HasOne
     {
         return $this->hasOne(related: RideRating::class);
+    }
+
+    /**
+     * @return HasOne<RideTip, $this>
+     */
+    public function tip(): HasOne
+    {
+        return $this->hasOne(related: RideTip::class);
     }
 
     /**

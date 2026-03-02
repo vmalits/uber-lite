@@ -26,6 +26,8 @@ use App\Queries\Driver\GetMonthlyEarningsQuery;
 use App\Queries\Driver\GetMonthlyEarningsQueryInterface;
 use App\Queries\Driver\GetRideHistoryQuery;
 use App\Queries\Driver\GetRideHistoryQueryInterface;
+use App\Queries\Driver\GetTipHistoryQuery;
+use App\Queries\Driver\GetTipHistoryQueryInterface;
 use App\Queries\Driver\GetVehiclesQuery;
 use App\Queries\Driver\GetVehiclesQueryInterface;
 use App\Queries\Driver\GetWeeklyEarningsQuery;
@@ -51,5 +53,6 @@ final class DriverServiceProvider extends ServiceProvider
         GetDailyEarningsQueryInterface::class   => GetDailyEarningsQuery::class,
         GetWeeklyEarningsQueryInterface::class  => GetWeeklyEarningsQuery::class,
         GetMonthlyEarningsQueryInterface::class => GetMonthlyEarningsQuery::class,
+        GetTipHistoryQueryInterface::class      => GetTipHistoryQuery::class,
     ];
 }

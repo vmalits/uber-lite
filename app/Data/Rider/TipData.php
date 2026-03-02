@@ -6,11 +6,10 @@ namespace App\Data\Rider;
 
 use Spatie\LaravelData\Data;
 
-final class RateRideData extends Data
+final class TipData extends Data
 {
     public function __construct(
-        public int $rating,
-        public ?string $comment,
-        public ?TipData $tip = null,
+        public int $amount,
+        public ?string $comment = null,
     ) {}
 }

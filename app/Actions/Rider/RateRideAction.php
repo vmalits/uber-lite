@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions\Rider;
 
+use App\Actions\Ride\CreateTipForRideAction;
 use App\Data\Rider\RateRideData;
 use App\Models\Ride;
 use App\Models\RideRating;
@@ -12,6 +13,10 @@ use Illuminate\Validation\ValidationException;
 
 final readonly class RateRideAction
 {
+    public function __construct(
+        private CreateTipForRideAction $createTipForRideAction,
+    ) {}
+
     public function handle(Ride $ride, RateRideData $data, User $rider): Ride
     {
         $ride->loadMissing('rating');
@@ -38,6 +43,14 @@ final readonly class RateRideAction
             ]);
         }
 
-        return $ride->refresh()->load('rating');
+        if ($data->tip !== null) {
+            $this->createTipForRideAction->handle(
+                ride: $ride,
+                amount: $data->tip->amount,
+                comment: $data->tip->comment,
+            );
+        }
+
+        return $ride->refresh()->load(['rating', 'tip']);
     }
 }
