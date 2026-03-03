@@ -1556,7 +1556,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-01 20:23:34'
+        example: '2026-03-03 22:01:39'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1569,7 +1569,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-01 20:23:34'
+      scheduled_at: '2026-03-03 22:01:39'
     fileParameters: []
     responses:
       -
@@ -1702,7 +1702,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-01 21:23:34'
+        example: '2026-03-03 23:01:39'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1715,7 +1715,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-01 21:23:34'
+      scheduled_at: '2026-03-03 23:01:39'
     fileParameters: []
     responses:
       -
@@ -2132,9 +2132,45 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
+      tip:
+        custom: []
+        name: tip
+        description: ''
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      tip.amount:
+        custom: []
+        name: tip.amount
+        description: 'Tip amount in cents. Must be at least 0. Must not be greater than 100000.'
+        required: false
+        example: 500
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tip.comment:
+        custom: []
+        name: tip.comment
+        description: 'Optional tip comment. Must not be greater than 500 characters.'
+        required: false
+        example: 'Thank you!'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
     cleanBodyParameters:
       rating: 5
       comment: 'Great ride!'
+      tip:
+        amount: 500
+        comment: 'Thank you!'
     fileParameters: []
     responses:
       -
@@ -2559,7 +2595,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: fbe5264f-3ffc-485d-a565-d4ccc7d2b646
+          x-request-id: 9cc54849-7933-4ede-ad82-15e2001ded2b
         description: null
     responseFields: []
     auth: []
