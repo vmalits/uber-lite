@@ -16,10 +16,12 @@ use App\Http\Controllers\Api\V1\Driver\GetAvailableRidesController;
 use App\Http\Controllers\Api\V1\Driver\GetBanController;
 use App\Http\Controllers\Api\V1\Driver\GetCurrentLocationController;
 use App\Http\Controllers\Api\V1\Driver\GetDailyEarningsController;
+use App\Http\Controllers\Api\V1\Driver\GetDriverBalanceController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
 use App\Http\Controllers\Api\V1\Driver\GetHeatmapController;
 use App\Http\Controllers\Api\V1\Driver\GetLevelController;
 use App\Http\Controllers\Api\V1\Driver\GetMonthlyEarningsController;
+use App\Http\Controllers\Api\V1\Driver\GetPayoutHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetTipHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
@@ -29,6 +31,7 @@ use App\Http\Controllers\Api\V1\Driver\GoOfflineController;
 use App\Http\Controllers\Api\V1\Driver\GoOnlineController;
 use App\Http\Controllers\Api\V1\Driver\OnTheWayController;
 use App\Http\Controllers\Api\V1\Driver\ProfileController;
+use App\Http\Controllers\Api\V1\Driver\RequestPayoutController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
 use App\Http\Controllers\Api\V1\Driver\UpdateLocationController;
 use App\Http\Controllers\Api\V1\Driver\UpdateProfileController;
@@ -109,4 +112,10 @@ Route::prefix('driver')
             ->name('api.v1.driver.vehicle.update');
         Route::delete('vehicle/{vehicle}', [DeleteVehicleController::class, '__invoke'])
             ->name('api.v1.driver.vehicle.delete');
+        Route::get('payouts', [GetPayoutHistoryController::class, '__invoke'])
+            ->name('api.v1.driver.payouts');
+        Route::post('payouts', [RequestPayoutController::class, '__invoke'])
+            ->name('api.v1.driver.payouts.request');
+        Route::get('balance', [GetDriverBalanceController::class, '__invoke'])
+            ->name('api.v1.driver.balance');
     });

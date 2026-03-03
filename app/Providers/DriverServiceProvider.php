@@ -18,12 +18,16 @@ use App\Queries\Driver\GetCurrentLocationQuery;
 use App\Queries\Driver\GetCurrentLocationQueryInterface;
 use App\Queries\Driver\GetDailyEarningsQuery;
 use App\Queries\Driver\GetDailyEarningsQueryInterface;
+use App\Queries\Driver\GetDriverBalanceQuery;
+use App\Queries\Driver\GetDriverBalanceQueryInterface;
 use App\Queries\Driver\GetDriverStatsQuery;
 use App\Queries\Driver\GetDriverStatsQueryInterface;
 use App\Queries\Driver\GetHeatmapQuery;
 use App\Queries\Driver\GetHeatmapQueryInterface;
 use App\Queries\Driver\GetMonthlyEarningsQuery;
 use App\Queries\Driver\GetMonthlyEarningsQueryInterface;
+use App\Queries\Driver\GetPayoutHistoryQuery;
+use App\Queries\Driver\GetPayoutHistoryQueryInterface;
 use App\Queries\Driver\GetRideHistoryQuery;
 use App\Queries\Driver\GetRideHistoryQueryInterface;
 use App\Queries\Driver\GetTipHistoryQuery;
@@ -54,5 +58,7 @@ final class DriverServiceProvider extends ServiceProvider
         GetWeeklyEarningsQueryInterface::class  => GetWeeklyEarningsQuery::class,
         GetMonthlyEarningsQueryInterface::class => GetMonthlyEarningsQuery::class,
         GetTipHistoryQueryInterface::class      => GetTipHistoryQuery::class,
+        GetDriverBalanceQueryInterface::class   => GetDriverBalanceQuery::class,
+        GetPayoutHistoryQueryInterface::class   => GetPayoutHistoryQuery::class,
     ];
 }
