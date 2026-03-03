@@ -103,4 +103,7 @@ return [
         'level_up_message'  => 'Ai atins nivelul :level călătorind :streak zile la rând! Acum primești o reducere de :discount% la toate călătoriile.',
         'keep_going'        => 'Continuă să călătorești zilnic pentru a debloca reduceri și mai mari!',
     ],
+    'payout' => [
+        'requested' => 'Cererea de plată a fost trimisă cu succes.',
+    ],
 ];

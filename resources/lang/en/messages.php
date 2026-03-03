@@ -129,4 +129,7 @@ return [
         'level_up_message'  => "You've reached a :level by riding :streak days in a row! You now get a :discount% discount on all rides.",
         'keep_going'        => 'Keep riding daily to unlock even bigger discounts!',
     ],
+    'payout' => [
+        'requested' => 'Payout requested successfully.',
+    ],
 ];
