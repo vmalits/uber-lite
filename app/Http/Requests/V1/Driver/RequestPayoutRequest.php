@@ -92,7 +92,16 @@ final class RequestPayoutRequest extends FormRequest
 
     public function toData(): RequestPayoutData
     {
-        /** @var array{amount: int|string, method: string, bank_name?: string, bank_account_number?: string, bank_routing_number?: string, crypto_wallet_address?: string, crypto_currency?: string, description?: string} $validated */
+        /** @var array{
+         *     amount: int|string,
+         *     method: string,
+         *     bank_name?: string,
+         *     bank_account_number?: string,
+         *     bank_routing_number?: string,
+         *     crypto_wallet_address?: string,
+         *     crypto_currency?: string,
+         *     description?: string} $validated
+         */
         $validated = $this->validated();
 
         return new RequestPayoutData(

@@ -31,9 +31,9 @@ final readonly class GetDriverBalanceQuery implements GetDriverBalanceQueryInter
 
         return new DriverBalanceData(
             balance: $driver->driver_balance,
-            pending_payouts: $pendingPayouts,
-            total_earned: $totalEarned,
-            total_paid_out: $totalPaidOut,
+            pendingPayouts: $pendingPayouts,
+            totalEarned: $totalEarned,
+            totalPaidOut: $totalPaidOut,
         );
     }
 }

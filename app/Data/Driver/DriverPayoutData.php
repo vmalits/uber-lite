@@ -18,7 +18,8 @@ final class DriverPayoutData extends Data
         public int $amount,
         public PayoutStatus $status,
         public PayoutMethod $method,
-        public ?string $bank_name,
+        #[MapName('bank_name')]
+        public ?string $bankName,
         #[MapName('bank_account_number')]
         public ?string $bankAccountNumber,
         #[MapName('bank_routing_number')]
@@ -27,14 +28,21 @@ final class DriverPayoutData extends Data
         public ?string $cryptoWalletAddress,
         #[MapName('crypto_currency')]
         public ?string $cryptoCurrency,
-        public ?DateData $requested_at,
-        public ?DateData $approved_at,
-        public ?DateData $processed_at,
-        public ?DateData $completed_at,
-        public ?DateData $failed_at,
-        public ?string $failure_reason,
+        #[MapName('requested_at')]
+        public ?DateData $requestedAt,
+        #[MapName('approved_at')]
+        public ?DateData $approvedAt,
+        #[MapName('processed_at')]
+        public ?DateData $processedAt,
+        #[MapName('completed_at')]
+        public ?DateData $completedAt,
+        #[MapName('failed_at')]
+        public ?DateData $failedAt,
+        #[MapName('failure_reason')]
+        public ?string $failureReason,
         public ?string $description,
-        public DateData $created_at,
+        #[MapName('created_at')]
+        public DateData $createdAt,
     ) {}
 
     public static function fromModel(DriverPayout $payout): self
@@ -44,19 +52,19 @@ final class DriverPayoutData extends Data
             amount: $payout->amount,
             status: $payout->status,
             method: $payout->method,
-            bank_name: $payout->bank_name,
+            bankName: $payout->bank_name,
             bankAccountNumber: $payout->bank_account_number,
             bankRoutingNumber: $payout->bank_routing_number,
             cryptoWalletAddress: $payout->crypto_wallet_address,
             cryptoCurrency: $payout->crypto_currency,
-            requested_at: $payout->requested_at ? DateData::fromCarbon($payout->requested_at) : null,
-            approved_at: $payout->approved_at ? DateData::fromCarbon($payout->approved_at) : null,
-            processed_at: $payout->processed_at ? DateData::fromCarbon($payout->processed_at) : null,
-            completed_at: $payout->completed_at ? DateData::fromCarbon($payout->completed_at) : null,
-            failed_at: $payout->failed_at ? DateData::fromCarbon($payout->failed_at) : null,
-            failure_reason: $payout->failure_reason,
+            requestedAt: $payout->requested_at ? DateData::fromCarbon($payout->requested_at) : null,
+            approvedAt: $payout->approved_at ? DateData::fromCarbon($payout->approved_at) : null,
+            processedAt: $payout->processed_at ? DateData::fromCarbon($payout->processed_at) : null,
+            completedAt: $payout->completed_at ? DateData::fromCarbon($payout->completed_at) : null,
+            failedAt: $payout->failed_at ? DateData::fromCarbon($payout->failed_at) : null,
+            failureReason: $payout->failure_reason,
             description: $payout->description,
-            created_at: DateData::fromCarbon($payout->created_at),
+            createdAt: DateData::fromCarbon($payout->created_at),
         );
     }
 }
