@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRoutesController;
 use App\Http\Controllers\Api\V1\Rider\GetLevelController;
+use App\Http\Controllers\Api\V1\Rider\GetPaymentMethodsController;
 use App\Http\Controllers\Api\V1\Rider\GetReceiptController;
 use App\Http\Controllers\Api\V1\Rider\GetReceiptsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
@@ -116,6 +117,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.streak');
         Route::get('credits', [GetCreditsController::class, '__invoke'])
             ->name('api.v1.rider.credits');
+        Route::get('payment-methods', [GetPaymentMethodsController::class, '__invoke'])
+            ->name('api.v1.rider.payment-methods');
         Route::post('referrals/apply', [ApplyReferralCodeController::class, '__invoke'])
             ->name('api.v1.rider.referrals.apply');
         Route::post('rides/{ride}/promo-code', [ApplyPromoCodeController::class, '__invoke'])
