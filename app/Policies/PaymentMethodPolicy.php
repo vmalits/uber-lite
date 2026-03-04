@@ -20,6 +20,11 @@ final class PaymentMethodPolicy
         return $paymentMethod->user()->is($user);
     }
 
+    public function update(User $user, PaymentMethod $paymentMethod): bool
+    {
+        return $paymentMethod->user()->is($user);
+    }
+
     public function delete(User $user, PaymentMethod $paymentMethod): bool
     {
         return $paymentMethod->user()->is($user);

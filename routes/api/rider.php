@@ -35,6 +35,7 @@ use App\Http\Controllers\Api\V1\Rider\RateRideController;
 use App\Http\Controllers\Api\V1\Rider\RemovePromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
 use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
+use App\Http\Controllers\Api\V1\Rider\SetDefaultPaymentMethodController;
 use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
 use App\Http\Controllers\Api\V1\Rider\UpdateRideNoteController;
@@ -122,6 +123,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.payment-methods');
         Route::delete('payment-methods/{method}', [DeletePaymentMethodController::class, '__invoke'])
             ->name('api.v1.rider.payment-methods.destroy');
+        Route::put('payment-methods/{method}/default', [SetDefaultPaymentMethodController::class, '__invoke'])
+            ->name('api.v1.rider.payment-methods.set-default');
         Route::post('referrals/apply', [ApplyReferralCodeController::class, '__invoke'])
             ->name('api.v1.rider.referrals.apply');
         Route::post('rides/{ride}/promo-code', [ApplyPromoCodeController::class, '__invoke'])

@@ -133,6 +133,7 @@ return [
         'requested' => 'Payout requested successfully.',
     ],
     'payment_method' => [
-        'deleted' => 'Payment method deleted successfully.',
+        'deleted'     => 'Payment method deleted successfully.',
+        'set_default' => 'Default payment method set successfully.',
     ],
 ];

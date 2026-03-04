@@ -1704,7 +1704,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-04 14:24:17'
+        example: '2026-03-04 15:24:37'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1717,7 +1717,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-04 14:24:17'
+      scheduled_at: '2026-03-04 15:24:37'
     fileParameters: []
     responses:
       -
@@ -1850,7 +1850,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-04 15:24:17'
+        example: '2026-03-04 16:24:37'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1863,7 +1863,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-04 15:24:17'
+      scheduled_at: '2026-03-04 16:24:37'
     fileParameters: []
     responses:
       -
@@ -2743,7 +2743,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 5b0a1aa9-8792-4ba2-a5ca-301ca6bdd59a
+          x-request-id: 984a7b97-37fb-4712-a715-d47eb777717b
         description: null
     responseFields: []
     auth: []
@@ -2839,6 +2839,74 @@ endpoints:
         content: null
         headers: []
         description: 'Payment method deleted successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Payment method not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/rider/payment-methods/{method_id}/default'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      method_id:
+        custom: []
+        name: method_id
+        description: 'The ID of the method.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      method_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Default payment method set successfully.'
       -
         custom: []
         status: 401

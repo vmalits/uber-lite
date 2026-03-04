@@ -146,3 +146,59 @@ test('rider cannot delete another riders payment method', function (): void {
         'id' => $paymentMethod->id,
     ]);
 });
+
+test('rider can set default payment method', function (): void {
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $defaultMethod = PaymentMethod::factory()->default()->create([
+        'user_id' => $rider->id,
+    ]);
+
+    $newDefaultMethod = PaymentMethod::factory()->create([
+        'user_id' => $rider->id,
+    ]);
+
+    actingAs($rider)
+        ->putJson('/api/v1/rider/payment-methods/'.$newDefaultMethod->id.'/default')
+        ->assertStatus(200)
+        ->assertJsonPath('success', true)
+        ->assertJsonPath('data.id', $newDefaultMethod->id)
+        ->assertJsonPath('data.is_default', true);
+
+    $this->assertDatabaseHas('payment_methods', [
+        'id'         => $newDefaultMethod->id,
+        'is_default' => true,
+    ]);
+
+    $this->assertDatabaseHas('payment_methods', [
+        'id'         => $defaultMethod->id,
+        'is_default' => false,
+    ]);
+});
+
+test('rider cannot set another riders payment method as default', function (): void {
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $otherRider = User::factory()->create([
+        'role'         => UserRole::RIDER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    $paymentMethod = PaymentMethod::factory()->create([
+        'user_id' => $otherRider->id,
+    ]);
+
+    actingAs($rider)
+        ->putJson('/api/v1/rider/payment-methods/'.$paymentMethod->id.'/default')
+        ->assertStatus(403);
+});

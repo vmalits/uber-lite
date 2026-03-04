@@ -107,6 +107,7 @@ return [
         'requested' => 'Cererea de plată a fost trimisă cu succes.',
     ],
     'payment_method' => [
-        'deleted' => 'Metoda de plată a fost ștearsă cu succes.',
+        'deleted'     => 'Metoda de plată a fost ștearsă cu succes.',
+        'set_default' => 'Metoda de plată implicită a fost setată cu succes.',
     ],
 ];
