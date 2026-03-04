@@ -117,4 +117,10 @@ final class RidePolicy
                 ],
                 true);
     }
+
+    public function viewReceipt(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && $ride->status === RideStatus::COMPLETED;
+    }
 }

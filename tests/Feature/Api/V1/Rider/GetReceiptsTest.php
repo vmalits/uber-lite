@@ -127,3 +127,81 @@ test('driver cannot access rider receipts', function (): void {
         ->getJson('/api/v1/rider/receipts')
         ->assertStatus(403);
 });
+
+test('rider can get single receipt', function (): void {
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $driver = User::factory()->create([
+        'role'         => UserRole::DRIVER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    $ride = Ride::factory()->create([
+        'rider_id'     => $rider->id,
+        'driver_id'    => $driver->id,
+        'status'       => RideStatus::COMPLETED,
+        'price'        => 15000,
+        'completed_at' => now(),
+    ]);
+
+    actingAs($rider)
+        ->getJson('/api/v1/rider/receipts/'.$ride->id)
+        ->assertStatus(200)
+        ->assertJsonPath('success', true)
+        ->assertJsonPath('data.id', $ride->id);
+});
+
+test('rider cannot get receipt for incomplete ride', function (): void {
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $ride = Ride::factory()->create([
+        'rider_id' => $rider->id,
+        'status'   => RideStatus::STARTED,
+    ]);
+
+    actingAs($rider)
+        ->getJson('/api/v1/rider/receipts/'.$ride->id)
+        ->assertStatus(403);
+});
+
+test('rider cannot get receipt for another riders ride', function (): void {
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $otherRider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $driver = User::factory()->create([
+        'role'         => UserRole::DRIVER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    $ride = Ride::factory()->create([
+        'rider_id'     => $otherRider->id,
+        'driver_id'    => $driver->id,
+        'status'       => RideStatus::COMPLETED,
+        'completed_at' => now(),
+    ]);
+
+    actingAs($rider)
+        ->getJson('/api/v1/rider/receipts/'.$ride->id)
+        ->assertStatus(403);
+});
