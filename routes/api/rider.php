@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetCreditsController;
 use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
 use App\Http\Controllers\Api\V1\Rider\GetFareBreakdownController;
+use App\Http\Controllers\Api\V1\Rider\GetFavoriteDriversController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRouteController;
@@ -55,6 +56,8 @@ Route::prefix('rider')
     ->group(function (): void {
         Route::get('locations/search', [SearchLocationsController::class, '__invoke'])
             ->name('api.v1.rider.locations.search');
+        Route::get('favorite-drivers', [GetFavoriteDriversController::class, '__invoke'])
+            ->name('api.v1.rider.favorite-drivers.index');
         Route::get('favorites', [GetFavoriteLocationsController::class, '__invoke'])
             ->name('api.v1.rider.favorites.index');
         Route::post('favorites', [AddFavoriteLocationController::class, '__invoke'])

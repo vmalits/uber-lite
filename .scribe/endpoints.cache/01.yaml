@@ -99,6 +99,44 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/rider/favorite-drivers
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Favorite drivers retrieved successfully'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/rider/favorites
     metadata:
       custom: []
@@ -1706,7 +1744,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-04 15:24:37'
+        example: '2026-03-04 16:37:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1719,7 +1757,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-04 15:24:37'
+      scheduled_at: '2026-03-04 16:37:00'
     fileParameters: []
     responses:
       -
@@ -1852,7 +1890,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-04 16:24:37'
+        example: '2026-03-04 17:37:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1865,7 +1903,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-04 16:24:37'
+      scheduled_at: '2026-03-04 17:37:00'
     fileParameters: []
     responses:
       -
@@ -2745,7 +2783,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 984a7b97-37fb-4712-a715-d47eb777717b
+          x-request-id: b862818d-e96c-41aa-9463-389539daa460
         description: null
     responseFields: []
     auth: []

@@ -10,6 +10,8 @@ use App\Queries\Rider\GetCreditBalanceQuery;
 use App\Queries\Rider\GetCreditBalanceQueryInterface;
 use App\Queries\Rider\GetFareBreakdownQuery;
 use App\Queries\Rider\GetFareBreakdownQueryInterface;
+use App\Queries\Rider\GetFavoriteDriversQuery;
+use App\Queries\Rider\GetFavoriteDriversQueryInterface;
 use App\Queries\Rider\GetFavoriteLocationQuery;
 use App\Queries\Rider\GetFavoriteLocationQueryInterface;
 use App\Queries\Rider\GetFavoriteLocationsQuery;
@@ -41,6 +43,7 @@ final class RiderServiceProvider extends ServiceProvider
         GetActiveRideQueryInterface::class        => GetActiveRideQuery::class,
         GetCreditBalanceQueryInterface::class     => GetCreditBalanceQuery::class,
         GetFareBreakdownQueryInterface::class     => GetFareBreakdownQuery::class,
+        GetFavoriteDriversQueryInterface::class   => GetFavoriteDriversQuery::class,
         GetFavoriteLocationQueryInterface::class  => GetFavoriteLocationQuery::class,
         GetFavoriteLocationsQueryInterface::class => GetFavoriteLocationsQuery::class,
         GetFavoriteRoutesQueryInterface::class    => GetFavoriteRoutesQuery::class,
