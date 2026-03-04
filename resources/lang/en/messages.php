@@ -132,4 +132,7 @@ return [
     'payout' => [
         'requested' => 'Payout requested successfully.',
     ],
+    'payment_method' => [
+        'deleted' => 'Payment method deleted successfully.',
+    ],
 ];

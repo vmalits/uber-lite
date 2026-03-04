@@ -53,11 +53,11 @@ class PaymentMethod extends Model
     protected function casts(): array
     {
         return [
-            'type'          => PaymentMethodType::class,
-            'provider'      => PaymentProvider::class,
-            'is_default'    => 'boolean',
-            'expiry_month'  => 'integer',
-            'expiry_year'   => 'integer',
+            'type'         => PaymentMethodType::class,
+            'provider'     => PaymentProvider::class,
+            'is_default'   => 'boolean',
+            'expiry_month' => 'integer',
+            'expiry_year'  => 'integer',
         ];
     }
 

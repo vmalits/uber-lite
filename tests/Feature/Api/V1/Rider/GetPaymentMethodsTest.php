@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Enums\PaymentMethodType;
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
 use App\Models\PaymentMethod;
@@ -64,8 +63,8 @@ test('payment methods only shows own methods', function (): void {
     ]);
 
     $otherRider = User::factory()->create([
-        'role'              => UserRole::RIDER,
-        'profile_step'      => ProfileStep::COMPLETED,
+        'role'         => UserRole::RIDER,
+        'profile_step' => ProfileStep::COMPLETED,
     ]);
 
     PaymentMethod::factory()->create([
@@ -98,4 +97,52 @@ test('driver cannot access rider payment methods', function (): void {
     actingAs($driver)
         ->getJson('/api/v1/rider/payment-methods')
         ->assertStatus(403);
+});
+
+test('rider can delete payment method', function (): void {
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $paymentMethod = PaymentMethod::factory()->create([
+        'user_id' => $rider->id,
+    ]);
+
+    actingAs($rider)
+        ->deleteJson('/api/v1/rider/payment-methods/'.$paymentMethod->id)
+        ->assertStatus(200)
+        ->assertJsonPath('success', true);
+
+    $this->assertDatabaseMissing('payment_methods', [
+        'id' => $paymentMethod->id,
+    ]);
+});
+
+test('rider cannot delete another riders payment method', function (): void {
+    $rider = User::factory()->create([
+        'role'              => UserRole::RIDER,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+
+    $otherRider = User::factory()->create([
+        'role'         => UserRole::RIDER,
+        'profile_step' => ProfileStep::COMPLETED,
+    ]);
+
+    $paymentMethod = PaymentMethod::factory()->create([
+        'user_id' => $otherRider->id,
+    ]);
+
+    actingAs($rider)
+        ->deleteJson('/api/v1/rider/payment-methods/'.$paymentMethod->id)
+        ->assertStatus(403);
+
+    $this->assertDatabaseHas('payment_methods', [
+        'id' => $paymentMethod->id,
+    ]);
 });

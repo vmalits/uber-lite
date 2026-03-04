@@ -26,7 +26,7 @@ final class PaymentMethodFactory extends Factory
             'user_id'        => User::factory(),
             'type'           => PaymentMethodType::CARD,
             'provider'       => PaymentProvider::STRIPE,
-            'provider_token' => 'pm_' . fake()->uuid(),
+            'provider_token' => 'pm_'.fake()->uuid(),
             'last_four'      => fake()->numerify('####'),
             'card_brand'     => fake()->randomElement(['visa', 'mastercard', 'amex']),
             'expiry_month'   => fake()->numberBetween(1, 12),

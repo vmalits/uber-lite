@@ -6,8 +6,8 @@ namespace App\Enums;
 
 enum PaymentMethodType: string
 {
-    case CARD       = 'card';
-    case APPLE_PAY  = 'apple_pay';
+    case CARD = 'card';
+    case APPLE_PAY = 'apple_pay';
     case GOOGLE_PAY = 'google_pay';
 
     public function label(): string

@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteRouteController;
+use App\Http\Controllers\Api\V1\Rider\DeletePaymentMethodController;
 use App\Http\Controllers\Api\V1\Rider\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetCreditsController;
@@ -119,6 +120,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.credits');
         Route::get('payment-methods', [GetPaymentMethodsController::class, '__invoke'])
             ->name('api.v1.rider.payment-methods');
+        Route::delete('payment-methods/{method}', [DeletePaymentMethodController::class, '__invoke'])
+            ->name('api.v1.rider.payment-methods.destroy');
         Route::post('referrals/apply', [ApplyReferralCodeController::class, '__invoke'])
             ->name('api.v1.rider.referrals.apply');
         Route::post('rides/{ride}/promo-code', [ApplyPromoCodeController::class, '__invoke'])
