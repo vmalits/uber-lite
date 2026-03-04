@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRoutesController;
 use App\Http\Controllers\Api\V1\Rider\GetLevelController;
+use App\Http\Controllers\Api\V1\Rider\GetReceiptsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
@@ -80,6 +81,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.active');
         Route::get('rides/history', [GetRideHistoryController::class, '__invoke'])
             ->name('api.v1.rider.rides.history');
+        Route::get('receipts', [GetReceiptsController::class, '__invoke'])
+            ->name('api.v1.rider.receipts');
         Route::get('rides/scheduled', [GetScheduledRidesController::class, '__invoke'])
             ->name('api.v1.rider.rides.scheduled');
         Route::post('rides/scheduled', [ScheduleRideController::class, '__invoke'])
