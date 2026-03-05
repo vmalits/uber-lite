@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Gamification\GetDriverLeaderboardController;
+use App\Http\Controllers\Api\V1\Gamification\GetRiderLeaderboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('leaderboard')
@@ -14,4 +15,6 @@ Route::prefix('leaderboard')
     ->group(function (): void {
         Route::get('drivers', [GetDriverLeaderboardController::class, '__invoke'])
             ->name('api.v1.leaderboard.drivers');
+        Route::get('riders', [GetRiderLeaderboardController::class, '__invoke'])
+            ->name('api.v1.leaderboard.riders');
     });

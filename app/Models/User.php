@@ -55,6 +55,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read Collection<int, UserAchievement> $userAchievements
  * @property-read Collection<int, EmergencyContact> $emergencyContacts
  * @property-read UserRideStreak|null $rideStreak
+ * @property-read int|null $current_streak
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
