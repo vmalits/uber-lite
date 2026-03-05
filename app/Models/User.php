@@ -47,6 +47,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read int|null $completed_rides
  * @property-read int|null $cancelled_rides
  * @property-read float|null $driver_ride_ratings_avg_rating
+ * @property-read float|null $rating
  * @property-read float|null $total_earned
  * @property-read Collection<int, Vehicle> $vehicles
  * @property-read Collection<int, CreditTransaction> $creditTransactions
