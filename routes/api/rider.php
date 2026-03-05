@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\V1\Rider\ApplyPromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ApplyReferralCodeController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
+use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteDriverController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\DeletePaymentMethodController;
@@ -61,6 +62,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.favorite-drivers.index');
         Route::post('favorite-drivers', [AddFavoriteDriverController::class, '__invoke'])
             ->name('api.v1.rider.favorite-drivers.store');
+        Route::delete('favorite-drivers/{favorite}', [DeleteFavoriteDriverController::class, '__invoke'])
+            ->name('api.v1.rider.favorite-drivers.destroy');
         Route::get('favorites', [GetFavoriteLocationsController::class, '__invoke'])
             ->name('api.v1.rider.favorites.index');
         Route::post('favorites', [AddFavoriteLocationController::class, '__invoke'])

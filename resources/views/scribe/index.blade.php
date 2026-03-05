@@ -323,6 +323,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-favorite-drivers">
                                 <a href="#rider-POSTapi-v1-rider-favorite-drivers">POST api/v1/rider/favorite-drivers</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">
+                                <a href="#rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">DELETE api/v1/rider/favorite-drivers/{favorite_id}</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-favorites">
                                 <a href="#rider-GETapi-v1-rider-favorites">GET api/v1/rider/favorites</a>
                             </li>
@@ -3738,7 +3741,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: c2d9b540-ee94-4a6c-ad45-a212aa5eba52
+x-request-id: 0864c2db-d41e-4e15-b32d-3fcfa90c90ae
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4299,7 +4302,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: da8685cf-fd17-4930-b4d1-227346ae5931
+x-request-id: a1e3c151-959d-43c1-8dcd-45acdff1c1a9
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8398,7 +8401,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 25bff622-50ee-42cf-818d-bb4d3613fa07
+x-request-id: 8ced7a31-4e91-4613-aa18-c28f4e51ff23
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8597,7 +8600,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 6b0af892-e2eb-41af-9b39-365b6be900fd
+x-request-id: b06f60e6-bcc9-40d0-8be6-8f0e97738f38
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -12217,7 +12220,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php25duvlgv2ou87ccjDMI" </code></pre></div>
+    --form "avatar=@/tmp/phpojl8ncr22r4d1NkodFN" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -12255,7 +12258,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php25duvlgv2ou87ccjDMI', 'r')
+                'contents' =&gt; fopen('/tmp/phpojl8ncr22r4d1NkodFN', 'r')
             ],
         ],
     ]
@@ -12270,7 +12273,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/php25duvlgv2ou87ccjDMI', 'rb')}
+  'avatar': open('/tmp/phpojl8ncr22r4d1NkodFN', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -12385,7 +12388,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php25duvlgv2ou87ccjDMI</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpojl8ncr22r4d1NkodFN</code></p>
         </div>
         </form>
 
@@ -16034,6 +16037,209 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ID of the driver to add to favorites. The <code>id</code> of an existing record in the users table. Example: <code>01HQXYZABC1234567890DEFGHI</code></p>
         </div>
         </form>
+
+                    <h2 id="rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">DELETE api/v1/rider/favorite-drivers/{favorite_id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-rider-favorite-drivers--favorite_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8080/api/v1/rider/favorite-drivers/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/favorite-drivers/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/favorite-drivers/architecto';
+$response = $client-&gt;delete(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/favorite-drivers/architecto'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-rider-favorite-drivers--favorite_id-">
+            <blockquote>
+            <p>Example response (200, Favorite driver deleted successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Can only delete own favorite drivers):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Favorite driver not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v1-rider-favorite-drivers--favorite_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-rider-favorite-drivers--favorite_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-rider-favorite-drivers--favorite_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-rider-favorite-drivers--favorite_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-rider-favorite-drivers--favorite_id-" data-method="DELETE"
+      data-path="api/v1/rider/favorite-drivers/{favorite_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-rider-favorite-drivers--favorite_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+                    onclick="tryItOut('DELETEapi-v1-rider-favorite-drivers--favorite_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+                    onclick="cancelTryOut('DELETEapi-v1-rider-favorite-drivers--favorite_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/rider/favorite-drivers/{favorite_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>favorite_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="favorite_id"                data-endpoint="DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the favorite. Example: <code>architecto</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>favorite</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="favorite"                data-endpoint="DELETEapi-v1-rider-favorite-drivers--favorite_id-"
+               value="01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9"
+               data-component="url">
+    <br>
+<p>ULID of favorite driver. Example: <code>01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9</code></p>
+            </div>
+                    </form>
 
                     <h2 id="rider-GETapi-v1-rider-favorites">GET api/v1/rider/favorites</h2>
 
@@ -20108,7 +20314,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-05 22:13:25\"
+    \"scheduled_at\": \"2026-03-05 22:19:30\"
 }"
 </code></pre></div>
 
@@ -20131,7 +20337,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-05 22:13:25"
+    "scheduled_at": "2026-03-05 22:19:30"
 };
 
 fetch(url, {
@@ -20159,7 +20365,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-05 22:13:25',
+            'scheduled_at' =&gt; '2026-03-05 22:19:30',
         ],
     ]
 );
@@ -20179,7 +20385,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-05 22:13:25"
+    "scheduled_at": "2026-03-05 22:19:30"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -20378,10 +20584,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-03-05 22:13:25"
+               value="2026-03-05 22:19:30"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-05 22:13:25</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-05 22:19:30</code></p>
         </div>
         </form>
 
@@ -20410,7 +20616,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-05 23:13:25\"
+    \"scheduled_at\": \"2026-03-05 23:19:30\"
 }"
 </code></pre></div>
 
@@ -20433,7 +20639,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-05 23:13:25"
+    "scheduled_at": "2026-03-05 23:19:30"
 };
 
 fetch(url, {
@@ -20461,7 +20667,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-05 23:13:25',
+            'scheduled_at' =&gt; '2026-03-05 23:19:30',
         ],
     ]
 );
@@ -20481,7 +20687,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-05 23:13:25"
+    "scheduled_at": "2026-03-05 23:19:30"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -20700,10 +20906,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-03-05 23:13:25"
+               value="2026-03-05 23:19:30"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-05 23:13:25</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-05 23:19:30</code></p>
         </div>
         </form>
 
@@ -22999,7 +23205,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: c97f79a4-0c69-4424-8a1c-0d991c957bbe
+x-request-id: fa390114-7ae8-4866-af3b-e04b86b56fa5
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -24251,7 +24457,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phplc889a5t4s34aJIGOhG" </code></pre></div>
+    --form "avatar=@/tmp/phpfbvqh39is1tt5DPBJhL" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -24289,7 +24495,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phplc889a5t4s34aJIGOhG', 'r')
+                'contents' =&gt; fopen('/tmp/phpfbvqh39is1tt5DPBJhL', 'r')
             ],
         ],
     ]
@@ -24304,7 +24510,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phplc889a5t4s34aJIGOhG', 'rb')}
+  'avatar': open('/tmp/phpfbvqh39is1tt5DPBJhL', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -24419,7 +24625,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phplc889a5t4s34aJIGOhG</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpfbvqh39is1tt5DPBJhL</code></p>
         </div>
         </form>
 

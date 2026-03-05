@@ -85,6 +85,7 @@ return [
         'location_added'   => 'Locația favorită adăugată cu succes.',
         'location_removed' => 'Locația favorită eliminată cu succes.',
         'driver_added'     => 'Șoferul favorit a fost adăugat cu succes.',
+        'driver_removed'   => 'Șoferul favorit a fost eliminat cu succes.',
     ],
     'vehicle' => [
         'added' => 'Vehicul adăugat cu succes.',

@@ -196,6 +196,80 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - DELETE
+    uri: 'api/v1/rider/favorite-drivers/{favorite_id}'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      favorite_id:
+        custom: []
+        name: favorite_id
+        description: 'The ID of the favorite.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      favorite:
+        custom: []
+        name: favorite
+        description: 'ULID of favorite driver.'
+        required: true
+        example: 01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      favorite_id: architecto
+      favorite: 01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Favorite driver deleted successfully'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Can only delete own favorite drivers'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Favorite driver not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: api/v1/rider/favorites
     metadata:
@@ -1804,7 +1878,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-05 22:13:25'
+        example: '2026-03-05 22:19:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1817,7 +1891,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-05 22:13:25'
+      scheduled_at: '2026-03-05 22:19:30'
     fileParameters: []
     responses:
       -
@@ -1950,7 +2024,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-05 23:13:25'
+        example: '2026-03-05 23:19:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1963,7 +2037,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-05 23:13:25'
+      scheduled_at: '2026-03-05 23:19:30'
     fileParameters: []
     responses:
       -
@@ -2843,7 +2917,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: c97f79a4-0c69-4424-8a1c-0d991c957bbe
+          x-request-id: fa390114-7ae8-4866-af3b-e04b86b56fa5
         description: null
     responseFields: []
     auth: []
