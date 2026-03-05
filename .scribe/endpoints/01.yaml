@@ -134,6 +134,68 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: api/v1/rider/favorite-drivers
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      driver_id:
+        custom: []
+        name: driver_id
+        description: 'The ID of the driver to add to favorites. The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: 01HQXYZABC1234567890DEFGHI
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      driver_id: 01HQXYZABC1234567890DEFGHI
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Favorite driver added successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: api/v1/rider/favorites
     metadata:
@@ -1742,7 +1804,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-04 16:37:00'
+        example: '2026-03-05 22:13:25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1755,7 +1817,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-04 16:37:00'
+      scheduled_at: '2026-03-05 22:13:25'
     fileParameters: []
     responses:
       -
@@ -1888,7 +1950,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-04 17:37:00'
+        example: '2026-03-05 23:13:25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1901,7 +1963,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-04 17:37:00'
+      scheduled_at: '2026-03-05 23:13:25'
     fileParameters: []
     responses:
       -
@@ -2781,7 +2843,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: b862818d-e96c-41aa-9463-389539daa460
+          x-request-id: c97f79a4-0c69-4424-8a1c-0d991c957bbe
         description: null
     responseFields: []
     auth: []

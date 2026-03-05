@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Ride\ShareRideController;
+use App\Http\Controllers\Api\V1\Rider\AddFavoriteDriverController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\ApplyPromoCodeController;
@@ -58,6 +59,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.locations.search');
         Route::get('favorite-drivers', [GetFavoriteDriversController::class, '__invoke'])
             ->name('api.v1.rider.favorite-drivers.index');
+        Route::post('favorite-drivers', [AddFavoriteDriverController::class, '__invoke'])
+            ->name('api.v1.rider.favorite-drivers.store');
         Route::get('favorites', [GetFavoriteLocationsController::class, '__invoke'])
             ->name('api.v1.rider.favorites.index');
         Route::post('favorites', [AddFavoriteLocationController::class, '__invoke'])
