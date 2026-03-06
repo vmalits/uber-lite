@@ -122,6 +122,68 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/admin/analytics/rides
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      days:
+        custom: []
+        name: days
+        description: 'Number of days to include (1-365)'
+        required: true
+        example: 30
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      days: 30
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"data":{"total_rides":1000,"completed_rides":850,"cancelled_rides":150,"average_ride_price":150.5,"average_ride_distance":8.5,"average_ride_duration":15.2,"cancellation_rate":15,"daily_stats":[{"date":"2026-03-01","total_rides":50,"completed_rides":45,"cancelled_rides":5,"revenue":6750}]}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/admin/users
     metadata:
       custom: []
@@ -1388,7 +1450,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 79e76dc3-eb42-4499-adb0-5ee79de3e75f
+          x-request-id: 63c5a8cd-e17a-463f-b9f8-2b554405cf0a
         description: null
     responseFields: []
     auth: []
@@ -1632,7 +1694,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: b48702e1-1510-42e8-98dc-e98d67ab20fa
+          x-request-id: cbe4bf9f-6a3c-4e99-8e1d-45b46239c060
         description: null
     responseFields: []
     auth: []
