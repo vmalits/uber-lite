@@ -184,6 +184,68 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/admin/analytics/revenue
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      days:
+        custom: []
+        name: days
+        description: 'Number of days to include (1-365)'
+        required: true
+        example: 30
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      days: 30
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"data":{"total_revenue":5000000,"today_revenue":25000,"week_revenue":150000,"month_revenue":500000,"average_daily_revenue":21450.5,"average_ride_price":150.25,"total_discounts":50000,"growth_rate":12.5,"daily_revenue":[{"date":"2026-03-01","revenue":25000,"rides":150}],"monthly_revenue":[{"month":"2026-02","revenue":450000,"rides":3000}]}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/admin/users
     metadata:
       custom: []
@@ -1450,7 +1512,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 63c5a8cd-e17a-463f-b9f8-2b554405cf0a
+          x-request-id: 79c26a70-189f-47f2-af7f-a822efffee90
         description: null
     responseFields: []
     auth: []
@@ -1694,7 +1756,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: cbe4bf9f-6a3c-4e99-8e1d-45b46239c060
+          x-request-id: d00f500e-84a1-4fe7-ab2a-ae740be75f34
         description: null
     responseFields: []
     auth: []

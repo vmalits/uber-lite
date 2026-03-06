@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodesController;
+use App\Http\Controllers\Api\V1\Admin\GetRevenueAnalyticsController;
 use App\Http\Controllers\Api\V1\Admin\GetRideController;
 use App\Http\Controllers\Api\V1\Admin\GetRidesAnalyticsController;
 use App\Http\Controllers\Api\V1\Admin\GetRidesController;
@@ -34,6 +35,9 @@ Route::prefix('admin')
         Route::get('analytics/rides', [GetRidesAnalyticsController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.analytics.rides');
+        Route::get('analytics/revenue', [GetRevenueAnalyticsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.analytics.revenue');
         Route::get('users', [GetUsersController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.index');
