@@ -1880,7 +1880,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-05 22:33:57'
+        example: '2026-03-06 17:44:23'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1893,7 +1893,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-05 22:33:57'
+      scheduled_at: '2026-03-06 17:44:23'
     fileParameters: []
     responses:
       -
@@ -2026,7 +2026,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-05 23:33:57'
+        example: '2026-03-06 18:44:23'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2039,7 +2039,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-05 23:33:57'
+      scheduled_at: '2026-03-06 18:44:23'
     fileParameters: []
     responses:
       -
@@ -2888,6 +2888,68 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/rider/streak/history
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      days:
+        custom: []
+        name: days
+        description: 'Number of days to include (7-90)'
+        required: true
+        example: 30
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      days: 30
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"data":{"current_streak":7,"longest_streak":14,"history":[{"streak_count":0,"date":"2026-02-06","ride_completed":false},{"streak_count":1,"date":"2026-02-07","ride_completed":true},{"streak_count":2,"date":"2026-02-08","ride_completed":true}]}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/rider/credits
     metadata:
       custom: []
@@ -2919,7 +2981,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 19449e33-e7d1-4aa6-ae49-bd8591a395ac
+          x-request-id: 60a5ac8c-adde-458d-b000-4d2ca4511c67
         description: null
     responseFields: []
     auth: []

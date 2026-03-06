@@ -63,3 +63,65 @@ endpoints:
     controller: null
     method: null
     route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/leaderboard/riders
+    metadata:
+      custom: []
+      groupName: Gamification
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort by "-current_streak" (descending) or "-total_rides"'
+        required: true
+        example: '-current_streak'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Number of riders to return (max 50)'
+        required: true
+        example: '10'
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      sort: '-current_streak'
+      limit: '10'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"data":[{"id":"01HQXYZABC1234567890DEFGHI","first_name":"John","last_name":"Doe","avatar_paths":null,"current_streak":15,"total_rides":250,"rank":1}]}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
