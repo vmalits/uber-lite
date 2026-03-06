@@ -1878,7 +1878,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-06 17:44:23'
+        example: '2026-03-06 18:08:24'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1891,7 +1891,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-06 17:44:23'
+      scheduled_at: '2026-03-06 18:08:24'
     fileParameters: []
     responses:
       -
@@ -2024,7 +2024,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-06 18:44:23'
+        example: '2026-03-06 19:08:24'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2037,7 +2037,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-06 18:44:23'
+      scheduled_at: '2026-03-06 19:08:24'
     fileParameters: []
     responses:
       -
@@ -2979,7 +2979,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 60a5ac8c-adde-458d-b000-4d2ca4511c67
+          x-request-id: e6afd132-2fb5-4a0f-ac3e-247681a8c505
         description: null
     responseFields: []
     auth: []

@@ -6,6 +6,8 @@ namespace App\Providers;
 
 use App\Presenters\Admin\DriverProfilePresenter;
 use App\Presenters\Admin\DriverProfilePresenterInterface;
+use App\Queries\Admin\GetAnalyticsOverviewQuery;
+use App\Queries\Admin\GetAnalyticsOverviewQueryInterface;
 use App\Queries\Admin\GetDriverQuery;
 use App\Queries\Admin\GetDriverQueryInterface;
 use App\Queries\Admin\GetDriversQuery;
@@ -30,14 +32,15 @@ final class AdminServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetDriversQueryInterface::class        => GetDriversQuery::class,
-        GetUsersQueryInterface::class          => GetUsersQuery::class,
-        GetUserQueryInterface::class           => GetUserQuery::class,
-        GetRidesQueryInterface::class          => GetRidesQuery::class,
-        GetRideQueryInterface::class           => GetRideQuery::class,
-        GetTicketsQueryInterface::class        => GetTicketsQuery::class,
-        GetDriverQueryInterface::class         => GetDriverQuery::class,
-        GetPromoCodesQueryInterface::class     => GetPromoCodesQuery::class,
-        DriverProfilePresenterInterface::class => DriverProfilePresenter::class,
+        GetDriversQueryInterface::class           => GetDriversQuery::class,
+        GetUsersQueryInterface::class             => GetUsersQuery::class,
+        GetUserQueryInterface::class              => GetUserQuery::class,
+        GetRidesQueryInterface::class             => GetRidesQuery::class,
+        GetRideQueryInterface::class              => GetRideQuery::class,
+        GetTicketsQueryInterface::class           => GetTicketsQuery::class,
+        GetDriverQueryInterface::class            => GetDriverQuery::class,
+        GetPromoCodesQueryInterface::class        => GetPromoCodesQuery::class,
+        GetAnalyticsOverviewQueryInterface::class => GetAnalyticsOverviewQuery::class,
+        DriverProfilePresenterInterface::class    => DriverProfilePresenter::class,
     ];
 }

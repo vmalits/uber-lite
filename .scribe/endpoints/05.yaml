@@ -72,6 +72,56 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/admin/analytics/overview
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"data":{"daily_active_users":150,"monthly_active_users":2500,"total_revenue":500000,"today_revenue":15000,"total_rides":10000,"today_rides":150,"total_users":5000,"total_drivers":200}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/admin/users
     metadata:
       custom: []
@@ -1338,7 +1388,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 1d762415-6d02-4232-b100-593f8a5603b5
+          x-request-id: 79e76dc3-eb42-4499-adb0-5ee79de3e75f
         description: null
     responseFields: []
     auth: []
@@ -1582,7 +1632,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: ca8a7902-4dab-40ff-9d5e-453b1bc16f06
+          x-request-id: b48702e1-1510-42e8-98dc-e98d67ab20fa
         description: null
     responseFields: []
     auth: []

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\Admin\DeletePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
 use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
+use App\Http\Controllers\Api\V1\Admin\GetAnalyticsOverviewController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodeController;
@@ -26,6 +27,9 @@ Route::prefix('admin')
     ->middleware(['set_locale'])
     ->group(function (): void {
         Route::post('login', [LoginController::class, '__invoke'])->name('api.v1.admin.login');
+        Route::get('analytics/overview', [GetAnalyticsOverviewController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.analytics.overview');
         Route::get('users', [GetUsersController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.index');
