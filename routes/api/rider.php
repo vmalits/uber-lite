@@ -34,6 +34,7 @@ use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
 use App\Http\Controllers\Api\V1\Rider\GetScheduledRidesController;
 use App\Http\Controllers\Api\V1\Rider\GetStreakController;
 use App\Http\Controllers\Api\V1\Rider\GetStreakHistoryController;
+use App\Http\Controllers\Api\V1\Rider\GetSurgeController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
 use App\Http\Controllers\Api\V1\Rider\RemovePromoCodeController;
@@ -89,6 +90,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.profile.update');
         Route::post('estimates', [GetEstimateController::class, '__invoke'])
             ->name('api.v1.rider.estimates');
+        Route::get('pricing/surge', [GetSurgeController::class, '__invoke'])
+            ->name('api.v1.rider.pricing.surge');
         Route::post('rides', [CreateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])

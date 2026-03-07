@@ -387,6 +387,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-estimates">
                                 <a href="#rider-POSTapi-v1-rider-estimates">POST api/v1/rider/estimates</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-pricing-surge">
+                                <a href="#rider-GETapi-v1-rider-pricing-surge">GET api/v1/rider/pricing/surge</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides">
                                 <a href="#rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</a>
                             </li>
@@ -4646,7 +4649,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 5b07b5f9-605c-4600-8614-4a65c826cf77
+x-request-id: 4f018ae9-c953-4400-b226-ab726ade5230
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5207,7 +5210,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: efe864b1-0fc8-4112-99eb-217a7aca3208
+x-request-id: c7cfad56-fbad-4d11-9cbc-6cc0f2135d3d
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9306,7 +9309,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 849323c5-1483-41dc-a383-03ac2b08e7ac
+x-request-id: 5e97db46-f1bd-4da0-886e-c1bbd94757c3
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9505,7 +9508,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 34c9fe42-ed04-419f-a27c-126e24b875b0
+x-request-id: de44001e-fa2a-421a-b8ce-e0f9bd15fc8a
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -13125,7 +13128,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpq6nnoqo6nko30HfdIDC" </code></pre></div>
+    --form "avatar=@/tmp/phpiqj7d85hj6ki7Akdboe" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -13163,7 +13166,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpq6nnoqo6nko30HfdIDC', 'r')
+                'contents' =&gt; fopen('/tmp/phpiqj7d85hj6ki7Akdboe', 'r')
             ],
         ],
     ]
@@ -13178,7 +13181,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpq6nnoqo6nko30HfdIDC', 'rb')}
+  'avatar': open('/tmp/phpiqj7d85hj6ki7Akdboe', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -13293,7 +13296,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpq6nnoqo6nko30HfdIDC</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpiqj7d85hj6ki7Akdboe</code></p>
         </div>
         </form>
 
@@ -20373,6 +20376,177 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
+                    <h2 id="rider-GETapi-v1-rider-pricing-surge">GET api/v1/rider/pricing/surge</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-rider-pricing-surge">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/rider/pricing/surge" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/pricing/surge"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/pricing/surge';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/pricing/surge'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-rider-pricing-surge">
+            <blockquote>
+            <p>Example response (200, Current surge pricing multiplier.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-rider-pricing-surge" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-rider-pricing-surge"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-rider-pricing-surge"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-rider-pricing-surge" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-rider-pricing-surge">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-rider-pricing-surge" data-method="GET"
+      data-path="api/v1/rider/pricing/surge"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-rider-pricing-surge', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-rider-pricing-surge"
+                    onclick="tryItOut('GETapi-v1-rider-pricing-surge');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-rider-pricing-surge"
+                    onclick="cancelTryOut('GETapi-v1-rider-pricing-surge');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-rider-pricing-surge"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/rider/pricing/surge</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-rider-pricing-surge"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-rider-pricing-surge"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-rider-pricing-surge"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
                     <h2 id="rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</h2>
 
 <p>
@@ -21657,7 +21831,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-07 23:30:04\"
+    \"scheduled_at\": \"2026-03-07 23:49:59\"
 }"
 </code></pre></div>
 
@@ -21680,7 +21854,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-07 23:30:04"
+    "scheduled_at": "2026-03-07 23:49:59"
 };
 
 fetch(url, {
@@ -21708,7 +21882,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-07 23:30:04',
+            'scheduled_at' =&gt; '2026-03-07 23:49:59',
         ],
     ]
 );
@@ -21728,7 +21902,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-07 23:30:04"
+    "scheduled_at": "2026-03-07 23:49:59"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -21927,10 +22101,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-03-07 23:30:04"
+               value="2026-03-07 23:49:59"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-07 23:30:04</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-07 23:49:59</code></p>
         </div>
         </form>
 
@@ -21959,7 +22133,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-08 00:30:04\"
+    \"scheduled_at\": \"2026-03-08 00:49:59\"
 }"
 </code></pre></div>
 
@@ -21982,7 +22156,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-08 00:30:04"
+    "scheduled_at": "2026-03-08 00:49:59"
 };
 
 fetch(url, {
@@ -22010,7 +22184,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-08 00:30:04',
+            'scheduled_at' =&gt; '2026-03-08 00:49:59',
         ],
     ]
 );
@@ -22030,7 +22204,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-08 00:30:04"
+    "scheduled_at": "2026-03-08 00:49:59"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -22249,10 +22423,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-03-08 00:30:04"
+               value="2026-03-08 00:49:59"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-08 00:30:04</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-08 00:49:59</code></p>
         </div>
         </form>
 
@@ -24774,7 +24948,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 54413694-bbfe-4f48-abf6-a0c6a38e2c2b
+x-request-id: 09b47e64-c6db-4453-9e6c-f90e75216d3f
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -26026,7 +26200,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phps59n08f06kjh2ChebPA" </code></pre></div>
+    --form "avatar=@/tmp/phpu019mtpua55c0dhMjOd" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -26064,7 +26238,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phps59n08f06kjh2ChebPA', 'r')
+                'contents' =&gt; fopen('/tmp/phpu019mtpua55c0dhMjOd', 'r')
             ],
         ],
     ]
@@ -26079,7 +26253,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phps59n08f06kjh2ChebPA', 'rb')}
+  'avatar': open('/tmp/phpu019mtpua55c0dhMjOd', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -26194,7 +26368,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phps59n08f06kjh2ChebPA</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpu019mtpua55c0dhMjOd</code></p>
         </div>
         </form>
 
