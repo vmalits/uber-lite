@@ -879,6 +879,100 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/admin/export/rides
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      date_from:
+        custom: []
+        name: date_from
+        description: 'Filter rides from this date (Y-m-d format). Must be a valid date. Must be a date before or equal to <code>date_to</code>.'
+        required: false
+        example: '2024-01-01'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date_to:
+        custom: []
+        name: date_to
+        description: 'Filter rides to this date (Y-m-d format). Must be a valid date. Must be a date after or equal to <code>date_from</code>.'
+        required: false
+        example: '2024-12-31'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Filter by ride status.'
+        required: false
+        example: completed
+        type: string
+        enumValues:
+          - scheduled
+          - pending
+          - accepted
+          - on_the_way
+          - arrived
+          - started
+          - completed
+          - cancelled
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanQueryParameters:
+      date_from: '2024-01-01'
+      date_to: '2024-12-31'
+      status: completed
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: text/csv
+        headers: []
+        description: 'CSV file with rides data.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: 'api/v1/admin/rides/{id}'
     metadata:
       custom: []
@@ -1514,7 +1608,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 79c26a70-189f-47f2-af7f-a822efffee90
+          x-request-id: 5b07b5f9-605c-4600-8614-4a65c826cf77
         description: null
     responseFields: []
     auth: []
@@ -1758,7 +1852,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: d00f500e-84a1-4fe7-ab2a-ae740be75f34
+          x-request-id: efe864b1-0fc8-4112-99eb-217a7aca3208
         description: null
     responseFields: []
     auth: []

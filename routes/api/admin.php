@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\Admin\DeletePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
 use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
+use App\Http\Controllers\Api\V1\Admin\ExportRidesController;
 use App\Http\Controllers\Api\V1\Admin\GetAnalyticsOverviewController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
@@ -53,6 +54,9 @@ Route::prefix('admin')
         Route::get('rides', [GetRidesController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.rides.index');
+        Route::get('export/rides', [ExportRidesController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.export.rides');
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.rides.show');

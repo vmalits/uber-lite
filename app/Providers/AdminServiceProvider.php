@@ -6,6 +6,10 @@ namespace App\Providers;
 
 use App\Presenters\Admin\DriverProfilePresenter;
 use App\Presenters\Admin\DriverProfilePresenterInterface;
+use App\Presenters\Admin\RidesCsvExportPresenter;
+use App\Presenters\Admin\RidesCsvExportPresenterInterface;
+use App\Queries\Admin\ExportRidesQuery;
+use App\Queries\Admin\ExportRidesQueryInterface;
 use App\Queries\Admin\GetAnalyticsOverviewQuery;
 use App\Queries\Admin\GetAnalyticsOverviewQueryInterface;
 use App\Queries\Admin\GetDriverQuery;
@@ -47,6 +51,8 @@ final class AdminServiceProvider extends ServiceProvider
         GetAnalyticsOverviewQueryInterface::class => GetAnalyticsOverviewQuery::class,
         GetRidesAnalyticsQueryInterface::class    => GetRidesAnalyticsQuery::class,
         GetRevenueAnalyticsQueryInterface::class  => GetRevenueAnalyticsQuery::class,
+        ExportRidesQueryInterface::class          => ExportRidesQuery::class,
+        RidesCsvExportPresenterInterface::class   => RidesCsvExportPresenter::class,
         DriverProfilePresenterInterface::class    => DriverProfilePresenter::class,
     ];
 }
