@@ -248,6 +248,56 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/admin/analytics/real-time
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Real-time analytics data retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/admin/users
     metadata:
       custom: []
@@ -1608,7 +1658,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 18286749-bc78-4eaf-83c9-7659913510c9
+          x-request-id: 13a0654c-185a-471b-83bf-36b11162a9ae
         description: null
     responseFields: []
     auth: []
@@ -1852,7 +1902,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: f6f67c71-aafe-4aa0-89c4-3c00ea957c54
+          x-request-id: 45c151a2-3733-4d52-b487-8dc21286e1d2
         description: null
     responseFields: []
     auth: []

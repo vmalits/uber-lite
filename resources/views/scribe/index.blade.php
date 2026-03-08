@@ -87,6 +87,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-analytics-revenue">
                                 <a href="#admin-GETapi-v1-admin-analytics-revenue">GET api/v1/admin/analytics/revenue</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-analytics-real-time">
+                                <a href="#admin-GETapi-v1-admin-analytics-real-time">GET api/v1/admin/analytics/real-time</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-users">
                                 <a href="#admin-GETapi-v1-admin-users">GET api/v1/admin/users</a>
                             </li>
@@ -1401,6 +1404,184 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Number of days to include (1-365) Example: <code>30</code></p>
             </div>
                 </form>
+
+                    <h2 id="admin-GETapi-v1-admin-analytics-real-time">GET api/v1/admin/analytics/real-time</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-admin-analytics-real-time">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/admin/analytics/real-time" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/analytics/real-time"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/analytics/real-time';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/analytics/real-time'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-admin-analytics-real-time">
+            <blockquote>
+            <p>Example response (200, Real-time analytics data retrieved successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden - not an admin.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-admin-analytics-real-time" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-admin-analytics-real-time"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-admin-analytics-real-time"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-admin-analytics-real-time" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-admin-analytics-real-time">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-admin-analytics-real-time" data-method="GET"
+      data-path="api/v1/admin/analytics/real-time"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-admin-analytics-real-time', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-admin-analytics-real-time"
+                    onclick="tryItOut('GETapi-v1-admin-analytics-real-time');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-admin-analytics-real-time"
+                    onclick="cancelTryOut('GETapi-v1-admin-analytics-real-time');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-admin-analytics-real-time"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/admin/analytics/real-time</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-admin-analytics-real-time"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-admin-analytics-real-time"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-admin-analytics-real-time"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                     <h2 id="admin-GETapi-v1-admin-users">GET api/v1/admin/users</h2>
 
@@ -4652,7 +4833,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 18286749-bc78-4eaf-83c9-7659913510c9
+x-request-id: 13a0654c-185a-471b-83bf-36b11162a9ae
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5213,7 +5394,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: f6f67c71-aafe-4aa0-89c4-3c00ea957c54
+x-request-id: 45c151a2-3733-4d52-b487-8dc21286e1d2
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9312,7 +9493,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: dedfa88d-d316-4283-aa3c-e95b23c32c4b
+x-request-id: 41fc9917-3ab9-43fd-a22f-01f73814042a
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9511,7 +9692,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 9cf70611-2f56-427a-bbe5-21fb9e799e74
+x-request-id: eb8d6500-7f2e-4289-8b8c-8e7375340cb7
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -13131,7 +13312,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpufluq2sct7q74eGhMpD" </code></pre></div>
+    --form "avatar=@/tmp/phpr9c340i3qd417KNaieG" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -13169,7 +13350,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpufluq2sct7q74eGhMpD', 'r')
+                'contents' =&gt; fopen('/tmp/phpr9c340i3qd417KNaieG', 'r')
             ],
         ],
     ]
@@ -13184,7 +13365,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpufluq2sct7q74eGhMpD', 'rb')}
+  'avatar': open('/tmp/phpr9c340i3qd417KNaieG', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -13299,7 +13480,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpufluq2sct7q74eGhMpD</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpr9c340i3qd417KNaieG</code></p>
         </div>
         </form>
 
@@ -22005,7 +22186,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-08 18:58:40\"
+    \"scheduled_at\": \"2026-03-08 19:47:53\"
 }"
 </code></pre></div>
 
@@ -22028,7 +22209,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-08 18:58:40"
+    "scheduled_at": "2026-03-08 19:47:53"
 };
 
 fetch(url, {
@@ -22056,7 +22237,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-08 18:58:40',
+            'scheduled_at' =&gt; '2026-03-08 19:47:53',
         ],
     ]
 );
@@ -22076,7 +22257,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-08 18:58:40"
+    "scheduled_at": "2026-03-08 19:47:53"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -22275,10 +22456,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-03-08 18:58:40"
+               value="2026-03-08 19:47:53"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-08 18:58:40</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-08 19:47:53</code></p>
         </div>
         </form>
 
@@ -22307,7 +22488,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-08 19:58:40\"
+    \"scheduled_at\": \"2026-03-08 20:47:53\"
 }"
 </code></pre></div>
 
@@ -22330,7 +22511,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-08 19:58:40"
+    "scheduled_at": "2026-03-08 20:47:53"
 };
 
 fetch(url, {
@@ -22358,7 +22539,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-08 19:58:40',
+            'scheduled_at' =&gt; '2026-03-08 20:47:53',
         ],
     ]
 );
@@ -22378,7 +22559,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-08 19:58:40"
+    "scheduled_at": "2026-03-08 20:47:53"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -22597,10 +22778,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-03-08 19:58:40"
+               value="2026-03-08 20:47:53"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-08 19:58:40</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-08 20:47:53</code></p>
         </div>
         </form>
 
@@ -25122,7 +25303,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 42af0613-aa9a-46f8-a6ec-15c713a4d8f6
+x-request-id: 76e9c3cf-c552-4d7f-862d-5ab50f2da43f
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -26374,7 +26555,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpgmh39c78of1tbBECeMC" </code></pre></div>
+    --form "avatar=@/tmp/phpshmqkb6p0f5ndfPLnDF" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -26412,7 +26593,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpgmh39c78of1tbBECeMC', 'r')
+                'contents' =&gt; fopen('/tmp/phpshmqkb6p0f5ndfPLnDF', 'r')
             ],
         ],
     ]
@@ -26427,7 +26608,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpgmh39c78of1tbBECeMC', 'rb')}
+  'avatar': open('/tmp/phpshmqkb6p0f5ndfPLnDF', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -26542,7 +26723,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpgmh39c78of1tbBECeMC</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpshmqkb6p0f5ndfPLnDF</code></p>
         </div>
         </form>
 
