@@ -34,7 +34,7 @@ final readonly class SurgePricingService
         $timeMultiplier = $this->getTimeBasedMultiplier($now);
         $demandMultiplier = $this->getDemandMultiplier();
 
-        $totalMultiplier = round($timeMultiplier * $demandMultiplier, 2);
+        $totalMultiplier = (float) round($timeMultiplier * $demandMultiplier, 2);
 
         if ($totalMultiplier <= 1.0) {
             return SurgeData::default();

@@ -26,6 +26,7 @@ use App\Http\Controllers\Api\V1\Rider\GetFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRoutesController;
 use App\Http\Controllers\Api\V1\Rider\GetLevelController;
 use App\Http\Controllers\Api\V1\Rider\GetPaymentMethodsController;
+use App\Http\Controllers\Api\V1\Rider\GetPricingZonesController;
 use App\Http\Controllers\Api\V1\Rider\GetReceiptController;
 use App\Http\Controllers\Api\V1\Rider\GetReceiptsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
@@ -92,6 +93,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.estimates');
         Route::get('pricing/surge', [GetSurgeController::class, '__invoke'])
             ->name('api.v1.rider.pricing.surge');
+        Route::get('pricing/zones', [GetPricingZonesController::class, '__invoke'])
+            ->name('api.v1.rider.pricing.zones');
         Route::post('rides', [CreateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])

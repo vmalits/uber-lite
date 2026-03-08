@@ -2,17 +2,15 @@
 
 declare(strict_types=1);
 
-use App\Enums\DriverAvailabilityStatus;
 use App\Enums\ProfileStep;
 use App\Enums\UserRole;
-use App\Models\DriverLocation;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
 
 uses(RefreshDatabase::class);
 
-it('returns current surge multiplier for rider', function () {
+it('returns pricing zones for rider', function () {
     $rider = User::factory()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
@@ -22,43 +20,39 @@ it('returns current surge multiplier for rider', function () {
     Cache::flush();
 
     $response = $this->actingAs($rider, 'sanctum')
-        ->getJson('/api/v1/rider/pricing/surge');
+        ->getJson('/api/v1/rider/pricing/zones');
 
     $response->assertOk()
         ->assertJsonStructure([
             'success',
             'data' => [
-                'multiplier',
-                'reason',
-                'is_active',
+                'zones',
+                'total',
             ],
         ]);
 });
 
-it('returns default surge when no demand', function () {
+it('returns configured zones from config', function () {
     $rider = User::factory()->create([
         'role'         => UserRole::RIDER,
         'profile_step' => ProfileStep::COMPLETED,
     ]);
     $rider->markEmailAsVerified();
 
-    // Create online drivers to avoid "no drivers" surge
-    DriverLocation::factory()->create([
-        'status' => DriverAvailabilityStatus::ONLINE,
-    ]);
-
     Cache::flush();
 
     $response = $this->actingAs($rider, 'sanctum')
-        ->getJson('/api/v1/rider/pricing/surge');
+        ->getJson('/api/v1/rider/pricing/zones');
 
     $response->assertOk();
 
-    expect($response['data']['multiplier'])->toBeNumeric();
+    $zones = $response['data']['zones'];
+
+    expect($zones)->toBeArray();
 });
 
 it('rejects unauthorized request without token', function () {
-    $response = $this->getJson('/api/v1/rider/pricing/surge');
+    $response = $this->getJson('/api/v1/rider/pricing/zones');
     $response->assertUnauthorized();
 });
 
@@ -70,6 +64,6 @@ it('rejects non-rider user', function () {
     $driver->markEmailAsVerified();
 
     $response = $this->actingAs($driver, 'sanctum')
-        ->getJson('/api/v1/rider/pricing/surge');
+        ->getJson('/api/v1/rider/pricing/zones');
     $response->assertForbidden();
 });
