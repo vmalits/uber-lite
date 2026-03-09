@@ -8,6 +8,8 @@ use App\Queries\Rider\GetActiveRideQuery;
 use App\Queries\Rider\GetActiveRideQueryInterface;
 use App\Queries\Rider\GetCreditBalanceQuery;
 use App\Queries\Rider\GetCreditBalanceQueryInterface;
+use App\Queries\Rider\GetDriverReviewsQuery;
+use App\Queries\Rider\GetDriverReviewsQueryInterface;
 use App\Queries\Rider\GetFareBreakdownQuery;
 use App\Queries\Rider\GetFareBreakdownQueryInterface;
 use App\Queries\Rider\GetFavoriteDriversQuery;
@@ -44,6 +46,7 @@ final class RiderServiceProvider extends ServiceProvider
     public array $bindings = [
         GetActiveRideQueryInterface::class        => GetActiveRideQuery::class,
         GetCreditBalanceQueryInterface::class     => GetCreditBalanceQuery::class,
+        GetDriverReviewsQueryInterface::class     => GetDriverReviewsQuery::class,
         GetFareBreakdownQueryInterface::class     => GetFareBreakdownQuery::class,
         GetFavoriteDriversQueryInterface::class   => GetFavoriteDriversQuery::class,
         GetFavoriteLocationQueryInterface::class  => GetFavoriteLocationQuery::class,

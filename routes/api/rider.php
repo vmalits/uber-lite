@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\V1\Rider\DeletePaymentMethodController;
 use App\Http\Controllers\Api\V1\Rider\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetCreditsController;
+use App\Http\Controllers\Api\V1\Rider\GetDriverReviewsController;
 use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
 use App\Http\Controllers\Api\V1\Rider\GetFareBreakdownController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteDriversController;
@@ -67,6 +68,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.favorite-drivers.store');
         Route::delete('favorite-drivers/{favorite}', [DeleteFavoriteDriverController::class, '__invoke'])
             ->name('api.v1.rider.favorite-drivers.destroy');
+        Route::get('drivers/{driver}/reviews', [GetDriverReviewsController::class, '__invoke'])
+            ->name('api.v1.rider.drivers.reviews');
         Route::get('favorites', [GetFavoriteLocationsController::class, '__invoke'])
             ->name('api.v1.rider.favorites.index');
         Route::post('favorites', [AddFavoriteLocationController::class, '__invoke'])

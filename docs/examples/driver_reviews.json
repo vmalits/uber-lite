@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "items": [
+      {
+        "id": "01kec121njjgtg1beabpm1es48",
+        "rating": 5,
+        "comment": "Great driver, very professional and friendly!",
+        "rider_name": "John Doe",
+        "created_at": {
+          "human": "1 hour ago",
+          "string": "2026-03-09 12:00:00"
+        }
+      },
+      {
+        "id": "01kec121njjgtg1beabpm1es49",
+        "rating": 4,
+        "comment": "Good ride, clean car",
+        "rider_name": "Jane Smith",
+        "created_at": {
+          "human": "2 hours ago",
+          "string": "2026-03-09 11:00:00"
+        }
+      },
+      {
+        "id": "01kec121njjgtg1beabpm1es50",
+        "rating": 5,
+        "comment": null,
+        "rider_name": "Bob Wilson",
+        "created_at": {
+          "human": "1 day ago",
+          "string": "2026-03-08 14:30:00"
+        }
+      }
+    ],
+    "pagination": {
+      "total": 3,
+      "per_page": 15,
+      "current_page": 1,
+      "last_page": 1
+    }
+  }
+}

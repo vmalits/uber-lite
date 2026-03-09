@@ -92,6 +92,8 @@ it('calculates comparison to previous period', function (): void {
 });
 
 it('finds best day', function (): void {
+    Carbon::setTestNow('2026-02-28');
+
     Ride::factory()->create([
         'driver_id'    => $this->driver->id,
         'price'        => 100,
@@ -109,4 +111,6 @@ it('finds best day', function (): void {
     $result = $this->query->execute($this->driver, 1);
 
     expect($result->bestDayEarnings)->toBe(300);
+
+    Carbon::setTestNow();
 });
