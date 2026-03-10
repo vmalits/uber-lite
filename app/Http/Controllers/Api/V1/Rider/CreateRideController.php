@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
@@ -21,6 +22,7 @@ use Knuckles\Scribe\Attributes\Response;
 #[Group('Rider')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
+#[Endpoint('Create Ride', 'Create a new ride request')]
 #[Response(status: 201, description: 'Ride created successfully.')]
 #[Response(status: 422, description: 'Validation errors.')]
 #[Response(status: 403, description: 'Profile not completed.')]

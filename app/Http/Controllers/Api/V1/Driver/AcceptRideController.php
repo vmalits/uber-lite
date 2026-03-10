@@ -12,6 +12,7 @@ use App\Support\ApiResponse;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
@@ -19,6 +20,7 @@ use Knuckles\Scribe\Attributes\UrlParam;
 use Throwable;
 
 #[Group('Driver')]
+#[Endpoint('Accept Ride', 'Accept an available ride request')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[UrlParam(

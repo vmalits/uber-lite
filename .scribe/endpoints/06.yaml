@@ -12,8 +12,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Set Locale'
+      description: "Update user's preferred language/locale"
       authenticated: true
       deprecated: false
     headers:

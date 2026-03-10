@@ -13,11 +13,13 @@ use App\Support\ApiResponse;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Safety')]
+#[Endpoint('Add Emergency Contact', 'Add an emergency contact to user\'s safety list')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[Response(status: 201, description: 'Emergency contact added successfully')]

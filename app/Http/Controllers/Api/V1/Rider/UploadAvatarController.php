@@ -12,12 +12,14 @@ use App\Support\ApiResponse;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
 use Random\RandomException;
 
 #[Group('Rider')]
+#[Endpoint('Upload Avatar', 'Upload or update rider\'s profile picture')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[Response(status: 200, description: 'Avatar upload processing started.')]

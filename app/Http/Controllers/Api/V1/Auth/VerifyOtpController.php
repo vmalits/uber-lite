@@ -13,10 +13,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\VerifyOtpRequest;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Auth')]
+#[Endpoint('Verify OTP', 'Verify OTP code and authenticate user')]
 #[Response(status: 200, description: 'OTP verified successfully.')]
 #[Response(status: 422, description: 'Validation errors.')]
 #[Response(status: 429, description: 'Too many failed attempts. Account temporarily locked.')]

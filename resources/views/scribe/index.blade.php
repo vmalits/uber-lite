@@ -32,9 +32,9 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="{{ asset("/vendor/scribe/js/tryitout-5.6.0.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe/js/tryitout-5.8.0.js") }}"></script>
 
-    <script src="{{ asset("/vendor/scribe/js/theme-default-5.6.0.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe/js/theme-default-5.8.0.js") }}"></script>
 
 </head>
 
@@ -76,76 +76,76 @@
                 </li>
                                     <ul id="tocify-subheader-admin" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="admin-POSTapi-v1-admin-login">
-                                <a href="#admin-POSTapi-v1-admin-login">POST api/v1/admin/login</a>
+                                <a href="#admin-POSTapi-v1-admin-login">Admin Login</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-analytics-overview">
-                                <a href="#admin-GETapi-v1-admin-analytics-overview">GET api/v1/admin/analytics/overview</a>
+                                <a href="#admin-GETapi-v1-admin-analytics-overview">Get Analytics Overview</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-analytics-rides">
-                                <a href="#admin-GETapi-v1-admin-analytics-rides">GET api/v1/admin/analytics/rides</a>
+                                <a href="#admin-GETapi-v1-admin-analytics-rides">Get Rides Analytics</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-analytics-revenue">
-                                <a href="#admin-GETapi-v1-admin-analytics-revenue">GET api/v1/admin/analytics/revenue</a>
+                                <a href="#admin-GETapi-v1-admin-analytics-revenue">Get Revenue Analytics</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-analytics-real-time">
-                                <a href="#admin-GETapi-v1-admin-analytics-real-time">GET api/v1/admin/analytics/real-time</a>
+                                <a href="#admin-GETapi-v1-admin-analytics-real-time">Get Real-Time Analytics</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-users">
-                                <a href="#admin-GETapi-v1-admin-users">GET api/v1/admin/users</a>
+                                <a href="#admin-GETapi-v1-admin-users">Get Users</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-users--id-">
-                                <a href="#admin-GETapi-v1-admin-users--id-">GET api/v1/admin/users/{id}</a>
+                                <a href="#admin-GETapi-v1-admin-users--id-">Get User</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-drivers">
-                                <a href="#admin-GETapi-v1-admin-drivers">GET api/v1/admin/drivers</a>
+                                <a href="#admin-GETapi-v1-admin-drivers">Get Drivers</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-drivers--id-">
-                                <a href="#admin-GETapi-v1-admin-drivers--id-">GET api/v1/admin/drivers/{id}</a>
+                                <a href="#admin-GETapi-v1-admin-drivers--id-">Get Driver</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-rides">
-                                <a href="#admin-GETapi-v1-admin-rides">GET api/v1/admin/rides</a>
+                                <a href="#admin-GETapi-v1-admin-rides">Get Rides</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-export-rides">
-                                <a href="#admin-GETapi-v1-admin-export-rides">GET api/v1/admin/export/rides</a>
+                                <a href="#admin-GETapi-v1-admin-export-rides">Export Rides</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-rides--id-">
-                                <a href="#admin-GETapi-v1-admin-rides--id-">GET api/v1/admin/rides/{id}</a>
+                                <a href="#admin-GETapi-v1-admin-rides--id-">Get Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-DELETEapi-v1-admin-users--id-">
-                                <a href="#admin-DELETEapi-v1-admin-users--id-">DELETE api/v1/admin/users/{id}</a>
+                                <a href="#admin-DELETEapi-v1-admin-users--id-">Delete User</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-POSTapi-v1-admin-drivers--driver_id--ban">
-                                <a href="#admin-POSTapi-v1-admin-drivers--driver_id--ban">POST api/v1/admin/drivers/{driver_id}/ban</a>
+                                <a href="#admin-POSTapi-v1-admin-drivers--driver_id--ban">Ban Driver</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-POSTapi-v1-admin-drivers--driver_id--unban">
-                                <a href="#admin-POSTapi-v1-admin-drivers--driver_id--unban">POST api/v1/admin/drivers/{driver_id}/unban</a>
+                                <a href="#admin-POSTapi-v1-admin-drivers--driver_id--unban">Unban Driver</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-tickets">
-                                <a href="#admin-GETapi-v1-admin-tickets">GET api/v1/admin/tickets</a>
+                                <a href="#admin-GETapi-v1-admin-tickets">Get Tickets</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-tickets--id-">
-                                <a href="#admin-GETapi-v1-admin-tickets--id-">GET api/v1/admin/tickets/{id}</a>
+                                <a href="#admin-GETapi-v1-admin-tickets--id-">Get Ticket</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-tickets--ticket_id--comments">
-                                <a href="#admin-GETapi-v1-admin-tickets--ticket_id--comments">GET api/v1/admin/tickets/{ticket_id}/comments</a>
+                                <a href="#admin-GETapi-v1-admin-tickets--ticket_id--comments">Get Ticket Comments</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-promo-codes">
-                                <a href="#admin-GETapi-v1-admin-promo-codes">GET api/v1/admin/promo-codes</a>
+                                <a href="#admin-GETapi-v1-admin-promo-codes">Get Promo Codes</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-POSTapi-v1-admin-promo-codes">
-                                <a href="#admin-POSTapi-v1-admin-promo-codes">POST api/v1/admin/promo-codes</a>
+                                <a href="#admin-POSTapi-v1-admin-promo-codes">Create Promo Code</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-promo-codes--promoCode_id-">
-                                <a href="#admin-GETapi-v1-admin-promo-codes--promoCode_id-">GET api/v1/admin/promo-codes/{promoCode_id}</a>
+                                <a href="#admin-GETapi-v1-admin-promo-codes--promoCode_id-">Get Promo Code</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-PUTapi-v1-admin-promo-codes--promoCode_id-">
-                                <a href="#admin-PUTapi-v1-admin-promo-codes--promoCode_id-">PUT api/v1/admin/promo-codes/{promoCode_id}</a>
+                                <a href="#admin-PUTapi-v1-admin-promo-codes--promoCode_id-">Update Promo Code</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-DELETEapi-v1-admin-promo-codes--promoCode_id-">
-                                <a href="#admin-DELETEapi-v1-admin-promo-codes--promoCode_id-">DELETE api/v1/admin/promo-codes/{promoCode_id}</a>
+                                <a href="#admin-DELETEapi-v1-admin-promo-codes--promoCode_id-">Delete Promo Code</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="admin-POSTapi-v1-admin-users--user_id--credits">
-                                <a href="#admin-POSTapi-v1-admin-users--user_id--credits">POST api/v1/admin/users/{user_id}/credits</a>
+                                <a href="#admin-POSTapi-v1-admin-users--user_id--credits">Adjust User Credits</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -155,34 +155,34 @@
                 </li>
                                     <ul id="tocify-subheader-auth" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-request-otp">
-                                <a href="#auth-POSTapi-v1-auth-request-otp">POST api/v1/auth/request-otp</a>
+                                <a href="#auth-POSTapi-v1-auth-request-otp">Request OTP</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-request-otp-resend">
-                                <a href="#auth-POSTapi-v1-auth-request-otp-resend">POST api/v1/auth/request-otp/resend</a>
+                                <a href="#auth-POSTapi-v1-auth-request-otp-resend">Resend OTP</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-verify-otp">
-                                <a href="#auth-POSTapi-v1-auth-verify-otp">POST api/v1/auth/verify-otp</a>
+                                <a href="#auth-POSTapi-v1-auth-verify-otp">Verify OTP</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-add-email">
-                                <a href="#auth-POSTapi-v1-auth-add-email">POST api/v1/auth/add-email</a>
+                                <a href="#auth-POSTapi-v1-auth-add-email">Add Email</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-select-role">
-                                <a href="#auth-POSTapi-v1-auth-select-role">POST api/v1/auth/select-role</a>
+                                <a href="#auth-POSTapi-v1-auth-select-role">Select Role</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-complete-profile">
-                                <a href="#auth-POSTapi-v1-auth-complete-profile">POST api/v1/auth/complete-profile</a>
+                                <a href="#auth-POSTapi-v1-auth-complete-profile">Complete Profile</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-logout">
-                                <a href="#auth-POSTapi-v1-auth-logout">POST api/v1/auth/logout</a>
+                                <a href="#auth-POSTapi-v1-auth-logout">Logout</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-email-verification-notification">
-                                <a href="#auth-POSTapi-v1-auth-email-verification-notification">POST api/v1/auth/email/verification-notification</a>
+                                <a href="#auth-POSTapi-v1-auth-email-verification-notification">Send Email Verification</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-GETapi-v1-auth-email-verify--user_id---hash-">
-                                <a href="#auth-GETapi-v1-auth-email-verify--user_id---hash-">GET api/v1/auth/email/verify/{user_id}/{hash}</a>
+                                <a href="#auth-GETapi-v1-auth-email-verify--user_id---hash-">Verify Email</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-DELETEapi-v1-auth-delete-account">
-                                <a href="#auth-DELETEapi-v1-auth-delete-account">DELETE api/v1/auth/delete-account</a>
+                                <a href="#auth-DELETEapi-v1-auth-delete-account">Delete Account</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -192,109 +192,109 @@
                 </li>
                                     <ul id="tocify-subheader-driver" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-profile">
-                                <a href="#driver-GETapi-v1-driver-profile">GET api/v1/driver/profile</a>
+                                <a href="#driver-GETapi-v1-driver-profile">Get Profile</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-PUTapi-v1-driver-profile">
-                                <a href="#driver-PUTapi-v1-driver-profile">PUT api/v1/driver/profile</a>
+                                <a href="#driver-PUTapi-v1-driver-profile">Update Profile</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-stats">
-                                <a href="#driver-GETapi-v1-driver-stats">GET api/v1/driver/stats</a>
+                                <a href="#driver-GETapi-v1-driver-stats">Get Stats</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-achievements">
-                                <a href="#driver-GETapi-v1-driver-achievements">GET api/v1/driver/achievements</a>
+                                <a href="#driver-GETapi-v1-driver-achievements">Get Achievements</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-level">
-                                <a href="#driver-GETapi-v1-driver-level">GET api/v1/driver/level</a>
+                                <a href="#driver-GETapi-v1-driver-level">Get Level</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-earnings-daily">
-                                <a href="#driver-GETapi-v1-driver-earnings-daily">GET api/v1/driver/earnings/daily</a>
+                                <a href="#driver-GETapi-v1-driver-earnings-daily">Get Daily Earnings</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-earnings-weekly">
-                                <a href="#driver-GETapi-v1-driver-earnings-weekly">GET api/v1/driver/earnings/weekly</a>
+                                <a href="#driver-GETapi-v1-driver-earnings-weekly">Get Weekly Earnings</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-earnings-monthly">
-                                <a href="#driver-GETapi-v1-driver-earnings-monthly">GET api/v1/driver/earnings/monthly</a>
+                                <a href="#driver-GETapi-v1-driver-earnings-monthly">Get Monthly Earnings</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-tips">
-                                <a href="#driver-GETapi-v1-driver-tips">GET api/v1/driver/tips</a>
+                                <a href="#driver-GETapi-v1-driver-tips">Get Tip History</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-heatmap">
-                                <a href="#driver-GETapi-v1-driver-heatmap">GET api/v1/driver/heatmap</a>
+                                <a href="#driver-GETapi-v1-driver-heatmap">Get Heatmap</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-online">
-                                <a href="#driver-POSTapi-v1-driver-online">POST api/v1/driver/online</a>
+                                <a href="#driver-POSTapi-v1-driver-online">Go Online</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-offline">
-                                <a href="#driver-POSTapi-v1-driver-offline">POST api/v1/driver/offline</a>
+                                <a href="#driver-POSTapi-v1-driver-offline">Go Offline</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-active">
-                                <a href="#driver-GETapi-v1-driver-rides-active">GET api/v1/driver/rides/active</a>
+                                <a href="#driver-GETapi-v1-driver-rides-active">Get Active Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-history">
-                                <a href="#driver-GETapi-v1-driver-rides-history">GET api/v1/driver/rides/history</a>
+                                <a href="#driver-GETapi-v1-driver-rides-history">Get Ride History</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-bans-active">
-                                <a href="#driver-GETapi-v1-driver-bans-active">GET api/v1/driver/bans/active</a>
+                                <a href="#driver-GETapi-v1-driver-bans-active">Get Active Bans</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-bans--id-">
-                                <a href="#driver-GETapi-v1-driver-bans--id-">GET api/v1/driver/bans/{id}</a>
+                                <a href="#driver-GETapi-v1-driver-bans--id-">Get Ban Details</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-tickets--ticket_id--comments">
-                                <a href="#driver-POSTapi-v1-driver-tickets--ticket_id--comments">POST api/v1/driver/tickets/{ticket_id}/comments</a>
+                                <a href="#driver-POSTapi-v1-driver-tickets--ticket_id--comments">Add Ticket Comment</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-rides-available">
-                                <a href="#driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</a>
+                                <a href="#driver-GETapi-v1-driver-rides-available">Get Available Rides</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--accept">
-                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--accept">POST api/v1/driver/rides/{ride_id}/accept</a>
+                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--accept">Accept Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--on-the-way">
-                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--on-the-way">POST api/v1/driver/rides/{ride_id}/on-the-way</a>
+                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--on-the-way">On The Way</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--arrived">
-                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--arrived">POST api/v1/driver/rides/{ride_id}/arrived</a>
+                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--arrived">Arrived at Pickup</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--start">
-                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--start">POST api/v1/driver/rides/{ride_id}/start</a>
+                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--start">Start Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--complete">
-                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--complete">POST api/v1/driver/rides/{ride_id}/complete</a>
+                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--complete">Complete Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-rides--ride_id--cancel">
-                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--cancel">POST api/v1/driver/rides/{ride_id}/cancel</a>
+                                <a href="#driver-POSTapi-v1-driver-rides--ride_id--cancel">Cancel Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-location">
-                                <a href="#driver-POSTapi-v1-driver-location">POST api/v1/driver/location</a>
+                                <a href="#driver-POSTapi-v1-driver-location">Update Location</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-location-current">
-                                <a href="#driver-GETapi-v1-driver-location-current">GET api/v1/driver/location/current</a>
+                                <a href="#driver-GETapi-v1-driver-location-current">Get Current Location</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-avatar">
-                                <a href="#driver-POSTapi-v1-driver-avatar">POST api/v1/driver/avatar</a>
+                                <a href="#driver-POSTapi-v1-driver-avatar">Upload Avatar</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-vehicles">
-                                <a href="#driver-GETapi-v1-driver-vehicles">GET api/v1/driver/vehicles</a>
+                                <a href="#driver-GETapi-v1-driver-vehicles">Get Vehicles</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-vehicle--vehicle_id-">
-                                <a href="#driver-GETapi-v1-driver-vehicle--vehicle_id-">GET api/v1/driver/vehicle/{vehicle_id}</a>
+                                <a href="#driver-GETapi-v1-driver-vehicle--vehicle_id-">Get Vehicle</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-vehicle">
-                                <a href="#driver-POSTapi-v1-driver-vehicle">POST api/v1/driver/vehicle</a>
+                                <a href="#driver-POSTapi-v1-driver-vehicle">Add Vehicle</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-PUTapi-v1-driver-vehicle--id-">
-                                <a href="#driver-PUTapi-v1-driver-vehicle--id-">PUT api/v1/driver/vehicle/{id}</a>
+                                <a href="#driver-PUTapi-v1-driver-vehicle--id-">Update Vehicle</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-DELETEapi-v1-driver-vehicle--vehicle_id-">
-                                <a href="#driver-DELETEapi-v1-driver-vehicle--vehicle_id-">DELETE api/v1/driver/vehicle/{vehicle_id}</a>
+                                <a href="#driver-DELETEapi-v1-driver-vehicle--vehicle_id-">Delete Vehicle</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-payouts">
-                                <a href="#driver-GETapi-v1-driver-payouts">GET api/v1/driver/payouts</a>
+                                <a href="#driver-GETapi-v1-driver-payouts">Get Payout History</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-POSTapi-v1-driver-payouts">
-                                <a href="#driver-POSTapi-v1-driver-payouts">POST api/v1/driver/payouts</a>
+                                <a href="#driver-POSTapi-v1-driver-payouts">Request Payout</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="driver-GETapi-v1-driver-balance">
-                                <a href="#driver-GETapi-v1-driver-balance">GET api/v1/driver/balance</a>
+                                <a href="#driver-GETapi-v1-driver-balance">Get Balance</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -304,10 +304,10 @@
                 </li>
                                     <ul id="tocify-subheader-gamification" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="gamification-GETapi-v1-leaderboard-drivers">
-                                <a href="#gamification-GETapi-v1-leaderboard-drivers">GET api/v1/leaderboard/drivers</a>
+                                <a href="#gamification-GETapi-v1-leaderboard-drivers">Get Driver Leaderboard</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="gamification-GETapi-v1-leaderboard-riders">
-                                <a href="#gamification-GETapi-v1-leaderboard-riders">GET api/v1/leaderboard/riders</a>
+                                <a href="#gamification-GETapi-v1-leaderboard-riders">Get Rider Leaderboard</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -317,7 +317,7 @@
                 </li>
                                     <ul id="tocify-subheader-profile" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="profile-POSTapi-v1-profile-locale">
-                                <a href="#profile-POSTapi-v1-profile-locale">POST api/v1/profile/locale</a>
+                                <a href="#profile-POSTapi-v1-profile-locale">Set Locale</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -327,13 +327,13 @@
                 </li>
                                     <ul id="tocify-subheader-ride" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="ride-POSTapi-v1-rider-rides--ride_id--share">
-                                <a href="#ride-POSTapi-v1-rider-rides--ride_id--share">POST api/v1/rider/rides/{ride_id}/share</a>
+                                <a href="#ride-POSTapi-v1-rider-rides--ride_id--share">Share Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="ride-GETapi-v1-ride--ride_id--splits">
-                                <a href="#ride-GETapi-v1-ride--ride_id--splits">GET api/v1/ride/{ride_id}/splits</a>
+                                <a href="#ride-GETapi-v1-ride--ride_id--splits">Get Ride Splits</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="ride-POSTapi-v1-ride--ride_id--split">
-                                <a href="#ride-POSTapi-v1-ride--ride_id--split">POST api/v1/ride/{ride_id}/split</a>
+                                <a href="#ride-POSTapi-v1-ride--ride_id--split">Split Ride</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -343,145 +343,145 @@
                 </li>
                                     <ul id="tocify-subheader-rider" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-locations-search">
-                                <a href="#rider-GETapi-v1-rider-locations-search">GET api/v1/rider/locations/search</a>
+                                <a href="#rider-GETapi-v1-rider-locations-search">Search Locations</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-favorite-drivers">
-                                <a href="#rider-GETapi-v1-rider-favorite-drivers">GET api/v1/rider/favorite-drivers</a>
+                                <a href="#rider-GETapi-v1-rider-favorite-drivers">Get Favorite Drivers</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-favorite-drivers">
-                                <a href="#rider-POSTapi-v1-rider-favorite-drivers">POST api/v1/rider/favorite-drivers</a>
+                                <a href="#rider-POSTapi-v1-rider-favorite-drivers">Add Favorite Driver</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">
-                                <a href="#rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">DELETE api/v1/rider/favorite-drivers/{favorite_id}</a>
+                                <a href="#rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">Delete Favorite Driver</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-drivers--driver_id--reviews">
-                                <a href="#rider-GETapi-v1-rider-drivers--driver_id--reviews">GET api/v1/rider/drivers/{driver_id}/reviews</a>
+                                <a href="#rider-GETapi-v1-rider-drivers--driver_id--reviews">Get Driver Reviews</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-favorites">
-                                <a href="#rider-GETapi-v1-rider-favorites">GET api/v1/rider/favorites</a>
+                                <a href="#rider-GETapi-v1-rider-favorites">Get Favorite Locations</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-favorites">
-                                <a href="#rider-POSTapi-v1-rider-favorites">POST api/v1/rider/favorites</a>
+                                <a href="#rider-POSTapi-v1-rider-favorites">Add Favorite Location</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-routes-favorite">
-                                <a href="#rider-GETapi-v1-rider-routes-favorite">GET api/v1/rider/routes/favorite</a>
+                                <a href="#rider-GETapi-v1-rider-routes-favorite">Get Favorite Routes</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-routes-favorite">
-                                <a href="#rider-POSTapi-v1-rider-routes-favorite">POST api/v1/rider/routes/favorite</a>
+                                <a href="#rider-POSTapi-v1-rider-routes-favorite">Add Favorite Route</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-routes-favorite--route_id-">
-                                <a href="#rider-GETapi-v1-rider-routes-favorite--route_id-">GET api/v1/rider/routes/favorite/{route_id}</a>
+                                <a href="#rider-GETapi-v1-rider-routes-favorite--route_id-">Get Favorite Route</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-PUTapi-v1-rider-routes-favorite--route_id-">
-                                <a href="#rider-PUTapi-v1-rider-routes-favorite--route_id-">PUT api/v1/rider/routes/favorite/{route_id}</a>
+                                <a href="#rider-PUTapi-v1-rider-routes-favorite--route_id-">Update Favorite Route</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-routes-favorite--route_id-">
-                                <a href="#rider-DELETEapi-v1-rider-routes-favorite--route_id-">DELETE api/v1/rider/routes/favorite/{route_id}</a>
+                                <a href="#rider-DELETEapi-v1-rider-routes-favorite--route_id-">Delete Favorite Route</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-favorites--id-">
-                                <a href="#rider-GETapi-v1-rider-favorites--id-">GET api/v1/rider/favorites/{id}</a>
+                                <a href="#rider-GETapi-v1-rider-favorites--id-">Get Favorite Location</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-favorites--id-">
-                                <a href="#rider-DELETEapi-v1-rider-favorites--id-">DELETE api/v1/rider/favorites/{id}</a>
+                                <a href="#rider-DELETEapi-v1-rider-favorites--id-">Delete Favorite Location</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-profile">
-                                <a href="#rider-GETapi-v1-rider-profile">GET api/v1/rider/profile</a>
+                                <a href="#rider-GETapi-v1-rider-profile">Get Profile</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-PUTapi-v1-rider-profile">
-                                <a href="#rider-PUTapi-v1-rider-profile">PUT api/v1/rider/profile</a>
+                                <a href="#rider-PUTapi-v1-rider-profile">Update Profile</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-estimates">
-                                <a href="#rider-POSTapi-v1-rider-estimates">POST api/v1/rider/estimates</a>
+                                <a href="#rider-POSTapi-v1-rider-estimates">Get Ride Estimate</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-pricing-surge">
-                                <a href="#rider-GETapi-v1-rider-pricing-surge">GET api/v1/rider/pricing/surge</a>
+                                <a href="#rider-GETapi-v1-rider-pricing-surge">Get Surge Pricing</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-pricing-zones">
-                                <a href="#rider-GETapi-v1-rider-pricing-zones">GET api/v1/rider/pricing/zones</a>
+                                <a href="#rider-GETapi-v1-rider-pricing-zones">Get Pricing Zones</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides">
-                                <a href="#rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</a>
+                                <a href="#rider-POSTapi-v1-rider-rides">Create Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides-active">
-                                <a href="#rider-GETapi-v1-rider-rides-active">GET api/v1/rider/rides/active</a>
+                                <a href="#rider-GETapi-v1-rider-rides-active">Get Active Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides-history">
-                                <a href="#rider-GETapi-v1-rider-rides-history">GET api/v1/rider/rides/history</a>
+                                <a href="#rider-GETapi-v1-rider-rides-history">Get Ride History</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-receipts">
-                                <a href="#rider-GETapi-v1-rider-receipts">GET api/v1/rider/receipts</a>
+                                <a href="#rider-GETapi-v1-rider-receipts">Get Receipts</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-receipts--ride_id-">
-                                <a href="#rider-GETapi-v1-rider-receipts--ride_id-">GET api/v1/rider/receipts/{ride_id}</a>
+                                <a href="#rider-GETapi-v1-rider-receipts--ride_id-">Get Receipt</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides-scheduled">
-                                <a href="#rider-GETapi-v1-rider-rides-scheduled">GET api/v1/rider/rides/scheduled</a>
+                                <a href="#rider-GETapi-v1-rider-rides-scheduled">Get Scheduled Rides</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides-scheduled">
-                                <a href="#rider-POSTapi-v1-rider-rides-scheduled">POST api/v1/rider/rides/scheduled</a>
+                                <a href="#rider-POSTapi-v1-rider-rides-scheduled">Schedule Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-PUTapi-v1-rider-rides-scheduled--ride_id-">
-                                <a href="#rider-PUTapi-v1-rider-rides-scheduled--ride_id-">PUT api/v1/rider/rides/scheduled/{ride_id}</a>
+                                <a href="#rider-PUTapi-v1-rider-rides-scheduled--ride_id-">Update Scheduled Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides--id-">
-                                <a href="#rider-GETapi-v1-rider-rides--id-">GET api/v1/rider/rides/{id}</a>
+                                <a href="#rider-GETapi-v1-rider-rides--id-">Get Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-rides--ride_id--fare-breakdown">
-                                <a href="#rider-GETapi-v1-rider-rides--ride_id--fare-breakdown">GET api/v1/rider/rides/{ride_id}/fare-breakdown</a>
+                                <a href="#rider-GETapi-v1-rider-rides--ride_id--fare-breakdown">Get Fare Breakdown</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-PUTapi-v1-rider-rides--ride_id--note">
-                                <a href="#rider-PUTapi-v1-rider-rides--ride_id--note">PUT api/v1/rider/rides/{ride_id}/note</a>
+                                <a href="#rider-PUTapi-v1-rider-rides--ride_id--note">Update Ride Note</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides--ride_id--cancel">
-                                <a href="#rider-POSTapi-v1-rider-rides--ride_id--cancel">POST api/v1/rider/rides/{ride_id}/cancel</a>
+                                <a href="#rider-POSTapi-v1-rider-rides--ride_id--cancel">Cancel Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-PUTapi-v1-rider-rides--ride_id--rating">
-                                <a href="#rider-PUTapi-v1-rider-rides--ride_id--rating">PUT api/v1/rider/rides/{ride_id}/rating</a>
+                                <a href="#rider-PUTapi-v1-rider-rides--ride_id--rating">Rate Ride</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides--ride_id--verify-pin">
-                                <a href="#rider-POSTapi-v1-rider-rides--ride_id--verify-pin">POST api/v1/rider/rides/{ride_id}/verify-pin</a>
+                                <a href="#rider-POSTapi-v1-rider-rides--ride_id--verify-pin">Verify Ride PIN</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides--ride_id--stops">
-                                <a href="#rider-POSTapi-v1-rider-rides--ride_id--stops">POST api/v1/rider/rides/{ride_id}/stops</a>
+                                <a href="#rider-POSTapi-v1-rider-rides--ride_id--stops">Add Ride Stop</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-stats">
-                                <a href="#rider-GETapi-v1-rider-stats">GET api/v1/rider/stats</a>
+                                <a href="#rider-GETapi-v1-rider-stats">Get Ride Stats</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-achievements">
-                                <a href="#rider-GETapi-v1-rider-achievements">GET api/v1/rider/achievements</a>
+                                <a href="#rider-GETapi-v1-rider-achievements">Get Achievements</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-level">
-                                <a href="#rider-GETapi-v1-rider-level">GET api/v1/rider/level</a>
+                                <a href="#rider-GETapi-v1-rider-level">Get Level</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-streak">
-                                <a href="#rider-GETapi-v1-rider-streak">GET api/v1/rider/streak</a>
+                                <a href="#rider-GETapi-v1-rider-streak">Get Streak</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-streak-history">
-                                <a href="#rider-GETapi-v1-rider-streak-history">GET api/v1/rider/streak/history</a>
+                                <a href="#rider-GETapi-v1-rider-streak-history">Get Streak History</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-credits">
-                                <a href="#rider-GETapi-v1-rider-credits">GET api/v1/rider/credits</a>
+                                <a href="#rider-GETapi-v1-rider-credits">Get Credits</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-payment-methods">
-                                <a href="#rider-GETapi-v1-rider-payment-methods">GET api/v1/rider/payment-methods</a>
+                                <a href="#rider-GETapi-v1-rider-payment-methods">Get Payment Methods</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-payment-methods--method_id-">
-                                <a href="#rider-DELETEapi-v1-rider-payment-methods--method_id-">DELETE api/v1/rider/payment-methods/{method_id}</a>
+                                <a href="#rider-DELETEapi-v1-rider-payment-methods--method_id-">Delete Payment Method</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-PUTapi-v1-rider-payment-methods--method_id--default">
-                                <a href="#rider-PUTapi-v1-rider-payment-methods--method_id--default">PUT api/v1/rider/payment-methods/{method_id}/default</a>
+                                <a href="#rider-PUTapi-v1-rider-payment-methods--method_id--default">Set Default Payment Method</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-referrals-apply">
-                                <a href="#rider-POSTapi-v1-rider-referrals-apply">POST api/v1/rider/referrals/apply</a>
+                                <a href="#rider-POSTapi-v1-rider-referrals-apply">Apply Referral Code</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-rides--ride_id--promo-code">
-                                <a href="#rider-POSTapi-v1-rider-rides--ride_id--promo-code">POST api/v1/rider/rides/{ride_id}/promo-code</a>
+                                <a href="#rider-POSTapi-v1-rider-rides--ride_id--promo-code">Apply Promo Code</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-rides--ride_id--promo-code">
-                                <a href="#rider-DELETEapi-v1-rider-rides--ride_id--promo-code">DELETE api/v1/rider/rides/{ride_id}/promo-code</a>
+                                <a href="#rider-DELETEapi-v1-rider-rides--ride_id--promo-code">Remove Promo Code</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-avatar">
-                                <a href="#rider-POSTapi-v1-rider-avatar">POST api/v1/rider/avatar</a>
+                                <a href="#rider-POSTapi-v1-rider-avatar">Upload Avatar</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -491,16 +491,16 @@
                 </li>
                                     <ul id="tocify-subheader-safety" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="safety-GETapi-v1-safety-contacts">
-                                <a href="#safety-GETapi-v1-safety-contacts">GET api/v1/safety/contacts</a>
+                                <a href="#safety-GETapi-v1-safety-contacts">Get Emergency Contacts</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="safety-POSTapi-v1-safety-contacts">
-                                <a href="#safety-POSTapi-v1-safety-contacts">POST api/v1/safety/contacts</a>
+                                <a href="#safety-POSTapi-v1-safety-contacts">Add Emergency Contact</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="safety-DELETEapi-v1-safety-contacts--id-">
-                                <a href="#safety-DELETEapi-v1-safety-contacts--id-">DELETE api/v1/safety/contacts/{id}</a>
+                                <a href="#safety-DELETEapi-v1-safety-contacts--id-">Delete Emergency Contact</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="safety-POSTapi-v1-safety-sos">
-                                <a href="#safety-POSTapi-v1-safety-sos">POST api/v1/safety/sos</a>
+                                <a href="#safety-POSTapi-v1-safety-sos">Send SOS</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -510,22 +510,22 @@
                 </li>
                                     <ul id="tocify-subheader-support" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="support-GETapi-v1-support-tickets">
-                                <a href="#support-GETapi-v1-support-tickets">GET api/v1/support/tickets</a>
+                                <a href="#support-GETapi-v1-support-tickets">Get Tickets</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="support-GETapi-v1-support-tickets--id-">
-                                <a href="#support-GETapi-v1-support-tickets--id-">GET api/v1/support/tickets/{id}</a>
+                                <a href="#support-GETapi-v1-support-tickets--id-">Get Ticket</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="support-POSTapi-v1-support-tickets">
-                                <a href="#support-POSTapi-v1-support-tickets">POST api/v1/support/tickets</a>
+                                <a href="#support-POSTapi-v1-support-tickets">Create Ticket</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="support-GETapi-v1-support-tickets--ticket_id--comments">
-                                <a href="#support-GETapi-v1-support-tickets--ticket_id--comments">GET api/v1/support/tickets/{ticket_id}/comments</a>
+                                <a href="#support-GETapi-v1-support-tickets--ticket_id--comments">Get Ticket Comments</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="support-POSTapi-v1-support-tickets--ticket_id--comments">
-                                <a href="#support-POSTapi-v1-support-tickets--ticket_id--comments">POST api/v1/support/tickets/{ticket_id}/comments</a>
+                                <a href="#support-POSTapi-v1-support-tickets--ticket_id--comments">Add Ticket Comment</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="support-PUTapi-v1-support-tickets--ticket_id--status">
-                                <a href="#support-PUTapi-v1-support-tickets--ticket_id--status">PUT api/v1/support/tickets/{ticket_id}/status</a>
+                                <a href="#support-PUTapi-v1-support-tickets--ticket_id--status">Update Ticket Status</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -535,7 +535,7 @@
                 </li>
                                     <ul id="tocify-subheader-ws" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="ws-GETapi-v1-ws-token">
-                                <a href="#ws-GETapi-v1-ws-token">GET api/v1/ws/token</a>
+                                <a href="#ws-GETapi-v1-ws-token">Get WebSocket Token</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -571,12 +571,12 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="admin-POSTapi-v1-admin-login">POST api/v1/admin/login</h2>
+                                <h2 id="admin-POSTapi-v1-admin-login">Admin Login</h2>
 
 <p>
 </p>
 
-
+<p>Authenticate admin user</p>
 
 <span id="example-requests-POSTapi-v1-admin-login">
 <blockquote>Example request:</blockquote>
@@ -769,13 +769,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="admin-GETapi-v1-admin-analytics-overview">GET api/v1/admin/analytics/overview</h2>
+                    <h2 id="admin-GETapi-v1-admin-analytics-overview">Get Analytics Overview</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get overall platform analytics summary</p>
 
 <span id="example-requests-GETapi-v1-admin-analytics-overview">
 <blockquote>Example request:</blockquote>
@@ -799,6 +799,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -959,13 +960,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="admin-GETapi-v1-admin-analytics-rides">GET api/v1/admin/analytics/rides</h2>
+                    <h2 id="admin-GETapi-v1-admin-analytics-rides">Get Rides Analytics</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get rides analytics and statistics</p>
 
 <span id="example-requests-GETapi-v1-admin-analytics-rides">
 <blockquote>Example request:</blockquote>
@@ -995,6 +996,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -1182,13 +1184,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="admin-GETapi-v1-admin-analytics-revenue">GET api/v1/admin/analytics/revenue</h2>
+                    <h2 id="admin-GETapi-v1-admin-analytics-revenue">Get Revenue Analytics</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get revenue analytics and statistics</p>
 
 <span id="example-requests-GETapi-v1-admin-analytics-revenue">
 <blockquote>Example request:</blockquote>
@@ -1218,6 +1220,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -1411,13 +1414,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="admin-GETapi-v1-admin-analytics-real-time">GET api/v1/admin/analytics/real-time</h2>
+                    <h2 id="admin-GETapi-v1-admin-analytics-real-time">Get Real-Time Analytics</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get real-time platform analytics</p>
 
 <span id="example-requests-GETapi-v1-admin-analytics-real-time">
 <blockquote>Example request:</blockquote>
@@ -1441,6 +1444,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -1589,13 +1593,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="admin-GETapi-v1-admin-users">GET api/v1/admin/users</h2>
+                    <h2 id="admin-GETapi-v1-admin-users">Get Users</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get paginated list of all users</p>
 
 <span id="example-requests-GETapi-v1-admin-users">
 <blockquote>Example request:</blockquote>
@@ -1633,6 +1637,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -1940,13 +1945,13 @@ Must be one of:
             </div>
                 </form>
 
-                    <h2 id="admin-GETapi-v1-admin-users--id-">GET api/v1/admin/users/{id}</h2>
+                    <h2 id="admin-GETapi-v1-admin-users--id-">Get User</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get detailed information about a specific user</p>
 
 <span id="example-requests-GETapi-v1-admin-users--id-">
 <blockquote>Example request:</blockquote>
@@ -1970,6 +1975,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -2138,13 +2144,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="admin-GETapi-v1-admin-drivers">GET api/v1/admin/drivers</h2>
+                    <h2 id="admin-GETapi-v1-admin-drivers">Get Drivers</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get paginated list of all drivers</p>
 
 <span id="example-requests-GETapi-v1-admin-drivers">
 <blockquote>Example request:</blockquote>
@@ -2181,6 +2187,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -2472,13 +2479,13 @@ Must be one of:
             </div>
                 </form>
 
-                    <h2 id="admin-GETapi-v1-admin-drivers--id-">GET api/v1/admin/drivers/{id}</h2>
+                    <h2 id="admin-GETapi-v1-admin-drivers--id-">Get Driver</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get detailed information about a specific driver</p>
 
 <span id="example-requests-GETapi-v1-admin-drivers--id-">
 <blockquote>Example request:</blockquote>
@@ -2502,6 +2509,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -2670,13 +2678,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="admin-GETapi-v1-admin-rides">GET api/v1/admin/rides</h2>
+                    <h2 id="admin-GETapi-v1-admin-rides">Get Rides</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get paginated list of all rides</p>
 
 <span id="example-requests-GETapi-v1-admin-rides">
 <blockquote>Example request:</blockquote>
@@ -2710,6 +2718,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -2949,13 +2958,13 @@ Must be one of:
             </div>
                 </form>
 
-                    <h2 id="admin-GETapi-v1-admin-export-rides">GET api/v1/admin/export/rides</h2>
+                    <h2 id="admin-GETapi-v1-admin-export-rides">Export Rides</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Export ride data as CSV or other format</p>
 
 <span id="example-requests-GETapi-v1-admin-export-rides">
 <blockquote>Example request:</blockquote>
@@ -2987,6 +2996,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -3184,13 +3194,13 @@ Must be one of:
             </div>
                 </form>
 
-                    <h2 id="admin-GETapi-v1-admin-rides--id-">GET api/v1/admin/rides/{id}</h2>
+                    <h2 id="admin-GETapi-v1-admin-rides--id-">Get Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get detailed information about a specific ride</p>
 
 <span id="example-requests-GETapi-v1-admin-rides--id-">
 <blockquote>Example request:</blockquote>
@@ -3214,6 +3224,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -3382,13 +3393,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="admin-DELETEapi-v1-admin-users--id-">DELETE api/v1/admin/users/{id}</h2>
+                    <h2 id="admin-DELETEapi-v1-admin-users--id-">Delete User</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Delete a user account</p>
 
 <span id="example-requests-DELETEapi-v1-admin-users--id-">
 <blockquote>Example request:</blockquote>
@@ -3412,6 +3423,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -3579,13 +3591,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="admin-POSTapi-v1-admin-drivers--driver_id--ban">POST api/v1/admin/drivers/{driver_id}/ban</h2>
+                    <h2 id="admin-POSTapi-v1-admin-drivers--driver_id--ban">Ban Driver</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Ban a driver from the platform</p>
 
 <span id="example-requests-POSTapi-v1-admin-drivers--driver_id--ban">
 <blockquote>Example request:</blockquote>
@@ -3857,13 +3869,13 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="admin-POSTapi-v1-admin-drivers--driver_id--unban">POST api/v1/admin/drivers/{driver_id}/unban</h2>
+                    <h2 id="admin-POSTapi-v1-admin-drivers--driver_id--unban">Unban Driver</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Remove ban from a driver</p>
 
 <span id="example-requests-POSTapi-v1-admin-drivers--driver_id--unban">
 <blockquote>Example request:</blockquote>
@@ -4083,13 +4095,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="admin-GETapi-v1-admin-tickets">GET api/v1/admin/tickets</h2>
+                    <h2 id="admin-GETapi-v1-admin-tickets">Get Tickets</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get list of support tickets</p>
 
 <span id="example-requests-GETapi-v1-admin-tickets">
 <blockquote>Example request:</blockquote>
@@ -4123,6 +4135,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -4362,13 +4375,13 @@ Must be one of:
             </div>
                 </form>
 
-                    <h2 id="admin-GETapi-v1-admin-tickets--id-">GET api/v1/admin/tickets/{id}</h2>
+                    <h2 id="admin-GETapi-v1-admin-tickets--id-">Get Ticket</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of a specific support ticket</p>
 
 <span id="example-requests-GETapi-v1-admin-tickets--id-">
 <blockquote>Example request:</blockquote>
@@ -4392,6 +4405,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -4560,13 +4574,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="admin-GETapi-v1-admin-tickets--ticket_id--comments">GET api/v1/admin/tickets/{ticket_id}/comments</h2>
+                    <h2 id="admin-GETapi-v1-admin-tickets--ticket_id--comments">Get Ticket Comments</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get comments for a support ticket</p>
 
 <span id="example-requests-GETapi-v1-admin-tickets--ticket_id--comments">
 <blockquote>Example request:</blockquote>
@@ -4590,6 +4604,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -4758,13 +4773,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="admin-GETapi-v1-admin-promo-codes">GET api/v1/admin/promo-codes</h2>
+                    <h2 id="admin-GETapi-v1-admin-promo-codes">Get Promo Codes</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get list of all promotional codes</p>
 
 <span id="example-requests-GETapi-v1-admin-promo-codes">
 <blockquote>Example request:</blockquote>
@@ -4788,6 +4803,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -4830,7 +4846,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-admin-promo-codes">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -4839,11 +4855,11 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 3ff50f40-2c78-4585-bed0-e126e662fe00
+x-request-id: 80fbf220-06fa-402d-baa6-a6fdf057a1f9
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -4932,13 +4948,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="admin-POSTapi-v1-admin-promo-codes">POST api/v1/admin/promo-codes</h2>
+                    <h2 id="admin-POSTapi-v1-admin-promo-codes">Create Promo Code</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a new promotional code</p>
 
 <span id="example-requests-POSTapi-v1-admin-promo-codes">
 <blockquote>Example request:</blockquote>
@@ -4962,7 +4978,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"usage_limit_per_user\": 1,
     \"starts_at\": \"2024-06-01 00:00:00\",
     \"expires_at\": \"2024-08-31 23:59:59\",
-    \"is_active\": false
+    \"is_active\": true
 }"
 </code></pre></div>
 
@@ -4990,7 +5006,7 @@ let body = {
     "usage_limit_per_user": 1,
     "starts_at": "2024-06-01 00:00:00",
     "expires_at": "2024-08-31 23:59:59",
-    "is_active": false
+    "is_active": true
 };
 
 fetch(url, {
@@ -5023,7 +5039,7 @@ $response = $client-&gt;post(
             'usage_limit_per_user' =&gt; 1,
             'starts_at' =&gt; '2024-06-01 00:00:00',
             'expires_at' =&gt; '2024-08-31 23:59:59',
-            'is_active' =&gt; false,
+            'is_active' =&gt; true,
         ],
     ]
 );
@@ -5048,7 +5064,7 @@ payload = {
     "usage_limit_per_user": 1,
     "starts_at": "2024-06-01 00:00:00",
     "expires_at": "2024-08-31 23:59:59",
-    "is_active": false
+    "is_active": true
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -5315,17 +5331,17 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Whether the promo code is active. Example: <code>false</code></p>
+<p>Whether the promo code is active. Example: <code>true</code></p>
         </div>
         </form>
 
-                    <h2 id="admin-GETapi-v1-admin-promo-codes--promoCode_id-">GET api/v1/admin/promo-codes/{promoCode_id}</h2>
+                    <h2 id="admin-GETapi-v1-admin-promo-codes--promoCode_id-">Get Promo Code</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of a specific promo code</p>
 
 <span id="example-requests-GETapi-v1-admin-promo-codes--promoCode_id-">
 <blockquote>Example request:</blockquote>
@@ -5349,6 +5365,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -5391,7 +5408,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-admin-promo-codes--promoCode_id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -5400,11 +5417,11 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 595d0837-af9d-463f-8021-3bf8a7aac391
+x-request-id: af0bc998-2aa0-429d-b9d7-3bf25f6923f2
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -5506,13 +5523,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="admin-PUTapi-v1-admin-promo-codes--promoCode_id-">PUT api/v1/admin/promo-codes/{promoCode_id}</h2>
+                    <h2 id="admin-PUTapi-v1-admin-promo-codes--promoCode_id-">Update Promo Code</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update an existing promotional code</p>
 
 <span id="example-requests-PUTapi-v1-admin-promo-codes--promoCode_id-">
 <blockquote>Example request:</blockquote>
@@ -5536,7 +5553,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"usage_limit_per_user\": 1,
     \"starts_at\": \"2024-06-01 00:00:00\",
     \"expires_at\": \"2024-08-31 23:59:59\",
-    \"is_active\": false
+    \"is_active\": true
 }"
 </code></pre></div>
 
@@ -5564,7 +5581,7 @@ let body = {
     "usage_limit_per_user": 1,
     "starts_at": "2024-06-01 00:00:00",
     "expires_at": "2024-08-31 23:59:59",
-    "is_active": false
+    "is_active": true
 };
 
 fetch(url, {
@@ -5597,7 +5614,7 @@ $response = $client-&gt;put(
             'usage_limit_per_user' =&gt; 1,
             'starts_at' =&gt; '2024-06-01 00:00:00',
             'expires_at' =&gt; '2024-08-31 23:59:59',
-            'is_active' =&gt; false,
+            'is_active' =&gt; true,
         ],
     ]
 );
@@ -5622,7 +5639,7 @@ payload = {
     "usage_limit_per_user": 1,
     "starts_at": "2024-06-01 00:00:00",
     "expires_at": "2024-08-31 23:59:59",
-    "is_active": false
+    "is_active": true
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -5895,17 +5912,17 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Whether the promo code is active. Example: <code>false</code></p>
+<p>Whether the promo code is active. Example: <code>true</code></p>
         </div>
         </form>
 
-                    <h2 id="admin-DELETEapi-v1-admin-promo-codes--promoCode_id-">DELETE api/v1/admin/promo-codes/{promoCode_id}</h2>
+                    <h2 id="admin-DELETEapi-v1-admin-promo-codes--promoCode_id-">Delete Promo Code</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Delete a promotional code</p>
 
 <span id="example-requests-DELETEapi-v1-admin-promo-codes--promoCode_id-">
 <blockquote>Example request:</blockquote>
@@ -5929,6 +5946,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -6069,13 +6087,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="admin-POSTapi-v1-admin-users--user_id--credits">POST api/v1/admin/users/{user_id}/credits</h2>
+                    <h2 id="admin-POSTapi-v1-admin-users--user_id--credits">Adjust User Credits</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Add or deduct credits from a user's account</p>
 
 <span id="example-requests-POSTapi-v1-admin-users--user_id--credits">
 <blockquote>Example request:</blockquote>
@@ -6294,12 +6312,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="auth-POSTapi-v1-auth-request-otp">POST api/v1/auth/request-otp</h2>
+                                <h2 id="auth-POSTapi-v1-auth-request-otp">Request OTP</h2>
 
 <p>
 </p>
 
-
+<p>Request a one-time password code for phone number verification</p>
 
 <span id="example-requests-POSTapi-v1-auth-request-otp">
 <blockquote>Example request:</blockquote>
@@ -6483,12 +6501,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="auth-POSTapi-v1-auth-request-otp-resend">POST api/v1/auth/request-otp/resend</h2>
+                    <h2 id="auth-POSTapi-v1-auth-request-otp-resend">Resend OTP</h2>
 
 <p>
 </p>
 
-
+<p>Resend a new OTP code to the user's phone number</p>
 
 <span id="example-requests-POSTapi-v1-auth-request-otp-resend">
 <blockquote>Example request:</blockquote>
@@ -6665,12 +6683,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="auth-POSTapi-v1-auth-verify-otp">POST api/v1/auth/verify-otp</h2>
+                    <h2 id="auth-POSTapi-v1-auth-verify-otp">Verify OTP</h2>
 
 <p>
 </p>
 
-
+<p>Verify OTP code and authenticate user</p>
 
 <span id="example-requests-POSTapi-v1-auth-verify-otp">
 <blockquote>Example request:</blockquote>
@@ -6870,13 +6888,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="auth-POSTapi-v1-auth-add-email">POST api/v1/auth/add-email</h2>
+                    <h2 id="auth-POSTapi-v1-auth-add-email">Add Email</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Add or update user's email address</p>
 
 <span id="example-requests-POSTapi-v1-auth-add-email">
 <blockquote>Example request:</blockquote>
@@ -7069,13 +7087,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="auth-POSTapi-v1-auth-select-role">POST api/v1/auth/select-role</h2>
+                    <h2 id="auth-POSTapi-v1-auth-select-role">Select Role</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Select user role as rider or driver</p>
 
 <span id="example-requests-POSTapi-v1-auth-select-role">
 <blockquote>Example request:</blockquote>
@@ -7263,13 +7281,13 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="auth-POSTapi-v1-auth-complete-profile">POST api/v1/auth/complete-profile</h2>
+                    <h2 id="auth-POSTapi-v1-auth-complete-profile">Complete Profile</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Complete user profile with first and last name</p>
 
 <span id="example-requests-POSTapi-v1-auth-complete-profile">
 <blockquote>Example request:</blockquote>
@@ -7478,13 +7496,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="auth-POSTapi-v1-auth-logout">POST api/v1/auth/logout</h2>
+                    <h2 id="auth-POSTapi-v1-auth-logout">Logout</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Logout user by revoking current access token</p>
 
 <span id="example-requests-POSTapi-v1-auth-logout">
 <blockquote>Example request:</blockquote>
@@ -7508,6 +7526,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -7642,13 +7661,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="auth-POSTapi-v1-auth-email-verification-notification">POST api/v1/auth/email/verification-notification</h2>
+                    <h2 id="auth-POSTapi-v1-auth-email-verification-notification">Send Email Verification</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Send email verification notification to user</p>
 
 <span id="example-requests-POSTapi-v1-auth-email-verification-notification">
 <blockquote>Example request:</blockquote>
@@ -7672,6 +7691,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -7813,12 +7833,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="auth-GETapi-v1-auth-email-verify--user_id---hash-">GET api/v1/auth/email/verify/{user_id}/{hash}</h2>
+                    <h2 id="auth-GETapi-v1-auth-email-verify--user_id---hash-">Verify Email</h2>
 
 <p>
 </p>
 
-
+<p>Verify user email address via signed URL</p>
 
 <span id="example-requests-GETapi-v1-auth-email-verify--user_id---hash-">
 <blockquote>Example request:</blockquote>
@@ -7840,6 +7860,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -7992,13 +8013,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="auth-DELETEapi-v1-auth-delete-account">DELETE api/v1/auth/delete-account</h2>
+                    <h2 id="auth-DELETEapi-v1-auth-delete-account">Delete Account</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Permanently delete user account and revoke all tokens</p>
 
 <span id="example-requests-DELETEapi-v1-auth-delete-account">
 <blockquote>Example request:</blockquote>
@@ -8022,6 +8043,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -8160,13 +8182,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="driver-GETapi-v1-driver-profile">GET api/v1/driver/profile</h2>
+                                <h2 id="driver-GETapi-v1-driver-profile">Get Profile</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver profile information</p>
 
 <span id="example-requests-GETapi-v1-driver-profile">
 <blockquote>Example request:</blockquote>
@@ -8190,6 +8212,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -8338,13 +8361,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-PUTapi-v1-driver-profile">PUT api/v1/driver/profile</h2>
+                    <h2 id="driver-PUTapi-v1-driver-profile">Update Profile</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update driver profile information</p>
 
 <span id="example-requests-PUTapi-v1-driver-profile">
 <blockquote>Example request:</blockquote>
@@ -8567,13 +8590,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-stats">GET api/v1/driver/stats</h2>
+                    <h2 id="driver-GETapi-v1-driver-stats">Get Stats</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's statistics</p>
 
 <span id="example-requests-GETapi-v1-driver-stats">
 <blockquote>Example request:</blockquote>
@@ -8597,6 +8620,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -8756,13 +8780,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-achievements">GET api/v1/driver/achievements</h2>
+                    <h2 id="driver-GETapi-v1-driver-achievements">Get Achievements</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's unlocked achievements</p>
 
 <span id="example-requests-GETapi-v1-driver-achievements">
 <blockquote>Example request:</blockquote>
@@ -8793,6 +8817,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -9000,13 +9025,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="driver-GETapi-v1-driver-level">GET api/v1/driver/level</h2>
+                    <h2 id="driver-GETapi-v1-driver-level">Get Level</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's current level information</p>
 
 <span id="example-requests-GETapi-v1-driver-level">
 <blockquote>Example request:</blockquote>
@@ -9030,6 +9055,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -9188,13 +9214,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-earnings-daily">GET api/v1/driver/earnings/daily</h2>
+                    <h2 id="driver-GETapi-v1-driver-earnings-daily">Get Daily Earnings</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's earnings for today</p>
 
 <span id="example-requests-GETapi-v1-driver-earnings-daily">
 <blockquote>Example request:</blockquote>
@@ -9225,6 +9251,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -9406,13 +9433,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="driver-GETapi-v1-driver-earnings-weekly">GET api/v1/driver/earnings/weekly</h2>
+                    <h2 id="driver-GETapi-v1-driver-earnings-weekly">Get Weekly Earnings</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's earnings for current week</p>
 
 <span id="example-requests-GETapi-v1-driver-earnings-weekly">
 <blockquote>Example request:</blockquote>
@@ -9442,6 +9469,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -9490,7 +9518,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-driver-earnings-weekly">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -9499,11 +9527,11 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 42f614e4-98cf-4564-965a-0f3e5c6bcc19
+x-request-id: 01cb9475-40ba-4390-95ec-0db7aa712878
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -9605,13 +9633,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="driver-GETapi-v1-driver-earnings-monthly">GET api/v1/driver/earnings/monthly</h2>
+                    <h2 id="driver-GETapi-v1-driver-earnings-monthly">Get Monthly Earnings</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's earnings for current month</p>
 
 <span id="example-requests-GETapi-v1-driver-earnings-monthly">
 <blockquote>Example request:</blockquote>
@@ -9641,6 +9669,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -9689,7 +9718,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-driver-earnings-monthly">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -9698,11 +9727,11 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: a5bce702-6002-4ece-875a-3c53740c7ac1
+x-request-id: ed5ecf10-04d1-466a-bda5-9529d3de2041
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -9804,13 +9833,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="driver-GETapi-v1-driver-tips">GET api/v1/driver/tips</h2>
+                    <h2 id="driver-GETapi-v1-driver-tips">Get Tip History</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get history of tips received by driver</p>
 
 <span id="example-requests-GETapi-v1-driver-tips">
 <blockquote>Example request:</blockquote>
@@ -9842,6 +9871,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -10037,13 +10067,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="driver-GETapi-v1-driver-heatmap">GET api/v1/driver/heatmap</h2>
+                    <h2 id="driver-GETapi-v1-driver-heatmap">Get Heatmap</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get heatmap data showing high-demand areas</p>
 
 <span id="example-requests-GETapi-v1-driver-heatmap">
 <blockquote>Example request:</blockquote>
@@ -10067,6 +10097,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -10201,13 +10232,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-online">POST api/v1/driver/online</h2>
+                    <h2 id="driver-POSTapi-v1-driver-online">Go Online</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Set driver status to online and available</p>
 
 <span id="example-requests-POSTapi-v1-driver-online">
 <blockquote>Example request:</blockquote>
@@ -10416,13 +10447,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-offline">POST api/v1/driver/offline</h2>
+                    <h2 id="driver-POSTapi-v1-driver-offline">Go Offline</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Set driver status to offline</p>
 
 <span id="example-requests-POSTapi-v1-driver-offline">
 <blockquote>Example request:</blockquote>
@@ -10446,6 +10477,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -10580,13 +10612,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-rides-active">GET api/v1/driver/rides/active</h2>
+                    <h2 id="driver-GETapi-v1-driver-rides-active">Get Active Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's current active ride</p>
 
 <span id="example-requests-GETapi-v1-driver-rides-active">
 <blockquote>Example request:</blockquote>
@@ -10610,6 +10642,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -10758,13 +10791,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-rides-history">GET api/v1/driver/rides/history</h2>
+                    <h2 id="driver-GETapi-v1-driver-rides-history">Get Ride History</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get paginated list of driver's completed rides</p>
 
 <span id="example-requests-GETapi-v1-driver-rides-history">
 <blockquote>Example request:</blockquote>
@@ -10788,6 +10821,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -10922,13 +10956,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-bans-active">GET api/v1/driver/bans/active</h2>
+                    <h2 id="driver-GETapi-v1-driver-bans-active">Get Active Bans</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's active ban records</p>
 
 <span id="example-requests-GETapi-v1-driver-bans-active">
 <blockquote>Example request:</blockquote>
@@ -10952,6 +10986,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -11100,13 +11135,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-bans--id-">GET api/v1/driver/bans/{id}</h2>
+                    <h2 id="driver-GETapi-v1-driver-bans--id-">Get Ban Details</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of a specific ban</p>
 
 <span id="example-requests-GETapi-v1-driver-bans--id-">
 <blockquote>Example request:</blockquote>
@@ -11130,6 +11165,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -11310,13 +11346,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-tickets--ticket_id--comments">POST api/v1/driver/tickets/{ticket_id}/comments</h2>
+                    <h2 id="driver-POSTapi-v1-driver-tickets--ticket_id--comments">Add Ticket Comment</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Add a comment to a support ticket</p>
 
 <span id="example-requests-POSTapi-v1-driver-tickets--ticket_id--comments">
 <blockquote>Example request:</blockquote>
@@ -11555,13 +11591,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-rides-available">GET api/v1/driver/rides/available</h2>
+                    <h2 id="driver-GETapi-v1-driver-rides-available">Get Available Rides</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get list of rides available for pickup</p>
 
 <span id="example-requests-GETapi-v1-driver-rides-available">
 <blockquote>Example request:</blockquote>
@@ -11592,6 +11628,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -11759,13 +11796,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--accept">POST api/v1/driver/rides/{ride_id}/accept</h2>
+                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--accept">Accept Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Accept an available ride request</p>
 
 <span id="example-requests-POSTapi-v1-driver-rides--ride_id--accept">
 <blockquote>Example request:</blockquote>
@@ -11789,6 +11826,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -11948,13 +11986,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--on-the-way">POST api/v1/driver/rides/{ride_id}/on-the-way</h2>
+                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--on-the-way">On The Way</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Mark driver as on the way to pickup location</p>
 
 <span id="example-requests-POSTapi-v1-driver-rides--ride_id--on-the-way">
 <blockquote>Example request:</blockquote>
@@ -11978,6 +12016,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -12137,13 +12176,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--arrived">POST api/v1/driver/rides/{ride_id}/arrived</h2>
+                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--arrived">Arrived at Pickup</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Mark driver as arrived at pickup location</p>
 
 <span id="example-requests-POSTapi-v1-driver-rides--ride_id--arrived">
 <blockquote>Example request:</blockquote>
@@ -12167,6 +12206,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -12326,13 +12366,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--start">POST api/v1/driver/rides/{ride_id}/start</h2>
+                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--start">Start Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Start the ride after picking up passenger</p>
 
 <span id="example-requests-POSTapi-v1-driver-rides--ride_id--start">
 <blockquote>Example request:</blockquote>
@@ -12356,6 +12396,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -12515,13 +12556,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--complete">POST api/v1/driver/rides/{ride_id}/complete</h2>
+                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--complete">Complete Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Mark ride as completed</p>
 
 <span id="example-requests-POSTapi-v1-driver-rides--ride_id--complete">
 <blockquote>Example request:</blockquote>
@@ -12545,6 +12586,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -12704,13 +12746,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--cancel">POST api/v1/driver/rides/{ride_id}/cancel</h2>
+                    <h2 id="driver-POSTapi-v1-driver-rides--ride_id--cancel">Cancel Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Cancel an accepted ride</p>
 
 <span id="example-requests-POSTapi-v1-driver-rides--ride_id--cancel">
 <blockquote>Example request:</blockquote>
@@ -12734,6 +12776,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -12907,13 +12950,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-location">POST api/v1/driver/location</h2>
+                    <h2 id="driver-POSTapi-v1-driver-location">Update Location</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update driver's current GPS location</p>
 
 <span id="example-requests-POSTapi-v1-driver-location">
 <blockquote>Example request:</blockquote>
@@ -13122,13 +13165,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-location-current">GET api/v1/driver/location/current</h2>
+                    <h2 id="driver-GETapi-v1-driver-location-current">Get Current Location</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's last known location</p>
 
 <span id="example-requests-GETapi-v1-driver-location-current">
 <blockquote>Example request:</blockquote>
@@ -13152,6 +13195,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -13300,13 +13344,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-avatar">POST api/v1/driver/avatar</h2>
+                    <h2 id="driver-POSTapi-v1-driver-avatar">Upload Avatar</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Upload or update driver's profile picture</p>
 
 <span id="example-requests-POSTapi-v1-driver-avatar">
 <blockquote>Example request:</blockquote>
@@ -13318,7 +13362,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpp0sg9htp3r36dhCheKe" </code></pre></div>
+    --form "avatar=@/tmp/phprdugp7g1v5bq8oKdJHC" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -13356,7 +13400,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpp0sg9htp3r36dhCheKe', 'r')
+                'contents' =&gt; fopen('/tmp/phprdugp7g1v5bq8oKdJHC', 'r')
             ],
         ],
     ]
@@ -13371,7 +13415,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpp0sg9htp3r36dhCheKe', 'rb')}
+  'avatar': open('/tmp/phprdugp7g1v5bq8oKdJHC', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -13486,17 +13530,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpp0sg9htp3r36dhCheKe</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phprdugp7g1v5bq8oKdJHC</code></p>
         </div>
         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-vehicles">GET api/v1/driver/vehicles</h2>
+                    <h2 id="driver-GETapi-v1-driver-vehicles">Get Vehicles</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get all vehicles registered to driver</p>
 
 <span id="example-requests-GETapi-v1-driver-vehicles">
 <blockquote>Example request:</blockquote>
@@ -13520,6 +13564,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -13668,13 +13713,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-vehicle--vehicle_id-">GET api/v1/driver/vehicle/{vehicle_id}</h2>
+                    <h2 id="driver-GETapi-v1-driver-vehicle--vehicle_id-">Get Vehicle</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of a specific vehicle</p>
 
 <span id="example-requests-GETapi-v1-driver-vehicle--vehicle_id-">
 <blockquote>Example request:</blockquote>
@@ -13698,6 +13743,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -13866,13 +13912,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-vehicle">POST api/v1/driver/vehicle</h2>
+                    <h2 id="driver-POSTapi-v1-driver-vehicle">Add Vehicle</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Register a new vehicle to driver's account</p>
 
 <span id="example-requests-POSTapi-v1-driver-vehicle">
 <blockquote>Example request:</blockquote>
@@ -14177,13 +14223,13 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="driver-PUTapi-v1-driver-vehicle--id-">PUT api/v1/driver/vehicle/{id}</h2>
+                    <h2 id="driver-PUTapi-v1-driver-vehicle--id-">Update Vehicle</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update vehicle information</p>
 
 <span id="example-requests-PUTapi-v1-driver-vehicle--id-">
 <blockquote>Example request:</blockquote>
@@ -14508,13 +14554,13 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="driver-DELETEapi-v1-driver-vehicle--vehicle_id-">DELETE api/v1/driver/vehicle/{vehicle_id}</h2>
+                    <h2 id="driver-DELETEapi-v1-driver-vehicle--vehicle_id-">Delete Vehicle</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Remove a vehicle from driver's account</p>
 
 <span id="example-requests-DELETEapi-v1-driver-vehicle--vehicle_id-">
 <blockquote>Example request:</blockquote>
@@ -14538,6 +14584,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -14706,13 +14753,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="driver-GETapi-v1-driver-payouts">GET api/v1/driver/payouts</h2>
+                    <h2 id="driver-GETapi-v1-driver-payouts">Get Payout History</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get history of driver's payouts</p>
 
 <span id="example-requests-GETapi-v1-driver-payouts">
 <blockquote>Example request:</blockquote>
@@ -14745,6 +14792,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -14956,13 +15004,13 @@ Must be one of:
             </div>
                 </form>
 
-                    <h2 id="driver-POSTapi-v1-driver-payouts">POST api/v1/driver/payouts</h2>
+                    <h2 id="driver-POSTapi-v1-driver-payouts">Request Payout</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Request a payout of driver balance</p>
 
 <span id="example-requests-POSTapi-v1-driver-payouts">
 <blockquote>Example request:</blockquote>
@@ -15283,13 +15331,13 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="driver-GETapi-v1-driver-balance">GET api/v1/driver/balance</h2>
+                    <h2 id="driver-GETapi-v1-driver-balance">Get Balance</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get driver's current balance for payouts</p>
 
 <span id="example-requests-GETapi-v1-driver-balance">
 <blockquote>Example request:</blockquote>
@@ -15313,6 +15361,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -15465,13 +15514,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="gamification-GETapi-v1-leaderboard-drivers">GET api/v1/leaderboard/drivers</h2>
+                                <h2 id="gamification-GETapi-v1-leaderboard-drivers">Get Driver Leaderboard</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get top drivers ranked by rating or total rides</p>
 
 <span id="example-requests-GETapi-v1-leaderboard-drivers">
 <blockquote>Example request:</blockquote>
@@ -15502,6 +15551,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -15666,7 +15716,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="-rating"
                data-component="query">
     <br>
-<p>Sort by &quot;-rating&quot; (descending) or &quot;-total_rides&quot; Example: <code>-rating</code></p>
+<p>Sort by "-rating" (descending) or "-total_rides" Example: <code>-rating</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
@@ -15682,13 +15732,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="gamification-GETapi-v1-leaderboard-riders">GET api/v1/leaderboard/riders</h2>
+                    <h2 id="gamification-GETapi-v1-leaderboard-riders">Get Rider Leaderboard</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get top riders ranked by streak or total rides</p>
 
 <span id="example-requests-GETapi-v1-leaderboard-riders">
 <blockquote>Example request:</blockquote>
@@ -15719,6 +15769,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -15883,7 +15934,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="-current_streak"
                data-component="query">
     <br>
-<p>Sort by &quot;-current_streak&quot; (descending) or &quot;-total_rides&quot; Example: <code>-current_streak</code></p>
+<p>Sort by "-current_streak" (descending) or "-total_rides" Example: <code>-current_streak</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
@@ -15903,13 +15954,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="profile-POSTapi-v1-profile-locale">POST api/v1/profile/locale</h2>
+                                <h2 id="profile-POSTapi-v1-profile-locale">Set Locale</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update user's preferred language/locale</p>
 
 <span id="example-requests-POSTapi-v1-profile-locale">
 <blockquote>Example request:</blockquote>
@@ -16119,13 +16170,13 @@ Must be one of:
 
     
 
-                                <h2 id="ride-POSTapi-v1-rider-rides--ride_id--share">POST api/v1/rider/rides/{ride_id}/share</h2>
+                                <h2 id="ride-POSTapi-v1-rider-rides--ride_id--share">Share Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Share ride details with others</p>
 
 <span id="example-requests-POSTapi-v1-rider-rides--ride_id--share">
 <blockquote>Example request:</blockquote>
@@ -16412,13 +16463,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="ride-GETapi-v1-ride--ride_id--splits">GET api/v1/ride/{ride_id}/splits</h2>
+                    <h2 id="ride-GETapi-v1-ride--ride_id--splits">Get Ride Splits</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of ride fare splits</p>
 
 <span id="example-requests-GETapi-v1-ride--ride_id--splits">
 <blockquote>Example request:</blockquote>
@@ -16442,6 +16493,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -16622,13 +16674,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="ride-POSTapi-v1-ride--ride_id--split">POST api/v1/ride/{ride_id}/split</h2>
+                    <h2 id="ride-POSTapi-v1-ride--ride_id--split">Split Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Split ride fare with another rider</p>
 
 <span id="example-requests-POSTapi-v1-ride--ride_id--split">
 <blockquote>Example request:</blockquote>
@@ -16963,13 +17015,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="rider-GETapi-v1-rider-locations-search">GET api/v1/rider/locations/search</h2>
+                                <h2 id="rider-GETapi-v1-rider-locations-search">Search Locations</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Search for locations by address or place name</p>
 
 <span id="example-requests-GETapi-v1-rider-locations-search">
 <blockquote>Example request:</blockquote>
@@ -17002,6 +17054,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -17204,13 +17257,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="rider-GETapi-v1-rider-favorite-drivers">GET api/v1/rider/favorite-drivers</h2>
+                    <h2 id="rider-GETapi-v1-rider-favorite-drivers">Get Favorite Drivers</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get list of rider's favorite drivers</p>
 
 <span id="example-requests-GETapi-v1-rider-favorite-drivers">
 <blockquote>Example request:</blockquote>
@@ -17234,6 +17287,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -17368,13 +17422,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-favorite-drivers">POST api/v1/rider/favorite-drivers</h2>
+                    <h2 id="rider-POSTapi-v1-rider-favorite-drivers">Add Favorite Driver</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Add a driver to rider's favorite drivers list</p>
 
 <span id="example-requests-POSTapi-v1-rider-favorite-drivers">
 <blockquote>Example request:</blockquote>
@@ -17574,13 +17628,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">DELETE api/v1/rider/favorite-drivers/{favorite_id}</h2>
+                    <h2 id="rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">Delete Favorite Driver</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Remove a driver from favorites list</p>
 
 <span id="example-requests-DELETEapi-v1-rider-favorite-drivers--favorite_id-">
 <blockquote>Example request:</blockquote>
@@ -17604,6 +17658,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -17777,13 +17832,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-GETapi-v1-rider-drivers--driver_id--reviews">GET api/v1/rider/drivers/{driver_id}/reviews</h2>
+                    <h2 id="rider-GETapi-v1-rider-drivers--driver_id--reviews">Get Driver Reviews</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get reviews for a specific driver</p>
 
 <span id="example-requests-GETapi-v1-rider-drivers--driver_id--reviews">
 <blockquote>Example request:</blockquote>
@@ -17814,6 +17869,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -18055,13 +18111,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="rider-GETapi-v1-rider-favorites">GET api/v1/rider/favorites</h2>
+                    <h2 id="rider-GETapi-v1-rider-favorites">Get Favorite Locations</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get all rider's favorite locations</p>
 
 <span id="example-requests-GETapi-v1-rider-favorites">
 <blockquote>Example request:</blockquote>
@@ -18085,6 +18141,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -18219,13 +18276,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-favorites">POST api/v1/rider/favorites</h2>
+                    <h2 id="rider-POSTapi-v1-rider-favorites">Add Favorite Location</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Save a location as favorite for quick access</p>
 
 <span id="example-requests-POSTapi-v1-rider-favorites">
 <blockquote>Example request:</blockquote>
@@ -18473,13 +18530,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-routes-favorite">GET api/v1/rider/routes/favorite</h2>
+                    <h2 id="rider-GETapi-v1-rider-routes-favorite">Get Favorite Routes</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get all rider's favorite routes</p>
 
 <span id="example-requests-GETapi-v1-rider-routes-favorite">
 <blockquote>Example request:</blockquote>
@@ -18503,6 +18560,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -18651,13 +18709,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-routes-favorite">POST api/v1/rider/routes/favorite</h2>
+                    <h2 id="rider-POSTapi-v1-rider-routes-favorite">Add Favorite Route</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Save a frequently used route as favorite</p>
 
 <span id="example-requests-POSTapi-v1-rider-routes-favorite">
 <blockquote>Example request:</blockquote>
@@ -18971,13 +19029,13 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-routes-favorite--route_id-">GET api/v1/rider/routes/favorite/{route_id}</h2>
+                    <h2 id="rider-GETapi-v1-rider-routes-favorite--route_id-">Get Favorite Route</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of a specific favorite route</p>
 
 <span id="example-requests-GETapi-v1-rider-routes-favorite--route_id-">
 <blockquote>Example request:</blockquote>
@@ -19001,6 +19059,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -19181,13 +19240,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-PUTapi-v1-rider-routes-favorite--route_id-">PUT api/v1/rider/routes/favorite/{route_id}</h2>
+                    <h2 id="rider-PUTapi-v1-rider-routes-favorite--route_id-">Update Favorite Route</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update an existing favorite route</p>
 
 <span id="example-requests-PUTapi-v1-rider-routes-favorite--route_id-">
 <blockquote>Example request:</blockquote>
@@ -19540,13 +19599,13 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="rider-DELETEapi-v1-rider-routes-favorite--route_id-">DELETE api/v1/rider/routes/favorite/{route_id}</h2>
+                    <h2 id="rider-DELETEapi-v1-rider-routes-favorite--route_id-">Delete Favorite Route</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Remove a saved favorite route</p>
 
 <span id="example-requests-DELETEapi-v1-rider-routes-favorite--route_id-">
 <blockquote>Example request:</blockquote>
@@ -19570,6 +19629,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -19750,13 +19810,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-GETapi-v1-rider-favorites--id-">GET api/v1/rider/favorites/{id}</h2>
+                    <h2 id="rider-GETapi-v1-rider-favorites--id-">Get Favorite Location</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of a specific favorite location</p>
 
 <span id="example-requests-GETapi-v1-rider-favorites--id-">
 <blockquote>Example request:</blockquote>
@@ -19780,6 +19840,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -19948,13 +20009,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-DELETEapi-v1-rider-favorites--id-">DELETE api/v1/rider/favorites/{id}</h2>
+                    <h2 id="rider-DELETEapi-v1-rider-favorites--id-">Delete Favorite Location</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Remove a saved favorite location</p>
 
 <span id="example-requests-DELETEapi-v1-rider-favorites--id-">
 <blockquote>Example request:</blockquote>
@@ -19978,6 +20039,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -20151,13 +20213,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-GETapi-v1-rider-profile">GET api/v1/rider/profile</h2>
+                    <h2 id="rider-GETapi-v1-rider-profile">Get Profile</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get rider profile information</p>
 
 <span id="example-requests-GETapi-v1-rider-profile">
 <blockquote>Example request:</blockquote>
@@ -20181,6 +20243,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -20329,13 +20392,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-PUTapi-v1-rider-profile">PUT api/v1/rider/profile</h2>
+                    <h2 id="rider-PUTapi-v1-rider-profile">Update Profile</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update rider profile information</p>
 
 <span id="example-requests-PUTapi-v1-rider-profile">
 <blockquote>Example request:</blockquote>
@@ -20558,13 +20621,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-estimates">POST api/v1/rider/estimates</h2>
+                    <h2 id="rider-POSTapi-v1-rider-estimates">Get Ride Estimate</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get fare and time estimates for a ride</p>
 
 <span id="example-requests-POSTapi-v1-rider-estimates">
 <blockquote>Example request:</blockquote>
@@ -20844,13 +20907,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-pricing-surge">GET api/v1/rider/pricing/surge</h2>
+                    <h2 id="rider-GETapi-v1-rider-pricing-surge">Get Surge Pricing</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get current surge pricing information</p>
 
 <span id="example-requests-GETapi-v1-rider-pricing-surge">
 <blockquote>Example request:</blockquote>
@@ -20874,6 +20937,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -21015,13 +21079,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-pricing-zones">GET api/v1/rider/pricing/zones</h2>
+                    <h2 id="rider-GETapi-v1-rider-pricing-zones">Get Pricing Zones</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get active pricing zones information</p>
 
 <span id="example-requests-GETapi-v1-rider-pricing-zones">
 <blockquote>Example request:</blockquote>
@@ -21045,6 +21109,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -21186,13 +21251,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-rides">POST api/v1/rider/rides</h2>
+                    <h2 id="rider-POSTapi-v1-rider-rides">Create Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a new ride request</p>
 
 <span id="example-requests-POSTapi-v1-rider-rides">
 <blockquote>Example request:</blockquote>
@@ -21472,13 +21537,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-rides-active">GET api/v1/rider/rides/active</h2>
+                    <h2 id="rider-GETapi-v1-rider-rides-active">Get Active Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get rider's current active ride</p>
 
 <span id="example-requests-GETapi-v1-rider-rides-active">
 <blockquote>Example request:</blockquote>
@@ -21502,6 +21567,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -21693,13 +21759,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-rides-history">GET api/v1/rider/rides/history</h2>
+                    <h2 id="rider-GETapi-v1-rider-rides-history">Get Ride History</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get paginated list of rider's past rides</p>
 
 <span id="example-requests-GETapi-v1-rider-rides-history">
 <blockquote>Example request:</blockquote>
@@ -21723,6 +21789,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -21857,13 +21924,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-receipts">GET api/v1/rider/receipts</h2>
+                    <h2 id="rider-GETapi-v1-rider-receipts">Get Receipts</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get list of all ride receipts</p>
 
 <span id="example-requests-GETapi-v1-rider-receipts">
 <blockquote>Example request:</blockquote>
@@ -21895,6 +21962,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -22083,13 +22151,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="rider-GETapi-v1-rider-receipts--ride_id-">GET api/v1/rider/receipts/{ride_id}</h2>
+                    <h2 id="rider-GETapi-v1-rider-receipts--ride_id-">Get Receipt</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get receipt details for a completed ride</p>
 
 <span id="example-requests-GETapi-v1-rider-receipts--ride_id-">
 <blockquote>Example request:</blockquote>
@@ -22113,6 +22181,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -22281,13 +22350,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-GETapi-v1-rider-rides-scheduled">GET api/v1/rider/rides/scheduled</h2>
+                    <h2 id="rider-GETapi-v1-rider-rides-scheduled">Get Scheduled Rides</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get list of scheduled rides</p>
 
 <span id="example-requests-GETapi-v1-rider-rides-scheduled">
 <blockquote>Example request:</blockquote>
@@ -22311,6 +22380,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -22445,13 +22515,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-rides-scheduled">POST api/v1/rider/rides/scheduled</h2>
+                    <h2 id="rider-POSTapi-v1-rider-rides-scheduled">Schedule Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Schedule a ride for a future time</p>
 
 <span id="example-requests-POSTapi-v1-rider-rides-scheduled">
 <blockquote>Example request:</blockquote>
@@ -22470,7 +22540,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-10 10:23:52\"
+    \"scheduled_at\": \"2026-03-10 12:45:16\"
 }"
 </code></pre></div>
 
@@ -22493,7 +22563,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-10 10:23:52"
+    "scheduled_at": "2026-03-10 12:45:16"
 };
 
 fetch(url, {
@@ -22521,7 +22591,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-10 10:23:52',
+            'scheduled_at' =&gt; '2026-03-10 12:45:16',
         ],
     ]
 );
@@ -22541,7 +22611,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-10 10:23:52"
+    "scheduled_at": "2026-03-10 12:45:16"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -22740,20 +22810,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-03-10 10:23:52"
+               value="2026-03-10 12:45:16"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-10 10:23:52</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-10 12:45:16</code></p>
         </div>
         </form>
 
-                    <h2 id="rider-PUTapi-v1-rider-rides-scheduled--ride_id-">PUT api/v1/rider/rides/scheduled/{ride_id}</h2>
+                    <h2 id="rider-PUTapi-v1-rider-rides-scheduled--ride_id-">Update Scheduled Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Modify a scheduled ride</p>
 
 <span id="example-requests-PUTapi-v1-rider-rides-scheduled--ride_id-">
 <blockquote>Example request:</blockquote>
@@ -22772,7 +22842,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-10 11:23:52\"
+    \"scheduled_at\": \"2026-03-10 13:45:16\"
 }"
 </code></pre></div>
 
@@ -22795,7 +22865,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-10 11:23:52"
+    "scheduled_at": "2026-03-10 13:45:16"
 };
 
 fetch(url, {
@@ -22823,7 +22893,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-10 11:23:52',
+            'scheduled_at' =&gt; '2026-03-10 13:45:16',
         ],
     ]
 );
@@ -22843,7 +22913,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-10 11:23:52"
+    "scheduled_at": "2026-03-10 13:45:16"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -23062,20 +23132,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-03-10 11:23:52"
+               value="2026-03-10 13:45:16"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-10 11:23:52</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-10 13:45:16</code></p>
         </div>
         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-rides--id-">GET api/v1/rider/rides/{id}</h2>
+                    <h2 id="rider-GETapi-v1-rider-rides--id-">Get Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of a specific ride</p>
 
 <span id="example-requests-GETapi-v1-rider-rides--id-">
 <blockquote>Example request:</blockquote>
@@ -23099,6 +23169,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -23303,13 +23374,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-GETapi-v1-rider-rides--ride_id--fare-breakdown">GET api/v1/rider/rides/{ride_id}/fare-breakdown</h2>
+                    <h2 id="rider-GETapi-v1-rider-rides--ride_id--fare-breakdown">Get Fare Breakdown</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get detailed fare breakdown for a ride</p>
 
 <span id="example-requests-GETapi-v1-rider-rides--ride_id--fare-breakdown">
 <blockquote>Example request:</blockquote>
@@ -23333,6 +23404,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -23480,13 +23552,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-PUTapi-v1-rider-rides--ride_id--note">PUT api/v1/rider/rides/{ride_id}/note</h2>
+                    <h2 id="rider-PUTapi-v1-rider-rides--ride_id--note">Update Ride Note</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update note for a ride</p>
 
 <span id="example-requests-PUTapi-v1-rider-rides--ride_id--note">
 <blockquote>Example request:</blockquote>
@@ -23711,13 +23783,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-rides--ride_id--cancel">POST api/v1/rider/rides/{ride_id}/cancel</h2>
+                    <h2 id="rider-POSTapi-v1-rider-rides--ride_id--cancel">Cancel Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Cancel an active or pending ride</p>
 
 <span id="example-requests-POSTapi-v1-rider-rides--ride_id--cancel">
 <blockquote>Example request:</blockquote>
@@ -23741,6 +23813,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -23914,13 +23987,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-PUTapi-v1-rider-rides--ride_id--rating">PUT api/v1/rider/rides/{ride_id}/rating</h2>
+                    <h2 id="rider-PUTapi-v1-rider-rides--ride_id--rating">Rate Ride</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Rate a completed ride and leave feedback</p>
 
 <span id="example-requests-PUTapi-v1-rider-rides--ride_id--rating">
 <blockquote>Example request:</blockquote>
@@ -24268,13 +24341,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-rides--ride_id--verify-pin">POST api/v1/rider/rides/{ride_id}/verify-pin</h2>
+                    <h2 id="rider-POSTapi-v1-rider-rides--ride_id--verify-pin">Verify Ride PIN</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Verify PIN code for ride pickup</p>
 
 <span id="example-requests-POSTapi-v1-rider-rides--ride_id--verify-pin">
 <blockquote>Example request:</blockquote>
@@ -24298,6 +24371,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "POST",
@@ -24471,13 +24545,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-rides--ride_id--stops">POST api/v1/rider/rides/{ride_id}/stops</h2>
+                    <h2 id="rider-POSTapi-v1-rider-rides--ride_id--stops">Add Ride Stop</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Add an intermediate stop to an active ride</p>
 
 <span id="example-requests-POSTapi-v1-rider-rides--ride_id--stops">
 <blockquote>Example request:</blockquote>
@@ -24748,13 +24822,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-stats">GET api/v1/rider/stats</h2>
+                    <h2 id="rider-GETapi-v1-rider-stats">Get Ride Stats</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get rider's ride statistics</p>
 
 <span id="example-requests-GETapi-v1-rider-stats">
 <blockquote>Example request:</blockquote>
@@ -24778,6 +24852,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -24936,13 +25011,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-achievements">GET api/v1/rider/achievements</h2>
+                    <h2 id="rider-GETapi-v1-rider-achievements">Get Achievements</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get rider's unlocked achievements</p>
 
 <span id="example-requests-GETapi-v1-rider-achievements">
 <blockquote>Example request:</blockquote>
@@ -24973,6 +25048,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -25180,13 +25256,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="rider-GETapi-v1-rider-level">GET api/v1/rider/level</h2>
+                    <h2 id="rider-GETapi-v1-rider-level">Get Level</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get rider's current level information</p>
 
 <span id="example-requests-GETapi-v1-rider-level">
 <blockquote>Example request:</blockquote>
@@ -25210,6 +25286,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -25368,13 +25445,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-streak">GET api/v1/rider/streak</h2>
+                    <h2 id="rider-GETapi-v1-rider-streak">Get Streak</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get rider's current ride streak information</p>
 
 <span id="example-requests-GETapi-v1-rider-streak">
 <blockquote>Example request:</blockquote>
@@ -25398,6 +25475,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -25557,13 +25635,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-streak-history">GET api/v1/rider/streak/history</h2>
+                    <h2 id="rider-GETapi-v1-rider-streak-history">Get Streak History</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get history of rider's streaks</p>
 
 <span id="example-requests-GETapi-v1-rider-streak-history">
 <blockquote>Example request:</blockquote>
@@ -25593,6 +25671,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -25783,13 +25862,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="rider-GETapi-v1-rider-credits">GET api/v1/rider/credits</h2>
+                    <h2 id="rider-GETapi-v1-rider-credits">Get Credits</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get rider's current credit balance</p>
 
 <span id="example-requests-GETapi-v1-rider-credits">
 <blockquote>Example request:</blockquote>
@@ -25813,6 +25892,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -25855,7 +25935,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-v1-rider-credits">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -25864,11 +25944,11 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 76a0c992-c088-481f-9137-770d476618b3
+x-request-id: 9d377320-6dea-45ec-a3ce-986df5f92e37
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -25957,13 +26037,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-GETapi-v1-rider-payment-methods">GET api/v1/rider/payment-methods</h2>
+                    <h2 id="rider-GETapi-v1-rider-payment-methods">Get Payment Methods</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get all payment methods associated with rider</p>
 
 <span id="example-requests-GETapi-v1-rider-payment-methods">
 <blockquote>Example request:</blockquote>
@@ -25987,6 +26067,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -26128,13 +26209,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="rider-DELETEapi-v1-rider-payment-methods--method_id-">DELETE api/v1/rider/payment-methods/{method_id}</h2>
+                    <h2 id="rider-DELETEapi-v1-rider-payment-methods--method_id-">Delete Payment Method</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Remove a payment method from rider's account</p>
 
 <span id="example-requests-DELETEapi-v1-rider-payment-methods--method_id-">
 <blockquote>Example request:</blockquote>
@@ -26158,6 +26239,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -26326,13 +26408,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-PUTapi-v1-rider-payment-methods--method_id--default">PUT api/v1/rider/payment-methods/{method_id}/default</h2>
+                    <h2 id="rider-PUTapi-v1-rider-payment-methods--method_id--default">Set Default Payment Method</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Set a payment method as default</p>
 
 <span id="example-requests-PUTapi-v1-rider-payment-methods--method_id--default">
 <blockquote>Example request:</blockquote>
@@ -26356,6 +26438,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "PUT",
@@ -26524,13 +26607,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-referrals-apply">POST api/v1/rider/referrals/apply</h2>
+                    <h2 id="rider-POSTapi-v1-rider-referrals-apply">Apply Referral Code</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Apply a referral code to get credits</p>
 
 <span id="example-requests-POSTapi-v1-rider-referrals-apply">
 <blockquote>Example request:</blockquote>
@@ -26716,13 +26799,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-rides--ride_id--promo-code">POST api/v1/rider/rides/{ride_id}/promo-code</h2>
+                    <h2 id="rider-POSTapi-v1-rider-rides--ride_id--promo-code">Apply Promo Code</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Apply a promotional code to a ride</p>
 
 <span id="example-requests-POSTapi-v1-rider-rides--ride_id--promo-code">
 <blockquote>Example request:</blockquote>
@@ -26928,13 +27011,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="rider-DELETEapi-v1-rider-rides--ride_id--promo-code">DELETE api/v1/rider/rides/{ride_id}/promo-code</h2>
+                    <h2 id="rider-DELETEapi-v1-rider-rides--ride_id--promo-code">Remove Promo Code</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Remove applied promo code from a ride</p>
 
 <span id="example-requests-DELETEapi-v1-rider-rides--ride_id--promo-code">
 <blockquote>Example request:</blockquote>
@@ -26958,6 +27041,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -27098,13 +27182,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="rider-POSTapi-v1-rider-avatar">POST api/v1/rider/avatar</h2>
+                    <h2 id="rider-POSTapi-v1-rider-avatar">Upload Avatar</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Upload or update rider's profile picture</p>
 
 <span id="example-requests-POSTapi-v1-rider-avatar">
 <blockquote>Example request:</blockquote>
@@ -27116,7 +27200,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpfpsiun2ao0aq7GEFOcc" </code></pre></div>
+    --form "avatar=@/tmp/phpv10gmf13jiiqfhMNgmK" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -27154,7 +27238,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpfpsiun2ao0aq7GEFOcc', 'r')
+                'contents' =&gt; fopen('/tmp/phpv10gmf13jiiqfhMNgmK', 'r')
             ],
         ],
     ]
@@ -27169,7 +27253,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpfpsiun2ao0aq7GEFOcc', 'rb')}
+  'avatar': open('/tmp/phpv10gmf13jiiqfhMNgmK', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -27284,7 +27368,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpfpsiun2ao0aq7GEFOcc</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpv10gmf13jiiqfhMNgmK</code></p>
         </div>
         </form>
 
@@ -27292,13 +27376,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="safety-GETapi-v1-safety-contacts">GET api/v1/safety/contacts</h2>
+                                <h2 id="safety-GETapi-v1-safety-contacts">Get Emergency Contacts</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get user's emergency contacts list</p>
 
 <span id="example-requests-GETapi-v1-safety-contacts">
 <blockquote>Example request:</blockquote>
@@ -27322,6 +27406,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -27470,13 +27555,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="safety-POSTapi-v1-safety-contacts">POST api/v1/safety/contacts</h2>
+                    <h2 id="safety-POSTapi-v1-safety-contacts">Add Emergency Contact</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Add an emergency contact to user's safety list</p>
 
 <span id="example-requests-POSTapi-v1-safety-contacts">
 <blockquote>Example request:</blockquote>
@@ -27492,7 +27577,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"name\": \"John Doe\",
     \"phone\": \"+37369123456\",
     \"email\": \"john@example.com\",
-    \"is_primary\": false
+    \"is_primary\": true
 }"
 </code></pre></div>
 
@@ -27512,7 +27597,7 @@ let body = {
     "name": "John Doe",
     "phone": "+37369123456",
     "email": "john@example.com",
-    "is_primary": false
+    "is_primary": true
 };
 
 fetch(url, {
@@ -27537,7 +27622,7 @@ $response = $client-&gt;post(
             'name' =&gt; 'John Doe',
             'phone' =&gt; '+37369123456',
             'email' =&gt; 'john@example.com',
-            'is_primary' =&gt; false,
+            'is_primary' =&gt; true,
         ],
     ]
 );
@@ -27554,7 +27639,7 @@ payload = {
     "name": "John Doe",
     "phone": "+37369123456",
     "email": "john@example.com",
-    "is_primary": false
+    "is_primary": true
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -27737,17 +27822,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Whether this is the primary emergency contact. Example: <code>false</code></p>
+<p>Whether this is the primary emergency contact. Example: <code>true</code></p>
         </div>
         </form>
 
-                    <h2 id="safety-DELETEapi-v1-safety-contacts--id-">DELETE api/v1/safety/contacts/{id}</h2>
+                    <h2 id="safety-DELETEapi-v1-safety-contacts--id-">Delete Emergency Contact</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Remove an emergency contact from user's list</p>
 
 <span id="example-requests-DELETEapi-v1-safety-contacts--id-">
 <blockquote>Example request:</blockquote>
@@ -27771,6 +27856,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "DELETE",
@@ -27951,13 +28037,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="safety-POSTapi-v1-safety-sos">POST api/v1/safety/sos</h2>
+                    <h2 id="safety-POSTapi-v1-safety-sos">Send SOS</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Send an SOS alert during emergency</p>
 
 <span id="example-requests-POSTapi-v1-safety-sos">
 <blockquote>Example request:</blockquote>
@@ -28207,13 +28293,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="support-GETapi-v1-support-tickets">GET api/v1/support/tickets</h2>
+                                <h2 id="support-GETapi-v1-support-tickets">Get Tickets</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get list of user's support tickets</p>
 
 <span id="example-requests-GETapi-v1-support-tickets">
 <blockquote>Example request:</blockquote>
@@ -28246,6 +28332,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -28464,13 +28551,13 @@ Must be one of:
             </div>
                 </form>
 
-                    <h2 id="support-GETapi-v1-support-tickets--id-">GET api/v1/support/tickets/{id}</h2>
+                    <h2 id="support-GETapi-v1-support-tickets--id-">Get Ticket</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get details of a specific support ticket</p>
 
 <span id="example-requests-GETapi-v1-support-tickets--id-">
 <blockquote>Example request:</blockquote>
@@ -28494,6 +28581,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -28662,13 +28750,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="support-POSTapi-v1-support-tickets">POST api/v1/support/tickets</h2>
+                    <h2 id="support-POSTapi-v1-support-tickets">Create Ticket</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a new support ticket</p>
 
 <span id="example-requests-POSTapi-v1-support-tickets">
 <blockquote>Example request:</blockquote>
@@ -28884,13 +28972,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="support-GETapi-v1-support-tickets--ticket_id--comments">GET api/v1/support/tickets/{ticket_id}/comments</h2>
+                    <h2 id="support-GETapi-v1-support-tickets--ticket_id--comments">Get Ticket Comments</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get all comments for a support ticket</p>
 
 <span id="example-requests-GETapi-v1-support-tickets--ticket_id--comments">
 <blockquote>Example request:</blockquote>
@@ -28914,6 +29002,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",
@@ -29082,13 +29171,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="support-POSTapi-v1-support-tickets--ticket_id--comments">POST api/v1/support/tickets/{ticket_id}/comments</h2>
+                    <h2 id="support-POSTapi-v1-support-tickets--ticket_id--comments">Add Ticket Comment</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Add a comment to a support ticket</p>
 
 <span id="example-requests-POSTapi-v1-support-tickets--ticket_id--comments">
 <blockquote>Example request:</blockquote>
@@ -29315,13 +29404,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="support-PUTapi-v1-support-tickets--ticket_id--status">PUT api/v1/support/tickets/{ticket_id}/status</h2>
+                    <h2 id="support-PUTapi-v1-support-tickets--ticket_id--status">Update Ticket Status</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update the status of a support ticket</p>
 
 <span id="example-requests-PUTapi-v1-support-tickets--ticket_id--status">
 <blockquote>Example request:</blockquote>
@@ -29554,13 +29643,13 @@ Must be one of:
 
     
 
-                                <h2 id="ws-GETapi-v1-ws-token">GET api/v1/ws/token</h2>
+                                <h2 id="ws-GETapi-v1-ws-token">Get WebSocket Token</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get JWT token for Centrifugo WebSocket connection</p>
 
 <span id="example-requests-GETapi-v1-ws-token">
 <blockquote>Example request:</blockquote>
@@ -29584,6 +29673,7 @@ const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
+
 
 fetch(url, {
     method: "GET",

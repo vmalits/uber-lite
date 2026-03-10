@@ -12,12 +12,14 @@ use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\QueryParam;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Driver')]
+#[Endpoint('Get Daily Earnings', 'Get driver\'s earnings for today')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[Response(status: 200, description: 'Daily earnings retrieved successfully.')]

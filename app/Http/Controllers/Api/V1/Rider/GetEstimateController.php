@@ -12,6 +12,7 @@ use App\Services\Ride\RideEstimationService;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
@@ -19,6 +20,7 @@ use Knuckles\Scribe\Attributes\Response;
 #[Group('Rider')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
+#[Endpoint('Get Ride Estimate', 'Get fare and time estimates for a ride')]
 #[Response(status: 200, description: 'Ride estimate calculated successfully.')]
 #[Response(status: 422, description: 'Validation errors.')]
 #[Response(status: 403, description: 'Profile not completed or active ride exists.')]

@@ -15,11 +15,13 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Rider')]
+#[Endpoint('Get Scheduled Rides', 'Get list of scheduled rides')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[Response(status: 200, description: 'Paginated scheduled rides retrieved successfully.')]

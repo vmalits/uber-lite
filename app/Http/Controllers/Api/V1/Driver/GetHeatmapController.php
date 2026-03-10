@@ -9,11 +9,13 @@ use App\Queries\Driver\GetHeatmapQueryInterface;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Driver')]
+#[Endpoint('Get Heatmap', 'Get heatmap data showing high-demand areas')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[Response(status: 200, description: 'Heatmap data retrieved successfully.')]

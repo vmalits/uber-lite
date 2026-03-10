@@ -12,8 +12,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Search Locations'
+      description: 'Search for locations by address or place name'
       authenticated: true
       deprecated: false
     headers:
@@ -104,8 +104,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Favorite Drivers'
+      description: "Get list of rider's favorite drivers"
       authenticated: true
       deprecated: false
     headers:
@@ -142,8 +142,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add Favorite Driver'
+      description: "Add a driver to rider's favorite drivers list"
       authenticated: true
       deprecated: false
     headers:
@@ -204,8 +204,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Delete Favorite Driver'
+      description: 'Remove a driver from favorites list'
       authenticated: true
       deprecated: false
     headers:
@@ -278,8 +278,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Driver Reviews'
+      description: 'Get reviews for a specific driver'
       authenticated: true
       deprecated: false
     headers:
@@ -413,8 +413,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Favorite Locations'
+      description: "Get all rider's favorite locations"
       authenticated: true
       deprecated: false
     headers:
@@ -451,8 +451,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add Favorite Location'
+      description: 'Save a location as favorite for quick access'
       authenticated: true
       deprecated: false
     headers:
@@ -549,8 +549,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Favorite Routes'
+      description: "Get all rider's favorite routes"
       authenticated: true
       deprecated: false
     headers:
@@ -599,8 +599,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add Favorite Route'
+      description: 'Save a frequently used route as favorite'
       authenticated: true
       deprecated: false
     headers:
@@ -749,8 +749,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Favorite Route'
+      description: 'Get details of a specific favorite route'
       authenticated: true
       deprecated: false
     headers:
@@ -829,8 +829,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Favorite Route'
+      description: 'Update an existing favorite route'
       authenticated: true
       deprecated: false
     headers:
@@ -1016,8 +1016,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Delete Favorite Route'
+      description: 'Remove a saved favorite route'
       authenticated: true
       deprecated: false
     headers:
@@ -1096,8 +1096,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Favorite Location'
+      description: 'Get details of a specific favorite location'
       authenticated: true
       deprecated: false
     headers:
@@ -1164,8 +1164,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Delete Favorite Location'
+      description: 'Remove a saved favorite location'
       authenticated: true
       deprecated: false
     headers:
@@ -1238,8 +1238,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Profile'
+      description: 'Get rider profile information'
       authenticated: true
       deprecated: false
     headers:
@@ -1288,8 +1288,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Profile'
+      description: 'Update rider profile information'
       authenticated: true
       deprecated: false
     headers:
@@ -1368,8 +1368,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ride Estimate'
+      description: 'Get fare and time estimates for a ride'
       authenticated: true
       deprecated: false
     headers:
@@ -1490,8 +1490,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Surge Pricing'
+      description: 'Get current surge pricing information'
       authenticated: true
       deprecated: false
     headers:
@@ -1534,8 +1534,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Pricing Zones'
+      description: 'Get active pricing zones information'
       authenticated: true
       deprecated: false
     headers:
@@ -1578,8 +1578,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Create Ride'
+      description: 'Create a new ride request'
       authenticated: true
       deprecated: false
     headers:
@@ -1700,8 +1700,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Active Ride'
+      description: "Get rider's current active ride"
       authenticated: true
       deprecated: false
     headers:
@@ -1793,8 +1793,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ride History'
+      description: "Get paginated list of rider's past rides"
       authenticated: true
       deprecated: false
     headers:
@@ -1831,8 +1831,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Receipts'
+      description: 'Get list of all ride receipts'
       authenticated: true
       deprecated: false
     headers:
@@ -1911,8 +1911,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Receipt'
+      description: 'Get receipt details for a completed ride'
       authenticated: true
       deprecated: false
     headers:
@@ -1979,8 +1979,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Scheduled Rides'
+      description: 'Get list of scheduled rides'
       authenticated: true
       deprecated: false
     headers:
@@ -2017,8 +2017,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Schedule Ride'
+      description: 'Schedule a ride for a future time'
       authenticated: true
       deprecated: false
     headers:
@@ -2101,7 +2101,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-10 10:23:52'
+        example: '2026-03-10 12:45:16'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2114,7 +2114,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-10 10:23:52'
+      scheduled_at: '2026-03-10 12:45:16'
     fileParameters: []
     responses:
       -
@@ -2151,8 +2151,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Scheduled Ride'
+      description: 'Modify a scheduled ride'
       authenticated: true
       deprecated: false
     headers:
@@ -2247,7 +2247,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-10 11:23:52'
+        example: '2026-03-10 13:45:16'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2260,7 +2260,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-10 11:23:52'
+      scheduled_at: '2026-03-10 13:45:16'
     fileParameters: []
     responses:
       -
@@ -2303,8 +2303,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ride'
+      description: 'Get details of a specific ride'
       authenticated: true
       deprecated: false
     headers:
@@ -2408,8 +2408,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Fare Breakdown'
+      description: 'Get detailed fare breakdown for a ride'
       authenticated: true
       deprecated: false
     headers:
@@ -2458,8 +2458,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Ride Note'
+      description: 'Update note for a ride'
       authenticated: true
       deprecated: false
     headers:
@@ -2544,8 +2544,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Cancel Ride'
+      description: 'Cancel an active or pending ride'
       authenticated: true
       deprecated: false
     headers:
@@ -2618,8 +2618,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Rate Ride'
+      description: 'Rate a completed ride and leave feedback'
       authenticated: true
       deprecated: false
     headers:
@@ -2807,8 +2807,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Verify Ride PIN'
+      description: 'Verify PIN code for ride pickup'
       authenticated: true
       deprecated: false
     headers:
@@ -2881,8 +2881,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add Ride Stop'
+      description: 'Add an intermediate stop to an active ride'
       authenticated: true
       deprecated: false
     headers:
@@ -3006,8 +3006,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ride Stats'
+      description: "Get rider's ride statistics"
       authenticated: true
       deprecated: false
     headers:
@@ -3067,8 +3067,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Achievements'
+      description: "Get rider's unlocked achievements"
       authenticated: true
       deprecated: false
     headers:
@@ -3141,8 +3141,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Level'
+      description: "Get rider's current level information"
       authenticated: true
       deprecated: false
     headers:
@@ -3191,8 +3191,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Streak'
+      description: "Get rider's current ride streak information"
       authenticated: true
       deprecated: false
     headers:
@@ -3241,8 +3241,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Streak History'
+      description: "Get history of rider's streaks"
       authenticated: true
       deprecated: false
     headers:
@@ -3303,8 +3303,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Credits'
+      description: "Get rider's current credit balance"
       authenticated: true
       deprecated: false
     headers:
@@ -3321,13 +3321,16 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 76a0c992-c088-481f-9137-770d476618b3
+          x-request-id: 9d377320-6dea-45ec-a3ce-986df5f92e37
         description: null
     responseFields: []
     auth: []
@@ -3345,8 +3348,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Payment Methods'
+      description: 'Get all payment methods associated with rider'
       authenticated: true
       deprecated: false
     headers:
@@ -3389,8 +3392,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Delete Payment Method'
+      description: "Remove a payment method from rider's account"
       authenticated: true
       deprecated: false
     headers:
@@ -3457,8 +3460,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Set Default Payment Method'
+      description: 'Set a payment method as default'
       authenticated: true
       deprecated: false
     headers:
@@ -3525,8 +3528,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Apply Referral Code'
+      description: 'Apply a referral code to get credits'
       authenticated: true
       deprecated: false
     headers:
@@ -3575,8 +3578,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Apply Promo Code'
+      description: 'Apply a promotional code to a ride'
       authenticated: true
       deprecated: false
     headers:
@@ -3643,8 +3646,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Remove Promo Code'
+      description: 'Remove applied promo code from a ride'
       authenticated: true
       deprecated: false
     headers:
@@ -3687,8 +3690,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Upload Avatar'
+      description: "Upload or update rider's profile picture"
       authenticated: true
       deprecated: false
     headers:

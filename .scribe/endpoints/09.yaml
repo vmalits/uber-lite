@@ -12,8 +12,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Driver Leaderboard'
+      description: 'Get top drivers ranked by rating or total rides'
       authenticated: true
       deprecated: false
     headers:
@@ -74,8 +74,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Rider Leaderboard'
+      description: 'Get top riders ranked by streak or total rides'
       authenticated: true
       deprecated: false
     headers:

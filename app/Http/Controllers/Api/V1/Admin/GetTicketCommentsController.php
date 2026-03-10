@@ -11,11 +11,13 @@ use App\Queries\Support\GetTicketCommentsQueryInterface;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Admin')]
+#[Endpoint('Get Ticket Comments', 'Get comments for a support ticket')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[Response(status: 200, description: 'Support ticket comments retrieved successfully.')]

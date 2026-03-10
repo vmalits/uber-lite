@@ -14,8 +14,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get WebSocket Token'
+      description: 'Get JWT token for Centrifugo WebSocket connection'
       authenticated: true
       deprecated: false
     headers:

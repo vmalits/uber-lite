@@ -12,10 +12,12 @@ use App\Queries\Rider\GetCreditBalanceQueryInterface;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 
 #[Group('Rider')]
+#[Endpoint('Get Credits', 'Get rider\'s current credit balance')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 final class GetCreditsController extends Controller

@@ -12,8 +12,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Tickets'
+      description: "Get list of user's support tickets"
       authenticated: true
       deprecated: false
     headers:
@@ -125,8 +125,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ticket'
+      description: 'Get details of a specific support ticket'
       authenticated: true
       deprecated: false
     headers:
@@ -193,8 +193,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Create Ticket'
+      description: 'Create a new support ticket'
       authenticated: true
       deprecated: false
     headers:
@@ -267,8 +267,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ticket Comments'
+      description: 'Get all comments for a support ticket'
       authenticated: true
       deprecated: false
     headers:
@@ -335,8 +335,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add Ticket Comment'
+      description: 'Add a comment to a support ticket'
       authenticated: true
       deprecated: false
     headers:
@@ -421,8 +421,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Ticket Status'
+      description: 'Update the status of a support ticket'
       authenticated: true
       deprecated: false
     headers:

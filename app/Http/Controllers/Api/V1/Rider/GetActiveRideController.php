@@ -13,6 +13,7 @@ use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
@@ -21,6 +22,7 @@ use Knuckles\Scribe\Attributes\ResponseFromFile;
 #[Group('Rider')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
+#[Endpoint('Get Active Ride', 'Get rider\'s current active ride')]
 #[ResponseFromFile('docs/examples/get_active_ride.json', status: 200)]
 #[Response(status: 200, description: 'No active ride found - Returns null data with message')]
 #[Response(status: 401, description: 'Unauthorized - Invalid or missing token')]

@@ -14,12 +14,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\QueryParam;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Driver')]
+#[Endpoint('Get Available Rides', 'Get list of rides available for pickup')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[QueryParam(name: 'per_page', type: 'int', description: 'Page size. Default: 15.', example: 15)]

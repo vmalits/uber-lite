@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
@@ -22,6 +23,7 @@ use Throwable;
 #[Group('Auth')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
+#[Endpoint('Select Role', 'Select user role as rider or driver')]
 #[Response(status: 200, description: 'Role selected successfully.')]
 final class SelectRoleController extends Controller
 {

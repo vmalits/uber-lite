@@ -12,6 +12,7 @@ use App\Services\LocaleService;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
@@ -20,6 +21,7 @@ use Knuckles\Scribe\Attributes\ResponseFromFile;
 #[Group('Profile')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
+#[Endpoint('Set Locale', 'Update user\'s preferred language/locale')]
 #[ResponseFromFile('docs/examples/set_locale.json', status: 200)]
 #[Response(status: 400, description: 'Invalid locale value.')]
 #[Response(status: 422, description: 'Validation errors.')]

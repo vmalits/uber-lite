@@ -14,8 +14,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Admin Login'
+      description: 'Authenticate admin user'
       authenticated: false
       deprecated: false
     headers:
@@ -81,8 +81,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Analytics Overview'
+      description: 'Get overall platform analytics summary'
       authenticated: true
       deprecated: false
     headers:
@@ -131,8 +131,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Rides Analytics'
+      description: 'Get rides analytics and statistics'
       authenticated: true
       deprecated: false
     headers:
@@ -193,8 +193,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Revenue Analytics'
+      description: 'Get revenue analytics and statistics'
       authenticated: true
       deprecated: false
     headers:
@@ -255,8 +255,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Real-Time Analytics'
+      description: 'Get real-time platform analytics'
       authenticated: true
       deprecated: false
     headers:
@@ -305,8 +305,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Users'
+      description: 'Get paginated list of all users'
       authenticated: true
       deprecated: false
     headers:
@@ -491,8 +491,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get User'
+      description: 'Get detailed information about a specific user'
       authenticated: true
       deprecated: false
     headers:
@@ -559,8 +559,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Drivers'
+      description: 'Get paginated list of all drivers'
       authenticated: true
       deprecated: false
     headers:
@@ -730,8 +730,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Driver'
+      description: 'Get detailed information about a specific driver'
       authenticated: true
       deprecated: false
     headers:
@@ -798,8 +798,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Rides'
+      description: 'Get paginated list of all rides'
       authenticated: true
       deprecated: false
     headers:
@@ -936,8 +936,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Export Rides'
+      description: 'Export ride data as CSV or other format'
       authenticated: true
       deprecated: false
     headers:
@@ -1030,8 +1030,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ride'
+      description: 'Get detailed information about a specific ride'
       authenticated: true
       deprecated: false
     headers:
@@ -1098,8 +1098,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Delete User'
+      description: 'Delete a user account'
       authenticated: true
       deprecated: false
     headers:
@@ -1166,8 +1166,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Ban Driver'
+      description: 'Ban a driver from the platform'
       authenticated: true
       deprecated: false
     headers:
@@ -1285,8 +1285,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Unban Driver'
+      description: 'Remove ban from a driver'
       authenticated: true
       deprecated: false
     headers:
@@ -1365,8 +1365,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Tickets'
+      description: 'Get list of support tickets'
       authenticated: true
       deprecated: false
     headers:
@@ -1498,8 +1498,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ticket'
+      description: 'Get details of a specific support ticket'
       authenticated: true
       deprecated: false
     headers:
@@ -1566,8 +1566,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ticket Comments'
+      description: 'Get comments for a support ticket'
       authenticated: true
       deprecated: false
     headers:
@@ -1634,8 +1634,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Promo Codes'
+      description: 'Get list of all promotional codes'
       authenticated: true
       deprecated: false
     headers:
@@ -1652,13 +1652,16 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 3ff50f40-2c78-4585-bed0-e126e662fe00
+          x-request-id: 80fbf220-06fa-402d-baa6-a6fdf057a1f9
         description: null
     responseFields: []
     auth: []
@@ -1676,8 +1679,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Create Promo Code'
+      description: 'Create a new promotional code'
       authenticated: true
       deprecated: false
     headers:
@@ -1817,7 +1820,7 @@ endpoints:
         name: is_active
         description: 'Whether the promo code is active.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1835,7 +1838,7 @@ endpoints:
       usage_limit_per_user: 1
       starts_at: '2024-06-01 00:00:00'
       expires_at: '2024-08-31 23:59:59'
-      is_active: false
+      is_active: true
     fileParameters: []
     responses:
       -
@@ -1866,8 +1869,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Promo Code'
+      description: 'Get details of a specific promo code'
       authenticated: true
       deprecated: false
     headers:
@@ -1896,13 +1899,16 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 595d0837-af9d-463f-8021-3bf8a7aac391
+          x-request-id: af0bc998-2aa0-429d-b9d7-3bf25f6923f2
         description: null
     responseFields: []
     auth: []
@@ -1920,8 +1926,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Promo Code'
+      description: 'Update an existing promotional code'
       authenticated: true
       deprecated: false
     headers:
@@ -2073,7 +2079,7 @@ endpoints:
         name: is_active
         description: 'Whether the promo code is active.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2091,7 +2097,7 @@ endpoints:
       usage_limit_per_user: 1
       starts_at: '2024-06-01 00:00:00'
       expires_at: '2024-08-31 23:59:59'
-      is_active: false
+      is_active: true
     fileParameters: []
     responses:
       -
@@ -2116,8 +2122,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Delete Promo Code'
+      description: 'Delete a promotional code'
       authenticated: true
       deprecated: false
     headers:
@@ -2160,8 +2166,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Adjust User Credits'
+      description: "Add or deduct credits from a user's account"
       authenticated: true
       deprecated: false
     headers:

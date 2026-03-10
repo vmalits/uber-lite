@@ -12,10 +12,12 @@ use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 
 #[Group('Admin')]
+#[Endpoint('Get Promo Codes', 'Get list of all promotional codes')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 final class GetPromoCodesController extends Controller

@@ -9,10 +9,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Admin\AdminLoginRequest;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Admin')]
+#[Endpoint('Admin Login', 'Authenticate admin user')]
 #[Response(status: 200, description: 'Admin authenticated successfully.')]
 #[Response(status: 401, description: 'Invalid credentials.')]
 final class LoginController extends Controller

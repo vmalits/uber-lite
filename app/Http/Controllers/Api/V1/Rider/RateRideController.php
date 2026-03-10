@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
@@ -20,6 +21,7 @@ use Knuckles\Scribe\Attributes\ResponseFromFile;
 use Knuckles\Scribe\Attributes\UrlParam;
 
 #[Group('Rider')]
+#[Endpoint('Rate Ride', 'Rate a completed ride and leave feedback')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[UrlParam(

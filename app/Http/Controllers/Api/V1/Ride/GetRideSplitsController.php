@@ -10,12 +10,14 @@ use App\Models\Ride;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
 use Knuckles\Scribe\Attributes\UrlParam;
 
 #[Group('Ride')]
+#[Endpoint('Get Ride Splits', 'Get details of ride fare splits')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[UrlParam(

@@ -10,10 +10,12 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Auth')]
+#[Endpoint('Verify Email', 'Verify user email address via signed URL')]
 #[Response(status: 200, description: 'Email verified successfully.')]
 #[Response(status: 200, description: 'Email already verified.')]
 final class VerifyEmailController extends Controller

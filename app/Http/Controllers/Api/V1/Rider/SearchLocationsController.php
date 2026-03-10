@@ -10,6 +10,7 @@ use App\Queries\Rider\SearchLocationsQueryInterface;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\QueryParam;
@@ -18,6 +19,7 @@ use Knuckles\Scribe\Attributes\Response;
 #[Group('Rider')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
+#[Endpoint('Search Locations', 'Search for locations by address or place name')]
 #[QueryParam('query', description: 'Search query (address, place name)', required: true, example: 'Stefan cel Mare')]
 #[QueryParam('lat', description: 'User current latitude (for better results)', required: false, example: 47.0105)]
 #[QueryParam('lng', description: 'User current longitude (for better results)', required: false, example: 28.8638)]

@@ -12,8 +12,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Profile'
+      description: 'Get driver profile information'
       authenticated: true
       deprecated: false
     headers:
@@ -62,8 +62,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Profile'
+      description: 'Update driver profile information'
       authenticated: true
       deprecated: false
     headers:
@@ -142,8 +142,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Stats'
+      description: "Get driver's statistics"
       authenticated: true
       deprecated: false
     headers:
@@ -204,8 +204,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Achievements'
+      description: "Get driver's unlocked achievements"
       authenticated: true
       deprecated: false
     headers:
@@ -278,8 +278,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Level'
+      description: "Get driver's current level information"
       authenticated: true
       deprecated: false
     headers:
@@ -328,8 +328,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Daily Earnings'
+      description: "Get driver's earnings for today"
       authenticated: true
       deprecated: false
     headers:
@@ -402,8 +402,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Weekly Earnings'
+      description: "Get driver's earnings for current week"
       authenticated: true
       deprecated: false
     headers:
@@ -432,13 +432,16 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 42f614e4-98cf-4564-965a-0f3e5c6bcc19
+          x-request-id: 01cb9475-40ba-4390-95ec-0db7aa712878
         description: null
     responseFields: []
     auth: []
@@ -456,8 +459,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Monthly Earnings'
+      description: "Get driver's earnings for current month"
       authenticated: true
       deprecated: false
     headers:
@@ -486,13 +489,16 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: a5bce702-6002-4ece-875a-3c53740c7ac1
+          x-request-id: ed5ecf10-04d1-466a-bda5-9529d3de2041
         description: null
     responseFields: []
     auth: []
@@ -510,8 +516,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Tip History'
+      description: 'Get history of tips received by driver'
       authenticated: true
       deprecated: false
     headers:
@@ -596,8 +602,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Heatmap'
+      description: 'Get heatmap data showing high-demand areas'
       authenticated: true
       deprecated: false
     headers:
@@ -634,8 +640,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Go Online'
+      description: 'Set driver status to online and available'
       authenticated: true
       deprecated: false
     headers:
@@ -702,8 +708,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Go Offline'
+      description: 'Set driver status to offline'
       authenticated: true
       deprecated: false
     headers:
@@ -740,8 +746,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Active Ride'
+      description: "Get driver's current active ride"
       authenticated: true
       deprecated: false
     headers:
@@ -790,8 +796,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ride History'
+      description: "Get paginated list of driver's completed rides"
       authenticated: true
       deprecated: false
     headers:
@@ -828,8 +834,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Active Bans'
+      description: "Get driver's active ban records"
       authenticated: true
       deprecated: false
     headers:
@@ -878,8 +884,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ban Details'
+      description: 'Get details of a specific ban'
       authenticated: true
       deprecated: false
     headers:
@@ -958,8 +964,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add Ticket Comment'
+      description: 'Add a comment to a support ticket'
       authenticated: true
       deprecated: false
     headers:
@@ -1056,8 +1062,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Available Rides'
+      description: 'Get list of rides available for pickup'
       authenticated: true
       deprecated: false
     headers:
@@ -1118,8 +1124,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Accept Ride'
+      description: 'Accept an available ride request'
       authenticated: true
       deprecated: false
     headers:
@@ -1180,8 +1186,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'On The Way'
+      description: 'Mark driver as on the way to pickup location'
       authenticated: true
       deprecated: false
     headers:
@@ -1242,8 +1248,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Arrived at Pickup'
+      description: 'Mark driver as arrived at pickup location'
       authenticated: true
       deprecated: false
     headers:
@@ -1304,8 +1310,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Start Ride'
+      description: 'Start the ride after picking up passenger'
       authenticated: true
       deprecated: false
     headers:
@@ -1366,8 +1372,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Complete Ride'
+      description: 'Mark ride as completed'
       authenticated: true
       deprecated: false
     headers:
@@ -1428,8 +1434,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Cancel Ride'
+      description: 'Cancel an accepted ride'
       authenticated: true
       deprecated: false
     headers:
@@ -1502,8 +1508,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Location'
+      description: "Update driver's current GPS location"
       authenticated: true
       deprecated: false
     headers:
@@ -1570,8 +1576,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Current Location'
+      description: "Get driver's last known location"
       authenticated: true
       deprecated: false
     headers:
@@ -1620,8 +1626,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Upload Avatar'
+      description: "Upload or update driver's profile picture"
       authenticated: true
       deprecated: false
     headers:
@@ -1670,8 +1676,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Vehicles'
+      description: 'Get all vehicles registered to driver'
       authenticated: true
       deprecated: false
     headers:
@@ -1720,8 +1726,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Vehicle'
+      description: 'Get details of a specific vehicle'
       authenticated: true
       deprecated: false
     headers:
@@ -1788,8 +1794,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add Vehicle'
+      description: "Register a new vehicle to driver's account"
       authenticated: true
       deprecated: false
     headers:
@@ -1934,8 +1940,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Update Vehicle'
+      description: 'Update vehicle information'
       authenticated: true
       deprecated: false
     headers:
@@ -2098,8 +2104,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Delete Vehicle'
+      description: "Remove a vehicle from driver's account"
       authenticated: true
       deprecated: false
     headers:
@@ -2166,8 +2172,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Payout History'
+      description: "Get history of driver's payouts"
       authenticated: true
       deprecated: false
     headers:
@@ -2269,8 +2275,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Request Payout'
+      description: 'Request a payout of driver balance'
       authenticated: true
       deprecated: false
     headers:
@@ -2423,8 +2429,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Balance'
+      description: "Get driver's current balance for payouts"
       authenticated: true
       deprecated: false
     headers:

@@ -11,12 +11,14 @@ use App\Models\Ride;
 use App\Presenters\Admin\RidesCsvExportPresenterInterface;
 use App\Queries\Admin\ExportRidesQueryInterface;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response as ScribeResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 #[Group('Admin')]
+#[Endpoint('Export Rides', 'Export ride data as CSV or other format')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[ScribeResponse(content: 'text/csv', status: 200, description: 'CSV file with rides data.')]

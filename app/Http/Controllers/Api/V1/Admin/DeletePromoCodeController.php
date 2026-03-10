@@ -10,10 +10,12 @@ use App\Models\PromoCode;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 
 #[Group('Admin')]
+#[Endpoint('Delete Promo Code', 'Delete a promotional code')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 final class DeletePromoCodeController extends Controller

@@ -14,8 +14,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Share Ride'
+      description: 'Share ride details with others'
       authenticated: true
       deprecated: false
     headers:
@@ -148,8 +148,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get Ride Splits'
+      description: 'Get details of ride fare splits'
       authenticated: true
       deprecated: false
     headers:
@@ -228,8 +228,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Split Ride'
+      description: 'Split ride fare with another rider'
       authenticated: true
       deprecated: false
     headers:

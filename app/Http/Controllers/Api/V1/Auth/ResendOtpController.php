@@ -14,6 +14,7 @@ use App\Services\OtpService;
 use App\Support\ApiResponse;
 use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Response;
 use Psr\Log\LoggerInterface;
@@ -21,6 +22,7 @@ use Random\RandomException;
 use Throwable;
 
 #[Group('Auth')]
+#[Endpoint('Resend OTP', 'Resend a new OTP code to the user\'s phone number')]
 #[Response(status: 200, description: 'OTP has been resent successfully.')]
 #[Response(status: 429, description: 'Too many OTP requests. Please try again later.')]
 class ResendOtpController extends Controller

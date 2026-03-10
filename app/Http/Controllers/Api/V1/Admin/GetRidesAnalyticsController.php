@@ -11,12 +11,14 @@ use App\Queries\Admin\GetRidesAnalyticsQueryInterface;
 use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\QueryParam;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Admin')]
+#[Endpoint('Get Rides Analytics', 'Get rides analytics and statistics')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[QueryParam('days', 'int', 'Number of days to include (1-365)', example: 30)]

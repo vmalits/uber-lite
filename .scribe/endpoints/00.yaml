@@ -12,8 +12,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Request OTP'
+      description: 'Request a one-time password code for phone number verification'
       authenticated: false
       deprecated: false
     headers:
@@ -73,8 +73,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Resend OTP'
+      description: "Resend a new OTP code to the user's phone number"
       authenticated: false
       deprecated: false
     headers:
@@ -128,8 +128,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Verify OTP'
+      description: 'Verify OTP code and authenticate user'
       authenticated: false
       deprecated: false
     headers:
@@ -201,8 +201,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add Email'
+      description: "Add or update user's email address"
       authenticated: true
       deprecated: false
     headers:
@@ -257,8 +257,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Select Role'
+      description: 'Select user role as rider or driver'
       authenticated: true
       deprecated: false
     headers:
@@ -309,8 +309,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Complete Profile'
+      description: 'Complete user profile with first and last name'
       authenticated: true
       deprecated: false
     headers:
@@ -377,8 +377,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: Logout
+      description: 'Logout user by revoking current access token'
       authenticated: true
       deprecated: false
     headers:
@@ -415,8 +415,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Send Email Verification'
+      description: 'Send email verification notification to user'
       authenticated: true
       deprecated: false
     headers:
@@ -459,8 +459,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Verify Email'
+      description: 'Verify user email address via signed URL'
       authenticated: false
       deprecated: false
     headers:
@@ -526,8 +526,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Delete Account'
+      description: 'Permanently delete user account and revoke all tokens'
       authenticated: true
       deprecated: false
     headers:

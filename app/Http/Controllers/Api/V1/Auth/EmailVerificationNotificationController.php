@@ -13,6 +13,7 @@ use App\Support\ApiResponse;
 use Illuminate\Contracts\Events\Dispatcher as EventsDispatcher;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\Response;
@@ -20,6 +21,7 @@ use Knuckles\Scribe\Attributes\Response;
 #[Group('Auth')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
+#[Endpoint('Send Email Verification', 'Send email verification notification to user')]
 #[Response(status: 200, description: 'Verification link sent.')]
 #[Response(status: 200, description: 'Email is already verified.')]
 final class EmailVerificationNotificationController extends Controller

@@ -10,6 +10,7 @@ use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\QueryParam;
@@ -18,6 +19,7 @@ use Knuckles\Scribe\Attributes\Response;
 #[Group('Gamification')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
+#[Endpoint('Get Rider Leaderboard', 'Get top riders ranked by streak or total rides')]
 #[QueryParam(
     name: 'sort',
     type: 'string',

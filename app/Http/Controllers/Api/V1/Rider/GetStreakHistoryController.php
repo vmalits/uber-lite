@@ -12,12 +12,14 @@ use App\Support\ApiResponse;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\JsonResponse;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Header;
 use Knuckles\Scribe\Attributes\QueryParam;
 use Knuckles\Scribe\Attributes\Response;
 
 #[Group('Rider')]
+#[Endpoint('Get Streak History', 'Get history of rider\'s streaks')]
 #[Authenticated]
 #[Header('Authorization', 'Bearer <token>')]
 #[QueryParam('days', 'int', 'Number of days to include (7-90)', example: 30)]
