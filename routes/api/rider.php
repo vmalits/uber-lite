@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\Ride\ShareRideController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteDriverController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteRouteController;
+use App\Http\Controllers\Api\V1\Rider\AddRideStopController;
 use App\Http\Controllers\Api\V1\Rider\ApplyPromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ApplyReferralCodeController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
@@ -128,6 +129,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.share');
         Route::post('rides/{ride}/verify-pin', [VerifyPinController::class, '__invoke'])
             ->name('api.v1.rider.rides.verify-pin');
+        Route::post('rides/{ride}/stops', [AddRideStopController::class, '__invoke'])
+            ->name('api.v1.rider.rides.stops.store');
         Route::get('stats', [GetRideStatsController::class, '__invoke'])
             ->name('api.v1.rider.stats');
         Route::get('achievements', [GetAchievementsController::class, '__invoke'])

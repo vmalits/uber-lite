@@ -61,6 +61,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property-read RideRating|null $rating
  * @property-read RideTip|null $tip
  * @property-read Collection<int, RideSplit> $splits
+ * @property-read Collection<int, RideStop> $stops
  * @property-read PromoCode|null $promoCode
  */
 #[ObservedBy([RideObserver::class])]
@@ -170,6 +171,14 @@ class Ride extends Model
     public function splits(): HasMany
     {
         return $this->hasMany(related: RideSplit::class);
+    }
+
+    /**
+     * @return HasMany<RideStop, $this>
+     */
+    public function stops(): HasMany
+    {
+        return $this->hasMany(related: RideStop::class)->orderBy('order');
     }
 
     /**

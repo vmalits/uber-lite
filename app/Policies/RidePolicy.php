@@ -118,6 +118,16 @@ final class RidePolicy
                 true);
     }
 
+    public function addStop(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && \in_array(
+                $ride->status,
+                [RideStatus::PENDING, RideStatus::ACCEPTED, RideStatus::ON_THE_WAY],
+                true,
+            );
+    }
+
     public function viewReceipt(User $user, Ride $ride): bool
     {
         return $ride->rider()->is($user)

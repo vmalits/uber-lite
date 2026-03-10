@@ -69,6 +69,7 @@ return [
         'scheduled_updated'    => 'Scheduled ride updated successfully.',
         'pin_verified'         => 'PIN verified successfully.',
         'pin_already_verified' => 'PIN has already been verified.',
+        'stop_added'           => 'Stop added successfully.',
     ],
     'profile' => [
         'updated' => 'Profile updated successfully.',

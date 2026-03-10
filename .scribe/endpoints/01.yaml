@@ -2101,7 +2101,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-09 18:12:06'
+        example: '2026-03-10 10:23:52'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2114,7 +2114,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-09 18:12:06'
+      scheduled_at: '2026-03-10 10:23:52'
     fileParameters: []
     responses:
       -
@@ -2247,7 +2247,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-09 19:12:06'
+        example: '2026-03-10 11:23:52'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2260,7 +2260,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-09 19:12:06'
+      scheduled_at: '2026-03-10 11:23:52'
     fileParameters: []
     responses:
       -
@@ -2873,6 +2873,131 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: 'api/v1/rider/rides/{ride_id}/stops'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      ride:
+        custom: []
+        name: ride
+        description: 'ULID of the ride.'
+        required: true
+        example: 01jk9v6v9v6v9v6v9v6v9v6v9v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+      ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      address:
+        custom: []
+        name: address
+        description: 'Stop address. Must not be greater than 500 characters.'
+        required: true
+        example: '123 Main St, City'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      lat:
+        custom: []
+        name: lat
+        description: 'Stop latitude. Must be between -90 and 90.'
+        required: false
+        example: 40.7128
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      lng:
+        custom: []
+        name: lng
+        description: 'Stop longitude. This field is required when <code>lat</code> is present. Must be between -180 and 180.'
+        required: false
+        example: -74.006
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      address: '123 Main St, City'
+      lat: 40.7128
+      lng: -74.006
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "success": true,
+            "message": "Stop added successfully.",
+            "data": {
+              "id": "01kec121njjgtg1beabpm1es51",
+              "order": 1,
+              "address": "123 Main St, City",
+              "lat": 40.7128,
+              "lng": -74.0060,
+              "created_at": {
+                "human": "1 second ago",
+                "string": "2026-03-09 15:00:00"
+              }
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - You can only add stops to your own rides.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Maximum stops reached or ride already in progress.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: api/v1/rider/stats
     metadata:
@@ -3202,7 +3327,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 09dfc0fa-0234-4817-81e5-ee091dad2d6b
+          x-request-id: 76a0c992-c088-481f-9137-770d476618b3
         description: null
     responseFields: []
     auth: []
