@@ -2103,7 +2103,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-10 12:45:16'
+        example: '2026-03-11 23:01:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2116,7 +2116,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-10 12:45:16'
+      scheduled_at: '2026-03-11 23:01:14'
     fileParameters: []
     responses:
       -
@@ -2249,7 +2249,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-10 13:45:16'
+        example: '2026-03-12 00:01:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2262,7 +2262,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-10 13:45:16'
+      scheduled_at: '2026-03-12 00:01:14'
     fileParameters: []
     responses:
       -
@@ -3000,6 +3000,110 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: 'api/v1/rider/rides/{ride_id}/tip'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add Tip'
+      description: 'Add a tip to a completed ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      ride:
+        custom: []
+        name: ride
+        description: 'ULID of the ride.'
+        required: true
+        example: 01jk9v6v9v6v9v6v9v6v9v6v9v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+      ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      amount:
+        custom: []
+        name: amount
+        description: 'Tip amount in cents. Must be at least 1. Must not be greater than 100000.'
+        required: true
+        example: 500
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      comment:
+        custom: []
+        name: comment
+        description: 'Optional tip comment. Must not be greater than 500 characters.'
+        required: false
+        example: 'Thank you!'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      amount: 500
+      comment: 'Thank you!'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Tip added successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - You can only add tip to your own completed rides.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation failed or tip already exists.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: api/v1/rider/stats
     metadata:
@@ -3332,7 +3436,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 9d377320-6dea-45ec-a3ce-986df5f92e37
+          x-request-id: dc3c1b0a-016f-4ae9-8410-4edd3329feac
         description: null
     responseFields: []
     auth: []

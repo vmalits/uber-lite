@@ -70,6 +70,7 @@ return [
         'pin_verified'         => 'PIN verified successfully.',
         'pin_already_verified' => 'PIN has already been verified.',
         'stop_added'           => 'Stop added successfully.',
+        'tip_added'            => 'Tip added successfully.',
     ],
     'profile' => [
         'updated' => 'Profile updated successfully.',

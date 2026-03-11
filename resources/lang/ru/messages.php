@@ -67,6 +67,7 @@ return [
         'estimate_calculated'  => 'Оценка рассчитана успешно.',
         'pin_verified'         => 'PIN-код подтверждён.',
         'pin_already_verified' => 'PIN-код уже был подтверждён.',
+        'tip_added'            => 'Чаевые успешно добавлены.',
     ],
     'profile' => [
         'updated' => 'Профиль успешно обновлён',
