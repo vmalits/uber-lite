@@ -29,4 +29,19 @@ final class DriverPayoutPolicy
     {
         return $user->role === UserRole::DRIVER;
     }
+
+    public function viewAnyAdmin(User $user): bool
+    {
+        return $user->isAdmin();
+    }
+
+    public function viewAdmin(User $user, DriverPayout $payout): bool
+    {
+        return $user->isAdmin();
+    }
+
+    public function updateStatus(User $user, DriverPayout $payout): bool
+    {
+        return $user->isAdmin();
+    }
 }

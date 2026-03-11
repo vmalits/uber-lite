@@ -3,15 +3,20 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Admin\AdjustUserCreditsController;
+use App\Http\Controllers\Api\V1\Admin\ApprovePayoutController;
+use App\Http\Controllers\Api\V1\Admin\CompletePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CreatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\DeletePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
 use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
 use App\Http\Controllers\Api\V1\Admin\ExportRidesController;
+use App\Http\Controllers\Api\V1\Admin\FailPayoutController;
 use App\Http\Controllers\Api\V1\Admin\GetAnalyticsOverviewController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
+use App\Http\Controllers\Api\V1\Admin\GetPayoutController;
+use App\Http\Controllers\Api\V1\Admin\GetPayoutsController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodesController;
 use App\Http\Controllers\Api\V1\Admin\GetRealTimeAnalyticsController;
@@ -25,6 +30,7 @@ use App\Http\Controllers\Api\V1\Admin\GetTicketsController;
 use App\Http\Controllers\Api\V1\Admin\GetUserController;
 use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
+use App\Http\Controllers\Api\V1\Admin\ProcessPayoutController;
 use App\Http\Controllers\Api\V1\Admin\UpdatePromoCodeController;
 
 Route::prefix('admin')
@@ -100,4 +106,22 @@ Route::prefix('admin')
         Route::post('users/{user}/credits', [AdjustUserCreditsController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.credits');
+        Route::get('payouts', [GetPayoutsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.payouts.index');
+        Route::get('payouts/{payout}', [GetPayoutController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.payouts.show');
+        Route::post('payouts/{payout}/approve', [ApprovePayoutController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.payouts.approve');
+        Route::post('payouts/{payout}/process', [ProcessPayoutController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.payouts.process');
+        Route::post('payouts/{payout}/complete', [CompletePayoutController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.payouts.complete');
+        Route::post('payouts/{payout}/fail', [FailPayoutController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.payouts.fail');
     });
