@@ -107,7 +107,11 @@ return [
         'keep_going'        => 'Continuă să călătorești zilnic pentru a debloca reduceri și mai mari!',
     ],
     'payout' => [
-        'requested' => 'Cererea de plată a fost trimisă cu succes.',
+        'requested'  => 'Cererea de plată a fost trimisă cu succes.',
+        'approved'   => 'Plata a fost aprobată.',
+        'processing' => 'Plata este în procesare.',
+        'completed'  => 'Plata a fost finalizată cu succes.',
+        'failed'     => 'Plata a eșuat.',
     ],
     'payment_method' => [
         'deleted'     => 'Metoda de plată a fost ștearsă cu succes.',

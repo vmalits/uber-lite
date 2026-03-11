@@ -134,7 +134,11 @@ return [
         'keep_going'        => 'Keep riding daily to unlock even bigger discounts!',
     ],
     'payout' => [
-        'requested' => 'Payout requested successfully.',
+        'requested'  => 'Payout requested successfully.',
+        'approved'   => 'Payout approved successfully.',
+        'processing' => 'Payout is now processing.',
+        'completed'  => 'Payout completed successfully.',
+        'failed'     => 'Payout marked as failed.',
     ],
     'payment_method' => [
         'deleted'     => 'Payment method deleted successfully.',
