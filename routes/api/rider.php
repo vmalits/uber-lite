@@ -33,6 +33,7 @@ use App\Http\Controllers\Api\V1\Rider\GetPaymentMethodsController;
 use App\Http\Controllers\Api\V1\Rider\GetPricingZonesController;
 use App\Http\Controllers\Api\V1\Rider\GetReceiptController;
 use App\Http\Controllers\Api\V1\Rider\GetReceiptsController;
+use App\Http\Controllers\Api\V1\Rider\GetReferralsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
@@ -157,6 +158,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.payment-methods.set-default');
         Route::post('referrals/apply', [ApplyReferralCodeController::class, '__invoke'])
             ->name('api.v1.rider.referrals.apply');
+        Route::get('referrals', [GetReferralsController::class, '__invoke'])
+            ->name('api.v1.rider.referrals.index');
         Route::post('rides/{ride}/promo-code', [ApplyPromoCodeController::class, '__invoke'])
             ->name('api.v1.rider.rides.promo-code.apply');
         Route::delete('rides/{ride}/promo-code', [RemovePromoCodeController::class, '__invoke'])
