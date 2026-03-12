@@ -2101,7 +2101,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-12 21:31:31'
+        example: '2026-03-12 21:53:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2114,7 +2114,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-12 21:31:31'
+      scheduled_at: '2026-03-12 21:53:00'
     fileParameters: []
     responses:
       -
@@ -2247,7 +2247,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-12 22:31:31'
+        example: '2026-03-12 22:53:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2260,7 +2260,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-12 22:31:31'
+      scheduled_at: '2026-03-12 22:53:00'
     fileParameters: []
     responses:
       -
@@ -3431,7 +3431,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: c20afdab-ab22-4984-aa3c-75977f570efb
+          x-request-id: a1cda548-4830-40f7-8f53-fadd15cf8526
         description: null
     responseFields: []
     auth: []
@@ -3502,7 +3502,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-03-12T19:31:31'
+        example: '2026-03-12T19:53:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3523,7 +3523,7 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-03-12T19:31:31'
+        from: '2026-03-12T19:53:00'
         to: '2052-04-04'
     bodyParameters: []
     cleanBodyParameters: []
@@ -3765,6 +3765,44 @@ endpoints:
         content: null
         headers: []
         description: 'Referral code applied successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/rider/referrals
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Referrals'
+      description: 'Get paginated list of users referred by the current rider'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Referrals retrieved successfully.'
     responseFields: []
     auth: []
     controller: null
