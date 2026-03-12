@@ -6,7 +6,10 @@ namespace App\Models;
 
 use App\Enums\CreditTransactionType;
 use Carbon\CarbonInterface;
+use Database\Factories\CreditTransactionFactory;
+use Illuminate\Database\Eloquent\Attributes\UseFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -22,8 +25,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property CarbonInterface $updated_at
  * @property-read User $user
  */
+#[UseFactory(CreditTransactionFactory::class)]
 class CreditTransaction extends Model
 {
+    /** @use HasFactory<CreditTransactionFactory> */
+    use HasFactory;
     use HasUlids;
 
     protected $fillable = [

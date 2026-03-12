@@ -8,6 +8,8 @@ use App\Queries\Rider\GetActiveRideQuery;
 use App\Queries\Rider\GetActiveRideQueryInterface;
 use App\Queries\Rider\GetCreditBalanceQuery;
 use App\Queries\Rider\GetCreditBalanceQueryInterface;
+use App\Queries\Rider\GetCreditTransactionsQuery;
+use App\Queries\Rider\GetCreditTransactionsQueryInterface;
 use App\Queries\Rider\GetDriverReviewsQuery;
 use App\Queries\Rider\GetDriverReviewsQueryInterface;
 use App\Queries\Rider\GetFareBreakdownQuery;
@@ -44,21 +46,22 @@ final class RiderServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetActiveRideQueryInterface::class        => GetActiveRideQuery::class,
-        GetCreditBalanceQueryInterface::class     => GetCreditBalanceQuery::class,
-        GetDriverReviewsQueryInterface::class     => GetDriverReviewsQuery::class,
-        GetFareBreakdownQueryInterface::class     => GetFareBreakdownQuery::class,
-        GetFavoriteDriversQueryInterface::class   => GetFavoriteDriversQuery::class,
-        GetFavoriteLocationQueryInterface::class  => GetFavoriteLocationQuery::class,
-        GetFavoriteLocationsQueryInterface::class => GetFavoriteLocationsQuery::class,
-        GetFavoriteRoutesQueryInterface::class    => GetFavoriteRoutesQuery::class,
-        GetPaymentMethodsQueryInterface::class    => GetPaymentMethodsQuery::class,
-        GetReceiptQueryInterface::class           => GetReceiptQuery::class,
-        GetReceiptsQueryInterface::class          => GetReceiptsQuery::class,
-        GetRideHistoryQueryInterface::class       => GetRideHistoryQuery::class,
-        GetRideStatsQueryInterface::class         => GetRideStatsQuery::class,
-        GetScheduledRidesQueryInterface::class    => GetScheduledRidesQuery::class,
-        SearchLocationsQueryInterface::class      => SearchLocationsQuery::class,
-        GetStreakHistoryQueryInterface::class     => GetStreakHistoryQuery::class,
+        GetActiveRideQueryInterface::class         => GetActiveRideQuery::class,
+        GetCreditBalanceQueryInterface::class      => GetCreditBalanceQuery::class,
+        GetCreditTransactionsQueryInterface::class => GetCreditTransactionsQuery::class,
+        GetDriverReviewsQueryInterface::class      => GetDriverReviewsQuery::class,
+        GetFareBreakdownQueryInterface::class      => GetFareBreakdownQuery::class,
+        GetFavoriteDriversQueryInterface::class    => GetFavoriteDriversQuery::class,
+        GetFavoriteLocationQueryInterface::class   => GetFavoriteLocationQuery::class,
+        GetFavoriteLocationsQueryInterface::class  => GetFavoriteLocationsQuery::class,
+        GetFavoriteRoutesQueryInterface::class     => GetFavoriteRoutesQuery::class,
+        GetPaymentMethodsQueryInterface::class     => GetPaymentMethodsQuery::class,
+        GetReceiptQueryInterface::class            => GetReceiptQuery::class,
+        GetReceiptsQueryInterface::class           => GetReceiptsQuery::class,
+        GetRideHistoryQueryInterface::class        => GetRideHistoryQuery::class,
+        GetRideStatsQueryInterface::class          => GetRideStatsQuery::class,
+        GetScheduledRidesQueryInterface::class     => GetScheduledRidesQuery::class,
+        SearchLocationsQueryInterface::class       => SearchLocationsQuery::class,
+        GetStreakHistoryQueryInterface::class      => GetStreakHistoryQuery::class,
     ];
 }

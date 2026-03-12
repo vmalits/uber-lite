@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\V1\Rider\DeletePaymentMethodController;
 use App\Http\Controllers\Api\V1\Rider\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetCreditsController;
+use App\Http\Controllers\Api\V1\Rider\GetCreditTransactionsController;
 use App\Http\Controllers\Api\V1\Rider\GetDriverReviewsController;
 use App\Http\Controllers\Api\V1\Rider\GetEstimateController;
 use App\Http\Controllers\Api\V1\Rider\GetFareBreakdownController;
@@ -146,6 +147,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.streak.history');
         Route::get('credits', [GetCreditsController::class, '__invoke'])
             ->name('api.v1.rider.credits');
+        Route::get('credits/transactions', [GetCreditTransactionsController::class, '__invoke'])
+            ->name('api.v1.rider.credits.transactions');
         Route::get('payment-methods', [GetPaymentMethodsController::class, '__invoke'])
             ->name('api.v1.rider.payment-methods');
         Route::delete('payment-methods/{method}', [DeletePaymentMethodController::class, '__invoke'])
