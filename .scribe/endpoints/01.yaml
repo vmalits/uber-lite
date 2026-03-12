@@ -2101,7 +2101,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-11 23:19:51'
+        example: '2026-03-12 21:31:31'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2114,7 +2114,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-11 23:19:51'
+      scheduled_at: '2026-03-12 21:31:31'
     fileParameters: []
     responses:
       -
@@ -2247,7 +2247,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-12 00:19:51'
+        example: '2026-03-12 22:31:31'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2260,7 +2260,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-12 00:19:51'
+      scheduled_at: '2026-03-12 22:31:31'
     fileParameters: []
     responses:
       -
@@ -3425,17 +3425,116 @@ endpoints:
     responses:
       -
         custom: []
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 3e626483-4aab-4b03-b15d-4cd447018d62
+          x-request-id: c20afdab-ab22-4984-aa3c-75977f570efb
         description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/rider/credits/transactions
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Credit Transactions'
+      description: 'Get paginated credit transaction history'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter:
+        custom: []
+        name: filter
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.type:
+        custom: []
+        name: filter.type
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues:
+          - referral_bonus
+          - promo_saving
+          - ride_payment
+          - admin_adjustment
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.from:
+        custom: []
+        name: filter.from
+        description: 'Must be a valid date.'
+        required: false
+        example: '2026-03-12T19:31:31'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.to:
+        custom: []
+        name: filter.to
+        description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
+        required: false
+        example: '2052-04-04'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 15
+      filter:
+        type: architecto
+        from: '2026-03-12T19:31:31'
+        to: '2052-04-04'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Paginated credit transactions retrieved successfully.'
     responseFields: []
     auth: []
     controller: null

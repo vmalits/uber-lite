@@ -432,16 +432,13 @@ endpoints:
     responses:
       -
         custom: []
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: a9e32db0-98aa-4adc-8441-9f38f985efe8
+          x-request-id: ecd134c2-fa17-4f23-b8ee-34ea5bbd4af2
         description: null
     responseFields: []
     auth: []
@@ -489,16 +486,13 @@ endpoints:
     responses:
       -
         custom: []
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: fe2de295-3d61-46f1-89f7-d128aec91424
+          x-request-id: e0cbb74a-4f5d-48b4-8bd0-1a4d7be535b9
         description: null
     responseFields: []
     auth: []
