@@ -68,6 +68,7 @@ return [
         'pin_verified'         => 'PIN-код подтверждён.',
         'pin_already_verified' => 'PIN-код уже был подтверждён.',
         'tip_added'            => 'Чаевые успешно добавлены.',
+        'message_sent'         => 'Сообщение отправлено.',
     ],
     'profile' => [
         'updated' => 'Профиль успешно обновлён',

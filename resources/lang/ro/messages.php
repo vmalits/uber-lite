@@ -68,6 +68,7 @@ return [
         'pin_verified'         => 'PIN verificat cu succes.',
         'pin_already_verified' => 'PIN-ul a fost deja verificat.',
         'tip_added'            => 'Bakșiș adăugat cu succes.',
+        'message_sent'         => 'Mesaj trimis cu succes.',
     ],
     'profile' => [
         'updated' => 'Profil actualizat cu succes',
