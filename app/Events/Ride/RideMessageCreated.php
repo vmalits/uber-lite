@@ -26,13 +26,11 @@ final class RideMessageCreated implements ShouldBroadcast
     {
         $this->message->loadMissing('ride.rider', 'ride.driver');
 
-        $channels = [];
+        $channels = [
+            new Channel("rider:{$this->message->ride->rider_id}"),
+        ];
 
-        if ($this->message->ride->rider) {
-            $channels[] = new Channel("rider:{$this->message->ride->rider_id}");
-        }
-
-        if ($this->message->ride->driver) {
+        if ($this->message->ride->driver_id !== null) {
             $channels[] = new Channel("driver:{$this->message->ride->driver_id}");
         }
 

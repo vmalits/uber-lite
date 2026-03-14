@@ -11,6 +11,7 @@ return [
     App\Providers\GeoServiceProvider::class,
     App\Providers\LocaleServiceProvider::class,
     App\Providers\RiderServiceProvider::class,
+    App\Providers\RideServiceProvider::class,
     App\Providers\AdminServiceProvider::class,
     App\Providers\SupportServiceProvider::class,
     App\Providers\TwilioServiceProvider::class,
