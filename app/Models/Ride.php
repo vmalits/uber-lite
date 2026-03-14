@@ -62,6 +62,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property-read RideTip|null $tip
  * @property-read Collection<int, RideSplit> $splits
  * @property-read Collection<int, RideStop> $stops
+ * @property-read Collection<int, RideMessage> $messages
  * @property-read PromoCode|null $promoCode
  */
 #[ObservedBy([RideObserver::class])]
@@ -187,6 +188,14 @@ class Ride extends Model
     public function promoCode(): BelongsTo
     {
         return $this->belongsTo(related: PromoCode::class);
+    }
+
+    /**
+     * @return HasMany<RideMessage, $this>
+     */
+    public function messages(): HasMany
+    {
+        return $this->hasMany(related: RideMessage::class)->oldest();
     }
 
     public function canUpdateRating(RideRating $rating): bool
