@@ -22,6 +22,8 @@ use App\Queries\Driver\GetDriverBalanceQuery;
 use App\Queries\Driver\GetDriverBalanceQueryInterface;
 use App\Queries\Driver\GetDriverPerformanceQuery;
 use App\Queries\Driver\GetDriverPerformanceQueryInterface;
+use App\Queries\Driver\GetDriverRatingSummaryQuery;
+use App\Queries\Driver\GetDriverRatingSummaryQueryInterface;
 use App\Queries\Driver\GetDriverReviewsQuery;
 use App\Queries\Driver\GetDriverReviewsQueryInterface;
 use App\Queries\Driver\GetDriverStatsQuery;
@@ -48,23 +50,24 @@ final class DriverServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetAvailableRidesQueryInterface::class    => GetAvailableRidesQuery::class,
-        GetActiveRideQueryInterface::class        => GetActiveRideQuery::class,
-        GetActiveBanQueryInterface::class         => GetActiveBanQuery::class,
-        GetActiveBansQueryInterface::class        => GetActiveBansQuery::class,
-        GetVehiclesQueryInterface::class          => GetVehiclesQuery::class,
-        FindNearbyDriversQueryInterface::class    => FindNearbyDriversQuery::class,
-        GetDriverStatsQueryInterface::class       => GetDriverStatsQuery::class,
-        GetHeatmapQueryInterface::class           => GetHeatmapQuery::class,
-        GetRideHistoryQueryInterface::class       => GetRideHistoryQuery::class,
-        GetCurrentLocationQueryInterface::class   => GetCurrentLocationQuery::class,
-        GetDailyEarningsQueryInterface::class     => GetDailyEarningsQuery::class,
-        GetWeeklyEarningsQueryInterface::class    => GetWeeklyEarningsQuery::class,
-        GetMonthlyEarningsQueryInterface::class   => GetMonthlyEarningsQuery::class,
-        GetTipHistoryQueryInterface::class        => GetTipHistoryQuery::class,
-        GetDriverBalanceQueryInterface::class     => GetDriverBalanceQuery::class,
-        GetPayoutHistoryQueryInterface::class     => GetPayoutHistoryQuery::class,
-        GetDriverPerformanceQueryInterface::class => GetDriverPerformanceQuery::class,
-        GetDriverReviewsQueryInterface::class     => GetDriverReviewsQuery::class,
+        GetAvailableRidesQueryInterface::class      => GetAvailableRidesQuery::class,
+        GetActiveRideQueryInterface::class          => GetActiveRideQuery::class,
+        GetActiveBanQueryInterface::class           => GetActiveBanQuery::class,
+        GetActiveBansQueryInterface::class          => GetActiveBansQuery::class,
+        GetVehiclesQueryInterface::class            => GetVehiclesQuery::class,
+        FindNearbyDriversQueryInterface::class      => FindNearbyDriversQuery::class,
+        GetDriverStatsQueryInterface::class         => GetDriverStatsQuery::class,
+        GetHeatmapQueryInterface::class             => GetHeatmapQuery::class,
+        GetRideHistoryQueryInterface::class         => GetRideHistoryQuery::class,
+        GetCurrentLocationQueryInterface::class     => GetCurrentLocationQuery::class,
+        GetDailyEarningsQueryInterface::class       => GetDailyEarningsQuery::class,
+        GetWeeklyEarningsQueryInterface::class      => GetWeeklyEarningsQuery::class,
+        GetMonthlyEarningsQueryInterface::class     => GetMonthlyEarningsQuery::class,
+        GetTipHistoryQueryInterface::class          => GetTipHistoryQuery::class,
+        GetDriverBalanceQueryInterface::class       => GetDriverBalanceQuery::class,
+        GetPayoutHistoryQueryInterface::class       => GetPayoutHistoryQuery::class,
+        GetDriverPerformanceQueryInterface::class   => GetDriverPerformanceQuery::class,
+        GetDriverRatingSummaryQueryInterface::class => GetDriverRatingSummaryQuery::class,
+        GetDriverReviewsQueryInterface::class       => GetDriverReviewsQuery::class,
     ];
 }
