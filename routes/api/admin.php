@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\Admin\AdjustUserCreditsController;
 use App\Http\Controllers\Api\V1\Admin\ApprovePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CompletePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CreatePromoCodeController;
+use App\Http\Controllers\Api\V1\Admin\CreateTicketCommentController;
 use App\Http\Controllers\Api\V1\Admin\DeletePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
@@ -88,6 +89,9 @@ Route::prefix('admin')
         Route::get('tickets/{ticket}/comments', [GetTicketCommentsController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.tickets.comments.index');
+        Route::post('tickets/{ticket}/comments', [CreateTicketCommentController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.tickets.comments.store');
         Route::get('promo-codes', [GetPromoCodesController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.promo-codes.index');
