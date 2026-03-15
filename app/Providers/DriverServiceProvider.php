@@ -22,6 +22,8 @@ use App\Queries\Driver\GetDriverBalanceQuery;
 use App\Queries\Driver\GetDriverBalanceQueryInterface;
 use App\Queries\Driver\GetDriverPerformanceQuery;
 use App\Queries\Driver\GetDriverPerformanceQueryInterface;
+use App\Queries\Driver\GetDriverReviewsQuery;
+use App\Queries\Driver\GetDriverReviewsQueryInterface;
 use App\Queries\Driver\GetDriverStatsQuery;
 use App\Queries\Driver\GetDriverStatsQueryInterface;
 use App\Queries\Driver\GetHeatmapQuery;
@@ -63,5 +65,6 @@ final class DriverServiceProvider extends ServiceProvider
         GetDriverBalanceQueryInterface::class     => GetDriverBalanceQuery::class,
         GetPayoutHistoryQueryInterface::class     => GetPayoutHistoryQuery::class,
         GetDriverPerformanceQueryInterface::class => GetDriverPerformanceQuery::class,
+        GetDriverReviewsQueryInterface::class     => GetDriverReviewsQuery::class,
     ];
 }

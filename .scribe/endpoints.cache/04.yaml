@@ -440,7 +440,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 29d1bc22-b8db-419d-ae4a-ce2a046cd395
+          x-request-id: 00987ee1-c0fe-45cf-bfa6-3c309e5a1beb
         description: null
     responseFields: []
     auth: []
@@ -494,7 +494,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 97b69082-6ad9-4802-83b8-65d356acd488
+          x-request-id: b412206b-7aa7-4856-a872-6001e942a2f7
         description: null
     responseFields: []
     auth: []
@@ -570,6 +570,84 @@ endpoints:
         content: null
         headers: []
         description: 'Tip history retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/driver/reviews
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Driver Reviews'
+      description: 'Get reviews received by the authenticated driver'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort by field. Allowed: created_at, rating. Prefix with - for descending.'
+        required: false
+        example: '-created_at'
+        type: string
+        enumValues:
+          - created_at
+          - '-created_at'
+          - rating
+          - '-rating'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of items per page (1-100). Must be at least 1. Must not be greater than 100.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanQueryParameters:
+      sort: '-created_at'
+      per_page: 15
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Driver reviews retrieved successfully.'
       -
         custom: []
         status: 401

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Policies\RideRatingPolicy;
 use Carbon\CarbonInterface;
 use Database\Factories\RideRatingFactory;
 use Illuminate\Database\Eloquent\Attributes\UseFactory;
+use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +26,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read User $rider
  */
 #[UseFactory(RideRatingFactory::class)]
+#[UsePolicy(RideRatingPolicy::class)]
 class RideRating extends Model
 {
     /** @use HasFactory<RideRatingFactory> */
