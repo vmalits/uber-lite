@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\V1\Driver\GetBanController;
 use App\Http\Controllers\Api\V1\Driver\GetCurrentLocationController;
 use App\Http\Controllers\Api\V1\Driver\GetDailyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverBalanceController;
+use App\Http\Controllers\Api\V1\Driver\GetDriverPerformanceController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
 use App\Http\Controllers\Api\V1\Driver\GetHeatmapController;
 use App\Http\Controllers\Api\V1\Driver\GetLevelController;
@@ -118,4 +119,6 @@ Route::prefix('driver')
             ->name('api.v1.driver.payouts.request');
         Route::get('balance', [GetDriverBalanceController::class, '__invoke'])
             ->name('api.v1.driver.balance');
+        Route::get('performance', [GetDriverPerformanceController::class, '__invoke'])
+            ->name('api.v1.driver.performance');
     });

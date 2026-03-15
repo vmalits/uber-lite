@@ -375,3 +375,225 @@ endpoints:
     controller: null
     method: null
     route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/ride/{ride_id}/messages'
+    metadata:
+      custom: []
+      groupName: Ride
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Ride Messages'
+      description: 'Get paginated list of chat messages for a ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Ride messages retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden.
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/ride/{ride_id}/messages'
+    metadata:
+      custom: []
+      groupName: Ride
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Send Ride Message'
+      description: 'Send a chat message in a ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      message:
+        custom: []
+        name: message
+        description: 'Chat message content. Must not be greater than 1000 characters.'
+        required: true
+        example: 'I am waiting near the entrance.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      message: 'I am waiting near the entrance.'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Message sent successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden.
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation failed.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/ride/{ride_id}/messages/read'
+    metadata:
+      custom: []
+      groupName: Ride
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mark Messages as Read'
+      description: 'Mark all unread messages in a ride as read'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Messages marked as read.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden.
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

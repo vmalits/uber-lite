@@ -438,7 +438,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: f6db3ddb-7b56-486b-92dd-eab0850304d8
+          x-request-id: 29d1bc22-b8db-419d-ae4a-ce2a046cd395
         description: null
     responseFields: []
     auth: []
@@ -492,7 +492,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: b6280441-755f-4970-8320-16744f91a43e
+          x-request-id: 97b69082-6ad9-4802-83b8-65d356acd488
         description: null
     responseFields: []
     auth: []
@@ -2445,6 +2445,68 @@ endpoints:
         content: null
         headers: []
         description: 'Balance retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/driver/performance
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Driver Performance'
+      description: 'Get driver performance metrics with comparison'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      period:
+        custom: []
+        name: period
+        description: 'Time period (current_month, last_month, all_time)'
+        required: false
+        example: current_month
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      period: current_month
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Performance data retrieved successfully'
       -
         custom: []
         status: 401
