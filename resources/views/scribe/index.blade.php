@@ -423,6 +423,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-favorites--id-">
                                 <a href="#rider-GETapi-v1-rider-favorites--id-">Get Favorite Location</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-PUTapi-v1-rider-favorites--id-">
+                                <a href="#rider-PUTapi-v1-rider-favorites--id-">Update Favorite Location</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-favorites--id-">
                                 <a href="#rider-DELETEapi-v1-rider-favorites--id-">Delete Favorite Location</a>
                             </li>
@@ -5401,7 +5404,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: b4a88add-f8fc-46d5-bcbf-1f565b96b78c
+x-request-id: 7ab4cff8-a50d-4e9f-a473-3d6daf837205
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5963,7 +5966,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 5e93dcb1-9621-4c19-a219-787cf0da3e46
+x-request-id: 569c4707-db4b-4b62-a0d6-0955ba3d3e8d
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -11337,7 +11340,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 96955b38-375b-43e9-a870-ea7bb6c0f084
+x-request-id: b0158119-01a8-4ac7-97a4-23afa3ae117e
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -11537,7 +11540,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 3facef85-6d82-4bf9-b04f-2536982be8e0
+x-request-id: dd7494f2-c52f-4889-bed9-93834405b4b1
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -15572,7 +15575,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpn5mi3gem42ib6IhKGOh" </code></pre></div>
+    --form "avatar=@/tmp/php82nt46juht7c9EhOpPH" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -15610,7 +15613,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpn5mi3gem42ib6IhKGOh', 'r')
+                'contents' =&gt; fopen('/tmp/php82nt46juht7c9EhOpPH', 'r')
             ],
         ],
     ]
@@ -15625,7 +15628,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpn5mi3gem42ib6IhKGOh', 'rb')}
+  'avatar': open('/tmp/php82nt46juht7c9EhOpPH', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -15740,7 +15743,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpn5mi3gem42ib6IhKGOh</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php82nt46juht7c9EhOpPH</code></p>
         </div>
         </form>
 
@@ -23054,6 +23057,299 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="rider-PUTapi-v1-rider-favorites--id-">Update Favorite Location</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update an existing favorite location</p>
+
+<span id="example-requests-PUTapi-v1-rider-favorites--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8080/api/v1/rider/favorites/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Home\",
+    \"lat\": 47.01,
+    \"lng\": 28.863,
+    \"address\": \"Strada Stefan cel Mare 123, Chisinau\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/favorites/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Home",
+    "lat": 47.01,
+    "lng": 28.863,
+    "address": "Strada Stefan cel Mare 123, Chisinau"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/favorites/architecto';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Home',
+            'lat' =&gt; 47.01,
+            'lng' =&gt; 28.863,
+            'address' =&gt; 'Strada Stefan cel Mare 123, Chisinau',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/favorites/architecto'
+payload = {
+    "name": "Home",
+    "lat": 47.01,
+    "lng": 28.863,
+    "address": "Strada Stefan cel Mare 123, Chisinau"
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-rider-favorites--id-">
+            <blockquote>
+            <p>Example response (200, Favorite location updated successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Favorite location not found.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-rider-favorites--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-rider-favorites--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-rider-favorites--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-rider-favorites--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-rider-favorites--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-rider-favorites--id-" data-method="PUT"
+      data-path="api/v1/rider/favorites/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-rider-favorites--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-rider-favorites--id-"
+                    onclick="tryItOut('PUTapi-v1-rider-favorites--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-rider-favorites--id-"
+                    onclick="cancelTryOut('PUTapi-v1-rider-favorites--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-rider-favorites--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/rider/favorites/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the favorite. Example: <code>architecto</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>favorite</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="favorite"                data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z"
+               data-component="url">
+    <br>
+<p>ULID of the favorite location. Example: <code>01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="Home"
+               data-component="body">
+    <br>
+<p>The name of the favorite location. Must not be greater than 50 characters. Example: <code>Home</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>lat</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="lat"                data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="47.01"
+               data-component="body">
+    <br>
+<p>The latitude of the location. Must be between -90 and 90. Example: <code>47.01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>lng</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="lng"                data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="28.863"
+               data-component="body">
+    <br>
+<p>The longitude of the location. Must be between -180 and 180. Example: <code>28.863</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="PUTapi-v1-rider-favorites--id-"
+               value="Strada Stefan cel Mare 123, Chisinau"
+               data-component="body">
+    <br>
+<p>The address of the favorite location. Must not be greater than 255 characters. Example: <code>Strada Stefan cel Mare 123, Chisinau</code></p>
+        </div>
+        </form>
+
                     <h2 id="rider-DELETEapi-v1-rider-favorites--id-">Delete Favorite Location</h2>
 
 <p>
@@ -25585,7 +25881,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-16 22:03:44\"
+    \"scheduled_at\": \"2026-03-16 22:23:38\"
 }"
 </code></pre></div>
 
@@ -25608,7 +25904,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-16 22:03:44"
+    "scheduled_at": "2026-03-16 22:23:38"
 };
 
 fetch(url, {
@@ -25636,7 +25932,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-16 22:03:44',
+            'scheduled_at' =&gt; '2026-03-16 22:23:38',
         ],
     ]
 );
@@ -25656,7 +25952,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-16 22:03:44"
+    "scheduled_at": "2026-03-16 22:23:38"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -25855,10 +26151,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-03-16 22:03:44"
+               value="2026-03-16 22:23:38"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-16 22:03:44</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-16 22:23:38</code></p>
         </div>
         </form>
 
@@ -25887,7 +26183,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-16 23:03:45\"
+    \"scheduled_at\": \"2026-03-16 23:23:38\"
 }"
 </code></pre></div>
 
@@ -25910,7 +26206,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-16 23:03:45"
+    "scheduled_at": "2026-03-16 23:23:38"
 };
 
 fetch(url, {
@@ -25938,7 +26234,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-16 23:03:45',
+            'scheduled_at' =&gt; '2026-03-16 23:23:38',
         ],
     ]
 );
@@ -25958,7 +26254,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-16 23:03:45"
+    "scheduled_at": "2026-03-16 23:23:38"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -26177,10 +26473,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-03-16 23:03:45"
+               value="2026-03-16 23:23:38"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-16 23:03:45</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-16 23:23:38</code></p>
         </div>
         </form>
 
@@ -29243,7 +29539,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 41d12f42-6c0f-4eed-b5a4-661c07f2d581
+x-request-id: b3316244-d4ee-4e45-bc41-8d2974c9e6c5
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -29350,7 +29646,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-03-16T20%3A03%3A45&amp;filter[to]=2052-04-08" \
+    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-03-16T20%3A23%3A38&amp;filter[to]=2052-04-08" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -29364,7 +29660,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-03-16T20:03:45",
+    "filter[from]": "2026-03-16T20:23:38",
     "filter[to]": "2052-04-08",
 };
 Object.keys(params)
@@ -29397,7 +29693,7 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-03-16T20:03:45',
+            'filter[from]' =&gt; '2026-03-16T20:23:38',
             'filter[to]' =&gt; '2052-04-08',
         ],
     ]
@@ -29414,7 +29710,7 @@ url = 'http://localhost:8080/api/v1/rider/credits/transactions'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-03-16T20:03:45',
+  'filter[from]': '2026-03-16T20:23:38',
   'filter[to]': '2052-04-08',
 }
 headers = {
@@ -29566,10 +29862,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-rider-credits-transactions"
-               value="2026-03-16T20:03:45"
+               value="2026-03-16T20:23:38"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-03-16T20:03:45</code></p>
+<p>Must be a valid date. Example: <code>2026-03-16T20:23:38</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -30913,7 +31209,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpovi6o6a39n397oJHeko" </code></pre></div>
+    --form "avatar=@/tmp/phpa6lb9o18frs41HhdMab" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -30951,7 +31247,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpovi6o6a39n397oJHeko', 'r')
+                'contents' =&gt; fopen('/tmp/phpa6lb9o18frs41HhdMab', 'r')
             ],
         ],
     ]
@@ -30966,7 +31262,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpovi6o6a39n397oJHeko', 'rb')}
+  'avatar': open('/tmp/phpa6lb9o18frs41HhdMab', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -31081,7 +31377,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpovi6o6a39n397oJHeko</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpa6lb9o18frs41HhdMab</code></p>
         </div>
         </form>
 

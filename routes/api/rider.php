@@ -47,6 +47,7 @@ use App\Http\Controllers\Api\V1\Rider\RemovePromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
 use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
 use App\Http\Controllers\Api\V1\Rider\SetDefaultPaymentMethodController;
+use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
 use App\Http\Controllers\Api\V1\Rider\UpdateRideNoteController;
@@ -90,6 +91,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.routes.favorite.destroy');
         Route::get('favorites/{favorite}', [GetFavoriteLocationController::class, '__invoke'])
             ->name('api.v1.rider.favorites.show');
+        Route::put('favorites/{favorite}', [UpdateFavoriteLocationController::class, '__invoke'])
+            ->name('api.v1.rider.favorites.update');
         Route::delete('favorites/{favorite}', [DeleteFavoriteLocationController::class, '__invoke'])
             ->name('api.v1.rider.favorites.destroy');
         Route::get('profile', [ProfileController::class, '__invoke'])
