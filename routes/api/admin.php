@@ -33,6 +33,7 @@ use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
 use App\Http\Controllers\Api\V1\Admin\ProcessPayoutController;
 use App\Http\Controllers\Api\V1\Admin\UpdatePromoCodeController;
+use App\Http\Controllers\Api\V1\Admin\UpdateTicketStatusController;
 
 Route::prefix('admin')
     ->middleware(['set_locale'])
@@ -92,6 +93,9 @@ Route::prefix('admin')
         Route::post('tickets/{ticket}/comments', [CreateTicketCommentController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.tickets.comments.store');
+        Route::put('tickets/{ticket}/status', [UpdateTicketStatusController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.tickets.status.update');
         Route::get('promo-codes', [GetPromoCodesController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.promo-codes.index');
