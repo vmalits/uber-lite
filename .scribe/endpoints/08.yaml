@@ -158,6 +158,140 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - PUT
+    uri: 'api/v1/safety/contacts/{id}'
+    metadata:
+      custom: []
+      groupName: Safety
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Emergency Contact'
+      description: 'Update an existing emergency contact'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the contact.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      contact:
+        custom: []
+        name: contact
+        description: 'ULID of the emergency contact.'
+        required: true
+        example: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+      contact: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'The name of the emergency contact. Must not be greater than 100 characters.'
+        required: false
+        example: 'John Doe'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'The phone number of the emergency contact. Must not be greater than 20 characters.'
+        required: false
+        example: '+37369123456'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'The email of the emergency contact (optional). Must be a valid email address. Must not be greater than 100 characters.'
+        required: false
+        example: john@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_primary:
+        custom: []
+        name: is_primary
+        description: 'Whether this is the primary emergency contact.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: 'John Doe'
+      phone: '+37369123456'
+      email: john@example.com
+      is_primary: true
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Emergency contact updated successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden.
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Emergency contact not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - DELETE
     uri: 'api/v1/safety/contacts/{id}'
     metadata:

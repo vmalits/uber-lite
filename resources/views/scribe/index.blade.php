@@ -547,6 +547,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="safety-POSTapi-v1-safety-contacts">
                                 <a href="#safety-POSTapi-v1-safety-contacts">Add Emergency Contact</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="safety-PUTapi-v1-safety-contacts--id-">
+                                <a href="#safety-PUTapi-v1-safety-contacts--id-">Update Emergency Contact</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="safety-DELETEapi-v1-safety-contacts--id-">
                                 <a href="#safety-DELETEapi-v1-safety-contacts--id-">Delete Emergency Contact</a>
                             </li>
@@ -5398,7 +5401,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: e729cf6e-bbaf-43ad-87ea-838c570c5734
+x-request-id: b4a88add-f8fc-46d5-bcbf-1f565b96b78c
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5960,7 +5963,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 230feaaa-ad88-42ee-87ae-e92400b81e69
+x-request-id: 5e93dcb1-9621-4c19-a219-787cf0da3e46
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -11334,7 +11337,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 135381f9-5b7f-4001-a21e-87c20b3358b0
+x-request-id: 96955b38-375b-43e9-a870-ea7bb6c0f084
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -11534,7 +11537,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 53aae3fe-53c8-4944-bde2-9479c25b2121
+x-request-id: 3facef85-6d82-4bf9-b04f-2536982be8e0
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -15569,7 +15572,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpcldh77sef1gj5JKIOCg" </code></pre></div>
+    --form "avatar=@/tmp/phpn5mi3gem42ib6IhKGOh" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -15607,7 +15610,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpcldh77sef1gj5JKIOCg', 'r')
+                'contents' =&gt; fopen('/tmp/phpn5mi3gem42ib6IhKGOh', 'r')
             ],
         ],
     ]
@@ -15622,7 +15625,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phpcldh77sef1gj5JKIOCg', 'rb')}
+  'avatar': open('/tmp/phpn5mi3gem42ib6IhKGOh', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -15737,7 +15740,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpcldh77sef1gj5JKIOCg</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpn5mi3gem42ib6IhKGOh</code></p>
         </div>
         </form>
 
@@ -25582,7 +25585,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-16 20:08:33\"
+    \"scheduled_at\": \"2026-03-16 22:03:44\"
 }"
 </code></pre></div>
 
@@ -25605,7 +25608,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-16 20:08:33"
+    "scheduled_at": "2026-03-16 22:03:44"
 };
 
 fetch(url, {
@@ -25633,7 +25636,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-16 20:08:33',
+            'scheduled_at' =&gt; '2026-03-16 22:03:44',
         ],
     ]
 );
@@ -25653,7 +25656,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-16 20:08:33"
+    "scheduled_at": "2026-03-16 22:03:44"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -25852,10 +25855,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-03-16 20:08:33"
+               value="2026-03-16 22:03:44"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-16 20:08:33</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-16 22:03:44</code></p>
         </div>
         </form>
 
@@ -25884,7 +25887,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-16 21:08:33\"
+    \"scheduled_at\": \"2026-03-16 23:03:45\"
 }"
 </code></pre></div>
 
@@ -25907,7 +25910,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-16 21:08:33"
+    "scheduled_at": "2026-03-16 23:03:45"
 };
 
 fetch(url, {
@@ -25935,7 +25938,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-16 21:08:33',
+            'scheduled_at' =&gt; '2026-03-16 23:03:45',
         ],
     ]
 );
@@ -25955,7 +25958,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-16 21:08:33"
+    "scheduled_at": "2026-03-16 23:03:45"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -26174,10 +26177,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-03-16 21:08:33"
+               value="2026-03-16 23:03:45"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-16 21:08:33</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-16 23:03:45</code></p>
         </div>
         </form>
 
@@ -29240,7 +29243,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 5da2da00-3304-4233-96ef-7a6330a6447f
+x-request-id: 41d12f42-6c0f-4eed-b5a4-661c07f2d581
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -29347,7 +29350,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-03-16T18%3A08%3A33&amp;filter[to]=2052-04-08" \
+    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-03-16T20%3A03%3A45&amp;filter[to]=2052-04-08" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -29361,7 +29364,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-03-16T18:08:33",
+    "filter[from]": "2026-03-16T20:03:45",
     "filter[to]": "2052-04-08",
 };
 Object.keys(params)
@@ -29394,7 +29397,7 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-03-16T18:08:33',
+            'filter[from]' =&gt; '2026-03-16T20:03:45',
             'filter[to]' =&gt; '2052-04-08',
         ],
     ]
@@ -29411,7 +29414,7 @@ url = 'http://localhost:8080/api/v1/rider/credits/transactions'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-03-16T18:08:33',
+  'filter[from]': '2026-03-16T20:03:45',
   'filter[to]': '2052-04-08',
 }
 headers = {
@@ -29563,10 +29566,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-rider-credits-transactions"
-               value="2026-03-16T18:08:33"
+               value="2026-03-16T20:03:45"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-03-16T18:08:33</code></p>
+<p>Must be a valid date. Example: <code>2026-03-16T20:03:45</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -30910,7 +30913,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpedl46l07nj1h3ofmibn" </code></pre></div>
+    --form "avatar=@/tmp/phpovi6o6a39n397oJHeko" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -30948,7 +30951,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpedl46l07nj1h3ofmibn', 'r')
+                'contents' =&gt; fopen('/tmp/phpovi6o6a39n397oJHeko', 'r')
             ],
         ],
     ]
@@ -30963,7 +30966,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpedl46l07nj1h3ofmibn', 'rb')}
+  'avatar': open('/tmp/phpovi6o6a39n397oJHeko', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -31078,7 +31081,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpedl46l07nj1h3ofmibn</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpovi6o6a39n397oJHeko</code></p>
         </div>
         </form>
 
@@ -31528,6 +31531,309 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <input type="radio" name="is_primary"
                    value="false"
                    data-endpoint="POSTapi-v1-safety-contacts"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether this is the primary emergency contact. Example: <code>true</code></p>
+        </div>
+        </form>
+
+                    <h2 id="safety-PUTapi-v1-safety-contacts--id-">Update Emergency Contact</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update an existing emergency contact</p>
+
+<span id="example-requests-PUTapi-v1-safety-contacts--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8080/api/v1/safety/contacts/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"John Doe\",
+    \"phone\": \"+37369123456\",
+    \"email\": \"john@example.com\",
+    \"is_primary\": true
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/safety/contacts/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "John Doe",
+    "phone": "+37369123456",
+    "email": "john@example.com",
+    "is_primary": true
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/safety/contacts/architecto';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'John Doe',
+            'phone' =&gt; '+37369123456',
+            'email' =&gt; 'john@example.com',
+            'is_primary' =&gt; true,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/safety/contacts/architecto'
+payload = {
+    "name": "John Doe",
+    "phone": "+37369123456",
+    "email": "john@example.com",
+    "is_primary": true
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-safety-contacts--id-">
+            <blockquote>
+            <p>Example response (200, Emergency contact updated successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Forbidden.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Emergency contact not found.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-safety-contacts--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-safety-contacts--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-safety-contacts--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-safety-contacts--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-safety-contacts--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-safety-contacts--id-" data-method="PUT"
+      data-path="api/v1/safety/contacts/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-safety-contacts--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-safety-contacts--id-"
+                    onclick="tryItOut('PUTapi-v1-safety-contacts--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-safety-contacts--id-"
+                    onclick="cancelTryOut('PUTapi-v1-safety-contacts--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-safety-contacts--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/safety/contacts/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-safety-contacts--id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-safety-contacts--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-safety-contacts--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-v1-safety-contacts--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the contact. Example: <code>architecto</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>contact</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="contact"                data-endpoint="PUTapi-v1-safety-contacts--id-"
+               value="01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z"
+               data-component="url">
+    <br>
+<p>ULID of the emergency contact. Example: <code>01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-v1-safety-contacts--id-"
+               value="John Doe"
+               data-component="body">
+    <br>
+<p>The name of the emergency contact. Must not be greater than 100 characters. Example: <code>John Doe</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="phone"                data-endpoint="PUTapi-v1-safety-contacts--id-"
+               value="+37369123456"
+               data-component="body">
+    <br>
+<p>The phone number of the emergency contact. Must not be greater than 20 characters. Example: <code>+37369123456</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="PUTapi-v1-safety-contacts--id-"
+               value="john@example.com"
+               data-component="body">
+    <br>
+<p>The email of the emergency contact (optional). Must be a valid email address. Must not be greater than 100 characters. Example: <code>john@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_primary</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-v1-safety-contacts--id-" style="display: none">
+            <input type="radio" name="is_primary"
+                   value="true"
+                   data-endpoint="PUTapi-v1-safety-contacts--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-v1-safety-contacts--id-" style="display: none">
+            <input type="radio" name="is_primary"
+                   value="false"
+                   data-endpoint="PUTapi-v1-safety-contacts--id-"
                    data-component="body"             >
             <code>false</code>
         </label>
