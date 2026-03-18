@@ -118,4 +118,10 @@ return [
         'deleted'     => 'Metoda de plată a fost ștearsă cu succes.',
         'set_default' => 'Metoda de plată implicită a fost setată cu succes.',
     ],
+    'notifications' => [
+        'marked_as_read'     => 'Notificarea a fost marcată ca citită.',
+        'all_marked_as_read' => 'Toate notificările au fost marcate ca citite.',
+        'deleted'            => 'Notificarea a fost ștearsă.',
+        'not_found'          => 'Notificarea nu a fost găsită.',
+    ],
 ];
