@@ -16,4 +16,5 @@ return [
     App\Providers\SupportServiceProvider::class,
     App\Providers\TwilioServiceProvider::class,
     App\Providers\NotificationServiceProvider::class,
+    App\Providers\PaymentServiceProvider::class,
 ];

@@ -117,6 +117,13 @@ return [
     'payment_method' => [
         'deleted'     => 'Metoda de plată a fost ștearsă cu succes.',
         'set_default' => 'Metoda de plată implicită a fost setată cu succes.',
+        'added'       => 'Metoda de plată adăugată cu succes.',
+    ],
+    'payment' => [
+        'completed'            => 'Plata procesată cu succes.',
+        'failed'               => 'Plata a eșuat.',
+        'status_retrieved'     => 'Statusul plății a fost obținut cu succes.',
+        'insufficient_credits' => 'Sold insuficient de credite.',
     ],
     'notifications' => [
         'marked_as_read'     => 'Notificarea a fost marcată ca citită.',

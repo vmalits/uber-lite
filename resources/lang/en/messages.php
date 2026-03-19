@@ -144,6 +144,13 @@ return [
     'payment_method' => [
         'deleted'     => 'Payment method deleted successfully.',
         'set_default' => 'Default payment method set successfully.',
+        'added'       => 'Payment method added successfully.',
+    ],
+    'payment' => [
+        'completed'            => 'Payment processed successfully.',
+        'failed'               => 'Payment failed.',
+        'status_retrieved'     => 'Payment status retrieved successfully.',
+        'insufficient_credits' => 'Insufficient credits balance.',
     ],
     'notifications' => [
         'marked_as_read'     => 'Notification marked as read.',
