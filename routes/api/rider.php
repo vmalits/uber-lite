@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\Ride\ShareRideController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteDriverController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\AddFavoriteRouteController;
+use App\Http\Controllers\Api\V1\Rider\AddPaymentMethodController;
 use App\Http\Controllers\Api\V1\Rider\AddRideStopController;
 use App\Http\Controllers\Api\V1\Rider\AddTipController;
 use App\Http\Controllers\Api\V1\Rider\ApplyPromoCodeController;
@@ -30,6 +31,7 @@ use App\Http\Controllers\Api\V1\Rider\GetFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRoutesController;
 use App\Http\Controllers\Api\V1\Rider\GetLevelController;
 use App\Http\Controllers\Api\V1\Rider\GetPaymentMethodsController;
+use App\Http\Controllers\Api\V1\Rider\GetPaymentStatusController;
 use App\Http\Controllers\Api\V1\Rider\GetPricingZonesController;
 use App\Http\Controllers\Api\V1\Rider\GetReceiptController;
 use App\Http\Controllers\Api\V1\Rider\GetReceiptsController;
@@ -41,6 +43,8 @@ use App\Http\Controllers\Api\V1\Rider\GetScheduledRidesController;
 use App\Http\Controllers\Api\V1\Rider\GetStreakController;
 use App\Http\Controllers\Api\V1\Rider\GetStreakHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetSurgeController;
+use App\Http\Controllers\Api\V1\Rider\PayRideController;
+use App\Http\Controllers\Api\V1\Rider\PayRideWithCreditsController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
 use App\Http\Controllers\Api\V1\Rider\RemovePromoCodeController;
@@ -139,6 +143,12 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.stops.store');
         Route::post('rides/{ride}/tip', [AddTipController::class, '__invoke'])
             ->name('api.v1.rider.rides.tip');
+        Route::post('rides/{ride}/pay', [PayRideController::class, '__invoke'])
+            ->name('api.v1.rider.rides.pay');
+        Route::post('rides/{ride}/pay-with-credits', [PayRideWithCreditsController::class, '__invoke'])
+            ->name('api.v1.rider.rides.pay-with-credits');
+        Route::get('rides/{ride}/payment-status', [GetPaymentStatusController::class, '__invoke'])
+            ->name('api.v1.rider.rides.payment-status');
         Route::get('stats', [GetRideStatsController::class, '__invoke'])
             ->name('api.v1.rider.stats');
         Route::get('achievements', [GetAchievementsController::class, '__invoke'])
@@ -153,6 +163,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.credits');
         Route::get('credits/transactions', [GetCreditTransactionsController::class, '__invoke'])
             ->name('api.v1.rider.credits.transactions');
+        Route::post('payment-methods', [AddPaymentMethodController::class, '__invoke'])
+            ->name('api.v1.rider.payment-methods.store');
         Route::get('payment-methods', [GetPaymentMethodsController::class, '__invoke'])
             ->name('api.v1.rider.payment-methods');
         Route::delete('payment-methods/{method}', [DeletePaymentMethodController::class, '__invoke'])
