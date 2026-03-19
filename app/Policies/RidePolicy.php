@@ -139,4 +139,11 @@ final class RidePolicy
         return $ride->rider()->is($user)
             && $ride->status === RideStatus::COMPLETED;
     }
+
+    public function pay(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && $ride->status === RideStatus::COMPLETED
+            && ! $ride->isPaid();
+    }
 }

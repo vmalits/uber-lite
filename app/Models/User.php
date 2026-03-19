@@ -231,4 +231,20 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(related: UserRideStreak::class);
     }
+
+    /**
+     * @return HasMany<PaymentMethod, $this>
+     */
+    public function paymentMethods(): HasMany
+    {
+        return $this->hasMany(related: PaymentMethod::class);
+    }
+
+    /**
+     * @return HasMany<PaymentAttempt, $this>
+     */
+    public function paymentAttempts(): HasMany
+    {
+        return $this->hasMany(related: PaymentAttempt::class);
+    }
 }

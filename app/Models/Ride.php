@@ -229,4 +229,25 @@ class Ride extends Model
     {
         return $this->pin_verified_at !== null;
     }
+
+    /**
+     * @return HasMany<PaymentAttempt, $this>
+     */
+    public function paymentAttempts(): HasMany
+    {
+        return $this->hasMany(related: PaymentAttempt::class)->latest();
+    }
+
+    public function isPaid(): bool
+    {
+        return $this->paymentAttempts()->where('status', 'completed')->exists();
+    }
+
+    public function finalPrice(): int
+    {
+        $price = $this->price ?? $this->estimated_price ?? 0;
+        $discount = $this->discount_amount ?? 0;
+
+        return max(0, $price - $discount);
+    }
 }

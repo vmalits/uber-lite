@@ -15,6 +15,11 @@ final class PaymentMethodPolicy
         return $user->role === UserRole::RIDER;
     }
 
+    public function create(User $user): bool
+    {
+        return $user->role === UserRole::RIDER;
+    }
+
     public function view(User $user, PaymentMethod $paymentMethod): bool
     {
         return $paymentMethod->user()->is($user);
