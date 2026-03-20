@@ -216,7 +216,7 @@ endpoints:
       notification:
         custom: []
         name: notification
-        description: 'UUID of the notification.'
+        description: 'ULID of the notification.'
         required: true
         example: architecto
         type: string
@@ -333,7 +333,7 @@ endpoints:
       notification:
         custom: []
         name: notification
-        description: 'Ulid of the notification.'
+        description: 'ULID of the notification.'
         required: true
         example: architecto
         type: string
