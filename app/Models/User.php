@@ -191,6 +191,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(related: CreditTransaction::class, foreignKey: 'user_id');
     }
 
+    /**
+     * @return HasMany<WalletTopUp, $this>
+     */
+    public function walletTopUps(): HasMany
+    {
+        return $this->hasMany(related: WalletTopUp::class, foreignKey: 'user_id');
+    }
+
     public function generateReferralCode(): string
     {
         $code = strtoupper(substr(md5((string) $this->id), 0, 8));
