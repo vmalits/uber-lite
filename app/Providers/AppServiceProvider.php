@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Services\Webhook\SignatureVerifier;
 use Carbon\CarbonImmutable;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,17 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public function register(): void
+    {
+        $this->app->singleton(SignatureVerifier::class, function () {
+            $secret = config('services.stripe.webhook_secret', '');
+
+            return new SignatureVerifier(
+                webhookSecret: \is_string($secret) ? $secret : '',
+            );
+        });
+    }
+
     public function boot(): void
     {
         $this->configureCommands();

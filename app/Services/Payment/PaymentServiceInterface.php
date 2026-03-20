@@ -16,4 +16,15 @@ interface PaymentServiceInterface
     ): TokenizedCardResult;
 
     public function charge(PaymentAttempt $attempt): ChargeResult;
+
+    public function createWalletTopUpIntent(
+        int $amount,
+        string $currency,
+        ?string $paymentMethodId,
+        string $customerId,
+    ): WalletTopUpIntentResult;
+
+    public function confirmWalletTopUpIntent(string $paymentIntentId): bool;
+
+    public function cancelWalletTopUpIntent(string $paymentIntentId): bool;
 }

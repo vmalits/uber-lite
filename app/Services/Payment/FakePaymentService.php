@@ -32,4 +32,29 @@ final readonly class FakePaymentService implements PaymentServiceInterface
             providerTransactionId: 'fake_ch_'.Str::random(24),
         );
     }
+
+    public function createWalletTopUpIntent(
+        int $amount,
+        string $currency,
+        ?string $paymentMethodId,
+        string $customerId,
+    ): WalletTopUpIntentResult {
+        $paymentIntentId = 'pi_fake_'.Str::random(24);
+        $clientSecret = $paymentIntentId.'_secret_'.Str::random(12);
+
+        return WalletTopUpIntentResult::success(
+            paymentIntentId: $paymentIntentId,
+            clientSecret: $clientSecret,
+        );
+    }
+
+    public function confirmWalletTopUpIntent(string $paymentIntentId): bool
+    {
+        return true;
+    }
+
+    public function cancelWalletTopUpIntent(string $paymentIntentId): bool
+    {
+        return true;
+    }
 }
