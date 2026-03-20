@@ -12,7 +12,10 @@ use App\Http\Controllers\Api\V1\Rider\AddTipController;
 use App\Http\Controllers\Api\V1\Rider\ApplyPromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ApplyReferralCodeController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
+use App\Http\Controllers\Api\V1\Rider\CancelWalletTopUpController;
+use App\Http\Controllers\Api\V1\Rider\ConfirmWalletTopUpController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
+use App\Http\Controllers\Api\V1\Rider\CreateWalletTopUpController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteDriverController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteRouteController;
@@ -43,6 +46,8 @@ use App\Http\Controllers\Api\V1\Rider\GetScheduledRidesController;
 use App\Http\Controllers\Api\V1\Rider\GetStreakController;
 use App\Http\Controllers\Api\V1\Rider\GetStreakHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetSurgeController;
+use App\Http\Controllers\Api\V1\Rider\GetWalletBalanceController;
+use App\Http\Controllers\Api\V1\Rider\GetWalletTransactionsController;
 use App\Http\Controllers\Api\V1\Rider\PayRideController;
 use App\Http\Controllers\Api\V1\Rider\PayRideWithCreditsController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
@@ -181,4 +186,14 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.promo-code.remove');
         Route::post('avatar', [UploadAvatarController::class, '__invoke'])
             ->name('api.v1.rider.avatar');
+        Route::get('wallet/balance', [GetWalletBalanceController::class, '__invoke'])
+            ->name('api.v1.rider.wallet.balance');
+        Route::get('wallet/transactions', [GetWalletTransactionsController::class, '__invoke'])
+            ->name('api.v1.rider.wallet.transactions');
+        Route::post('wallet/top-up', [CreateWalletTopUpController::class, '__invoke'])
+            ->name('api.v1.rider.wallet.top-up');
+        Route::post('wallet/top-up/{topUp}/confirm', [ConfirmWalletTopUpController::class, '__invoke'])
+            ->name('api.v1.rider.wallet.top-up.confirm');
+        Route::post('wallet/top-up/{topUp}/cancel', [CancelWalletTopUpController::class, '__invoke'])
+            ->name('api.v1.rider.wallet.top-up.cancel');
     });

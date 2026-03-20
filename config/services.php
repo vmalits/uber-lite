@@ -47,8 +47,7 @@ return [
     ],
 
     'geocoding' => [
-        'driver'    => env('GEOCODING_DRIVER', 'nominatim'),
-        'cache_ttl' => env('GEOCODING_CACHE_TTL', 86400),
+        'driver' => env('GEOCODING_DRIVER', 'nominatim'),
 
         'nominatim' => [
             'url' => env('NOMINATIM_URL', 'http://localhost:8081'),
@@ -61,5 +60,11 @@ return [
         'mapbox' => [
             'access_token' => env('MAPBOX_ACCESS_TOKEN'),
         ],
+    ],
+
+    'stripe' => [
+        'key'            => env('STRIPE_KEY'),
+        'secret'         => env('STRIPE_SECRET'),
+        'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
     ],
 ];

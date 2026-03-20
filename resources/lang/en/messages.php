@@ -158,4 +158,12 @@ return [
         'deleted'            => 'Notification deleted.',
         'not_found'          => 'Notification not found.',
     ],
+    'wallet' => [
+        'min_amount'          => 'Minimum top-up amount is :min.',
+        'max_amount'          => 'Maximum top-up amount is :max.',
+        'payment_failed'      => 'Payment creation failed.',
+        'not_pending'         => 'Top-up is not in pending status.',
+        'confirmation_failed' => 'Payment confirmation failed.',
+        'cancel_failed'       => 'Payment cancellation failed.',
+    ],
 ];
