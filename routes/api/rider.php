@@ -56,6 +56,7 @@ use App\Http\Controllers\Api\V1\Rider\RemovePromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
 use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
 use App\Http\Controllers\Api\V1\Rider\SetDefaultPaymentMethodController;
+use App\Http\Controllers\Api\V1\Rider\TrackRideController;
 use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
@@ -132,6 +133,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.scheduled.update');
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.show');
+        Route::get('rides/{ride}/track', [TrackRideController::class, '__invoke'])
+            ->name('api.v1.rider.rides.track');
         Route::get('rides/{ride}/fare-breakdown', [GetFareBreakdownController::class, '__invoke'])
             ->name('api.v1.rider.rides.fare-breakdown');
         Route::put('rides/{ride}/note', [UpdateRideNoteController::class, '__invoke'])

@@ -146,4 +146,20 @@ final class RidePolicy
             && $ride->status === RideStatus::COMPLETED
             && ! $ride->isPaid();
     }
+
+    public function track(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && $ride->driver()->exists()
+            && \in_array(
+                $ride->status,
+                [
+                    RideStatus::ACCEPTED,
+                    RideStatus::ON_THE_WAY,
+                    RideStatus::ARRIVED,
+                    RideStatus::STARTED,
+                ],
+                true,
+            );
+    }
 }
