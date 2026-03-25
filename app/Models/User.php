@@ -255,4 +255,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(related: PaymentAttempt::class);
     }
+
+    /**
+     * @return HasMany<DriverSchedule, $this>
+     */
+    public function schedules(): HasMany
+    {
+        return $this->hasMany(related: DriverSchedule::class, foreignKey: 'driver_id');
+    }
 }

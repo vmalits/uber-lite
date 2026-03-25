@@ -7,7 +7,9 @@ use App\Http\Controllers\Api\V1\Driver\AddVehicleController;
 use App\Http\Controllers\Api\V1\Driver\ArrivedController;
 use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
+use App\Http\Controllers\Api\V1\Driver\CreateScheduleController;
 use App\Http\Controllers\Api\V1\Driver\CreateTicketCommentController;
+use App\Http\Controllers\Api\V1\Driver\DeleteScheduleController;
 use App\Http\Controllers\Api\V1\Driver\DeleteVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Driver\GetActiveBansController;
@@ -26,6 +28,7 @@ use App\Http\Controllers\Api\V1\Driver\GetLevelController;
 use App\Http\Controllers\Api\V1\Driver\GetMonthlyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetPayoutHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
+use App\Http\Controllers\Api\V1\Driver\GetScheduleController;
 use App\Http\Controllers\Api\V1\Driver\GetTipHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetVehiclesController;
@@ -38,6 +41,7 @@ use App\Http\Controllers\Api\V1\Driver\RequestPayoutController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
 use App\Http\Controllers\Api\V1\Driver\UpdateLocationController;
 use App\Http\Controllers\Api\V1\Driver\UpdateProfileController;
+use App\Http\Controllers\Api\V1\Driver\UpdateScheduleController;
 use App\Http\Controllers\Api\V1\Driver\UpdateVehicleController;
 use App\Http\Controllers\Api\V1\Driver\UploadAvatarController;
 use Illuminate\Support\Facades\Route;
@@ -127,4 +131,12 @@ Route::prefix('driver')
             ->name('api.v1.driver.balance');
         Route::get('performance', [GetDriverPerformanceController::class, '__invoke'])
             ->name('api.v1.driver.performance');
+        Route::get('schedule', [GetScheduleController::class, '__invoke'])
+            ->name('api.v1.driver.schedule.index');
+        Route::post('schedule', [CreateScheduleController::class, '__invoke'])
+            ->name('api.v1.driver.schedule.store');
+        Route::put('schedule/{schedule}', [UpdateScheduleController::class, '__invoke'])
+            ->name('api.v1.driver.schedule.update');
+        Route::delete('schedule/{schedule}', [DeleteScheduleController::class, '__invoke'])
+            ->name('api.v1.driver.schedule.destroy');
     });
