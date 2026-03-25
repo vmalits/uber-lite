@@ -2235,7 +2235,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-20 16:32:52'
+        example: '2026-03-25 23:22:55'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2248,7 +2248,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-20 16:32:52'
+      scheduled_at: '2026-03-25 23:22:55'
     fileParameters: []
     responses:
       -
@@ -2381,7 +2381,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-20 17:32:52'
+        example: '2026-03-26 00:22:55'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2394,7 +2394,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-20 17:32:52'
+      scheduled_at: '2026-03-26 00:22:55'
     fileParameters: []
     responses:
       -
@@ -2526,6 +2526,74 @@ endpoints:
         content: null
         headers: []
         description: 'Ride not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/rider/rides/{ride_id}/track'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Track Ride'
+      description: 'Get real-time driver location for active ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Ride tracking data retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden.
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
     responseFields: []
     auth: []
     controller: null
@@ -3823,7 +3891,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: da96cbf9-2bd5-421d-9e90-d8983be35538
+          x-request-id: ddf30fec-1f2c-4412-bf2a-3212ed13ce1a
         description: null
     responseFields: []
     auth: []
@@ -3896,7 +3964,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-03-20T14:32:52'
+        example: '2026-03-25T21:22:55'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3907,7 +3975,7 @@ endpoints:
         name: filter.to
         description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
         required: false
-        example: '2052-04-12'
+        example: '2052-04-17'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3917,8 +3985,8 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-03-20T14:32:52'
-        to: '2052-04-12'
+        from: '2026-03-25T21:22:55'
+        to: '2052-04-17'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -4614,7 +4682,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-03-20T14:32:52'
+        example: '2026-03-25T21:22:55'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4625,7 +4693,7 @@ endpoints:
         name: filter.to
         description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
         required: false
-        example: '2052-04-12'
+        example: '2052-04-17'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4635,8 +4703,8 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-03-20T14:32:52'
-        to: '2052-04-12'
+        from: '2026-03-25T21:22:55'
+        to: '2052-04-17'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
