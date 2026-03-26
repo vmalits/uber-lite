@@ -131,4 +131,9 @@ return [
         'deleted'            => 'Notificarea a fost ștearsă.',
         'not_found'          => 'Notificarea nu a fost găsită.',
     ],
+    'announcement' => [
+        'created' => 'Anunțul a fost creat cu succes.',
+        'updated' => 'Anunțul a fost actualizat cu succes.',
+        'deleted' => 'Anunțul a fost șters cu succes.',
+    ],
 ];

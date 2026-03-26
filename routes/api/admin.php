@@ -5,8 +5,10 @@ declare(strict_types=1);
 use App\Http\Controllers\Api\V1\Admin\AdjustUserCreditsController;
 use App\Http\Controllers\Api\V1\Admin\ApprovePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CompletePayoutController;
+use App\Http\Controllers\Api\V1\Admin\CreateAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\CreatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\CreateTicketCommentController;
+use App\Http\Controllers\Api\V1\Admin\DeleteAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\DeletePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
@@ -14,6 +16,7 @@ use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
 use App\Http\Controllers\Api\V1\Admin\ExportRidesController;
 use App\Http\Controllers\Api\V1\Admin\FailPayoutController;
 use App\Http\Controllers\Api\V1\Admin\GetAnalyticsOverviewController;
+use App\Http\Controllers\Api\V1\Admin\GetAnnouncementsController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
 use App\Http\Controllers\Api\V1\Admin\GetPayoutController;
@@ -32,6 +35,7 @@ use App\Http\Controllers\Api\V1\Admin\GetUserController;
 use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
 use App\Http\Controllers\Api\V1\Admin\ProcessPayoutController;
+use App\Http\Controllers\Api\V1\Admin\UpdateAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\UpdatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\UpdateTicketStatusController;
 
@@ -132,4 +136,16 @@ Route::prefix('admin')
         Route::post('payouts/{payout}/fail', [FailPayoutController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.payouts.fail');
+        Route::get('announcements', [GetAnnouncementsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.announcements.index');
+        Route::post('announcements', [CreateAnnouncementController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.announcements.store');
+        Route::put('announcements/{announcement}', [UpdateAnnouncementController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.announcements.update');
+        Route::delete('announcements/{announcement}', [DeleteAnnouncementController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.announcements.destroy');
     });

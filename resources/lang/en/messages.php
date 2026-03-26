@@ -171,4 +171,9 @@ return [
         'confirmation_failed' => 'Payment confirmation failed.',
         'cancel_failed'       => 'Payment cancellation failed.',
     ],
+    'announcement' => [
+        'created' => 'Announcement created successfully.',
+        'updated' => 'Announcement updated successfully.',
+        'deleted' => 'Announcement deleted successfully.',
+    ],
 ];

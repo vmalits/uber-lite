@@ -15,6 +15,7 @@ Route::prefix('v1')->group(function (): void {
     require __DIR__.'/api/ride.php';
     require __DIR__.'/api/safety.php';
     require __DIR__.'/api/leaderboard.php';
+    require __DIR__.'/api/announcements.php';
     require __DIR__.'/api/notifications.php';
     require __DIR__.'/api/webhooks.php';
 });
