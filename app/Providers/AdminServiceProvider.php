@@ -12,10 +12,14 @@ use App\Queries\Admin\ExportRidesQuery;
 use App\Queries\Admin\ExportRidesQueryInterface;
 use App\Queries\Admin\GetAnalyticsOverviewQuery;
 use App\Queries\Admin\GetAnalyticsOverviewQueryInterface;
+use App\Queries\Admin\GetAnnouncementsQuery;
+use App\Queries\Admin\GetAnnouncementsQueryInterface;
 use App\Queries\Admin\GetDriverQuery;
 use App\Queries\Admin\GetDriverQueryInterface;
 use App\Queries\Admin\GetDriversQuery;
 use App\Queries\Admin\GetDriversQueryInterface;
+use App\Queries\Admin\GetPayoutQuery;
+use App\Queries\Admin\GetPayoutQueryInterface;
 use App\Queries\Admin\GetPromoCodesQuery;
 use App\Queries\Admin\GetPromoCodesQueryInterface;
 use App\Queries\Admin\GetRealTimeAnalyticsQuery;
@@ -34,6 +38,8 @@ use App\Queries\Admin\GetUserQuery;
 use App\Queries\Admin\GetUserQueryInterface;
 use App\Queries\Admin\GetUsersQuery;
 use App\Queries\Admin\GetUsersQueryInterface;
+use App\Queries\Announcement\GetActiveAnnouncementsQuery;
+use App\Queries\Announcement\GetActiveAnnouncementsQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 final class AdminServiceProvider extends ServiceProvider
@@ -42,20 +48,23 @@ final class AdminServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetDriversQueryInterface::class           => GetDriversQuery::class,
-        GetUsersQueryInterface::class             => GetUsersQuery::class,
-        GetUserQueryInterface::class              => GetUserQuery::class,
-        GetRidesQueryInterface::class             => GetRidesQuery::class,
-        GetRideQueryInterface::class              => GetRideQuery::class,
-        GetTicketsQueryInterface::class           => GetTicketsQuery::class,
-        GetDriverQueryInterface::class            => GetDriverQuery::class,
-        GetPromoCodesQueryInterface::class        => GetPromoCodesQuery::class,
-        GetAnalyticsOverviewQueryInterface::class => GetAnalyticsOverviewQuery::class,
-        GetRidesAnalyticsQueryInterface::class    => GetRidesAnalyticsQuery::class,
-        GetRevenueAnalyticsQueryInterface::class  => GetRevenueAnalyticsQuery::class,
-        GetRealTimeAnalyticsQueryInterface::class => GetRealTimeAnalyticsQuery::class,
-        ExportRidesQueryInterface::class          => ExportRidesQuery::class,
-        RidesCsvExportPresenterInterface::class   => RidesCsvExportPresenter::class,
-        DriverProfilePresenterInterface::class    => DriverProfilePresenter::class,
+        GetDriversQueryInterface::class             => GetDriversQuery::class,
+        GetUsersQueryInterface::class               => GetUsersQuery::class,
+        GetUserQueryInterface::class                => GetUserQuery::class,
+        GetRidesQueryInterface::class               => GetRidesQuery::class,
+        GetRideQueryInterface::class                => GetRideQuery::class,
+        GetTicketsQueryInterface::class             => GetTicketsQuery::class,
+        GetDriverQueryInterface::class              => GetDriverQuery::class,
+        GetPromoCodesQueryInterface::class          => GetPromoCodesQuery::class,
+        GetAnnouncementsQueryInterface::class       => GetAnnouncementsQuery::class,
+        GetAnalyticsOverviewQueryInterface::class   => GetAnalyticsOverviewQuery::class,
+        GetRidesAnalyticsQueryInterface::class      => GetRidesAnalyticsQuery::class,
+        GetRevenueAnalyticsQueryInterface::class    => GetRevenueAnalyticsQuery::class,
+        GetRealTimeAnalyticsQueryInterface::class   => GetRealTimeAnalyticsQuery::class,
+        ExportRidesQueryInterface::class            => ExportRidesQuery::class,
+        RidesCsvExportPresenterInterface::class     => RidesCsvExportPresenter::class,
+        DriverProfilePresenterInterface::class      => DriverProfilePresenter::class,
+        GetPayoutQueryInterface::class              => GetPayoutQuery::class,
+        GetActiveAnnouncementsQueryInterface::class => GetActiveAnnouncementsQuery::class,
     ];
 }
