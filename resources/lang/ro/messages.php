@@ -136,4 +136,8 @@ return [
         'updated' => 'Anunțul a fost actualizat cu succes.',
         'deleted' => 'Anunțul a fost șters cu succes.',
     ],
+    'device' => [
+        'registered' => 'Tokenul dispozitivului a fost înregistrat cu succes.',
+        'deleted'    => 'Tokenul dispozitivului a fost șters cu succes.',
+    ],
 ];

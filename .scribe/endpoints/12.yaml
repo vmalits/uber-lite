@@ -1,0 +1,184 @@
+name: 'Device Tokens'
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/devices
+    metadata:
+      custom: []
+      groupName: 'Device Tokens'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Devices'
+      description: 'List registered device tokens for the current user'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 34d6a23a-0a68-4e4d-921d-902c3a855d05
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/devices
+    metadata:
+      custom: []
+      groupName: 'Device Tokens'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Register Device'
+      description: 'Register a device for push notifications'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      platform:
+        custom: []
+        name: platform
+        description: 'Device platform: ios, android, or web.'
+        required: true
+        example: ios
+        type: string
+        enumValues:
+          - ios
+          - android
+          - web
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      token:
+        custom: []
+        name: token
+        description: 'FCM or APNs device push token. Must not be greater than 500 characters.'
+        required: true
+        example: fKz3Y2x1...A1b2C3d4
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      device_name:
+        custom: []
+        name: device_name
+        description: 'Human-readable device name. Must not be greater than 100 characters.'
+        required: false
+        example: 'iPhone 15 Pro'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      app_version:
+        custom: []
+        name: app_version
+        description: 'Application version string. Must not be greater than 20 characters.'
+        required: false
+        example: 1.2.0
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      platform: ios
+      token: fKz3Y2x1...A1b2C3d4
+      device_name: 'iPhone 15 Pro'
+      app_version: 1.2.0
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Device token registered successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/devices/{deviceToken_id}'
+    metadata:
+      custom: []
+      groupName: 'Device Tokens'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Device'
+      description: 'Unregister a device token'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      deviceToken_id:
+        custom: []
+        name: deviceToken_id
+        description: 'The ID of the deviceToken.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      deviceToken_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

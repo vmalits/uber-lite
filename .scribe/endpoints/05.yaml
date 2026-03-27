@@ -1855,7 +1855,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 702e8cae-034d-4e45-ad91-055a3d870610
+          x-request-id: 9330ab26-d7f1-4147-a3d7-d14581072b4f
         description: null
     responseFields: []
     auth: []
@@ -2099,7 +2099,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: c654b31b-c560-43fb-a428-ff1e18e6b0fa
+          x-request-id: 112a555f-00c6-47d6-bda5-83fb017f4c61
         description: null
     responseFields: []
     auth: []
@@ -2870,6 +2870,342 @@ endpoints:
         content: null
         headers: []
         description: 'Payout cannot be failed from current status.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/admin/announcements
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Announcements'
+      description: 'Get list of all announcements'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: ffd32e02-5014-44d2-9d4e-420b91d8fdb2
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/admin/announcements
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Announcement'
+      description: 'Create a new announcement'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Announcement title. Must not be greater than 255 characters.'
+        required: true
+        example: 'New Feature Launch'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      body:
+        custom: []
+        name: body
+        description: 'Announcement body content.'
+        required: true
+        example: 'We are excited to announce a new ride scheduling feature!'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      target:
+        custom: []
+        name: target
+        description: 'Target audience: all, riders, or drivers.'
+        required: true
+        example: all
+        type: string
+        enumValues:
+          - all
+          - riders
+          - drivers
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Whether the announcement is active.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      published_at:
+        custom: []
+        name: published_at
+        description: 'When the announcement should be published. Must be a valid date.'
+        required: false
+        example: '2026-03-26 00:00:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      expires_at:
+        custom: []
+        name: expires_at
+        description: 'When the announcement should expire. Must be a valid date. Must be a date after or equal to <code>published_at</code>.'
+        required: false
+        example: '2026-04-26 23:59:59'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      title: 'New Feature Launch'
+      body: 'We are excited to announce a new ride scheduling feature!'
+      target: all
+      is_active: true
+      published_at: '2026-03-26 00:00:00'
+      expires_at: '2026-04-26 23:59:59'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Announcement created successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/announcements/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Announcement'
+      description: 'Update an existing announcement'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the announcement.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Announcement title. Must not be greater than 255 characters.'
+        required: true
+        example: 'New Feature Launch'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      body:
+        custom: []
+        name: body
+        description: 'Announcement body content.'
+        required: true
+        example: 'We are excited to announce a new ride scheduling feature!'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      target:
+        custom: []
+        name: target
+        description: 'Target audience: all, riders, or drivers.'
+        required: true
+        example: all
+        type: string
+        enumValues:
+          - all
+          - riders
+          - drivers
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Whether the announcement is active.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      published_at:
+        custom: []
+        name: published_at
+        description: 'When the announcement should be published. Must be a valid date.'
+        required: false
+        example: '2026-03-26 00:00:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      expires_at:
+        custom: []
+        name: expires_at
+        description: 'When the announcement should expire. Must be a valid date. Must be a date after or equal to <code>published_at</code>.'
+        required: false
+        example: '2026-04-26 23:59:59'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      title: 'New Feature Launch'
+      body: 'We are excited to announce a new ride scheduling feature!'
+      target: all
+      is_active: true
+      published_at: '2026-03-26 00:00:00'
+      expires_at: '2026-04-26 23:59:59'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Announcement updated successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/announcements/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Announcement'
+      description: 'Soft delete an announcement'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the announcement.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null

@@ -176,4 +176,8 @@ return [
         'updated' => 'Announcement updated successfully.',
         'deleted' => 'Announcement deleted successfully.',
     ],
+    'device' => [
+        'registered' => 'Device token registered successfully.',
+        'deleted'    => 'Device token deleted successfully.',
+    ],
 ];
