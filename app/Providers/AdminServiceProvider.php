@@ -24,6 +24,10 @@ use App\Queries\Admin\GetPromoCodesQuery;
 use App\Queries\Admin\GetPromoCodesQueryInterface;
 use App\Queries\Admin\GetRealTimeAnalyticsQuery;
 use App\Queries\Admin\GetRealTimeAnalyticsQueryInterface;
+use App\Queries\Admin\GetReportQuery;
+use App\Queries\Admin\GetReportQueryInterface;
+use App\Queries\Admin\GetReportsQuery;
+use App\Queries\Admin\GetReportsQueryInterface;
 use App\Queries\Admin\GetRevenueAnalyticsQuery;
 use App\Queries\Admin\GetRevenueAnalyticsQueryInterface;
 use App\Queries\Admin\GetRideQuery;
@@ -40,6 +44,8 @@ use App\Queries\Admin\GetUsersQuery;
 use App\Queries\Admin\GetUsersQueryInterface;
 use App\Queries\Announcement\GetActiveAnnouncementsQuery;
 use App\Queries\Announcement\GetActiveAnnouncementsQueryInterface;
+use App\Queries\Report\GetUserReportsQuery;
+use App\Queries\Report\GetUserReportsQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 final class AdminServiceProvider extends ServiceProvider
@@ -66,5 +72,8 @@ final class AdminServiceProvider extends ServiceProvider
         DriverProfilePresenterInterface::class      => DriverProfilePresenter::class,
         GetPayoutQueryInterface::class              => GetPayoutQuery::class,
         GetActiveAnnouncementsQueryInterface::class => GetActiveAnnouncementsQuery::class,
+        GetReportsQueryInterface::class             => GetReportsQuery::class,
+        GetReportQueryInterface::class              => GetReportQuery::class,
+        GetUserReportsQueryInterface::class         => GetUserReportsQuery::class,
     ];
 }
