@@ -24,6 +24,8 @@ use App\Http\Controllers\Api\V1\Admin\GetPayoutsController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodesController;
 use App\Http\Controllers\Api\V1\Admin\GetRealTimeAnalyticsController;
+use App\Http\Controllers\Api\V1\Admin\GetReportController;
+use App\Http\Controllers\Api\V1\Admin\GetReportsController;
 use App\Http\Controllers\Api\V1\Admin\GetRevenueAnalyticsController;
 use App\Http\Controllers\Api\V1\Admin\GetRideController;
 use App\Http\Controllers\Api\V1\Admin\GetRidesAnalyticsController;
@@ -35,6 +37,7 @@ use App\Http\Controllers\Api\V1\Admin\GetUserController;
 use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
 use App\Http\Controllers\Api\V1\Admin\ProcessPayoutController;
+use App\Http\Controllers\Api\V1\Admin\ResolveReportController;
 use App\Http\Controllers\Api\V1\Admin\UpdateAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\UpdatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\UpdateTicketStatusController;
@@ -148,4 +151,13 @@ Route::prefix('admin')
         Route::delete('announcements/{announcement}', [DeleteAnnouncementController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.announcements.destroy');
+        Route::get('reports', [GetReportsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.reports.index');
+        Route::get('reports/{report}', [GetReportController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.reports.show');
+        Route::put('reports/{report}/resolve', [ResolveReportController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.reports.resolve');
     });

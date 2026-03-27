@@ -180,4 +180,8 @@ return [
         'registered' => 'Device token registered successfully.',
         'deleted'    => 'Device token deleted successfully.',
     ],
+    'report' => [
+        'created'  => 'Report created successfully.',
+        'resolved' => 'Report updated successfully.',
+    ],
 ];

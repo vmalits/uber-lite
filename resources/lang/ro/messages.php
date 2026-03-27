@@ -140,4 +140,8 @@ return [
         'registered' => 'Tokenul dispozitivului a fost înregistrat cu succes.',
         'deleted'    => 'Tokenul dispozitivului a fost șters cu succes.',
     ],
+    'report' => [
+        'created'  => 'Plângerea a fost creată cu succes.',
+        'resolved' => 'Plângerea a fost actualizată cu succes.',
+    ],
 ];
