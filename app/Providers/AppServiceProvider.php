@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Queries\Device\GetDeviceTokensQuery;
+use App\Queries\Device\GetDeviceTokensQueryInterface;
 use App\Services\Webhook\SignatureVerifier;
 use Carbon\CarbonImmutable;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -18,6 +20,13 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    /**
+     * @var array<class-string, class-string>
+     */
+    public array $bindings = [
+        GetDeviceTokensQueryInterface::class => GetDeviceTokensQuery::class,
+    ];
+
     public function register(): void
     {
         $this->app->singleton(SignatureVerifier::class, function () {
