@@ -10,6 +10,8 @@ use App\Presenters\Admin\RidesCsvExportPresenter;
 use App\Presenters\Admin\RidesCsvExportPresenterInterface;
 use App\Queries\Admin\ExportRidesQuery;
 use App\Queries\Admin\ExportRidesQueryInterface;
+use App\Queries\Admin\GetAchievementsQuery;
+use App\Queries\Admin\GetAchievementsQueryInterface;
 use App\Queries\Admin\GetAnalyticsOverviewQuery;
 use App\Queries\Admin\GetAnalyticsOverviewQueryInterface;
 use App\Queries\Admin\GetAnnouncementsQuery;
@@ -54,14 +56,15 @@ final class AdminServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetDriversQueryInterface::class             => GetDriversQuery::class,
-        GetUsersQueryInterface::class               => GetUsersQuery::class,
-        GetUserQueryInterface::class                => GetUserQuery::class,
-        GetRidesQueryInterface::class               => GetRidesQuery::class,
-        GetRideQueryInterface::class                => GetRideQuery::class,
-        GetTicketsQueryInterface::class             => GetTicketsQuery::class,
-        GetDriverQueryInterface::class              => GetDriverQuery::class,
-        GetPromoCodesQueryInterface::class          => GetPromoCodesQuery::class,
+        GetDriversQueryInterface::class    => GetDriversQuery::class,
+        GetUsersQueryInterface::class      => GetUsersQuery::class,
+        GetUserQueryInterface::class       => GetUserQuery::class,
+        GetRidesQueryInterface::class      => GetRidesQuery::class,
+        GetRideQueryInterface::class       => GetRideQuery::class,
+        GetTicketsQueryInterface::class    => GetTicketsQuery::class,
+        GetDriverQueryInterface::class     => GetDriverQuery::class,
+        GetPromoCodesQueryInterface::class => GetPromoCodesQuery::class,
+        GetAchievementsQueryInterface::class        => GetAchievementsQuery::class,
         GetAnnouncementsQueryInterface::class       => GetAnnouncementsQuery::class,
         GetAnalyticsOverviewQueryInterface::class   => GetAnalyticsOverviewQuery::class,
         GetRidesAnalyticsQueryInterface::class      => GetRidesAnalyticsQuery::class,
