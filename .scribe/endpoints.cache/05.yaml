@@ -1857,7 +1857,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 9330ab26-d7f1-4147-a3d7-d14581072b4f
+          x-request-id: b41eca41-71dd-4ae9-9c52-d12385b5de91
         description: null
     responseFields: []
     auth: []
@@ -2101,7 +2101,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 112a555f-00c6-47d6-bda5-83fb017f4c61
+          x-request-id: a2218df5-19c0-45e4-af23-c4679eba79e6
         description: null
     responseFields: []
     auth: []
@@ -2912,7 +2912,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: ffd32e02-5014-44d2-9d4e-420b91d8fdb2
+          x-request-id: e23c8afc-452e-4882-acb1-b244c8e858e8
         description: null
     responseFields: []
     auth: []
@@ -3193,6 +3193,646 @@ endpoints:
         custom: []
         name: id
         description: 'The ID of the announcement.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/admin/reports
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Reports'
+      description: 'Get list of all reports'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 16dbca29-b8ec-4b89-9e3c-dc327e64a24e
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/reports/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Report'
+      description: 'Get a single report details'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the report.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: b091e582-365b-43cf-b3d9-ebc700282b55
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/reports/{report_id}/resolve'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Resolve Report'
+      description: 'Update report status with admin note'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      report_id:
+        custom: []
+        name: report_id
+        description: 'The ID of the report.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      report_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      status:
+        custom: []
+        name: status
+        description: 'New status for the report.'
+        required: true
+        example: resolved
+        type: string
+        enumValues:
+          - pending
+          - reviewed
+          - resolved
+          - dismissed
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      admin_note:
+        custom: []
+        name: admin_note
+        description: 'Admin resolution note. Must not be greater than 1000 characters.'
+        required: false
+        example: 'Action taken: driver warned.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      status: resolved
+      admin_note: 'Action taken: driver warned.'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Report resolved successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/admin/achievements
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Achievements'
+      description: 'Get a paginated list of all achievements'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: fafb55e8-fb2a-435b-8dad-0d379913a9ae
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/admin/achievements
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Achievement'
+      description: 'Create a new achievement'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Achievement display name. Must not be greater than 255 characters.'
+        required: true
+        example: 'First Ride'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      key:
+        custom: []
+        name: key
+        description: 'Unique identifier key (lowercase, underscores). Must match the regex /^[a-z0-9_]+$/. Must not be greater than 100 characters.'
+        required: true
+        example: first_ride
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Achievement description.'
+        required: false
+        example: 'Complete your first ride to earn this achievement.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      icon:
+        custom: []
+        name: icon
+        description: 'Icon identifier or URL. Must not be greater than 255 characters.'
+        required: false
+        example: trophy
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Achievement category: driver, rider, or common.'
+        required: true
+        example: common
+        type: string
+        enumValues:
+          - driver
+          - rider
+          - common
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      target_value:
+        custom: []
+        name: target_value
+        description: 'Target value to complete the achievement. Must be at least 1.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      points_reward:
+        custom: []
+        name: points_reward
+        description: 'XP points awarded upon completion. Must be at least 0.'
+        required: true
+        example: 50
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      metadata:
+        custom: []
+        name: metadata
+        description: 'Additional metadata for the achievement.'
+        required: false
+        example:
+          bonus_credits: 10
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Whether the achievement is active.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: 'First Ride'
+      key: first_ride
+      description: 'Complete your first ride to earn this achievement.'
+      icon: trophy
+      category: common
+      target_value: 1
+      points_reward: 50
+      metadata:
+        bonus_credits: 10
+      is_active: true
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Achievement created successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/achievements/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Achievement'
+      description: 'Get details of a specific achievement'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the achievement.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 892f51eb-7bb6-4402-8e69-ae39d6537f9b
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/achievements/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Achievement'
+      description: 'Update an existing achievement'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the achievement.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Achievement display name. Must not be greater than 255 characters.'
+        required: true
+        example: 'First Ride'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      key:
+        custom: []
+        name: key
+        description: 'Unique identifier key (lowercase, underscores). Must match the regex /^[a-z0-9_]+$/. Must not be greater than 100 characters.'
+        required: true
+        example: first_ride
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Achievement description.'
+        required: false
+        example: 'Complete your first ride to earn this achievement.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      icon:
+        custom: []
+        name: icon
+        description: 'Icon identifier or URL. Must not be greater than 255 characters.'
+        required: false
+        example: trophy
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Achievement category: driver, rider, or common.'
+        required: true
+        example: common
+        type: string
+        enumValues:
+          - driver
+          - rider
+          - common
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      target_value:
+        custom: []
+        name: target_value
+        description: 'Target value to complete the achievement. Must be at least 1.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      points_reward:
+        custom: []
+        name: points_reward
+        description: 'XP points awarded upon completion. Must be at least 0.'
+        required: true
+        example: 50
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      metadata:
+        custom: []
+        name: metadata
+        description: 'Additional metadata for the achievement.'
+        required: false
+        example:
+          bonus_credits: 10
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Whether the achievement is active.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: 'First Ride'
+      key: first_ride
+      description: 'Complete your first ride to earn this achievement.'
+      icon: trophy
+      category: common
+      target_value: 1
+      points_reward: 50
+      metadata:
+        bonus_credits: 10
+      is_active: true
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Achievement updated successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/achievements/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Achievement'
+      description: 'Delete an achievement'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the achievement.'
         required: true
         example: architecto
         type: string

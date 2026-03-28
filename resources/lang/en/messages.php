@@ -184,4 +184,9 @@ return [
         'created'  => 'Report created successfully.',
         'resolved' => 'Report updated successfully.',
     ],
+    'achievement' => [
+        'created' => 'Achievement created successfully.',
+        'updated' => 'Achievement updated successfully.',
+        'deleted' => 'Achievement deleted successfully.',
+    ],
 ];

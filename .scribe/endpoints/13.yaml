@@ -1,22 +1,23 @@
-name: Webhooks
+name: Reports
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
-      - POST
-    uri: api/v1/webhooks/stripe/wallet-top-up
+      - GET
+    uri: api/v1/reports
     metadata:
       custom: []
-      groupName: Webhooks
+      groupName: Reports
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Stripe Wallet Top-Up Webhook'
-      description: 'Handle Stripe payment intent webhooks for wallet top-ups'
-      authenticated: false
+      title: 'List My Reports'
+      description: 'List reports created by the current user'
+      authenticated: true
       deprecated: false
     headers:
+      Authorization: 'Bearer <token>'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -26,7 +27,117 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 6da2b3dc-6dcf-4d2d-b347-0d368b0e1e8d
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/reports
+    metadata:
+      custom: []
+      groupName: Reports
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Report'
+      description: 'Report a user for a policy violation'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      target_id:
+        custom: []
+        name: target_id
+        description: 'The ID of the user being reported. The value and <code>reporter</code> must be different. The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: 01HQXYZABC1234567890DEFGHI
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      reason:
+        custom: []
+        name: reason
+        description: 'Reason for the report.'
+        required: true
+        example: unsafe_driving
+        type: string
+        enumValues:
+          - inappropriate_behavior
+          - unsafe_driving
+          - cancellation_abuse
+          - fare_dispute
+          - harassment
+          - fraud
+          - vehicle_condition
+          - other
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Detailed description of the incident. Must not be greater than 1000 characters.'
+        required: false
+        example: 'The driver was speeding and running red lights.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'Optional ride ID related to the report. The <code>id</code> of an existing record in the rides table.'
+        required: false
+        example: 01HQXYZABC1234567890DEFGHI
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      target_id: 01HQXYZABC1234567890DEFGHI
+      reason: unsafe_driving
+      description: 'The driver was speeding and running red lights.'
+      ride_id: 01HQXYZABC1234567890DEFGHI
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Report created successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
     responseFields: []
     auth: []
     controller: null

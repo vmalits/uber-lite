@@ -183,6 +183,30 @@
                                                                                 <li class="tocify-item level-2" data-unique="admin-DELETEapi-v1-admin-announcements--id-">
                                 <a href="#admin-DELETEapi-v1-admin-announcements--id-">Delete Announcement</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-reports">
+                                <a href="#admin-GETapi-v1-admin-reports">Get Reports</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-reports--id-">
+                                <a href="#admin-GETapi-v1-admin-reports--id-">Get Report</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-PUTapi-v1-admin-reports--report_id--resolve">
+                                <a href="#admin-PUTapi-v1-admin-reports--report_id--resolve">Resolve Report</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-achievements">
+                                <a href="#admin-GETapi-v1-admin-achievements">Get Achievements</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-POSTapi-v1-admin-achievements">
+                                <a href="#admin-POSTapi-v1-admin-achievements">Create Achievement</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-GETapi-v1-admin-achievements--id-">
+                                <a href="#admin-GETapi-v1-admin-achievements--id-">Get Achievement</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-PUTapi-v1-admin-achievements--id-">
+                                <a href="#admin-PUTapi-v1-admin-achievements--id-">Update Achievement</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="admin-DELETEapi-v1-admin-achievements--id-">
+                                <a href="#admin-DELETEapi-v1-admin-achievements--id-">Delete Achievement</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-announcements" class="tocify-header">
@@ -426,6 +450,19 @@
                                     <ul id="tocify-subheader-profile" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="profile-POSTapi-v1-profile-locale">
                                 <a href="#profile-POSTapi-v1-profile-locale">Set Locale</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-reports" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="reports">
+                    <a href="#reports">Reports</a>
+                </li>
+                                    <ul id="tocify-subheader-reports" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="reports-GETapi-v1-reports">
+                                <a href="#reports-GETapi-v1-reports">List My Reports</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="reports-POSTapi-v1-reports">
+                                <a href="#reports-POSTapi-v1-reports">Create Report</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -720,7 +757,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 27, 2026</li>
+        <li>Last updated: March 28, 2026</li>
     </ul>
 </div>
 
@@ -5519,7 +5556,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 9330ab26-d7f1-4147-a3d7-d14581072b4f
+x-request-id: b41eca41-71dd-4ae9-9c52-d12385b5de91
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -6081,7 +6118,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 112a555f-00c6-47d6-bda5-83fb017f4c61
+x-request-id: a2218df5-19c0-45e4-af23-c4679eba79e6
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8318,7 +8355,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: ffd32e02-5014-44d2-9d4e-420b91d8fdb2
+x-request-id: e23c8afc-452e-4882-acb1-b244c8e858e8
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9174,6 +9211,1833 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="url">
     <br>
 <p>The ID of the announcement. Example: <code>architecto</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="admin-GETapi-v1-admin-reports">Get Reports</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get list of all reports</p>
+
+<span id="example-requests-GETapi-v1-admin-reports">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/admin/reports" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/reports"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/reports';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/reports'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-admin-reports">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+x-request-id: 16dbca29-b8ec-4b89-9e3c-dc327e64a24e
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-admin-reports" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-admin-reports"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-admin-reports"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-admin-reports" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-admin-reports">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-admin-reports" data-method="GET"
+      data-path="api/v1/admin/reports"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-admin-reports', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-admin-reports"
+                    onclick="tryItOut('GETapi-v1-admin-reports');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-admin-reports"
+                    onclick="cancelTryOut('GETapi-v1-admin-reports');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-admin-reports"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/admin/reports</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-admin-reports"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-admin-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-admin-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="admin-GETapi-v1-admin-reports--id-">Get Report</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get a single report details</p>
+
+<span id="example-requests-GETapi-v1-admin-reports--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/admin/reports/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/reports/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/reports/architecto';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/reports/architecto'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-admin-reports--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+x-request-id: b091e582-365b-43cf-b3d9-ebc700282b55
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-admin-reports--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-admin-reports--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-admin-reports--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-admin-reports--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-admin-reports--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-admin-reports--id-" data-method="GET"
+      data-path="api/v1/admin/reports/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-admin-reports--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-admin-reports--id-"
+                    onclick="tryItOut('GETapi-v1-admin-reports--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-admin-reports--id-"
+                    onclick="cancelTryOut('GETapi-v1-admin-reports--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-admin-reports--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/admin/reports/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-admin-reports--id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-admin-reports--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-admin-reports--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-v1-admin-reports--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the report. Example: <code>architecto</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="admin-PUTapi-v1-admin-reports--report_id--resolve">Resolve Report</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update report status with admin note</p>
+
+<span id="example-requests-PUTapi-v1-admin-reports--report_id--resolve">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8080/api/v1/admin/reports/architecto/resolve" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"status\": \"resolved\",
+    \"admin_note\": \"Action taken: driver warned.\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/reports/architecto/resolve"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "status": "resolved",
+    "admin_note": "Action taken: driver warned."
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/reports/architecto/resolve';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'status' =&gt; 'resolved',
+            'admin_note' =&gt; 'Action taken: driver warned.',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/reports/architecto/resolve'
+payload = {
+    "status": "resolved",
+    "admin_note": "Action taken: driver warned."
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-admin-reports--report_id--resolve">
+            <blockquote>
+            <p>Example response (200, Report resolved successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-admin-reports--report_id--resolve" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-admin-reports--report_id--resolve"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-admin-reports--report_id--resolve"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-admin-reports--report_id--resolve" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-admin-reports--report_id--resolve">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-admin-reports--report_id--resolve" data-method="PUT"
+      data-path="api/v1/admin/reports/{report_id}/resolve"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-admin-reports--report_id--resolve', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-admin-reports--report_id--resolve"
+                    onclick="tryItOut('PUTapi-v1-admin-reports--report_id--resolve');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-admin-reports--report_id--resolve"
+                    onclick="cancelTryOut('PUTapi-v1-admin-reports--report_id--resolve');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-admin-reports--report_id--resolve"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/admin/reports/{report_id}/resolve</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-admin-reports--report_id--resolve"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-admin-reports--report_id--resolve"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-admin-reports--report_id--resolve"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>report_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="report_id"                data-endpoint="PUTapi-v1-admin-reports--report_id--resolve"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the report. Example: <code>architecto</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="PUTapi-v1-admin-reports--report_id--resolve"
+               value="resolved"
+               data-component="body">
+    <br>
+<p>New status for the report. Example: <code>resolved</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>pending</code></li> <li><code>reviewed</code></li> <li><code>resolved</code></li> <li><code>dismissed</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>admin_note</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="admin_note"                data-endpoint="PUTapi-v1-admin-reports--report_id--resolve"
+               value="Action taken: driver warned."
+               data-component="body">
+    <br>
+<p>Admin resolution note. Must not be greater than 1000 characters. Example: <code>Action taken: driver warned.</code></p>
+        </div>
+        </form>
+
+                    <h2 id="admin-GETapi-v1-admin-achievements">Get Achievements</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get a paginated list of all achievements</p>
+
+<span id="example-requests-GETapi-v1-admin-achievements">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/admin/achievements" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/achievements"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/achievements';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/achievements'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-admin-achievements">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+x-request-id: fafb55e8-fb2a-435b-8dad-0d379913a9ae
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-admin-achievements" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-admin-achievements"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-admin-achievements"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-admin-achievements" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-admin-achievements">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-admin-achievements" data-method="GET"
+      data-path="api/v1/admin/achievements"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-admin-achievements', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-admin-achievements"
+                    onclick="tryItOut('GETapi-v1-admin-achievements');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-admin-achievements"
+                    onclick="cancelTryOut('GETapi-v1-admin-achievements');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-admin-achievements"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/admin/achievements</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-admin-achievements"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-admin-achievements"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-admin-achievements"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="admin-POSTapi-v1-admin-achievements">Create Achievement</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Create a new achievement</p>
+
+<span id="example-requests-POSTapi-v1-admin-achievements">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/admin/achievements" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"First Ride\",
+    \"key\": \"first_ride\",
+    \"description\": \"Complete your first ride to earn this achievement.\",
+    \"icon\": \"trophy\",
+    \"category\": \"common\",
+    \"target_value\": 1,
+    \"points_reward\": 50,
+    \"metadata\": {
+        \"bonus_credits\": 10
+    },
+    \"is_active\": true
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/achievements"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "First Ride",
+    "key": "first_ride",
+    "description": "Complete your first ride to earn this achievement.",
+    "icon": "trophy",
+    "category": "common",
+    "target_value": 1,
+    "points_reward": 50,
+    "metadata": {
+        "bonus_credits": 10
+    },
+    "is_active": true
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/achievements';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'First Ride',
+            'key' =&gt; 'first_ride',
+            'description' =&gt; 'Complete your first ride to earn this achievement.',
+            'icon' =&gt; 'trophy',
+            'category' =&gt; 'common',
+            'target_value' =&gt; 1,
+            'points_reward' =&gt; 50,
+            'metadata' =&gt; [
+                'bonus_credits' =&gt; 10,
+            ],
+            'is_active' =&gt; true,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/achievements'
+payload = {
+    "name": "First Ride",
+    "key": "first_ride",
+    "description": "Complete your first ride to earn this achievement.",
+    "icon": "trophy",
+    "category": "common",
+    "target_value": 1,
+    "points_reward": 50,
+    "metadata": {
+        "bonus_credits": 10
+    },
+    "is_active": true
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-admin-achievements">
+            <blockquote>
+            <p>Example response (201, Achievement created successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-admin-achievements" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-admin-achievements"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-admin-achievements"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-admin-achievements" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-admin-achievements">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-admin-achievements" data-method="POST"
+      data-path="api/v1/admin/achievements"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-admin-achievements', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-admin-achievements"
+                    onclick="tryItOut('POSTapi-v1-admin-achievements');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-admin-achievements"
+                    onclick="cancelTryOut('POSTapi-v1-admin-achievements');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-admin-achievements"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/admin/achievements</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-admin-achievements"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="First Ride"
+               data-component="body">
+    <br>
+<p>Achievement display name. Must not be greater than 255 characters. Example: <code>First Ride</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>key</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="key"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="first_ride"
+               data-component="body">
+    <br>
+<p>Unique identifier key (lowercase, underscores). Must match the regex /^[a-z0-9_]+$/. Must not be greater than 100 characters. Example: <code>first_ride</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="Complete your first ride to earn this achievement."
+               data-component="body">
+    <br>
+<p>Achievement description. Example: <code>Complete your first ride to earn this achievement.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>icon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="icon"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="trophy"
+               data-component="body">
+    <br>
+<p>Icon identifier or URL. Must not be greater than 255 characters. Example: <code>trophy</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="category"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="common"
+               data-component="body">
+    <br>
+<p>Achievement category: driver, rider, or common. Example: <code>common</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>driver</code></li> <li><code>rider</code></li> <li><code>common</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>target_value</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="target_value"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="1"
+               data-component="body">
+    <br>
+<p>Target value to complete the achievement. Must be at least 1. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>points_reward</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="points_reward"                data-endpoint="POSTapi-v1-admin-achievements"
+               value="50"
+               data-component="body">
+    <br>
+<p>XP points awarded upon completion. Must be at least 0. Example: <code>50</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>metadata</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="metadata"                data-endpoint="POSTapi-v1-admin-achievements"
+               value=""
+               data-component="body">
+    <br>
+<p>Additional metadata for the achievement.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-v1-admin-achievements" style="display: none">
+            <input type="radio" name="is_active"
+                   value="true"
+                   data-endpoint="POSTapi-v1-admin-achievements"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-v1-admin-achievements" style="display: none">
+            <input type="radio" name="is_active"
+                   value="false"
+                   data-endpoint="POSTapi-v1-admin-achievements"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether the achievement is active. Example: <code>true</code></p>
+        </div>
+        </form>
+
+                    <h2 id="admin-GETapi-v1-admin-achievements--id-">Get Achievement</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get details of a specific achievement</p>
+
+<span id="example-requests-GETapi-v1-admin-achievements--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/admin/achievements/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/achievements/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/achievements/architecto';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/achievements/architecto'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-admin-achievements--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+x-request-id: 892f51eb-7bb6-4402-8e69-ae39d6537f9b
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-admin-achievements--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-admin-achievements--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-admin-achievements--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-admin-achievements--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-admin-achievements--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-admin-achievements--id-" data-method="GET"
+      data-path="api/v1/admin/achievements/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-admin-achievements--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-admin-achievements--id-"
+                    onclick="tryItOut('GETapi-v1-admin-achievements--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-admin-achievements--id-"
+                    onclick="cancelTryOut('GETapi-v1-admin-achievements--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-admin-achievements--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/admin/achievements/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-admin-achievements--id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-admin-achievements--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-admin-achievements--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-v1-admin-achievements--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the achievement. Example: <code>architecto</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="admin-PUTapi-v1-admin-achievements--id-">Update Achievement</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update an existing achievement</p>
+
+<span id="example-requests-PUTapi-v1-admin-achievements--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8080/api/v1/admin/achievements/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"First Ride\",
+    \"key\": \"first_ride\",
+    \"description\": \"Complete your first ride to earn this achievement.\",
+    \"icon\": \"trophy\",
+    \"category\": \"common\",
+    \"target_value\": 1,
+    \"points_reward\": 50,
+    \"metadata\": {
+        \"bonus_credits\": 10
+    },
+    \"is_active\": true
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/achievements/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "First Ride",
+    "key": "first_ride",
+    "description": "Complete your first ride to earn this achievement.",
+    "icon": "trophy",
+    "category": "common",
+    "target_value": 1,
+    "points_reward": 50,
+    "metadata": {
+        "bonus_credits": 10
+    },
+    "is_active": true
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/achievements/architecto';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'First Ride',
+            'key' =&gt; 'first_ride',
+            'description' =&gt; 'Complete your first ride to earn this achievement.',
+            'icon' =&gt; 'trophy',
+            'category' =&gt; 'common',
+            'target_value' =&gt; 1,
+            'points_reward' =&gt; 50,
+            'metadata' =&gt; [
+                'bonus_credits' =&gt; 10,
+            ],
+            'is_active' =&gt; true,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/achievements/architecto'
+payload = {
+    "name": "First Ride",
+    "key": "first_ride",
+    "description": "Complete your first ride to earn this achievement.",
+    "icon": "trophy",
+    "category": "common",
+    "target_value": 1,
+    "points_reward": 50,
+    "metadata": {
+        "bonus_credits": 10
+    },
+    "is_active": true
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-admin-achievements--id-">
+            <blockquote>
+            <p>Example response (200, Achievement updated successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-admin-achievements--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-admin-achievements--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-admin-achievements--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-admin-achievements--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-admin-achievements--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-admin-achievements--id-" data-method="PUT"
+      data-path="api/v1/admin/achievements/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-admin-achievements--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-admin-achievements--id-"
+                    onclick="tryItOut('PUTapi-v1-admin-achievements--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-admin-achievements--id-"
+                    onclick="cancelTryOut('PUTapi-v1-admin-achievements--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-admin-achievements--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/admin/achievements/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the achievement. Example: <code>architecto</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="First Ride"
+               data-component="body">
+    <br>
+<p>Achievement display name. Must not be greater than 255 characters. Example: <code>First Ride</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>key</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="key"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="first_ride"
+               data-component="body">
+    <br>
+<p>Unique identifier key (lowercase, underscores). Must match the regex /^[a-z0-9_]+$/. Must not be greater than 100 characters. Example: <code>first_ride</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="Complete your first ride to earn this achievement."
+               data-component="body">
+    <br>
+<p>Achievement description. Example: <code>Complete your first ride to earn this achievement.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>icon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="icon"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="trophy"
+               data-component="body">
+    <br>
+<p>Icon identifier or URL. Must not be greater than 255 characters. Example: <code>trophy</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="category"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="common"
+               data-component="body">
+    <br>
+<p>Achievement category: driver, rider, or common. Example: <code>common</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>driver</code></li> <li><code>rider</code></li> <li><code>common</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>target_value</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="target_value"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>Target value to complete the achievement. Must be at least 1. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>points_reward</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="points_reward"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value="50"
+               data-component="body">
+    <br>
+<p>XP points awarded upon completion. Must be at least 0. Example: <code>50</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>metadata</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="metadata"                data-endpoint="PUTapi-v1-admin-achievements--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Additional metadata for the achievement.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-v1-admin-achievements--id-" style="display: none">
+            <input type="radio" name="is_active"
+                   value="true"
+                   data-endpoint="PUTapi-v1-admin-achievements--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-v1-admin-achievements--id-" style="display: none">
+            <input type="radio" name="is_active"
+                   value="false"
+                   data-endpoint="PUTapi-v1-admin-achievements--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether the achievement is active. Example: <code>true</code></p>
+        </div>
+        </form>
+
+                    <h2 id="admin-DELETEapi-v1-admin-achievements--id-">Delete Achievement</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Delete an achievement</p>
+
+<span id="example-requests-DELETEapi-v1-admin-achievements--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8080/api/v1/admin/achievements/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/admin/achievements/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/admin/achievements/architecto';
+$response = $client-&gt;delete(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/admin/achievements/architecto'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-admin-achievements--id-">
+</span>
+<span id="execution-results-DELETEapi-v1-admin-achievements--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-admin-achievements--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-admin-achievements--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-admin-achievements--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-admin-achievements--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-admin-achievements--id-" data-method="DELETE"
+      data-path="api/v1/admin/achievements/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-admin-achievements--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-admin-achievements--id-"
+                    onclick="tryItOut('DELETEapi-v1-admin-achievements--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-admin-achievements--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-admin-achievements--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-admin-achievements--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/admin/achievements/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-admin-achievements--id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-admin-achievements--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-admin-achievements--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-v1-admin-achievements--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the achievement. Example: <code>architecto</code></p>
             </div>
                     </form>
 
@@ -11359,7 +13223,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 34d6a23a-0a68-4e4d-921d-902c3a855d05
+x-request-id: f10911ea-c17c-44d8-a9c2-a64674ebd19a
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -13221,7 +15085,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 3acddbf0-9781-4889-8781-856d30bdbcb4
+x-request-id: ca726c09-7f8e-4f0d-b58c-4fd5bc7dd125
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -13421,7 +15285,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 21163bd7-e569-4997-881f-25c146fe717d
+x-request-id: 729bc3ba-f10c-4bef-88a3-243705c60334
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -17456,7 +19320,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php5lkhvmir4r2iaghFepE" </code></pre></div>
+    --form "avatar=@/tmp/phpi8la9u8egn1adHhIjDH" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -17494,7 +19358,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php5lkhvmir4r2iaghFepE', 'r')
+                'contents' =&gt; fopen('/tmp/phpi8la9u8egn1adHhIjDH', 'r')
             ],
         ],
     ]
@@ -17509,7 +19373,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/php5lkhvmir4r2iaghFepE', 'rb')}
+  'avatar': open('/tmp/phpi8la9u8egn1adHhIjDH', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -17624,7 +19488,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php5lkhvmir4r2iaghFepE</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpi8la9u8egn1adHhIjDH</code></p>
         </div>
         </form>
 
@@ -22535,6 +24399,434 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>User preferred locale. Supported values: ro (Romanian), ru (Russian), en (English). Example: <code>ro</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>ro</code></li> <li><code>ru</code></li> <li><code>en</code></li></ul>
+        </div>
+        </form>
+
+                <h1 id="reports">Reports</h1>
+
+    
+
+                                <h2 id="reports-GETapi-v1-reports">List My Reports</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>List reports created by the current user</p>
+
+<span id="example-requests-GETapi-v1-reports">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/reports" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/reports"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/reports';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/reports'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-reports">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+x-request-id: 6da2b3dc-6dcf-4d2d-b347-0d368b0e1e8d
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-reports" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-reports"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-reports"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-reports" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-reports">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-reports" data-method="GET"
+      data-path="api/v1/reports"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-reports', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-reports"
+                    onclick="tryItOut('GETapi-v1-reports');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-reports"
+                    onclick="cancelTryOut('GETapi-v1-reports');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-reports"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/reports</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-reports"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="reports-POSTapi-v1-reports">Create Report</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Report a user for a policy violation</p>
+
+<span id="example-requests-POSTapi-v1-reports">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/reports" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"target_id\": \"01HQXYZABC1234567890DEFGHI\",
+    \"reason\": \"unsafe_driving\",
+    \"description\": \"The driver was speeding and running red lights.\",
+    \"ride_id\": \"01HQXYZABC1234567890DEFGHI\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/reports"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "target_id": "01HQXYZABC1234567890DEFGHI",
+    "reason": "unsafe_driving",
+    "description": "The driver was speeding and running red lights.",
+    "ride_id": "01HQXYZABC1234567890DEFGHI"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/reports';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'target_id' =&gt; '01HQXYZABC1234567890DEFGHI',
+            'reason' =&gt; 'unsafe_driving',
+            'description' =&gt; 'The driver was speeding and running red lights.',
+            'ride_id' =&gt; '01HQXYZABC1234567890DEFGHI',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/reports'
+payload = {
+    "target_id": "01HQXYZABC1234567890DEFGHI",
+    "reason": "unsafe_driving",
+    "description": "The driver was speeding and running red lights.",
+    "ride_id": "01HQXYZABC1234567890DEFGHI"
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-reports">
+            <blockquote>
+            <p>Example response (201, Report created successfully.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-reports" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-reports"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-reports"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-reports" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-reports">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-reports" data-method="POST"
+      data-path="api/v1/reports"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-reports', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-reports"
+                    onclick="tryItOut('POSTapi-v1-reports');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-reports"
+                    onclick="cancelTryOut('POSTapi-v1-reports');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-reports"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/reports</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-reports"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>target_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="target_id"                data-endpoint="POSTapi-v1-reports"
+               value="01HQXYZABC1234567890DEFGHI"
+               data-component="body">
+    <br>
+<p>The ID of the user being reported. The value and <code>reporter</code> must be different. The <code>id</code> of an existing record in the users table. Example: <code>01HQXYZABC1234567890DEFGHI</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>reason</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="reason"                data-endpoint="POSTapi-v1-reports"
+               value="unsafe_driving"
+               data-component="body">
+    <br>
+<p>Reason for the report. Example: <code>unsafe_driving</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>inappropriate_behavior</code></li> <li><code>unsafe_driving</code></li> <li><code>cancellation_abuse</code></li> <li><code>fare_dispute</code></li> <li><code>harassment</code></li> <li><code>fraud</code></li> <li><code>vehicle_condition</code></li> <li><code>other</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-v1-reports"
+               value="The driver was speeding and running red lights."
+               data-component="body">
+    <br>
+<p>Detailed description of the incident. Must not be greater than 1000 characters. Example: <code>The driver was speeding and running red lights.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>ride_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ride_id"                data-endpoint="POSTapi-v1-reports"
+               value="01HQXYZABC1234567890DEFGHI"
+               data-component="body">
+    <br>
+<p>Optional ride ID related to the report. The <code>id</code> of an existing record in the rides table. Example: <code>01HQXYZABC1234567890DEFGHI</code></p>
         </div>
         </form>
 
@@ -29836,7 +32128,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-27 20:30:26\"
+    \"scheduled_at\": \"2026-03-28 20:02:46\"
 }"
 </code></pre></div>
 
@@ -29859,7 +32151,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-27 20:30:26"
+    "scheduled_at": "2026-03-28 20:02:46"
 };
 
 fetch(url, {
@@ -29887,7 +32179,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-27 20:30:26',
+            'scheduled_at' =&gt; '2026-03-28 20:02:46',
         ],
     ]
 );
@@ -29907,7 +32199,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-27 20:30:26"
+    "scheduled_at": "2026-03-28 20:02:46"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -30106,10 +32398,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-03-27 20:30:26"
+               value="2026-03-28 20:02:46"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-27 20:30:26</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-28 20:02:46</code></p>
         </div>
         </form>
 
@@ -30138,7 +32430,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-03-27 21:30:26\"
+    \"scheduled_at\": \"2026-03-28 21:02:46\"
 }"
 </code></pre></div>
 
@@ -30161,7 +32453,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-27 21:30:26"
+    "scheduled_at": "2026-03-28 21:02:46"
 };
 
 fetch(url, {
@@ -30189,7 +32481,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-03-27 21:30:26',
+            'scheduled_at' =&gt; '2026-03-28 21:02:46',
         ],
     ]
 );
@@ -30209,7 +32501,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-03-27 21:30:26"
+    "scheduled_at": "2026-03-28 21:02:46"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -30428,10 +32720,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-03-27 21:30:26"
+               value="2026-03-28 21:02:46"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-27 21:30:26</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-03-28 21:02:46</code></p>
         </div>
         </form>
 
@@ -34362,7 +36654,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: a8df6682-a2a1-4c17-9ca6-a3812ce17dcd
+x-request-id: c8c6ca35-6f82-4918-9257-a43a9c551217
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -34469,7 +36761,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-03-27T18%3A30%3A26&amp;filter[to]=2052-04-19" \
+    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-03-28T18%3A02%3A47&amp;filter[to]=2052-04-20" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -34483,8 +36775,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-03-27T18:30:26",
-    "filter[to]": "2052-04-19",
+    "filter[from]": "2026-03-28T18:02:47",
+    "filter[to]": "2052-04-20",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -34516,8 +36808,8 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-03-27T18:30:26',
-            'filter[to]' =&gt; '2052-04-19',
+            'filter[from]' =&gt; '2026-03-28T18:02:47',
+            'filter[to]' =&gt; '2052-04-20',
         ],
     ]
 );
@@ -34533,8 +36825,8 @@ url = 'http://localhost:8080/api/v1/rider/credits/transactions'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-03-27T18:30:26',
-  'filter[to]': '2052-04-19',
+  'filter[from]': '2026-03-28T18:02:47',
+  'filter[to]': '2052-04-20',
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -34685,10 +36977,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-rider-credits-transactions"
-               value="2026-03-27T18:30:26"
+               value="2026-03-28T18:02:47"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-03-27T18:30:26</code></p>
+<p>Must be a valid date. Example: <code>2026-03-28T18:02:47</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -34697,10 +36989,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.to"                data-endpoint="GETapi-v1-rider-credits-transactions"
-               value="2052-04-19"
+               value="2052-04-20"
                data-component="query">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-04-19</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-04-20</code></p>
             </div>
                 </form>
 
@@ -36350,7 +38642,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/php1096u2sqv8687ooeKEJ" </code></pre></div>
+    --form "avatar=@/tmp/php3abeevf3rnt98CNNFKP" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -36388,7 +38680,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/php1096u2sqv8687ooeKEJ', 'r')
+                'contents' =&gt; fopen('/tmp/php3abeevf3rnt98CNNFKP', 'r')
             ],
         ],
     ]
@@ -36403,7 +38695,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/php1096u2sqv8687ooeKEJ', 'rb')}
+  'avatar': open('/tmp/php3abeevf3rnt98CNNFKP', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -36518,7 +38810,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php1096u2sqv8687ooeKEJ</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/php3abeevf3rnt98CNNFKP</code></p>
         </div>
         </form>
 
@@ -36701,7 +38993,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/wallet/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-03-27T18%3A30%3A27&amp;filter[to]=2052-04-19" \
+    --get "http://localhost:8080/api/v1/rider/wallet/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-03-28T18%3A02%3A47&amp;filter[to]=2052-04-20" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -36715,8 +39007,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-03-27T18:30:27",
-    "filter[to]": "2052-04-19",
+    "filter[from]": "2026-03-28T18:02:47",
+    "filter[to]": "2052-04-20",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -36748,8 +39040,8 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-03-27T18:30:27',
-            'filter[to]' =&gt; '2052-04-19',
+            'filter[from]' =&gt; '2026-03-28T18:02:47',
+            'filter[to]' =&gt; '2052-04-20',
         ],
     ]
 );
@@ -36765,8 +39057,8 @@ url = 'http://localhost:8080/api/v1/rider/wallet/transactions'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-03-27T18:30:27',
-  'filter[to]': '2052-04-19',
+  'filter[from]': '2026-03-28T18:02:47',
+  'filter[to]': '2052-04-20',
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -36917,10 +39209,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-rider-wallet-transactions"
-               value="2026-03-27T18:30:27"
+               value="2026-03-28T18:02:47"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-03-27T18:30:27</code></p>
+<p>Must be a valid date. Example: <code>2026-03-28T18:02:47</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -36929,10 +39221,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.to"                data-endpoint="GETapi-v1-rider-wallet-transactions"
-               value="2052-04-19"
+               value="2052-04-20"
                data-component="query">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-04-19</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-04-20</code></p>
             </div>
                 </form>
 

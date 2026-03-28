@@ -5,9 +5,11 @@ declare(strict_types=1);
 use App\Http\Controllers\Api\V1\Admin\AdjustUserCreditsController;
 use App\Http\Controllers\Api\V1\Admin\ApprovePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CompletePayoutController;
+use App\Http\Controllers\Api\V1\Admin\CreateAchievementController;
 use App\Http\Controllers\Api\V1\Admin\CreateAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\CreatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\CreateTicketCommentController;
+use App\Http\Controllers\Api\V1\Admin\DeleteAchievementController;
 use App\Http\Controllers\Api\V1\Admin\DeleteAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\DeletePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
@@ -15,6 +17,8 @@ use App\Http\Controllers\Api\V1\Admin\DriverBanController;
 use App\Http\Controllers\Api\V1\Admin\DriverUnbanController;
 use App\Http\Controllers\Api\V1\Admin\ExportRidesController;
 use App\Http\Controllers\Api\V1\Admin\FailPayoutController;
+use App\Http\Controllers\Api\V1\Admin\GetAchievementController;
+use App\Http\Controllers\Api\V1\Admin\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Admin\GetAnalyticsOverviewController;
 use App\Http\Controllers\Api\V1\Admin\GetAnnouncementsController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverController;
@@ -38,6 +42,7 @@ use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
 use App\Http\Controllers\Api\V1\Admin\ProcessPayoutController;
 use App\Http\Controllers\Api\V1\Admin\ResolveReportController;
+use App\Http\Controllers\Api\V1\Admin\UpdateAchievementController;
 use App\Http\Controllers\Api\V1\Admin\UpdateAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\UpdatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\UpdateTicketStatusController;
@@ -160,4 +165,19 @@ Route::prefix('admin')
         Route::put('reports/{report}/resolve', [ResolveReportController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.reports.resolve');
+        Route::get('achievements', [GetAchievementsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.achievements.index');
+        Route::post('achievements', [CreateAchievementController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.achievements.store');
+        Route::get('achievements/{achievement}', [GetAchievementController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.achievements.show');
+        Route::put('achievements/{achievement}', [UpdateAchievementController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.achievements.update');
+        Route::delete('achievements/{achievement}', [DeleteAchievementController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.achievements.destroy');
     });

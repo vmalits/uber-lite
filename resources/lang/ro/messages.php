@@ -144,4 +144,9 @@ return [
         'created'  => 'Plângerea a fost creată cu succes.',
         'resolved' => 'Plângerea a fost actualizată cu succes.',
     ],
+    'achievement' => [
+        'created' => 'Realizarea a fost creată cu succes.',
+        'updated' => 'Realizarea a fost actualizată cu succes.',
+        'deleted' => 'Realizarea a fost ștearsă cu succes.',
+    ],
 ];
