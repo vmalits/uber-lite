@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\Admin\AdjustUserCreditsController;
 use App\Http\Controllers\Api\V1\Admin\ApprovePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CompletePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CreateAchievementController;
+use App\Http\Controllers\Api\V1\Admin\CreateAdminController;
 use App\Http\Controllers\Api\V1\Admin\CreateAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\CreatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\CreateTicketCommentController;
@@ -46,6 +47,7 @@ use App\Http\Controllers\Api\V1\Admin\UpdateAchievementController;
 use App\Http\Controllers\Api\V1\Admin\UpdateAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\UpdatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\UpdateTicketStatusController;
+use App\Http\Controllers\Api\V1\Admin\UpdateUserStatusController;
 
 Route::prefix('admin')
     ->middleware(['set_locale'])
@@ -66,9 +68,18 @@ Route::prefix('admin')
         Route::get('users', [GetUsersController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.index');
+        Route::post('users', [CreateAdminController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.users.store');
         Route::get('users/{user}', [GetUserController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.show');
+        Route::put('users/{user}/status', [UpdateUserStatusController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.users.status.update');
+        Route::delete('users/{user}', [DeleteUserController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.users.destroy');
         Route::get('drivers', [GetDriversController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.index');
@@ -84,9 +95,6 @@ Route::prefix('admin')
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.rides.show');
-        Route::delete('users/{user}', [DeleteUserController::class, '__invoke'])
-            ->middleware(['auth:sanctum', 'role:admin'])
-            ->name('api.v1.admin.users.destroy');
         Route::post('drivers/{driver}/ban', [DriverBanController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.ban');

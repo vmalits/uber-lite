@@ -56,14 +56,14 @@ final class AdminServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetDriversQueryInterface::class    => GetDriversQuery::class,
-        GetUsersQueryInterface::class      => GetUsersQuery::class,
-        GetUserQueryInterface::class       => GetUserQuery::class,
-        GetRidesQueryInterface::class      => GetRidesQuery::class,
-        GetRideQueryInterface::class       => GetRideQuery::class,
-        GetTicketsQueryInterface::class    => GetTicketsQuery::class,
-        GetDriverQueryInterface::class     => GetDriverQuery::class,
-        GetPromoCodesQueryInterface::class => GetPromoCodesQuery::class,
+        GetDriversQueryInterface::class             => GetDriversQuery::class,
+        GetUsersQueryInterface::class               => GetUsersQuery::class,
+        GetUserQueryInterface::class                => GetUserQuery::class,
+        GetRidesQueryInterface::class               => GetRidesQuery::class,
+        GetRideQueryInterface::class                => GetRideQuery::class,
+        GetTicketsQueryInterface::class             => GetTicketsQuery::class,
+        GetDriverQueryInterface::class              => GetDriverQuery::class,
+        GetPromoCodesQueryInterface::class          => GetPromoCodesQuery::class,
         GetAchievementsQueryInterface::class        => GetAchievementsQuery::class,
         GetAnnouncementsQueryInterface::class       => GetAnnouncementsQuery::class,
         GetAnalyticsOverviewQueryInterface::class   => GetAnalyticsOverviewQuery::class,

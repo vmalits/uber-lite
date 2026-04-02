@@ -189,4 +189,10 @@ return [
         'updated' => 'Achievement updated successfully.',
         'deleted' => 'Achievement deleted successfully.',
     ],
+    'admin' => [
+        'created' => 'Admin user created successfully.',
+    ],
+    'user' => [
+        'status_updated' => 'User status updated successfully.',
+    ],
 ];
