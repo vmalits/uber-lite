@@ -12,6 +12,7 @@ enum CreditTransactionType: string
     case ADMIN_ADJUSTMENT = 'admin_adjustment';
     case WALLET_TOP_UP = 'wallet_top_up';
     case WALLET_TOP_UP_CANCELLED = 'wallet_top_up_cancelled';
+    case REFUND = 'refund';
 
     public function label(): string
     {
@@ -22,6 +23,7 @@ enum CreditTransactionType: string
             self::ADMIN_ADJUSTMENT        => 'Admin Adjustment',
             self::WALLET_TOP_UP           => 'Wallet Top-Up',
             self::WALLET_TOP_UP_CANCELLED => 'Wallet Top-Up Cancelled',
+            self::REFUND                  => 'Refund',
         };
     }
 }

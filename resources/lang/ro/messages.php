@@ -122,6 +122,7 @@ return [
     'payment' => [
         'completed'            => 'Plata procesată cu succes.',
         'failed'               => 'Plata a eșuat.',
+        'refunded'             => 'Plata a fost rambursată cu succes.',
         'status_retrieved'     => 'Statusul plății a fost obținut cu succes.',
         'insufficient_credits' => 'Sold insuficient de credite.',
     ],

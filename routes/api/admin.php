@@ -42,6 +42,7 @@ use App\Http\Controllers\Api\V1\Admin\GetUserController;
 use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
 use App\Http\Controllers\Api\V1\Admin\ProcessPayoutController;
+use App\Http\Controllers\Api\V1\Admin\RefundPaymentController;
 use App\Http\Controllers\Api\V1\Admin\ResolveReportController;
 use App\Http\Controllers\Api\V1\Admin\UpdateAchievementController;
 use App\Http\Controllers\Api\V1\Admin\UpdateAnnouncementController;
@@ -134,6 +135,9 @@ Route::prefix('admin')
         Route::post('users/{user}/credits', [AdjustUserCreditsController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.credits');
+        Route::post('payments/{paymentAttempt}/refund', [RefundPaymentController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.payments.refund');
         Route::get('payouts', [GetPayoutsController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.payouts.index');

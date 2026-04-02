@@ -154,6 +154,7 @@ return [
     'payment' => [
         'completed'            => 'Payment processed successfully.',
         'failed'               => 'Payment failed.',
+        'refunded'             => 'Payment refunded successfully.',
         'status_retrieved'     => 'Payment status retrieved successfully.',
         'insufficient_credits' => 'Insufficient credits balance.',
     ],
