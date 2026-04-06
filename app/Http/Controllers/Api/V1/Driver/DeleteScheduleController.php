@@ -29,6 +29,8 @@ final class DeleteScheduleController extends Controller
 
     public function __invoke(DriverSchedule $schedule): JsonResponse
     {
+        $this->authorize('delete', $schedule);
+
         $this->deleteScheduleAction->handle($schedule);
 
         return ApiResponse::success(

@@ -32,6 +32,8 @@ final class UpdateScheduleController extends Controller
 
     public function __invoke(UpdateScheduleRequest $request, DriverSchedule $schedule): JsonResponse
     {
+        $this->authorize('update', $schedule);
+
         $data = UpdateScheduleData::from($request->validated());
 
         $updatedSchedule = $this->updateScheduleAction->handle($schedule, $data);
