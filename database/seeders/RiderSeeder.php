@@ -24,52 +24,52 @@ final class RiderSeeder extends Seeder
 {
     private const array FAVORITE_LOCATIONS = [
         [
-            'name' => 'Acasă',
+            'name'    => 'Acasă',
             'address' => 'Strada Ștefan cel Mare 1, Centru',
-            'lat' => 47.0268,
-            'lng' => 28.8416
+            'lat'     => 47.0268,
+            'lng'     => 28.8416,
         ],
         [
-            'name' => 'Muncă',
+            'name'    => 'Muncă',
             'address' => 'Bulevardul Decebal 21, Botanica',
-            'lat' => 46.9935,
-            'lng' => 28.8623
+            'lat'     => 46.9935,
+            'lng'     => 28.8623,
         ],
         [
-            'name' => 'Mall',
+            'name'    => 'Mall',
             'address' => 'Malldova, Strada Arborilor 21',
-            'lat' => 47.0321,
-            'lng' => 28.8123
+            'lat'     => 47.0321,
+            'lng'     => 28.8123,
         ],
         [
-            'name' => 'Gară',
+            'name'    => 'Gară',
             'address' => 'Gara Feroviară Chișinău, Strada Garii 1',
-            'lat' => 47.0112,
-            'lng' => 28.8605
+            'lat'     => 47.0112,
+            'lng'     => 28.8605,
         ],
         [
-            'name' => 'Aeroport',
+            'name'    => 'Aeroport',
             'address' => 'Aeroportul Internațional Chișinău',
-            'lat' => 46.9277,
-            'lng' => 28.9313
+            'lat'     => 46.9277,
+            'lng'     => 28.9313,
         ],
         [
-            'name' => 'Sala de sport',
+            'name'    => 'Sala de sport',
             'address' => 'Strada 31 August 1989 131, Telecentru',
-            'lat' => 47.0145,
-            'lng' => 28.8423
+            'lat'     => 47.0145,
+            'lng'     => 28.8423,
         ],
         [
-            'name' => 'Părinți',
+            'name'    => 'Părinți',
             'address' => 'Strada Alexandru cel Bun 52, Buiucani',
-            'lat' => 47.0367,
-            'lng' => 28.8156
+            'lat'     => 47.0367,
+            'lng'     => 28.8156,
         ],
         [
-            'name' => 'Parc',
+            'name'    => 'Parc',
             'address' => 'Catedrala Națională, Piața Marii Adunări Naționale',
-            'lat' => 47.0256,
-            'lng' => 28.8327
+            'lat'     => 47.0256,
+            'lng'     => 28.8327,
         ],
     ];
 
@@ -84,30 +84,30 @@ final class RiderSeeder extends Seeder
 
         foreach ($riders as $index => $rider) {
             PaymentMethod::query()->create([
-                'user_id' => $rider->id,
-                'type' => PaymentMethodType::CARD,
-                'provider' => PaymentProvider::STRIPE,
+                'user_id'        => $rider->id,
+                'type'           => PaymentMethodType::CARD,
+                'provider'       => PaymentProvider::STRIPE,
                 'provider_token' => 'pm_'.fake()->uuid(),
-                'last_four' => fake()->numerify('####'),
-                'card_brand' => fake()->randomElement(['visa', 'mastercard']),
-                'expiry_month' => fake()->numberBetween(1, 12),
-                'expiry_year' => now()->year + fake()->numberBetween(1, 4),
-                'holder_name' => $rider->first_name.' '.$rider->last_name,
-                'is_default' => true,
+                'last_four'      => fake()->numerify('####'),
+                'card_brand'     => fake()->randomElement(['visa', 'mastercard']),
+                'expiry_month'   => fake()->numberBetween(1, 12),
+                'expiry_year'    => now()->year + fake()->numberBetween(1, 4),
+                'holder_name'    => $rider->first_name.' '.$rider->last_name,
+                'is_default'     => true,
             ]);
 
             if ($index % 3 === 0) {
                 PaymentMethod::query()->create([
-                    'user_id' => $rider->id,
-                    'type' => PaymentMethodType::CARD,
-                    'provider' => PaymentProvider::STRIPE,
+                    'user_id'        => $rider->id,
+                    'type'           => PaymentMethodType::CARD,
+                    'provider'       => PaymentProvider::STRIPE,
                     'provider_token' => 'pm_'.fake()->uuid(),
-                    'last_four' => fake()->numerify('####'),
-                    'card_brand' => fake()->randomElement(['visa', 'mastercard', 'amex']),
-                    'expiry_month' => fake()->numberBetween(1, 12),
-                    'expiry_year' => now()->year + fake()->numberBetween(1, 3),
-                    'holder_name' => $rider->first_name.' '.$rider->last_name,
-                    'is_default' => false,
+                    'last_four'      => fake()->numerify('####'),
+                    'card_brand'     => fake()->randomElement(['visa', 'mastercard', 'amex']),
+                    'expiry_month'   => fake()->numberBetween(1, 12),
+                    'expiry_year'    => now()->year + fake()->numberBetween(1, 3),
+                    'holder_name'    => $rider->first_name.' '.$rider->last_name,
+                    'is_default'     => false,
                 ]);
             }
 
@@ -116,30 +116,30 @@ final class RiderSeeder extends Seeder
             foreach ($locations as $location) {
                 FavoriteLocation::query()->create([
                     'user_id' => $rider->id,
-                    'name' => $location['name'],
-                    'lat' => $location['lat'],
-                    'lng' => $location['lng'],
+                    'name'    => $location['name'],
+                    'lat'     => $location['lat'],
+                    'lng'     => $location['lng'],
                     'address' => $location['address'],
                 ]);
             }
 
             if ($index % 2 === 0) {
                 FavoriteRoute::query()->create([
-                    'user_id' => $rider->id,
-                    'name' => 'Acasă → Muncă',
-                    'origin_address' => 'Strada Ștefan cel Mare 1, Centru',
-                    'origin_lat' => 47.0268,
-                    'origin_lng' => 28.8416,
+                    'user_id'             => $rider->id,
+                    'name'                => 'Acasă → Muncă',
+                    'origin_address'      => 'Strada Ștefan cel Mare 1, Centru',
+                    'origin_lat'          => 47.0268,
+                    'origin_lng'          => 28.8416,
                     'destination_address' => 'Bulevardul Decebal 21, Botanica',
-                    'destination_lat' => 46.9935,
-                    'destination_lng' => 28.8623,
-                    'type' => FavoriteRouteType::WORK,
+                    'destination_lat'     => 46.9935,
+                    'destination_lng'     => 28.8623,
+                    'type'                => FavoriteRouteType::WORK,
                 ]);
             }
 
             if ($drivers->isNotEmpty() && fake()->boolean(40)) {
                 FavoriteDriver::query()->create([
-                    'user_id' => $rider->id,
+                    'user_id'   => $rider->id,
                     'driver_id' => $drivers->random()->id,
                 ]);
             }
@@ -147,28 +147,28 @@ final class RiderSeeder extends Seeder
             $xp = fake()->numberBetween(0, 6000);
             UserLevel::query()->create([
                 'user_id' => $rider->id,
-                'level' => (int) floor($xp / 100) + 1,
-                'xp' => $xp,
-                'tier' => UserTier::fromXp($xp),
+                'level'   => (int) floor($xp / 100) + 1,
+                'xp'      => $xp,
+                'tier'    => UserTier::fromXp($xp),
             ]);
 
             $streak = fake()->numberBetween(0, 14);
             UserRideStreak::query()->create([
-                'user_id' => $rider->id,
-                'current_streak' => $streak,
-                'longest_streak' => max($streak, fake()->numberBetween($streak, 20)),
-                'last_ride_date' => $streak > 0 ? now()->subDays(fake()->numberBetween(0, 1)) : null,
+                'user_id'           => $rider->id,
+                'current_streak'    => $streak,
+                'longest_streak'    => max($streak, fake()->numberBetween($streak, 20)),
+                'last_ride_date'    => $streak > 0 ? now()->subDays(fake()->numberBetween(0, 1)) : null,
                 'streak_started_at' => $streak > 0 ? now()->subDays($streak) : null,
             ]);
 
             DeviceToken::query()->create([
-                'user_id' => $rider->id,
-                'platform' => fake()->randomElement([DevicePlatform::IOS, DevicePlatform::ANDROID]),
-                'token' => fake()->unique()->regexify('[a-zA-Z0-9]{150}'),
+                'user_id'     => $rider->id,
+                'platform'    => fake()->randomElement([DevicePlatform::IOS, DevicePlatform::ANDROID]),
+                'token'       => fake()->unique()->regexify('[a-zA-Z0-9]{150}'),
                 'device_name' => fake()->randomElement([
-                    'iPhone 15', 'Samsung Galaxy A54', 'Pixel 7', 'iPhone 13', 'Xiaomi Redmi Note 12'
+                    'iPhone 15', 'Samsung Galaxy A54', 'Pixel 7', 'iPhone 13', 'Xiaomi Redmi Note 12',
                 ]),
-                'app_version' => '1.2.0',
+                'app_version'  => '1.2.0',
                 'last_used_at' => now()->subHours(fake()->numberBetween(0, 72)),
             ]);
 
