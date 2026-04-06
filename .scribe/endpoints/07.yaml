@@ -139,14 +139,14 @@ endpoints:
         name: id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1kbkj1svvphx1fx15y22s
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -281,14 +281,14 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: architecto
+      ticket_id: 01knj1kbkj1svvphx1fx15y22s
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -349,14 +349,14 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: architecto
+      ticket_id: 01knj1kbkj1svvphx1fx15y22s
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -435,14 +435,14 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: architecto
+      ticket_id: 01knj1kbkj1svvphx1fx15y22s
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:

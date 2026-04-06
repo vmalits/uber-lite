@@ -6,7 +6,6 @@ use App\Http\Controllers\Api\V1\Admin\AdjustUserCreditsController;
 use App\Http\Controllers\Api\V1\Admin\ApprovePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CompletePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CreateAchievementController;
-use App\Http\Controllers\Api\V1\Admin\CreateAdminController;
 use App\Http\Controllers\Api\V1\Admin\CreateAnnouncementController;
 use App\Http\Controllers\Api\V1\Admin\CreatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\CreateTicketCommentController;
@@ -69,9 +68,6 @@ Route::prefix('admin')
         Route::get('users', [GetUsersController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.index');
-        Route::post('users', [CreateAdminController::class, '__invoke'])
-            ->middleware(['auth:sanctum', 'role:admin'])
-            ->name('api.v1.admin.users.store');
         Route::get('users/{user}', [GetUserController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.show');

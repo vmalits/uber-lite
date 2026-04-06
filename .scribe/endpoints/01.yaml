@@ -218,7 +218,7 @@ endpoints:
         name: favorite_id
         description: 'The ID of the favorite.'
         required: true
-        example: architecto
+        example: 01knj1ka82pd25htc1fjdmtfjp
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -236,7 +236,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      favorite_id: architecto
+      favorite_id: 01knj1ka82pd25htc1fjdmtfjp
       favorite: 01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9
     queryParameters: []
     cleanQueryParameters: []
@@ -292,7 +292,7 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: architecto
+        example: 01knj1k9kh7d6sk7dda6sxga37
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -310,7 +310,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: architecto
+      driver_id: 01knj1k9kh7d6sk7dda6sxga37
       driver: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters:
       sort:
@@ -763,7 +763,7 @@ endpoints:
         name: route_id
         description: 'The ID of the route.'
         required: true
-        example: architecto
+        example: 01knj1ka7zdnpwp8w7frdqgjqt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -781,7 +781,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      route_id: architecto
+      route_id: 01knj1ka7zdnpwp8w7frdqgjqt
       route: 01jmk9v6v9v6v9v6v9v6v9v6v9
     queryParameters: []
     cleanQueryParameters: []
@@ -843,7 +843,7 @@ endpoints:
         name: route_id
         description: 'The ID of the route.'
         required: true
-        example: architecto
+        example: 01knj1ka7zdnpwp8w7frdqgjqt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -861,7 +861,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      route_id: architecto
+      route_id: 01knj1ka7zdnpwp8w7frdqgjqt
       route: 01jmk9v6v9v6v9v6v9v6v9v6v9
     queryParameters: []
     cleanQueryParameters: []
@@ -1030,7 +1030,7 @@ endpoints:
         name: route_id
         description: 'The ID of the route.'
         required: true
-        example: architecto
+        example: 01knj1ka7zdnpwp8w7frdqgjqt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1048,7 +1048,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      route_id: architecto
+      route_id: 01knj1ka7zdnpwp8w7frdqgjqt
       route: 01jmk9v6v9v6v9v6v9v6v9v6v9
     queryParameters: []
     cleanQueryParameters: []
@@ -1110,14 +1110,14 @@ endpoints:
         name: id
         description: 'The ID of the favorite.'
         required: true
-        example: architecto
+        example: 01knj1ka7m5wt44cjvbbhy5hy9
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1ka7m5wt44cjvbbhy5hy9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1178,7 +1178,7 @@ endpoints:
         name: id
         description: 'The ID of the favorite.'
         required: true
-        example: architecto
+        example: 01knj1ka7m5wt44cjvbbhy5hy9
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1196,7 +1196,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1ka7m5wt44cjvbbhy5hy9
       favorite: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1312,7 +1312,7 @@ endpoints:
         name: id
         description: 'The ID of the favorite.'
         required: true
-        example: architecto
+        example: 01knj1ka7m5wt44cjvbbhy5hy9
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1330,7 +1330,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1ka7m5wt44cjvbbhy5hy9
       favorite: 01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9
     queryParameters: []
     cleanQueryParameters: []
@@ -2059,14 +2059,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2235,7 +2235,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-03-28 20:02:46'
+        example: '2026-04-06 21:47:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2248,7 +2248,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-28 20:02:46'
+      scheduled_at: '2026-04-06 21:47:38'
     fileParameters: []
     responses:
       -
@@ -2299,14 +2299,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2381,7 +2381,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-03-28 21:02:46'
+        example: '2026-04-06 22:47:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2394,7 +2394,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-03-28 21:02:46'
+      scheduled_at: '2026-04-06 22:47:38'
     fileParameters: []
     responses:
       -
@@ -2451,14 +2451,14 @@ endpoints:
         name: id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1kavt0ar3xkaqxdnj3seq
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2556,14 +2556,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2624,14 +2624,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2674,7 +2674,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2692,7 +2692,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -2760,7 +2760,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2778,7 +2778,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -2834,7 +2834,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2852,7 +2852,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -3023,7 +3023,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3041,7 +3041,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -3097,7 +3097,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3115,7 +3115,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -3222,7 +3222,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3240,7 +3240,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -3326,7 +3326,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3344,7 +3344,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -3430,7 +3430,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3448,7 +3448,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -3510,7 +3510,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3528,7 +3528,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -3891,7 +3891,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: c8c6ca35-6f82-4918-9257-a43a9c551217
+          x-request-id: ff03530e-8b3e-4ca2-8668-db8b82f84aa8
         description: null
     responseFields: []
     auth: []
@@ -3956,6 +3956,7 @@ endpoints:
           - admin_adjustment
           - wallet_top_up
           - wallet_top_up_cancelled
+          - refund
         exampleWasSpecified: false
         nullable: true
         deprecated: false
@@ -3964,7 +3965,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-03-28T18:02:47'
+        example: '2026-04-06T19:47:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3975,7 +3976,7 @@ endpoints:
         name: filter.to
         description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
         required: false
-        example: '2052-04-20'
+        example: '2052-04-29'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3985,8 +3986,8 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-03-28T18:02:47'
-        to: '2052-04-20'
+        from: '2026-04-06T19:47:38'
+        to: '2052-04-29'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -4217,14 +4218,14 @@ endpoints:
         name: method_id
         description: 'The ID of the method.'
         required: true
-        example: architecto
+        example: 01knj1ka7esy0g2fw2jx2kcgbr
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      method_id: architecto
+      method_id: 01knj1ka7esy0g2fw2jx2kcgbr
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -4285,14 +4286,14 @@ endpoints:
         name: method_id
         description: 'The ID of the method.'
         required: true
-        example: architecto
+        example: 01knj1ka7esy0g2fw2jx2kcgbr
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      method_id: architecto
+      method_id: 01knj1ka7esy0g2fw2jx2kcgbr
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -4441,14 +4442,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -4509,14 +4510,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -4674,6 +4675,7 @@ endpoints:
           - admin_adjustment
           - wallet_top_up
           - wallet_top_up_cancelled
+          - refund
         exampleWasSpecified: false
         nullable: true
         deprecated: false
@@ -4682,7 +4684,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-03-28T18:02:47'
+        example: '2026-04-06T19:47:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4693,7 +4695,7 @@ endpoints:
         name: filter.to
         description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
         required: false
-        example: '2052-04-20'
+        example: '2052-04-29'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4703,8 +4705,8 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-03-28T18:02:47'
-        to: '2052-04-20'
+        from: '2026-04-06T19:47:38'
+        to: '2052-04-29'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -4813,7 +4815,7 @@ endpoints:
         name: topUp_id
         description: 'The ID of the topUp.'
         required: true
-        example: architecto
+        example: 01knj1kbpcq3js07k8pxek7f16
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4831,7 +4833,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      topUp_id: architecto
+      topUp_id: 01knj1kbpcq3js07k8pxek7f16
       topUp: 01H5NVQ8K6MBK2W2Z6SWX4PYR0
     queryParameters: []
     cleanQueryParameters: []
@@ -4881,7 +4883,7 @@ endpoints:
         name: topUp_id
         description: 'The ID of the topUp.'
         required: true
-        example: architecto
+        example: 01knj1kbpcq3js07k8pxek7f16
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4899,7 +4901,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      topUp_id: architecto
+      topUp_id: 01knj1kbpcq3js07k8pxek7f16
       topUp: 01H5NVQ8K6MBK2W2Z6SWX4PYR0
     queryParameters: []
     cleanQueryParameters: []

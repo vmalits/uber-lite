@@ -36,7 +36,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: f10911ea-c17c-44d8-a9c2-a64674ebd19a
+          x-request-id: e13da775-b218-4a98-ab40-5fd83270edb9
         description: null
     responseFields: []
     auth: []
@@ -163,14 +163,14 @@ endpoints:
         name: deviceToken_id
         description: 'The ID of the deviceToken.'
         required: true
-        example: architecto
+        example: 01knj1k9pwt4xpdmkgktdwfwch
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      deviceToken_id: architecto
+      deviceToken_id: 01knj1k9pwt4xpdmkgktdwfwch
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

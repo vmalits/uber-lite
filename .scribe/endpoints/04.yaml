@@ -438,7 +438,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: ca726c09-7f8e-4f0d-b58c-4fd5bc7dd125
+          x-request-id: 53928fad-1dfe-4f27-b917-6bd8c079935d
         description: null
     responseFields: []
     auth: []
@@ -492,7 +492,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 729bc3ba-f10c-4bef-88a3-243705c60334
+          x-request-id: 65e80a6b-4660-418a-8840-9f2b04e5f3cb
         description: null
     responseFields: []
     auth: []
@@ -1020,7 +1020,7 @@ endpoints:
         name: id
         description: 'The ID of the ban.'
         required: true
-        example: architecto
+        example: 01knj1ka4w4gt06xh9z63s7p4d
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1038,7 +1038,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1ka4w4gt06xh9z63s7p4d
       ban: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1100,7 +1100,7 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1118,7 +1118,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: architecto
+      ticket_id: 01knj1kbkj1svvphx1fx15y22s
       ticket: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1260,7 +1260,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1278,7 +1278,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1322,7 +1322,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1340,7 +1340,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1384,7 +1384,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1402,7 +1402,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1446,7 +1446,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1464,7 +1464,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1508,7 +1508,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1526,7 +1526,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1570,7 +1570,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1588,7 +1588,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: architecto
+      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -1862,14 +1862,14 @@ endpoints:
         name: vehicle_id
         description: 'The ID of the vehicle.'
         required: true
-        example: architecto
+        example: 01knj1k9mtt78a8eqj9dh4pf4k
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      vehicle_id: architecto
+      vehicle_id: 01knj1k9mtt78a8eqj9dh4pf4k
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2076,14 +2076,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle.'
         required: true
-        example: architecto
+        example: 01knj1k9mtt78a8eqj9dh4pf4k
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1k9mtt78a8eqj9dh4pf4k
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2240,14 +2240,14 @@ endpoints:
         name: vehicle_id
         description: 'The ID of the vehicle.'
         required: true
-        example: architecto
+        example: 01knj1k9mtt78a8eqj9dh4pf4k
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      vehicle_id: architecto
+      vehicle_id: 01knj1k9mtt78a8eqj9dh4pf4k
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2699,6 +2699,50 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - GET
+    uri: api/v1/driver/schedule/status
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Schedule Status'
+      description: 'Get current schedule status including active and next slots'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Schedule status retrieved.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: api/v1/driver/schedule
     metadata:
@@ -2813,14 +2857,14 @@ endpoints:
         name: id
         description: 'The ID of the schedule.'
         required: true
-        example: architecto
+        example: 01knj1k9pbfe1rh27b6z9gb2v4
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1k9pbfe1rh27b6z9gb2v4
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2923,14 +2967,14 @@ endpoints:
         name: id
         description: 'The ID of the schedule.'
         required: true
-        example: architecto
+        example: 01knj1k9pbfe1rh27b6z9gb2v4
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1k9pbfe1rh27b6z9gb2v4
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

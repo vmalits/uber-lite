@@ -505,14 +505,14 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: architecto
+        example: 01knj1k9kh7d6sk7dda6sxga37
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1k9kh7d6sk7dda6sxga37
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -537,6 +537,151 @@ endpoints:
         content: null
         headers: []
         description: 'Forbidden - not an admin.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'User not found.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/users/{user_id}/status'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update User Status'
+      description: 'Change the status of a user (active, inactive, banned)'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 01knj1k9kh7d6sk7dda6sxga37
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      user_id: 01knj1k9kh7d6sk7dda6sxga37
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      status:
+        custom: []
+        name: status
+        description: 'New user status: active, inactive, or banned.'
+        required: true
+        example: inactive
+        type: string
+        enumValues:
+          - active
+          - inactive
+          - banned
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      status: inactive
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'User status updated successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/users/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete User'
+      description: 'Delete a user account'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 01knj1k9kh7d6sk7dda6sxga37
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 01knj1k9kh7d6sk7dda6sxga37
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 204
+        content: null
+        headers: []
+        description: 'User deleted successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin or trying to delete self.'
       -
         custom: []
         status: 404
@@ -1044,14 +1189,14 @@ endpoints:
         name: id
         description: 'The ID of the ride.'
         required: true
-        example: architecto
+        example: 01knj1kavt0ar3xkaqxdnj3seq
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1kavt0ar3xkaqxdnj3seq
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1090,74 +1235,6 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - DELETE
-    uri: 'api/v1/admin/users/{id}'
-    metadata:
-      custom: []
-      groupName: Admin
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Delete User'
-      description: 'Delete a user account'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer <token>'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the user.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 204
-        content: null
-        headers: []
-        description: 'User deleted successfully.'
-      -
-        custom: []
-        status: 401
-        content: null
-        headers: []
-        description: Unauthorized.
-      -
-        custom: []
-        status: 403
-        content: null
-        headers: []
-        description: 'Forbidden - not an admin or trying to delete self.'
-      -
-        custom: []
-        status: 404
-        content: null
-        headers: []
-        description: 'User not found.'
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
       - POST
     uri: 'api/v1/admin/drivers/{driver_id}/ban'
     metadata:
@@ -1180,14 +1257,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: architecto
+        example: 01knj1k9kh7d6sk7dda6sxga37
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: architecto
+      driver_id: 01knj1k9kh7d6sk7dda6sxga37
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1299,14 +1376,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: architecto
+        example: 01knj1k9kh7d6sk7dda6sxga37
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: architecto
+      driver_id: 01knj1k9kh7d6sk7dda6sxga37
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1512,14 +1589,14 @@ endpoints:
         name: id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1kbkj1svvphx1fx15y22s
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1580,14 +1657,14 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: architecto
+      ticket_id: 01knj1kbkj1svvphx1fx15y22s
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1648,7 +1725,7 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1666,7 +1743,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: architecto
+      ticket_id: 01knj1kbkj1svvphx1fx15y22s
       ticket: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1746,7 +1823,7 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: architecto
+        example: 01knj1kbkj1svvphx1fx15y22s
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1764,7 +1841,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: architecto
+      ticket_id: 01knj1kbkj1svvphx1fx15y22s
       ticket: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1857,7 +1934,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: b41eca41-71dd-4ae9-9c52-d12385b5de91
+          x-request-id: 23df60f1-fe51-47f7-9a73-a6a33e6f75aa
         description: null
     responseFields: []
     auth: []
@@ -2079,14 +2156,14 @@ endpoints:
         name: promoCode_id
         description: 'The ID of the promoCode.'
         required: true
-        example: architecto
+        example: 01knj1k9k43j0aj8181epvjvsh
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      promoCode_id: architecto
+      promoCode_id: 01knj1k9k43j0aj8181epvjvsh
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2101,7 +2178,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: a2218df5-19c0-45e4-af23-c4679eba79e6
+          x-request-id: 51347ca3-7d5d-4dba-94da-712893eb504c
         description: null
     responseFields: []
     auth: []
@@ -2133,14 +2210,14 @@ endpoints:
         name: promoCode_id
         description: 'The ID of the promoCode.'
         required: true
-        example: architecto
+        example: 01knj1k9k43j0aj8181epvjvsh
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      promoCode_id: architecto
+      promoCode_id: 01knj1k9k43j0aj8181epvjvsh
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2329,14 +2406,14 @@ endpoints:
         name: promoCode_id
         description: 'The ID of the promoCode.'
         required: true
-        example: architecto
+        example: 01knj1k9k43j0aj8181epvjvsh
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      promoCode_id: architecto
+      promoCode_id: 01knj1k9k43j0aj8181epvjvsh
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2373,14 +2450,14 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: architecto
+        example: 01knj1k9kh7d6sk7dda6sxga37
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      user_id: architecto
+      user_id: 01knj1k9kh7d6sk7dda6sxga37
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2417,6 +2494,80 @@ endpoints:
         content: null
         headers: []
         description: 'Credits adjusted successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/payments/{paymentAttempt_id}/refund'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Refund Payment'
+      description: 'Refund a completed payment and return credits to the user'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paymentAttempt_id:
+        custom: []
+        name: paymentAttempt_id
+        description: 'The ID of the paymentAttempt.'
+        required: true
+        example: 01knj1kaw3pp75arzbqrm0fgb8
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      paymentAttempt_id: 01knj1kaw3pp75arzbqrm0fgb8
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      reason:
+        custom: []
+        name: reason
+        description: 'Reason for the refund. Must not be greater than 1000 characters.'
+        required: false
+        example: 'Duplicate charge'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      reason: 'Duplicate charge'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Payment refunded successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Payment cannot be refunded.'
     responseFields: []
     auth: []
     controller: null
@@ -2550,7 +2701,7 @@ endpoints:
         name: id
         description: 'The ID of the payout.'
         required: true
-        example: architecto
+        example: 01knj1kbppk84h0dyere7v30af
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2568,7 +2719,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1kbppk84h0dyere7v30af
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2618,7 +2769,7 @@ endpoints:
         name: payout_id
         description: 'The ID of the payout.'
         required: true
-        example: architecto
+        example: 01knj1kbppk84h0dyere7v30af
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2636,7 +2787,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      payout_id: architecto
+      payout_id: 01knj1kbppk84h0dyere7v30af
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2686,7 +2837,7 @@ endpoints:
         name: payout_id
         description: 'The ID of the payout.'
         required: true
-        example: architecto
+        example: 01knj1kbppk84h0dyere7v30af
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2704,7 +2855,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      payout_id: architecto
+      payout_id: 01knj1kbppk84h0dyere7v30af
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2754,7 +2905,7 @@ endpoints:
         name: payout_id
         description: 'The ID of the payout.'
         required: true
-        example: architecto
+        example: 01knj1kbppk84h0dyere7v30af
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2772,7 +2923,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      payout_id: architecto
+      payout_id: 01knj1kbppk84h0dyere7v30af
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2822,7 +2973,7 @@ endpoints:
         name: payout_id
         description: 'The ID of the payout.'
         required: true
-        example: architecto
+        example: 01knj1kbppk84h0dyere7v30af
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2840,7 +2991,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      payout_id: architecto
+      payout_id: 01knj1kbppk84h0dyere7v30af
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2912,7 +3063,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: e23c8afc-452e-4882-acb1-b244c8e858e8
+          x-request-id: 79c382fb-e805-4fae-8cc8-3b8f9d0e251e
         description: null
     responseFields: []
     auth: []
@@ -3063,14 +3214,14 @@ endpoints:
         name: id
         description: 'The ID of the announcement.'
         required: true
-        example: architecto
+        example: 01knj1kbk00aev956eptesvpg8
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1kbk00aev956eptesvpg8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -3194,14 +3345,14 @@ endpoints:
         name: id
         description: 'The ID of the announcement.'
         required: true
-        example: architecto
+        example: 01knj1kbk00aev956eptesvpg8
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1kbk00aev956eptesvpg8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -3248,7 +3399,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 16dbca29-b8ec-4b89-9e3c-dc327e64a24e
+          x-request-id: 1e761a7d-7e5c-4902-8b78-0fee8d603886
         description: null
     responseFields: []
     auth: []
@@ -3302,7 +3453,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: b091e582-365b-43cf-b3d9-ebc700282b55
+          x-request-id: ca8d3248-1b60-4b84-a6f6-f5fbdcb9db4b
         description: null
     responseFields: []
     auth: []
@@ -3334,14 +3485,14 @@ endpoints:
         name: report_id
         description: 'The ID of the report.'
         required: true
-        example: architecto
+        example: 01knj1kbn3bvhb4d41q7xztjtp
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      report_id: architecto
+      report_id: 01knj1kbn3bvhb4d41q7xztjtp
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -3428,7 +3579,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: fafb55e8-fb2a-435b-8dad-0d379913a9ae
+          x-request-id: af94865f-c044-48dd-94ba-0bdc9e94cd55
         description: null
     responseFields: []
     auth: []
@@ -3617,14 +3768,14 @@ endpoints:
         name: id
         description: 'The ID of the achievement.'
         required: true
-        example: architecto
+        example: 01knj1k9g1enkrravfwqg3mp1x
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1k9g1enkrravfwqg3mp1x
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -3639,7 +3790,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 892f51eb-7bb6-4402-8e69-ae39d6537f9b
+          x-request-id: 2a89d33d-700c-44aa-8743-76e005b36c33
         description: null
     responseFields: []
     auth: []
@@ -3671,14 +3822,14 @@ endpoints:
         name: id
         description: 'The ID of the achievement.'
         required: true
-        example: architecto
+        example: 01knj1k9g1enkrravfwqg3mp1x
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1k9g1enkrravfwqg3mp1x
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -3834,14 +3985,14 @@ endpoints:
         name: id
         description: 'The ID of the achievement.'
         required: true
-        example: architecto
+        example: 01knj1k9g1enkrravfwqg3mp1x
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 01knj1k9g1enkrravfwqg3mp1x
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
