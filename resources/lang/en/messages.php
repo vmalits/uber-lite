@@ -86,9 +86,10 @@ return [
         'weekly_earnings_fetched'  => 'Weekly earnings retrieved successfully.',
         'monthly_earnings_fetched' => 'Monthly earnings retrieved successfully.',
         'schedule'                 => [
-            'created' => 'Schedule created successfully.',
-            'updated' => 'Schedule updated successfully.',
-            'deleted' => 'Schedule deleted successfully.',
+            'created'          => 'Schedule created successfully.',
+            'updated'          => 'Schedule updated successfully.',
+            'deleted'          => 'Schedule deleted successfully.',
+            'status_retrieved' => 'Schedule status retrieved successfully.',
         ],
     ],
     'favorite' => [

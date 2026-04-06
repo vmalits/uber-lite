@@ -38,6 +38,7 @@ use App\Http\Controllers\Api\V1\Driver\GoOnlineController;
 use App\Http\Controllers\Api\V1\Driver\OnTheWayController;
 use App\Http\Controllers\Api\V1\Driver\ProfileController;
 use App\Http\Controllers\Api\V1\Driver\RequestPayoutController;
+use App\Http\Controllers\Api\V1\Driver\ScheduleStatusController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
 use App\Http\Controllers\Api\V1\Driver\UpdateLocationController;
 use App\Http\Controllers\Api\V1\Driver\UpdateProfileController;
@@ -133,6 +134,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.performance');
         Route::get('schedule', [GetScheduleController::class, '__invoke'])
             ->name('api.v1.driver.schedule.index');
+        Route::get('schedule/status', [ScheduleStatusController::class, '__invoke'])
+            ->name('api.v1.driver.schedule.status');
         Route::post('schedule', [CreateScheduleController::class, '__invoke'])
             ->name('api.v1.driver.schedule.store');
         Route::put('schedule/{schedule}', [UpdateScheduleController::class, '__invoke'])
