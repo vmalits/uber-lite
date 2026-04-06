@@ -48,7 +48,7 @@ final class SupportDataSeeder extends Seeder
     }
 
     /**
-     * @param  Collection<int, User>  $riders
+     * @param Collection<int, User> $riders
      */
     private function seedSupportTickets(?User $admin, Collection $riders): void
     {
@@ -67,20 +67,20 @@ final class SupportDataSeeder extends Seeder
                 'user_id' => $rider->id,
                 'subject' => $ticketData['subject'],
                 'message' => fake()->paragraphs(2, true),
-                'status' => $ticketData['status'],
+                'status'  => $ticketData['status'],
             ]);
 
             SupportTicketComment::query()->create([
                 'ticket_id' => $ticket->id,
-                'user_id' => $ticket->user_id,
-                'message' => fake()->paragraph(),
+                'user_id'   => $ticket->user_id,
+                'message'   => fake()->paragraph(),
             ]);
 
             if ($ticket->status !== SupportTicketStatus::OPEN && $admin !== null) {
                 SupportTicketComment::query()->create([
                     'ticket_id' => $ticket->id,
-                    'user_id' => $admin->id,
-                    'message' => fake()->randomElement([
+                    'user_id'   => $admin->id,
+                    'message'   => fake()->randomElement([
                         'We are looking into this issue. Please allow 24-48 hours for resolution.',
                         'Thank you for reaching out. We have escalated this to our team.',
                         'This has been resolved. Please check your account for updates.',
@@ -91,9 +91,9 @@ final class SupportDataSeeder extends Seeder
     }
 
     /**
-     * @param  Collection<int, User>  $riders
-     * @param  Collection<int, User>  $drivers
-     * @param  Collection<int, Ride>  $rides
+     * @param Collection<int, User> $riders
+     * @param Collection<int, User> $drivers
+     * @param Collection<int, Ride> $rides
      */
     private function seedReports(?User $admin, Collection $riders, Collection $drivers, Collection $rides): void
     {
@@ -105,23 +105,23 @@ final class SupportDataSeeder extends Seeder
         if ($rideWithDriver !== null) {
             Report::query()->create([
                 'reporter_id' => $rideWithDriver->rider_id,
-                'target_id' => $rideWithDriver->driver_id,
-                'ride_id' => $rideWithDriver->id,
-                'reason' => ReportReason::UNSAFE_DRIVING,
+                'target_id'   => $rideWithDriver->driver_id,
+                'ride_id'     => $rideWithDriver->id,
+                'reason'      => ReportReason::UNSAFE_DRIVING,
                 'description' => 'The driver was speeding and ran a red light at the intersection near Centru.',
-                'status' => ReportStatus::PENDING,
+                'status'      => ReportStatus::PENDING,
             ]);
         }
 
         if ($secondRide !== null && $admin !== null) {
             Report::query()->create([
                 'reporter_id' => $secondRide->rider_id,
-                'target_id' => $secondRide->driver_id,
-                'ride_id' => $secondRide->id,
-                'reason' => ReportReason::INAPPROPRIATE_BEHAVIOR,
+                'target_id'   => $secondRide->driver_id,
+                'ride_id'     => $secondRide->id,
+                'reason'      => ReportReason::INAPPROPRIATE_BEHAVIOR,
                 'description' => 'Driver was talking on the phone the entire ride and was very rude when asked to stop.',
-                'status' => ReportStatus::RESOLVED,
-                'admin_note' => 'Driver warned. Repeat offense will result in a temporary ban.',
+                'status'      => ReportStatus::RESOLVED,
+                'admin_note'  => 'Driver warned. Repeat offense will result in a temporary ban.',
                 'resolved_by' => $admin->id,
                 'resolved_at' => now()->subDays(2),
             ]);
@@ -130,17 +130,17 @@ final class SupportDataSeeder extends Seeder
         if ($riders->count() >= 2) {
             Report::query()->create([
                 'reporter_id' => $riders->first()->id,
-                'target_id' => $riders->skip(1)->first()->id,
-                'ride_id' => null,
-                'reason' => ReportReason::OTHER,
+                'target_id'   => $riders->skip(1)->first()->id,
+                'ride_id'     => null,
+                'reason'      => ReportReason::OTHER,
                 'description' => 'This user created a fake account and is harassing other riders.',
-                'status' => ReportStatus::PENDING,
+                'status'      => ReportStatus::PENDING,
             ]);
         }
     }
 
     /**
-     * @param  Collection<int, User>  $riders
+     * @param Collection<int, User> $riders
      */
     private function seedCreditTransactions(Collection $riders): void
     {
@@ -151,27 +151,27 @@ final class SupportDataSeeder extends Seeder
             $balance = $rider->credits_balance;
 
             CreditTransaction::query()->create([
-                'user_id' => $rider->id,
-                'amount' => 10000,
+                'user_id'       => $rider->id,
+                'amount'        => 10000,
                 'balance_after' => $balance + 10000,
-                'type' => CreditTransactionType::REFERRAL_BONUS,
-                'description' => 'Referral bonus for inviting a friend',
+                'type'          => CreditTransactionType::REFERRAL_BONUS,
+                'description'   => 'Referral bonus for inviting a friend',
             ]);
 
             if (fake()->boolean(50)) {
                 CreditTransaction::query()->create([
-                    'user_id' => $rider->id,
-                    'amount' => fake()->numberBetween(500, 3000),
+                    'user_id'       => $rider->id,
+                    'amount'        => fake()->numberBetween(500, 3000),
                     'balance_after' => $balance + 10000 + fake()->numberBetween(500, 3000),
-                    'type' => CreditTransactionType::PROMO_SAVING,
-                    'description' => 'Promo code discount saved',
+                    'type'          => CreditTransactionType::PROMO_SAVING,
+                    'description'   => 'Promo code discount saved',
                 ]);
             }
         }
     }
 
     /**
-     * @param  Collection<int, User>  $riders
+     * @param Collection<int, User> $riders
      */
     private function seedWalletTopUps(Collection $riders): void
     {
@@ -187,13 +187,13 @@ final class SupportDataSeeder extends Seeder
             $status = $statuses[$index % 3] ?? WalletTopUpStatus::COMPLETED;
 
             WalletTopUp::query()->create([
-                'user_id' => $rider->id,
+                'user_id'           => $rider->id,
                 'payment_method_id' => $paymentMethod?->id,
-                'amount' => fake()->numberBetween(10000, 100000),
-                'currency' => Currency::MDL,
+                'amount'            => fake()->numberBetween(10000, 100000),
+                'currency'          => Currency::MDL,
                 'payment_intent_id' => 'pi_'.fake()->uuid(),
-                'status' => $status,
-                'completed_at' => $status === WalletTopUpStatus::COMPLETED ? now()->subDays(
+                'status'            => $status,
+                'completed_at'      => $status === WalletTopUpStatus::COMPLETED ? now()->subDays(
                     fake()->numberBetween(1, 14)) : null,
                 'failure_reason' => $status === WalletTopUpStatus::CANCELLED ? 'Cancelled by user' : null,
             ]);
@@ -201,7 +201,7 @@ final class SupportDataSeeder extends Seeder
     }
 
     /**
-     * @param  Collection<int, User>  $drivers
+     * @param Collection<int, User> $drivers
      */
     private function seedDriverPayouts(Collection $drivers): void
     {
@@ -219,17 +219,17 @@ final class SupportDataSeeder extends Seeder
             $config = $payoutConfigs[$index % \count($payoutConfigs)];
 
             $data = [
-                'driver_id' => $driver->id,
-                'amount' => fake()->numberBetween(5000, 50000),
-                'status' => $config['status'],
-                'method' => $config['method'],
+                'driver_id'    => $driver->id,
+                'amount'       => fake()->numberBetween(5000, 50000),
+                'status'       => $config['status'],
+                'method'       => $config['method'],
                 'requested_at' => now()->subDays(fake()->numberBetween(1, 14)),
-                'description' => fake()->optional()->sentence(),
+                'description'  => fake()->optional()->sentence(),
             ];
 
             if ($config['method'] === PayoutMethod::BANK_TRANSFER) {
                 $data['bank_name'] = fake()->randomElement([
-                    'Moldova Agroindbank', 'Victoriable', 'Moldindconbank', 'BCR Chișinău'
+                    'Moldova Agroindbank', 'Victoriable', 'Moldindconbank', 'BCR Chișinău',
                 ]);
                 $data['bank_account_number'] = fake()->numerify('####################');
                 $data['bank_routing_number'] = fake()->numerify('#########');

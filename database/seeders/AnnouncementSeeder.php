@@ -15,41 +15,41 @@ final class AnnouncementSeeder extends Seeder
     {
         $admin = User::where('email', 'admin@uber-lite.md')->first();
 
-        if (!$admin) {
+        if (! $admin) {
             return;
         }
 
         Announcement::query()->create([
             'admin_id' => $admin->id,
-            'title' => 'Welcome to Uber Lite!',
-            'body' => 'Thank you for joining our platform. We are excited to have you on board.
+            'title'    => 'Welcome to Uber Lite!',
+            'body'     => 'Thank you for joining our platform. We are excited to have you on board.
              Enjoy your first ride with a special discount using code WELCOME50!',
-            'target' => AnnouncementTarget::ALL,
-            'is_active' => true,
+            'target'       => AnnouncementTarget::ALL,
+            'is_active'    => true,
             'published_at' => now()->subDays(30),
-            'expires_at' => now()->addMonths(6),
+            'expires_at'   => now()->addMonths(6),
         ]);
 
         Announcement::query()->create([
             'admin_id' => $admin->id,
-            'title' => 'New pricing zones available',
-            'body' => 'We have updated our pricing zones in Chișinău.
+            'title'    => 'New pricing zones available',
+            'body'     => 'We have updated our pricing zones in Chișinău.
             Check the updated surge pricing in Centru and Aeroport areas. Plan your trips accordingly!',
-            'target' => AnnouncementTarget::RIDERS,
-            'is_active' => true,
+            'target'       => AnnouncementTarget::RIDERS,
+            'is_active'    => true,
             'published_at' => now()->subDays(7),
-            'expires_at' => now()->addMonths(2),
+            'expires_at'   => now()->addMonths(2),
         ]);
 
         Announcement::query()->create([
             'admin_id' => $admin->id,
-            'title' => 'Weekly bonus program',
-            'body' => 'Complete 30 rides this week and earn a 500 MDL bonus!
+            'title'    => 'Weekly bonus program',
+            'body'     => 'Complete 30 rides this week and earn a 500 MDL bonus!
             The program runs from Monday to Sunday. Good luck and drive safe!',
-            'target' => AnnouncementTarget::DRIVERS,
-            'is_active' => true,
+            'target'       => AnnouncementTarget::DRIVERS,
+            'is_active'    => true,
             'published_at' => now()->subDays(2),
-            'expires_at' => now()->addDays(5),
+            'expires_at'   => now()->addDays(5),
         ]);
     }
 }
