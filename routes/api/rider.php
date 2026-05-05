@@ -43,6 +43,7 @@ use App\Http\Controllers\Api\V1\Rider\GetReferralsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
+use App\Http\Controllers\Api\V1\Rider\GetRideTimelineController;
 use App\Http\Controllers\Api\V1\Rider\GetScheduledRidesController;
 use App\Http\Controllers\Api\V1\Rider\GetStreakController;
 use App\Http\Controllers\Api\V1\Rider\GetStreakHistoryController;
@@ -136,6 +137,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.scheduled.cancel');
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.show');
+        Route::get('rides/{ride}/timeline', [GetRideTimelineController::class, '__invoke'])
+            ->name('api.v1.rider.rides.timeline');
         Route::get('rides/{ride}/track', [TrackRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.track');
         Route::get('rides/{ride}/fare-breakdown', [GetFareBreakdownController::class, '__invoke'])
