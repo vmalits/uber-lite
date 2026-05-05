@@ -36,6 +36,8 @@ use App\Queries\Driver\GetPayoutHistoryQuery;
 use App\Queries\Driver\GetPayoutHistoryQueryInterface;
 use App\Queries\Driver\GetRideHistoryQuery;
 use App\Queries\Driver\GetRideHistoryQueryInterface;
+use App\Queries\Driver\GetRideQuery;
+use App\Queries\Driver\GetRideQueryInterface;
 use App\Queries\Driver\GetScheduleQuery;
 use App\Queries\Driver\GetScheduleQueryInterface;
 use App\Queries\Driver\GetTipHistoryQuery;
@@ -61,6 +63,7 @@ final class DriverServiceProvider extends ServiceProvider
         GetDriverStatsQueryInterface::class         => GetDriverStatsQuery::class,
         GetHeatmapQueryInterface::class             => GetHeatmapQuery::class,
         GetRideHistoryQueryInterface::class         => GetRideHistoryQuery::class,
+        GetRideQueryInterface::class                => GetRideQuery::class,
         GetCurrentLocationQueryInterface::class     => GetCurrentLocationQuery::class,
         GetDailyEarningsQueryInterface::class       => GetDailyEarningsQuery::class,
         GetWeeklyEarningsQueryInterface::class      => GetWeeklyEarningsQuery::class,

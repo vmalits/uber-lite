@@ -27,6 +27,7 @@ use App\Http\Controllers\Api\V1\Driver\GetHeatmapController;
 use App\Http\Controllers\Api\V1\Driver\GetLevelController;
 use App\Http\Controllers\Api\V1\Driver\GetMonthlyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetPayoutHistoryController;
+use App\Http\Controllers\Api\V1\Driver\GetRideController;
 use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetScheduleController;
 use App\Http\Controllers\Api\V1\Driver\GetTipHistoryController;
@@ -88,6 +89,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.rides.active');
         Route::get('rides/history', [GetRideHistoryController::class, '__invoke'])
             ->name('api.v1.driver.rides.history');
+        Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
+            ->name('api.v1.driver.rides.show');
         Route::get('bans/active', [GetActiveBansController::class, '__invoke'])
             ->name('api.v1.driver.bans.active');
         Route::get('bans/{ban}', [GetBanController::class, '__invoke'])
