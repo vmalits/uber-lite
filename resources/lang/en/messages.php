@@ -63,6 +63,7 @@ return [
         'shared'               => 'Ride shared successfully.',
         'split'                => 'Ride split successfully.',
         'split_responded'      => 'Split invitation responded to successfully.',
+        'splits_cancelled'     => 'Split invitations cancelled successfully.',
         'not_active'           => 'No active ride found.',
         'already_active'       => 'You already have an active ride.',
         'estimate_calculated'  => 'Estimate calculated successfully.',

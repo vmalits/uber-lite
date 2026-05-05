@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Api\V1\Ride\CancelRideSplitsController;
 use App\Http\Controllers\Api\V1\Ride\CreateRideMessageController;
 use App\Http\Controllers\Api\V1\Ride\GetRideMessagesController;
 use App\Http\Controllers\Api\V1\Ride\GetRideSplitsController;
@@ -21,6 +22,8 @@ Route::prefix('ride')
             ->name('api.v1.ride.splits');
         Route::post('{ride}/split', [SplitRideController::class, '__invoke'])
             ->name('api.v1.ride.split');
+        Route::post('{ride}/split/cancel', [CancelRideSplitsController::class, '__invoke'])
+            ->name('api.v1.ride.split.cancel');
         Route::post('{ride}/split/respond', [RespondToSplitController::class, '__invoke'])
             ->name('api.v1.ride.split.respond');
         Route::get('{ride}/messages', [GetRideMessagesController::class, '__invoke'])
