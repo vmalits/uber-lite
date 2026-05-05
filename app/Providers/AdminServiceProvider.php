@@ -46,6 +46,8 @@ use App\Queries\Admin\GetUsersQuery;
 use App\Queries\Admin\GetUsersQueryInterface;
 use App\Queries\Announcement\GetActiveAnnouncementsQuery;
 use App\Queries\Announcement\GetActiveAnnouncementsQueryInterface;
+use App\Queries\Report\GetUserReportQuery;
+use App\Queries\Report\GetUserReportQueryInterface;
 use App\Queries\Report\GetUserReportsQuery;
 use App\Queries\Report\GetUserReportsQueryInterface;
 use Illuminate\Support\ServiceProvider;
@@ -78,5 +80,6 @@ final class AdminServiceProvider extends ServiceProvider
         GetReportsQueryInterface::class             => GetReportsQuery::class,
         GetReportQueryInterface::class              => GetReportQuery::class,
         GetUserReportsQueryInterface::class         => GetUserReportsQuery::class,
+        GetUserReportQueryInterface::class          => GetUserReportQuery::class,
     ];
 }
