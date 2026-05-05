@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Data\Ride\Split;
 
+use App\Enums\RideSplitStatus;
 use App\Models\RideSplit;
 use Spatie\LaravelData\Data;
 
@@ -11,6 +12,7 @@ final class RideSplitData extends Data
 {
     public function __construct(
         public string $id,
+        public RideSplitStatus $status,
         public string $participant_name,
         public ?string $participant_email,
         public ?string $participant_phone,
@@ -21,6 +23,7 @@ final class RideSplitData extends Data
     {
         return new self(
             id: $split->id,
+            status: $split->status,
             participant_name: $split->participant_name,
             participant_email: $split->participant_email,
             participant_phone: $split->participant_phone,

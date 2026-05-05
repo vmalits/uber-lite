@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\RideSplitStatus;
 use App\Models\Ride;
 use App\Models\RideSplit;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -17,6 +18,7 @@ class RideSplitFactory extends Factory
     {
         return [
             'ride_id'           => Ride::factory(),
+            'status'            => RideSplitStatus::PENDING,
             'participant_name'  => $this->faker->name(),
             'participant_email' => $this->faker->optional(0.8)->email(),
             'participant_phone' => $this->faker->optional(0.5)->phoneNumber(),
