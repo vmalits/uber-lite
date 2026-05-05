@@ -39,6 +39,7 @@ use App\Http\Controllers\Api\V1\Admin\GetTicketCommentsController;
 use App\Http\Controllers\Api\V1\Admin\GetTicketController;
 use App\Http\Controllers\Api\V1\Admin\GetTicketsController;
 use App\Http\Controllers\Api\V1\Admin\GetUserController;
+use App\Http\Controllers\Api\V1\Admin\GetUserCreditTransactionsController;
 use App\Http\Controllers\Api\V1\Admin\GetUsersController;
 use App\Http\Controllers\Api\V1\Admin\LoginController;
 use App\Http\Controllers\Api\V1\Admin\ProcessPayoutController;
@@ -135,6 +136,9 @@ Route::prefix('admin')
         Route::post('users/{user}/credits', [AdjustUserCreditsController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.users.credits');
+        Route::get('users/{user}/credits/history', [GetUserCreditTransactionsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.users.credits.history');
         Route::post('payments/{paymentAttempt}/refund', [RefundPaymentController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.payments.refund');

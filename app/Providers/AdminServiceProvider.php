@@ -28,6 +28,8 @@ use App\Queries\Admin\GetRidesQuery;
 use App\Queries\Admin\GetRidesQueryInterface;
 use App\Queries\Admin\GetTicketsQuery;
 use App\Queries\Admin\GetTicketsQueryInterface;
+use App\Queries\Admin\GetUserCreditTransactionsQuery;
+use App\Queries\Admin\GetUserCreditTransactionsQueryInterface;
 use App\Queries\Admin\GetUserQuery;
 use App\Queries\Admin\GetUserQueryInterface;
 use App\Queries\Admin\GetUsersQuery;
@@ -46,29 +48,30 @@ final class AdminServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetDriversQueryInterface::class             => GetDriversQuery::class,
-        GetUsersQueryInterface::class               => GetUsersQuery::class,
-        GetUserQueryInterface::class                => GetUserQuery::class,
-        GetRidesQueryInterface::class               => GetRidesQuery::class,
-        GetRideQueryInterface::class                => GetRideQuery::class,
-        GetTicketsQueryInterface::class             => GetTicketsQuery::class,
-        GetDriverQueryInterface::class              => GetDriverQuery::class,
-        GetDriverRidesQueryInterface::class         => GetDriverRidesQuery::class,
-        GetPromoCodesQueryInterface::class          => GetPromoCodesQuery::class,
-        GetAchievementsQueryInterface::class        => GetAchievementsQuery::class,
-        GetAnnouncementsQueryInterface::class       => GetAnnouncementsQuery::class,
-        GetAnalyticsOverviewQueryInterface::class   => GetAnalyticsOverviewQuery::class,
-        GetRidesAnalyticsQueryInterface::class      => GetRidesAnalyticsQuery::class,
-        GetRevenueAnalyticsQueryInterface::class    => GetRevenueAnalyticsQuery::class,
-        GetRealTimeAnalyticsQueryInterface::class   => GetRealTimeAnalyticsQuery::class,
-        ExportRidesQueryInterface::class            => ExportRidesQuery::class,
-        RidesCsvExportPresenterInterface::class     => RidesCsvExportPresenter::class,
-        DriverProfilePresenterInterface::class      => DriverProfilePresenter::class,
-        GetPayoutQueryInterface::class              => GetPayoutQuery::class,
-        GetActiveAnnouncementsQueryInterface::class => GetActiveAnnouncementsQuery::class,
-        GetReportsQueryInterface::class             => GetReportsQuery::class,
-        GetReportQueryInterface::class              => GetReportQuery::class,
-        GetUserReportsQueryInterface::class         => GetUserReportsQuery::class,
-        GetUserReportQueryInterface::class          => GetUserReportQuery::class,
+        GetDriversQueryInterface::class                => GetDriversQuery::class,
+        GetUsersQueryInterface::class                  => GetUsersQuery::class,
+        GetUserQueryInterface::class                   => GetUserQuery::class,
+        GetRidesQueryInterface::class                  => GetRidesQuery::class,
+        GetRideQueryInterface::class                   => GetRideQuery::class,
+        GetTicketsQueryInterface::class                => GetTicketsQuery::class,
+        GetDriverQueryInterface::class                 => GetDriverQuery::class,
+        GetDriverRidesQueryInterface::class            => GetDriverRidesQuery::class,
+        GetPromoCodesQueryInterface::class             => GetPromoCodesQuery::class,
+        GetAchievementsQueryInterface::class           => GetAchievementsQuery::class,
+        GetAnnouncementsQueryInterface::class          => GetAnnouncementsQuery::class,
+        GetAnalyticsOverviewQueryInterface::class      => GetAnalyticsOverviewQuery::class,
+        GetRidesAnalyticsQueryInterface::class         => GetRidesAnalyticsQuery::class,
+        GetRevenueAnalyticsQueryInterface::class       => GetRevenueAnalyticsQuery::class,
+        GetRealTimeAnalyticsQueryInterface::class      => GetRealTimeAnalyticsQuery::class,
+        ExportRidesQueryInterface::class               => ExportRidesQuery::class,
+        RidesCsvExportPresenterInterface::class        => RidesCsvExportPresenter::class,
+        DriverProfilePresenterInterface::class         => DriverProfilePresenter::class,
+        GetPayoutQueryInterface::class                 => GetPayoutQuery::class,
+        GetActiveAnnouncementsQueryInterface::class    => GetActiveAnnouncementsQuery::class,
+        GetReportsQueryInterface::class                => GetReportsQuery::class,
+        GetReportQueryInterface::class                 => GetReportQuery::class,
+        GetUserReportsQueryInterface::class            => GetUserReportsQuery::class,
+        GetUserReportQueryInterface::class             => GetUserReportQuery::class,
+        GetUserCreditTransactionsQueryInterface::class => GetUserCreditTransactionsQuery::class,
     ];
 }
