@@ -67,6 +67,7 @@ return [
         'estimate_calculated'  => 'Estimate calculated successfully.',
         'note_updated'         => 'Ride note updated successfully.',
         'scheduled_updated'    => 'Scheduled ride updated successfully.',
+        'scheduled_cancelled'  => 'Scheduled ride cancelled successfully.',
         'pin_verified'         => 'PIN verified successfully.',
         'pin_already_verified' => 'PIN has already been verified.',
         'stop_added'           => 'Stop added successfully.',

@@ -99,6 +99,12 @@ final class RidePolicy
             && $ride->status === RideStatus::SCHEDULED;
     }
 
+    public function cancelScheduled(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && $ride->status === RideStatus::SCHEDULED;
+    }
+
     public function applyPromoCode(User $user, Ride $ride): bool
     {
         return $ride->rider()->is($user)

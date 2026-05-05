@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\V1\Rider\AddTipController;
 use App\Http\Controllers\Api\V1\Rider\ApplyPromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ApplyReferralCodeController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
+use App\Http\Controllers\Api\V1\Rider\CancelScheduledRideController;
 use App\Http\Controllers\Api\V1\Rider\CancelWalletTopUpController;
 use App\Http\Controllers\Api\V1\Rider\ConfirmWalletTopUpController;
 use App\Http\Controllers\Api\V1\Rider\CreateRideController;
@@ -131,6 +132,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.schedule');
         Route::put('rides/scheduled/{ride}', [UpdateScheduledRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.scheduled.update');
+        Route::delete('rides/scheduled/{ride}', [CancelScheduledRideController::class, '__invoke'])
+            ->name('api.v1.rider.rides.scheduled.cancel');
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.show');
         Route::get('rides/{ride}/track', [TrackRideController::class, '__invoke'])
