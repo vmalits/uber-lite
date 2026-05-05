@@ -23,4 +23,9 @@ final class DeviceTokenPolicy
     {
         return $user->id === $deviceToken->user_id;
     }
+
+    public function update(User $user, DeviceToken $deviceToken): bool
+    {
+        return $user->id === $deviceToken->user_id;
+    }
 }

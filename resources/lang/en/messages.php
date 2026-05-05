@@ -183,6 +183,7 @@ return [
     ],
     'device' => [
         'registered' => 'Device token registered successfully.',
+        'updated'    => 'Device token updated successfully.',
         'deleted'    => 'Device token deleted successfully.',
     ],
     'report' => [
