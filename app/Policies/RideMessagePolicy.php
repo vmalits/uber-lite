@@ -26,6 +26,11 @@ final class RideMessagePolicy
         return $this->isParticipant($user, $ride);
     }
 
+    public function unreadCount(User $user, Ride $ride): bool
+    {
+        return $this->isParticipant($user, $ride);
+    }
+
     private function isParticipant(User $user, Ride $ride): bool
     {
         return $ride->rider()->is($user)
