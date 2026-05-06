@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\V1\Driver\GetDailyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverBalanceController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverPerformanceController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverRatingSummaryController;
+use App\Http\Controllers\Api\V1\Driver\GetDriverReceiptController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverReviewsController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverStatsController;
 use App\Http\Controllers\Api\V1\Driver\GetHeatmapController;
@@ -92,6 +93,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.rides.history');
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.show');
+        Route::get('rides/{ride}/receipt', [GetDriverReceiptController::class, '__invoke'])
+            ->name('api.v1.driver.rides.receipt');
         Route::get('rides/{ride}/timeline', [GetRideTimelineController::class, '__invoke'])
             ->name('api.v1.driver.rides.timeline');
         Route::get('bans/active', [GetActiveBansController::class, '__invoke'])

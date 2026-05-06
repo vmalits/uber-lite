@@ -24,6 +24,8 @@ use App\Queries\Driver\GetDriverPerformanceQuery;
 use App\Queries\Driver\GetDriverPerformanceQueryInterface;
 use App\Queries\Driver\GetDriverRatingSummaryQuery;
 use App\Queries\Driver\GetDriverRatingSummaryQueryInterface;
+use App\Queries\Driver\GetDriverReceiptQuery;
+use App\Queries\Driver\GetDriverReceiptQueryInterface;
 use App\Queries\Driver\GetDriverReviewsQuery;
 use App\Queries\Driver\GetDriverReviewsQueryInterface;
 use App\Queries\Driver\GetDriverStatsQuery;
@@ -73,6 +75,7 @@ final class DriverServiceProvider extends ServiceProvider
         GetPayoutHistoryQueryInterface::class       => GetPayoutHistoryQuery::class,
         GetDriverPerformanceQueryInterface::class   => GetDriverPerformanceQuery::class,
         GetDriverRatingSummaryQueryInterface::class => GetDriverRatingSummaryQuery::class,
+        GetDriverReceiptQueryInterface::class       => GetDriverReceiptQuery::class,
         GetDriverReviewsQueryInterface::class       => GetDriverReviewsQuery::class,
         GetScheduleQueryInterface::class            => GetScheduleQuery::class,
     ];

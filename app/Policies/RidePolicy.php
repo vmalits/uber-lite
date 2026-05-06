@@ -169,6 +169,12 @@ final class RidePolicy
             );
     }
 
+    public function viewDriverReceipt(User $user, Ride $ride): bool
+    {
+        return $ride->driver()->is($user)
+            && $ride->status === RideStatus::COMPLETED;
+    }
+
     public function assignDriver(User $user, Ride $ride): bool
     {
         return $user->role === UserRole::ADMIN
