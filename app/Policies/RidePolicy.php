@@ -168,4 +168,11 @@ final class RidePolicy
                 true,
             );
     }
+
+    public function assignDriver(User $user, Ride $ride): bool
+    {
+        return $user->role === UserRole::ADMIN
+            && $ride->status === RideStatus::PENDING
+            && $ride->driver_id === null;
+    }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Admin\AdjustUserCreditsController;
 use App\Http\Controllers\Api\V1\Admin\ApprovePayoutController;
+use App\Http\Controllers\Api\V1\Admin\AssignDriverController;
 use App\Http\Controllers\Api\V1\Admin\CompletePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CreateAchievementController;
 use App\Http\Controllers\Api\V1\Admin\CreateAnnouncementController;
@@ -97,6 +98,9 @@ Route::prefix('admin')
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.rides.show');
+        Route::post('rides/{ride}/assign-driver', [AssignDriverController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.rides.assign-driver');
         Route::post('drivers/{driver}/ban', [DriverBanController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.ban');

@@ -62,6 +62,7 @@ return [
         'rated'                => 'Ride rated successfully.',
         'shared'               => 'Ride shared successfully.',
         'split'                => 'Ride split successfully.',
+        'driver_assigned'      => 'Driver assigned to ride successfully.',
         'split_responded'      => 'Split invitation responded to successfully.',
         'splits_cancelled'     => 'Split invitations cancelled successfully.',
         'not_active'           => 'No active ride found.',
