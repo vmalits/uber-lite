@@ -175,4 +175,10 @@ final class RidePolicy
             && $ride->status === RideStatus::PENDING
             && $ride->driver_id === null;
     }
+
+    public function cancelAsAdmin(User $user, Ride $ride): bool
+    {
+        return $user->role === UserRole::ADMIN
+            && $ride->status->isActive();
+    }
 }
