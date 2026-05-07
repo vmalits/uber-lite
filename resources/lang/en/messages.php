@@ -74,6 +74,7 @@ return [
         'pin_verified'         => 'PIN verified successfully.',
         'pin_already_verified' => 'PIN has already been verified.',
         'stop_added'           => 'Stop added successfully.',
+        'stop_deleted'         => 'Stop deleted successfully.',
         'tip_added'            => 'Tip added successfully.',
         'message_sent'         => 'Message sent successfully.',
     ],

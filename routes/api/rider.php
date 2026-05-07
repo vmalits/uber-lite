@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteDriverController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\DeleteFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\DeletePaymentMethodController;
+use App\Http\Controllers\Api\V1\Rider\DeleteRideStopController;
 use App\Http\Controllers\Api\V1\Rider\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
 use App\Http\Controllers\Api\V1\Rider\GetCreditsController;
@@ -155,6 +156,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.verify-pin');
         Route::post('rides/{ride}/stops', [AddRideStopController::class, '__invoke'])
             ->name('api.v1.rider.rides.stops.store');
+        Route::delete('rides/{ride}/stops/{stop}', [DeleteRideStopController::class, '__invoke'])
+            ->name('api.v1.rider.rides.stops.destroy');
         Route::post('rides/{ride}/tip', [AddTipController::class, '__invoke'])
             ->name('api.v1.rider.rides.tip');
         Route::post('rides/{ride}/pay', [PayRideController::class, '__invoke'])

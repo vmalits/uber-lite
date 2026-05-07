@@ -7,6 +7,7 @@ namespace App\Policies;
 use App\Enums\RideStatus;
 use App\Enums\UserRole;
 use App\Models\Ride;
+use App\Models\RideStop;
 use App\Models\User;
 
 final class RidePolicy
@@ -127,6 +128,17 @@ final class RidePolicy
     public function addStop(User $user, Ride $ride): bool
     {
         return $ride->rider()->is($user)
+            && \in_array(
+                $ride->status,
+                [RideStatus::PENDING, RideStatus::ACCEPTED, RideStatus::ON_THE_WAY],
+                true,
+            );
+    }
+
+    public function deleteStop(User $user, Ride $ride, RideStop $stop): bool
+    {
+        return $ride->rider()->is($user)
+            && $stop->ride_id === $ride->id
             && \in_array(
                 $ride->status,
                 [RideStatus::PENDING, RideStatus::ACCEPTED, RideStatus::ON_THE_WAY],
