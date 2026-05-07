@@ -40,6 +40,7 @@ use App\Http\Controllers\Api\V1\Driver\GoOfflineController;
 use App\Http\Controllers\Api\V1\Driver\GoOnlineController;
 use App\Http\Controllers\Api\V1\Driver\OnTheWayController;
 use App\Http\Controllers\Api\V1\Driver\ProfileController;
+use App\Http\Controllers\Api\V1\Driver\RateRiderController;
 use App\Http\Controllers\Api\V1\Driver\RequestPayoutController;
 use App\Http\Controllers\Api\V1\Driver\ScheduleStatusController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
@@ -117,6 +118,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.rides.complete');
         Route::post('rides/{ride}/cancel', [CancelRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.cancel');
+        Route::post('rides/{ride}/rate-rider', [RateRiderController::class, '__invoke'])
+            ->name('api.v1.driver.rides.rate-rider');
         Route::post('location', UpdateLocationController::class)
             ->name('api.v1.driver.location');
         Route::get('location/current', [GetCurrentLocationController::class, '__invoke'])

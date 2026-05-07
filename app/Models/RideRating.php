@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $rider_id
  * @property int $rating
  * @property string|null $comment
+ * @property int|null $driver_rating
+ * @property string|null $driver_comment
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
  * @property-read Ride $ride
@@ -38,12 +40,15 @@ class RideRating extends Model
         'rider_id',
         'rating',
         'comment',
+        'driver_rating',
+        'driver_comment',
     ];
 
     public function casts(): array
     {
         return [
-            'rating' => 'int',
+            'rating'        => 'int',
+            'driver_rating' => 'int',
         ];
     }
 
