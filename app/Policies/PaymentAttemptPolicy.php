@@ -9,6 +9,11 @@ use App\Models\User;
 
 final class PaymentAttemptPolicy
 {
+    public function viewAny(User $user): bool
+    {
+        return $user->isAdmin();
+    }
+
     public function refund(User $user, PaymentAttempt $paymentAttempt): bool
     {
         return $user->isAdmin();

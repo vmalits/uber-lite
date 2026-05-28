@@ -34,14 +34,14 @@ test('rider can get unread messages count', function (): void {
     ]);
 
     RideMessage::factory()->create([
-        'ride_id'    => $ride->id,
-        'sender_id'  => $driver->id,
-        'read_at'    => null,
+        'ride_id'   => $ride->id,
+        'sender_id' => $driver->id,
+        'read_at'   => null,
     ]);
     RideMessage::factory()->create([
-        'ride_id'    => $ride->id,
-        'sender_id'  => $driver->id,
-        'read_at'    => null,
+        'ride_id'   => $ride->id,
+        'sender_id' => $driver->id,
+        'read_at'   => null,
     ]);
 
     actingAs($rider)
@@ -74,9 +74,9 @@ test('driver can get unread messages count', function (): void {
     ]);
 
     RideMessage::factory()->create([
-        'ride_id'    => $ride->id,
-        'sender_id'  => $rider->id,
-        'read_at'    => null,
+        'ride_id'   => $ride->id,
+        'sender_id' => $rider->id,
+        'read_at'   => null,
     ]);
 
     actingAs($driver)

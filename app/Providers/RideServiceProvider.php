@@ -16,7 +16,7 @@ final class RideServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     public array $bindings = [
-        GetRideMessagesQueryInterface::class => GetRideMessagesQuery::class,
+        GetRideMessagesQueryInterface::class        => GetRideMessagesQuery::class,
         GetUnreadMessagesCountQueryInterface::class => GetUnreadMessagesCountQuery::class,
     ];
 }

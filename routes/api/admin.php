@@ -26,6 +26,7 @@ use App\Http\Controllers\Api\V1\Admin\GetAnnouncementsController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverRidesController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
+use App\Http\Controllers\Api\V1\Admin\GetPaymentsController;
 use App\Http\Controllers\Api\V1\Admin\GetPayoutController;
 use App\Http\Controllers\Api\V1\Admin\GetPayoutsController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodeController;
@@ -150,6 +151,9 @@ Route::prefix('admin')
         Route::post('payments/{paymentAttempt}/refund', [RefundPaymentController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.payments.refund');
+        Route::get('payments', [GetPaymentsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.payments.index');
         Route::get('payouts', [GetPayoutsController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.payouts.index');

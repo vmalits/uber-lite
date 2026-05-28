@@ -20,6 +20,22 @@ use App\Queries\Admin\GetDriverQuery;
 use App\Queries\Admin\GetDriverQueryInterface;
 use App\Queries\Admin\GetDriverRidesQuery;
 use App\Queries\Admin\GetDriverRidesQueryInterface;
+use App\Queries\Admin\GetDriversQuery;
+use App\Queries\Admin\GetDriversQueryInterface;
+use App\Queries\Admin\GetPaymentsQuery;
+use App\Queries\Admin\GetPaymentsQueryInterface;
+use App\Queries\Admin\GetPayoutQuery;
+use App\Queries\Admin\GetPayoutQueryInterface;
+use App\Queries\Admin\GetPromoCodesQuery;
+use App\Queries\Admin\GetPromoCodesQueryInterface;
+use App\Queries\Admin\GetRealTimeAnalyticsQuery;
+use App\Queries\Admin\GetRealTimeAnalyticsQueryInterface;
+use App\Queries\Admin\GetReportQuery;
+use App\Queries\Admin\GetReportQueryInterface;
+use App\Queries\Admin\GetReportsQuery;
+use App\Queries\Admin\GetReportsQueryInterface;
+use App\Queries\Admin\GetRevenueAnalyticsQuery;
+use App\Queries\Admin\GetRevenueAnalyticsQueryInterface;
 use App\Queries\Admin\GetRideQuery;
 use App\Queries\Admin\GetRideQueryInterface;
 use App\Queries\Admin\GetRidesAnalyticsQuery;
@@ -52,6 +68,7 @@ final class AdminServiceProvider extends ServiceProvider
         GetUsersQueryInterface::class                  => GetUsersQuery::class,
         GetUserQueryInterface::class                   => GetUserQuery::class,
         GetRidesQueryInterface::class                  => GetRidesQuery::class,
+        GetPaymentsQueryInterface::class               => GetPaymentsQuery::class,
         GetRideQueryInterface::class                   => GetRideQuery::class,
         GetTicketsQueryInterface::class                => GetTicketsQuery::class,
         GetDriverQueryInterface::class                 => GetDriverQuery::class,
