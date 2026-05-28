@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\V1\Admin\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Admin\GetAnalyticsOverviewController;
 use App\Http\Controllers\Api\V1\Admin\GetAnnouncementsController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverController;
+use App\Http\Controllers\Api\V1\Admin\GetDriverEarningsController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverRidesController;
 use App\Http\Controllers\Api\V1\Admin\GetDriversController;
 use App\Http\Controllers\Api\V1\Admin\GetPaymentsController;
@@ -91,6 +92,9 @@ Route::prefix('admin')
         Route::get('drivers/{driver}/rides', [GetDriverRidesController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.rides');
+        Route::get('drivers/{driver}/earnings', [GetDriverEarningsController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.drivers.earnings');
         Route::get('rides', [GetRidesController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.rides.index');

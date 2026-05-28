@@ -16,6 +16,8 @@ use App\Queries\Admin\GetAnalyticsOverviewQuery;
 use App\Queries\Admin\GetAnalyticsOverviewQueryInterface;
 use App\Queries\Admin\GetAnnouncementsQuery;
 use App\Queries\Admin\GetAnnouncementsQueryInterface;
+use App\Queries\Admin\GetDriverEarningsQuery;
+use App\Queries\Admin\GetDriverEarningsQueryInterface;
 use App\Queries\Admin\GetDriverQuery;
 use App\Queries\Admin\GetDriverQueryInterface;
 use App\Queries\Admin\GetDriverRidesQuery;
@@ -73,6 +75,7 @@ final class AdminServiceProvider extends ServiceProvider
         GetTicketsQueryInterface::class                => GetTicketsQuery::class,
         GetDriverQueryInterface::class                 => GetDriverQuery::class,
         GetDriverRidesQueryInterface::class            => GetDriverRidesQuery::class,
+        GetDriverEarningsQueryInterface::class         => GetDriverEarningsQuery::class,
         GetPromoCodesQueryInterface::class             => GetPromoCodesQuery::class,
         GetAchievementsQueryInterface::class           => GetAchievementsQuery::class,
         GetAnnouncementsQueryInterface::class          => GetAnnouncementsQuery::class,
