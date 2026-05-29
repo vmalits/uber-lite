@@ -28,6 +28,7 @@ final readonly class RateRiderAction
         return RideRating::query()->create([
             'ride_id'        => $ride->id,
             'rider_id'       => $ride->rider_id,
+            'rating'         => 0,
             'driver_rating'  => $data->rating,
             'driver_comment' => $data->comment,
         ]);

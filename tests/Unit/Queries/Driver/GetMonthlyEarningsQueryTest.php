@@ -96,18 +96,19 @@ it('finds best month', function (): void {
         'driver_id'    => $this->driver->id,
         'price'        => 1000,
         'status'       => RideStatus::COMPLETED,
-        'completed_at' => '2026-02-10 10:00:00',
+        'completed_at' => now()->subMonths(2),
     ]);
 
     Ride::factory()->create([
         'driver_id'    => $this->driver->id,
         'price'        => 5000,
         'status'       => RideStatus::COMPLETED,
-        'completed_at' => '2026-01-15 10:00:00',
+        'completed_at' => now()->subMonth(),
     ]);
 
     $result = $this->query->execute($this->driver, 3);
 
-    expect($result->bestMonth)->toBe('2026-01')
+    $lastMonth = now()->subMonth()->format('Y-m');
+    expect($result->bestMonth)->toBe($lastMonth)
         ->and($result->bestMonthEarnings)->toBe(5000);
 });

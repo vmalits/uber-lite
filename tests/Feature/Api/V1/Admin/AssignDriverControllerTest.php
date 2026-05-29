@@ -13,8 +13,18 @@ use App\Models\User;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\postJson;
 
+function createAdminForAssignDriver(): User
+{
+    return User::factory()->create([
+        'role'              => UserRole::ADMIN,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+}
+
 test('admin can assign driver to pending ride', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForAssignDriver();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     $ride = Ride::factory()->create(['status' => RideStatus::PENDING, 'driver_id' => null]);
 
@@ -37,7 +47,7 @@ test('admin can assign driver to pending ride', function (): void {
 });
 
 test('admin cannot assign driver to non-pending ride', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForAssignDriver();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     $ride = Ride::factory()->create(['status' => RideStatus::ACCEPTED, 'driver_id' => null]);
 
@@ -49,7 +59,7 @@ test('admin cannot assign driver to non-pending ride', function (): void {
 });
 
 test('admin cannot assign driver to ride with existing driver', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForAssignDriver();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     $existingDriver = User::factory()->create(['role' => UserRole::DRIVER]);
     $ride = Ride::factory()->create([
@@ -65,7 +75,7 @@ test('admin cannot assign driver to ride with existing driver', function (): voi
 });
 
 test('driver_id must be a valid driver', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForAssignDriver();
     $rider = User::factory()->create(['role' => UserRole::RIDER]);
     $ride = Ride::factory()->create(['status' => RideStatus::PENDING, 'driver_id' => null]);
 
@@ -78,7 +88,7 @@ test('driver_id must be a valid driver', function (): void {
 });
 
 test('driver_id must exist', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForAssignDriver();
     $ride = Ride::factory()->create(['status' => RideStatus::PENDING, 'driver_id' => null]);
 
     actingAs($admin)
@@ -90,7 +100,7 @@ test('driver_id must exist', function (): void {
 });
 
 test('driver_id is required', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForAssignDriver();
     $ride = Ride::factory()->create(['status' => RideStatus::PENDING, 'driver_id' => null]);
 
     actingAs($admin)

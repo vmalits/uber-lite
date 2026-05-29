@@ -93,7 +93,7 @@ test('driver can view ride with rating', function (): void {
     ]);
 
     $ride->rating()->create([
-        'rater_id' => $ride->rider_id,
+        'rider_id' => $ride->rider_id,
         'rating'   => 5,
         'comment'  => 'Great ride!',
     ]);

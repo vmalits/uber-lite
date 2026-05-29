@@ -38,8 +38,8 @@ test('admin can get driver earnings', function (): void {
         ->getJson("/api/v1/admin/drivers/{$driver->id}/earnings")
         ->assertOk()
         ->assertJsonPath('data.completed_rides', 3)
-        ->assertJsonPath('data.total_earned', 3000.0)
-        ->assertJsonPath('data.average_earnings_per_ride', 1000.0);
+        ->assertJsonPath('data.total_earned', 3000)
+        ->assertJsonPath('data.average_earnings_per_ride', 1000);
 });
 
 test('admin driver earnings includes stats from completed and cancelled rides', function (): void {
@@ -55,8 +55,8 @@ test('admin driver earnings includes stats from completed and cancelled rides', 
         ->assertJsonPath('data.total_rides', 5)
         ->assertJsonPath('data.completed_rides', 4)
         ->assertJsonPath('data.cancelled_rides', 1)
-        ->assertJsonPath('data.completion_rate', 80.0)
-        ->assertJsonPath('data.total_earned', 2000.0);
+        ->assertJsonPath('data.completion_rate', 80)
+        ->assertJsonPath('data.total_earned', 2000);
 });
 
 test('admin driver earnings includes average rating', function (): void {
@@ -157,8 +157,8 @@ test('admin driver earnings returns zeros for driver with no rides', function ()
         ->assertJsonPath('data.total_rides', 0)
         ->assertJsonPath('data.completed_rides', 0)
         ->assertJsonPath('data.cancelled_rides', 0)
-        ->assertJsonPath('data.total_earned', 0.0)
-        ->assertJsonPath('data.average_rating', 0.0)
+        ->assertJsonPath('data.total_earned', 0)
+        ->assertJsonPath('data.average_rating', 0)
         ->assertJsonPath('data.total_payouts', 0)
         ->assertJsonPath('data.pending_payouts', 0)
         ->assertJsonCount(0, 'data.daily');

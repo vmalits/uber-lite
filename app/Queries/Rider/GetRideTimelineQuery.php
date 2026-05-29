@@ -28,7 +28,7 @@ final class GetRideTimelineQuery implements GetRideTimelineQueryInterface
         $events = $this->filterEvents($events, $ride->status);
 
         /** @var DataCollection<int, RideTimelineEventData> $eventCollection */
-        $eventCollection = RideTimelineEventData::collect($events);
+        $eventCollection = new DataCollection(RideTimelineEventData::class, $events);
 
         return new RideTimelineData(
             ride_id: $ride->id,

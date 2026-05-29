@@ -13,8 +13,18 @@ use App\Models\User;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\postJson;
 
+function createAdminForCancelRide(): User
+{
+    return User::factory()->create([
+        'role'              => UserRole::ADMIN,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+}
+
 test('admin can cancel pending ride', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCancelRide();
     $ride = Ride::factory()->create(['status' => RideStatus::PENDING]);
 
     actingAs($admin)
@@ -37,7 +47,7 @@ test('admin can cancel pending ride', function (): void {
 });
 
 test('admin can cancel accepted ride', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCancelRide();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     $ride = Ride::factory()->create(['status' => RideStatus::ACCEPTED, 'driver_id' => $driver->id]);
 
@@ -50,7 +60,7 @@ test('admin can cancel accepted ride', function (): void {
 });
 
 test('admin can cancel started ride', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCancelRide();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     $ride = Ride::factory()->create([
         'status'     => RideStatus::STARTED,
@@ -66,7 +76,7 @@ test('admin can cancel started ride', function (): void {
 });
 
 test('admin cannot cancel completed ride', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCancelRide();
     $ride = Ride::factory()->create([
         'status'       => RideStatus::COMPLETED,
         'completed_at' => now(),
@@ -80,7 +90,7 @@ test('admin cannot cancel completed ride', function (): void {
 });
 
 test('admin cannot cancel already cancelled ride', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCancelRide();
     $ride = Ride::factory()->create([
         'status'       => RideStatus::CANCELLED,
         'cancelled_at' => now(),
@@ -94,7 +104,7 @@ test('admin cannot cancel already cancelled ride', function (): void {
 });
 
 test('reason is required', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCancelRide();
     $ride = Ride::factory()->create(['status' => RideStatus::PENDING]);
 
     actingAs($admin)
@@ -104,7 +114,7 @@ test('reason is required', function (): void {
 });
 
 test('reason must not exceed 500 chars', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCancelRide();
     $ride = Ride::factory()->create(['status' => RideStatus::PENDING]);
 
     actingAs($admin)
@@ -141,7 +151,7 @@ test('unauthenticated user cannot cancel ride', function (): void {
 });
 
 test('cancelled_by_id is set to admin user id', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCancelRide();
     $ride = Ride::factory()->create(['status' => RideStatus::PENDING]);
 
     actingAs($admin)

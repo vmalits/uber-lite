@@ -5,13 +5,26 @@ declare(strict_types=1);
 namespace Tests\Feature\Api\V1\Device;
 
 use App\Enums\DevicePlatform;
+use App\Enums\ProfileStep;
+use App\Enums\UserRole;
 use App\Models\DeviceToken;
+use App\Models\User;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\putJson;
 
+function createUserForDeviceUpdate(UserRole $role = UserRole::RIDER): User
+{
+    return User::factory()->create([
+        'role'              => $role,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+}
+
 test('user can update device token platform', function (): void {
-    $user = createUser();
+    $user = createUserForDeviceUpdate();
     $deviceToken = DeviceToken::factory()->create([
         'user_id'  => $user->id,
         'platform' => DevicePlatform::IOS,
@@ -27,7 +40,7 @@ test('user can update device token platform', function (): void {
 });
 
 test('user can update device token app version', function (): void {
-    $user = createUser();
+    $user = createUserForDeviceUpdate();
     $deviceToken = DeviceToken::factory()->create([
         'user_id'     => $user->id,
         'app_version' => '1.0.0',
@@ -42,7 +55,7 @@ test('user can update device token app version', function (): void {
 });
 
 test('user can update device token name', function (): void {
-    $user = createUser();
+    $user = createUserForDeviceUpdate();
     $deviceToken = DeviceToken::factory()->create([
         'user_id'     => $user->id,
         'device_name' => 'Old Phone',
@@ -57,7 +70,7 @@ test('user can update device token name', function (): void {
 });
 
 test('user can update multiple fields at once', function (): void {
-    $user = createUser();
+    $user = createUserForDeviceUpdate();
     $deviceToken = DeviceToken::factory()->create([
         'user_id'     => $user->id,
         'platform'    => DevicePlatform::IOS,
@@ -78,8 +91,8 @@ test('user can update multiple fields at once', function (): void {
 });
 
 test('user cannot update another users device token', function (): void {
-    $user1 = createUser();
-    $user2 = createUser();
+    $user1 = createUserForDeviceUpdate();
+    $user2 = createUserForDeviceUpdate();
     $deviceToken = DeviceToken::factory()->create(['user_id' => $user1->id]);
 
     actingAs($user2)
@@ -90,7 +103,7 @@ test('user cannot update another users device token', function (): void {
 });
 
 test('platform must be valid enum', function (): void {
-    $user = createUser();
+    $user = createUserForDeviceUpdate();
     $deviceToken = DeviceToken::factory()->create(['user_id' => $user->id]);
 
     actingAs($user)

@@ -12,8 +12,18 @@ use App\Models\User;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\getJson;
 
+function createAdminForCreditTransactions(): User
+{
+    return User::factory()->create([
+        'role'              => UserRole::ADMIN,
+        'profile_step'      => ProfileStep::COMPLETED,
+        'phone_verified_at' => now(),
+        'email_verified_at' => now(),
+    ]);
+}
+
 test('admin can list user credit transactions', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCreditTransactions();
     $user = User::factory()->create();
     CreditTransaction::factory()->count(3)->referralBonus()->create(['user_id' => $user->id]);
     CreditTransaction::factory()->count(2)->ridePayment()->create(['user_id' => $user->id]);
@@ -25,7 +35,7 @@ test('admin can list user credit transactions', function (): void {
 });
 
 test('admin can filter user credit transactions by type', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCreditTransactions();
     $user = User::factory()->create();
     CreditTransaction::factory()->count(2)->referralBonus()->create(['user_id' => $user->id]);
     CreditTransaction::factory()->count(3)->ridePayment()->create(['user_id' => $user->id]);
@@ -37,7 +47,7 @@ test('admin can filter user credit transactions by type', function (): void {
 });
 
 test('admin can filter user credit transactions by direction', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCreditTransactions();
     $user = User::factory()->create();
     CreditTransaction::factory()->count(2)->referralBonus()->create(['user_id' => $user->id]);
     CreditTransaction::factory()->count(3)->ridePayment()->create(['user_id' => $user->id]);
@@ -49,7 +59,7 @@ test('admin can filter user credit transactions by direction', function (): void
 });
 
 test('admin can filter user credit transactions by date range', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCreditTransactions();
     $user = User::factory()->create();
     CreditTransaction::factory()->referralBonus()->create(['user_id' => $user->id, 'created_at' => '2026-01-15']);
     CreditTransaction::factory()->referralBonus()->create(['user_id' => $user->id, 'created_at' => '2026-03-15']);
@@ -61,7 +71,7 @@ test('admin can filter user credit transactions by date range', function (): voi
 });
 
 test('admin user credit transactions returns empty for user with no transactions', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCreditTransactions();
     $user = User::factory()->create();
 
     actingAs($admin)
@@ -71,7 +81,7 @@ test('admin user credit transactions returns empty for user with no transactions
 });
 
 test('admin can sort user credit transactions by amount', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCreditTransactions();
     $user = User::factory()->create();
     CreditTransaction::factory()->adminAdjustment()->create(['user_id' => $user->id, 'amount' => 500]);
     CreditTransaction::factory()->adminAdjustment()->create(['user_id' => $user->id, 'amount' => -200]);
@@ -106,7 +116,7 @@ test('unauthenticated user cannot list credit transactions', function (): void {
 });
 
 test('response has correct data structure', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForCreditTransactions();
     $user = User::factory()->create();
     CreditTransaction::factory()->referralBonus()->create(['user_id' => $user->id]);
 

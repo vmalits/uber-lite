@@ -90,6 +90,8 @@ Route::prefix('driver')
             ->name('api.v1.driver.offline');
         Route::get('rides/active', [GetActiveRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.active');
+        Route::get('rides/available', [GetAvailableRidesController::class, '__invoke'])
+            ->name('api.v1.driver.rides.available');
         Route::get('rides/history', [GetRideHistoryController::class, '__invoke'])
             ->name('api.v1.driver.rides.history');
         Route::get('rides/{ride}', [GetRideController::class, '__invoke'])
@@ -104,8 +106,6 @@ Route::prefix('driver')
             ->name('api.v1.driver.bans.show');
         Route::post('tickets/{ticket}/comments', [CreateTicketCommentController::class, '__invoke'])
             ->name('api.v1.driver.tickets.comments.store');
-        Route::get('rides/available', [GetAvailableRidesController::class, '__invoke'])
-            ->name('api.v1.driver.rides.available');
         Route::post('rides/{ride}/accept', [AcceptRideController::class, '__invoke'])
             ->name('api.v1.driver.rides.accept');
         Route::post('rides/{ride}/on-the-way', [OnTheWayController::class, '__invoke'])

@@ -110,5 +110,5 @@ test('cancelled ride is not listed in scheduled rides', function (): void {
 
     $this->getJson('/api/v1/rider/rides/scheduled')
         ->assertOk()
-        ->assertJsonPath('data', []);
+        ->assertJsonCount(0, 'data.items');
 });
