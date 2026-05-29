@@ -9,5 +9,5 @@ use App\Models\User;
 
 interface GetStreakHistoryQueryInterface
 {
-    public function execute(User $user, int $days): StreakHistoryResponseData;
+    public function execute(User $user, int $days, string $rideColumn = 'rider_id'): StreakHistoryResponseData;
 }

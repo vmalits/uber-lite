@@ -16,7 +16,7 @@ use Spatie\LaravelData\DataCollection;
 
 final readonly class GetStreakHistoryQuery implements GetStreakHistoryQueryInterface
 {
-    public function execute(User $user, int $days): StreakHistoryResponseData
+    public function execute(User $user, int $days, string $rideColumn = 'rider_id'): StreakHistoryResponseData
     {
         /** @var UserRideStreak|null $streak */
         $streak = UserRideStreak::query()
@@ -26,7 +26,7 @@ final readonly class GetStreakHistoryQuery implements GetStreakHistoryQueryInter
         $currentStreak = $streak !== null ? $streak->current_streak : 0;
         $longestStreak = $streak !== null ? $streak->longest_streak : 0;
 
-        $history = $this->buildHistory($user, $days);
+        $history = $this->buildHistory($user, $days, $rideColumn);
 
         return new StreakHistoryResponseData(
             currentStreak: $currentStreak,
@@ -38,14 +38,14 @@ final readonly class GetStreakHistoryQuery implements GetStreakHistoryQueryInter
     /**
      * @return Collection<int, StreakHistoryData>
      */
-    private function buildHistory(User $user, int $days): Collection
+    private function buildHistory(User $user, int $days, string $rideColumn = 'rider_id'): Collection
     {
         $startDate = Carbon::now()->subDays($days - 1)->startOfDay();
         $endDate = Carbon::now()->endOfDay();
 
         /** @var Collection<int, string> $rideDates */
         $rideDates = DB::table('rides')
-            ->where('rider_id', $user->id)
+            ->where($rideColumn, $user->id)
             ->where('status', RideStatus::COMPLETED->value)
             ->whereBetween('completed_at', [$startDate, $endDate])
             ->pluck('completed_at')

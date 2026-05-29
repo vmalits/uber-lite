@@ -32,6 +32,8 @@ use App\Http\Controllers\Api\V1\Driver\GetRideController;
 use App\Http\Controllers\Api\V1\Driver\GetRideHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetRideTimelineController;
 use App\Http\Controllers\Api\V1\Driver\GetScheduleController;
+use App\Http\Controllers\Api\V1\Driver\GetStreakController;
+use App\Http\Controllers\Api\V1\Driver\GetStreakHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetTipHistoryController;
 use App\Http\Controllers\Api\V1\Driver\GetVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetVehiclesController;
@@ -70,6 +72,10 @@ Route::prefix('driver')
             ->name('api.v1.driver.achievements');
         Route::get('level', [GetLevelController::class, '__invoke'])
             ->name('api.v1.driver.level');
+        Route::get('streak', [GetStreakController::class, '__invoke'])
+            ->name('api.v1.driver.streak');
+        Route::get('streak/history', [GetStreakHistoryController::class, '__invoke'])
+            ->name('api.v1.driver.streak.history');
         Route::get('earnings/daily', [GetDailyEarningsController::class, '__invoke'])
             ->name('api.v1.driver.earnings.daily');
         Route::get('earnings/weekly', [GetWeeklyEarningsController::class, '__invoke'])
