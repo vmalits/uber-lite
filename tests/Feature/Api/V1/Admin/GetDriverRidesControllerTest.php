@@ -12,7 +12,7 @@ use App\Models\User;
 
 use function Pest\Laravel\actingAs;
 
-function createAdmin(): User
+function createAdminForDriverRides(): User
 {
     return User::factory()->create([
         'role'              => UserRole::ADMIN,
@@ -23,7 +23,7 @@ function createAdmin(): User
 }
 
 test('admin can list driver rides', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForDriverRides();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     Ride::factory()->count(3)->create(['driver_id' => $driver->id]);
     Ride::factory()->count(2)->create();
@@ -35,7 +35,7 @@ test('admin can list driver rides', function (): void {
 });
 
 test('admin can filter driver rides by status', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForDriverRides();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     Ride::factory()->count(2)->create(['driver_id' => $driver->id, 'status' => RideStatus::COMPLETED]);
     Ride::factory()->create(['driver_id' => $driver->id, 'status' => RideStatus::CANCELLED]);
@@ -47,7 +47,7 @@ test('admin can filter driver rides by status', function (): void {
 });
 
 test('admin can sort driver rides', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForDriverRides();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     Ride::factory()->create(['driver_id' => $driver->id, 'price' => 1000, 'status' => RideStatus::COMPLETED]);
     Ride::factory()->create(['driver_id' => $driver->id, 'price' => 500, 'status' => RideStatus::COMPLETED]);
@@ -61,7 +61,7 @@ test('admin can sort driver rides', function (): void {
 });
 
 test('admin driver rides returns empty for driver with no rides', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForDriverRides();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
 
     actingAs($admin)
@@ -92,7 +92,7 @@ test('unauthenticated user cannot list driver rides', function (): void {
 });
 
 test('driver rides response includes ride data structure', function (): void {
-    $admin = createAdmin();
+    $admin = createAdminForDriverRides();
     $driver = User::factory()->create(['role' => UserRole::DRIVER]);
     Ride::factory()->create(['driver_id' => $driver->id, 'status' => RideStatus::COMPLETED]);
 

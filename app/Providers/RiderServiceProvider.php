@@ -32,6 +32,8 @@ use App\Queries\Rider\GetReferralsQuery;
 use App\Queries\Rider\GetReferralsQueryInterface;
 use App\Queries\Rider\GetRideHistoryQuery;
 use App\Queries\Rider\GetRideHistoryQueryInterface;
+use App\Queries\Rider\GetRiderTipHistoryQuery;
+use App\Queries\Rider\GetRiderTipHistoryQueryInterface;
 use App\Queries\Rider\GetRideStatsQuery;
 use App\Queries\Rider\GetRideStatsQueryInterface;
 use App\Queries\Rider\GetRideTimelineQuery;
@@ -70,6 +72,7 @@ final class RiderServiceProvider extends ServiceProvider
         GetReceiptsQueryInterface::class           => GetReceiptsQuery::class,
         GetReferralsQueryInterface::class          => GetReferralsQuery::class,
         GetRideHistoryQueryInterface::class        => GetRideHistoryQuery::class,
+        GetRiderTipHistoryQueryInterface::class    => GetRiderTipHistoryQuery::class,
         GetRideTimelineQueryInterface::class       => GetRideTimelineQuery::class,
         GetRideStatsQueryInterface::class          => GetRideStatsQuery::class,
         GetRideTrackingQueryInterface::class       => GetRideTrackingQuery::class,

@@ -15,6 +15,11 @@ final class RideTipPolicy
         return $user->role === UserRole::DRIVER;
     }
 
+    public function viewAnyAsRider(User $user): bool
+    {
+        return $user->role === UserRole::RIDER;
+    }
+
     public function view(User $user, RideTip $tip): bool
     {
         return $tip->driver()->is($user);

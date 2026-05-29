@@ -43,6 +43,7 @@ use App\Http\Controllers\Api\V1\Rider\GetReceiptsController;
 use App\Http\Controllers\Api\V1\Rider\GetReferralsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideController;
 use App\Http\Controllers\Api\V1\Rider\GetRideHistoryController;
+use App\Http\Controllers\Api\V1\Rider\GetRiderTipHistoryController;
 use App\Http\Controllers\Api\V1\Rider\GetRideStatsController;
 use App\Http\Controllers\Api\V1\Rider\GetRideTimelineController;
 use App\Http\Controllers\Api\V1\Rider\GetScheduledRidesController;
@@ -160,6 +161,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.stops.destroy');
         Route::post('rides/{ride}/tip', [AddTipController::class, '__invoke'])
             ->name('api.v1.rider.rides.tip');
+        Route::get('tips', [GetRiderTipHistoryController::class, '__invoke'])
+            ->name('api.v1.rider.tips');
         Route::post('rides/{ride}/pay', [PayRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.pay');
         Route::post('rides/{ride}/pay-with-credits', [PayRideWithCreditsController::class, '__invoke'])

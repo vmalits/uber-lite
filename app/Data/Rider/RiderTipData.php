@@ -6,13 +6,17 @@ namespace App\Data\Rider;
 
 use App\Data\DateData;
 use App\Models\RideTip;
+use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Data;
 
 final class RiderTipData extends Data
 {
     public function __construct(
         public string $id,
-        public string $ride_id,
+        #[MapName('ride_id')]
+        public string $rideId,
+        #[MapName('driver_id')]
+        public string $driverId,
         public int $amount,
         public ?string $comment,
         public DateData $created_at,
@@ -22,7 +26,8 @@ final class RiderTipData extends Data
     {
         return new self(
             id: $tip->id,
-            ride_id: $tip->ride_id,
+            rideId: $tip->ride_id,
+            driverId: $tip->driver_id,
             amount: $tip->amount,
             comment: $tip->comment,
             created_at: DateData::fromCarbon($tip->created_at),
