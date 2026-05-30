@@ -42,6 +42,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property CarbonInterface|null $referred_at
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
+ * @property-read Collection<int, DriverDocument> $documents
  * @property-read Collection<int, FavoriteLocation> $favorites
  * @property-read int|null $total_rides
  * @property-read int|null $completed_rides
@@ -149,6 +150,14 @@ class User extends Authenticatable implements MustVerifyEmail
     public function bans(): HasMany
     {
         return $this->hasMany(related: DriverBan::class, foreignKey: 'driver_id');
+    }
+
+    /**
+     * @return HasMany<DriverDocument, $this>
+     */
+    public function documents(): HasMany
+    {
+        return $this->hasMany(related: DriverDocument::class, foreignKey: 'driver_id');
     }
 
     /**

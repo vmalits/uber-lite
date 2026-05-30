@@ -150,4 +150,8 @@ return [
         'updated' => 'Realizarea a fost actualizată cu succes.',
         'deleted' => 'Realizarea a fost ștearsă cu succes.',
     ],
+    'document' => [
+        'uploaded' => 'Documentul a fost încărcat cu succes.',
+        'verified' => 'Documentul a fost verificat cu succes.',
+    ],
 ];

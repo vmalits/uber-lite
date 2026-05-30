@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\Driver\CancelRideController;
 use App\Http\Controllers\Api\V1\Driver\CompleteRideController;
 use App\Http\Controllers\Api\V1\Driver\CreateScheduleController;
 use App\Http\Controllers\Api\V1\Driver\CreateTicketCommentController;
+use App\Http\Controllers\Api\V1\Driver\DeleteDriverDocumentController;
 use App\Http\Controllers\Api\V1\Driver\DeleteScheduleController;
 use App\Http\Controllers\Api\V1\Driver\DeleteVehicleController;
 use App\Http\Controllers\Api\V1\Driver\GetAchievementsController;
@@ -19,6 +20,8 @@ use App\Http\Controllers\Api\V1\Driver\GetBanController;
 use App\Http\Controllers\Api\V1\Driver\GetCurrentLocationController;
 use App\Http\Controllers\Api\V1\Driver\GetDailyEarningsController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverBalanceController;
+use App\Http\Controllers\Api\V1\Driver\GetDriverDocumentController;
+use App\Http\Controllers\Api\V1\Driver\GetDriverDocumentsController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverPerformanceController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverRatingSummaryController;
 use App\Http\Controllers\Api\V1\Driver\GetDriverReceiptController;
@@ -46,6 +49,7 @@ use App\Http\Controllers\Api\V1\Driver\RateRiderController;
 use App\Http\Controllers\Api\V1\Driver\RequestPayoutController;
 use App\Http\Controllers\Api\V1\Driver\ScheduleStatusController;
 use App\Http\Controllers\Api\V1\Driver\StartController;
+use App\Http\Controllers\Api\V1\Driver\StoreDriverDocumentController;
 use App\Http\Controllers\Api\V1\Driver\UpdateLocationController;
 use App\Http\Controllers\Api\V1\Driver\UpdateProfileController;
 use App\Http\Controllers\Api\V1\Driver\UpdateScheduleController;
@@ -160,4 +164,12 @@ Route::prefix('driver')
             ->name('api.v1.driver.schedule.update');
         Route::delete('schedule/{schedule}', [DeleteScheduleController::class, '__invoke'])
             ->name('api.v1.driver.schedule.destroy');
+        Route::get('documents', [GetDriverDocumentsController::class, '__invoke'])
+            ->name('api.v1.driver.documents.index');
+        Route::post('documents', [StoreDriverDocumentController::class, '__invoke'])
+            ->name('api.v1.driver.documents.store');
+        Route::get('documents/{document}', [GetDriverDocumentController::class, '__invoke'])
+            ->name('api.v1.driver.documents.show');
+        Route::delete('documents/{document}', [DeleteDriverDocumentController::class, '__invoke'])
+            ->name('api.v1.driver.documents.destroy');
     });

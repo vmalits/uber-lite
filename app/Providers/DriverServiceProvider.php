@@ -48,6 +48,8 @@ use App\Queries\Driver\GetVehiclesQuery;
 use App\Queries\Driver\GetVehiclesQueryInterface;
 use App\Queries\Driver\GetWeeklyEarningsQuery;
 use App\Queries\Driver\GetWeeklyEarningsQueryInterface;
+use App\Queries\DriverDocument\GetDriverDocumentsQuery;
+use App\Queries\DriverDocument\GetDriverDocumentsQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 final class DriverServiceProvider extends ServiceProvider
@@ -78,5 +80,6 @@ final class DriverServiceProvider extends ServiceProvider
         GetDriverReceiptQueryInterface::class       => GetDriverReceiptQuery::class,
         GetDriverReviewsQueryInterface::class       => GetDriverReviewsQuery::class,
         GetScheduleQueryInterface::class            => GetScheduleQuery::class,
+        GetDriverDocumentsQueryInterface::class     => GetDriverDocumentsQuery::class,
     ];
 }

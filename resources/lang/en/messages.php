@@ -202,6 +202,10 @@ return [
     'admin' => [
         'created' => 'Admin user created successfully.',
     ],
+    'document' => [
+        'uploaded' => 'Document uploaded successfully.',
+        'verified' => 'Document verified successfully.',
+    ],
     'user' => [
         'status_updated' => 'User status updated successfully.',
     ],
