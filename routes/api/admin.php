@@ -26,6 +26,7 @@ use App\Http\Controllers\Api\V1\Admin\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Admin\GetAnalyticsOverviewController;
 use App\Http\Controllers\Api\V1\Admin\GetAnnouncementsController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverController;
+use App\Http\Controllers\Api\V1\Admin\GetDriverDocumentController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverDocumentsController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverEarningsController;
 use App\Http\Controllers\Api\V1\Admin\GetDriverRidesController;
@@ -105,6 +106,9 @@ Route::prefix('admin')
         Route::get('drivers/{driver}/documents', [GetDriverDocumentsController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.drivers.documents.index');
+        Route::get('documents/{document}', [GetDriverDocumentController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.documents.show');
         Route::put('documents/{document}/verify', [VerifyDriverDocumentController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.documents.verify');
