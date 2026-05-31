@@ -154,4 +154,9 @@ return [
         'uploaded' => 'Documentul a fost încărcat cu succes.',
         'verified' => 'Documentul a fost verificat cu succes.',
     ],
+    'pricing_zone' => [
+        'created' => 'Zona de prețuri a fost creată cu succes.',
+        'updated' => 'Zona de prețuri a fost actualizată cu succes.',
+        'deleted' => 'Zona de prețuri a fost ștearsă cu succes.',
+    ],
 ];

@@ -206,6 +206,11 @@ return [
         'uploaded' => 'Document uploaded successfully.',
         'verified' => 'Document verified successfully.',
     ],
+    'pricing_zone' => [
+        'created' => 'Pricing zone created successfully.',
+        'updated' => 'Pricing zone updated successfully.',
+        'deleted' => 'Pricing zone deleted successfully.',
+    ],
     'user' => [
         'status_updated' => 'User status updated successfully.',
     ],

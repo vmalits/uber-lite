@@ -9,10 +9,12 @@ use App\Http\Controllers\Api\V1\Admin\CancelRideController;
 use App\Http\Controllers\Api\V1\Admin\CompletePayoutController;
 use App\Http\Controllers\Api\V1\Admin\CreateAchievementController;
 use App\Http\Controllers\Api\V1\Admin\CreateAnnouncementController;
+use App\Http\Controllers\Api\V1\Admin\CreatePricingZoneController;
 use App\Http\Controllers\Api\V1\Admin\CreatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\CreateTicketCommentController;
 use App\Http\Controllers\Api\V1\Admin\DeleteAchievementController;
 use App\Http\Controllers\Api\V1\Admin\DeleteAnnouncementController;
+use App\Http\Controllers\Api\V1\Admin\DeletePricingZoneController;
 use App\Http\Controllers\Api\V1\Admin\DeletePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\DeleteUserController;
 use App\Http\Controllers\Api\V1\Admin\DriverBanController;
@@ -31,6 +33,8 @@ use App\Http\Controllers\Api\V1\Admin\GetDriversController;
 use App\Http\Controllers\Api\V1\Admin\GetPaymentsController;
 use App\Http\Controllers\Api\V1\Admin\GetPayoutController;
 use App\Http\Controllers\Api\V1\Admin\GetPayoutsController;
+use App\Http\Controllers\Api\V1\Admin\GetPricingZoneController;
+use App\Http\Controllers\Api\V1\Admin\GetPricingZonesController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\GetPromoCodesController;
 use App\Http\Controllers\Api\V1\Admin\GetRealTimeAnalyticsController;
@@ -52,6 +56,7 @@ use App\Http\Controllers\Api\V1\Admin\RefundPaymentController;
 use App\Http\Controllers\Api\V1\Admin\ResolveReportController;
 use App\Http\Controllers\Api\V1\Admin\UpdateAchievementController;
 use App\Http\Controllers\Api\V1\Admin\UpdateAnnouncementController;
+use App\Http\Controllers\Api\V1\Admin\UpdatePricingZoneController;
 use App\Http\Controllers\Api\V1\Admin\UpdatePromoCodeController;
 use App\Http\Controllers\Api\V1\Admin\UpdateTicketStatusController;
 use App\Http\Controllers\Api\V1\Admin\UpdateUserStatusController;
@@ -220,4 +225,19 @@ Route::prefix('admin')
         Route::delete('achievements/{achievement}', [DeleteAchievementController::class, '__invoke'])
             ->middleware(['auth:sanctum', 'role:admin'])
             ->name('api.v1.admin.achievements.destroy');
+        Route::get('pricing-zones', [GetPricingZonesController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.pricing-zones.index');
+        Route::post('pricing-zones', [CreatePricingZoneController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.pricing-zones.store');
+        Route::get('pricing-zones/{zone}', [GetPricingZoneController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.pricing-zones.show');
+        Route::put('pricing-zones/{zone}', [UpdatePricingZoneController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.pricing-zones.update');
+        Route::delete('pricing-zones/{zone}', [DeletePricingZoneController::class, '__invoke'])
+            ->middleware(['auth:sanctum', 'role:admin'])
+            ->name('api.v1.admin.pricing-zones.destroy');
     });

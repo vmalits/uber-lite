@@ -28,6 +28,8 @@ use App\Queries\Admin\GetPaymentsQuery;
 use App\Queries\Admin\GetPaymentsQueryInterface;
 use App\Queries\Admin\GetPayoutQuery;
 use App\Queries\Admin\GetPayoutQueryInterface;
+use App\Queries\Admin\GetPricingZonesQuery;
+use App\Queries\Admin\GetPricingZonesQueryInterface;
 use App\Queries\Admin\GetPromoCodesQuery;
 use App\Queries\Admin\GetPromoCodesQueryInterface;
 use App\Queries\Admin\GetRealTimeAnalyticsQuery;
@@ -96,5 +98,6 @@ final class AdminServiceProvider extends ServiceProvider
         GetUserReportQueryInterface::class              => GetUserReportQuery::class,
         GetUserCreditTransactionsQueryInterface::class  => GetUserCreditTransactionsQuery::class,
         GetDriverDocumentsForAdminQueryInterface::class => GetDriverDocumentsForAdminQuery::class,
+        GetPricingZonesQueryInterface::class            => GetPricingZonesQuery::class,
     ];
 }
