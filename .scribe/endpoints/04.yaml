@@ -321,6 +321,118 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/driver/streak
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Streak'
+      description: "Get driver's current ride streak information"
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Streak information retrieved successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/driver/streak/history
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Streak History'
+      description: "Get history of driver's streaks"
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      days:
+        custom: []
+        name: days
+        description: 'Number of days to include (7-90)'
+        required: true
+        example: 30
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      days: 30
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Streak history retrieved successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/driver/earnings/daily
     metadata:
       custom: []
@@ -438,7 +550,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 53928fad-1dfe-4f27-b917-6bd8c079935d
+          x-request-id: 6ed11b5e-65a8-4e0b-8f86-6dcaf07c4357
         description: null
     responseFields: []
     auth: []
@@ -492,7 +604,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 65e80a6b-4660-418a-8840-9f2b04e5f3cb
+          x-request-id: b4a845c8-ab25-4eec-8991-9037522c4020
         description: null
     responseFields: []
     auth: []
@@ -911,6 +1023,68 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/driver/rides/available
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Available Rides'
+      description: 'Get list of rides available for pickup'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Page size. Default: 15.'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      page:
+        custom: []
+        name: page
+        description: 'Page number.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 15
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'List of available rides retrieved successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/driver/rides/history
     metadata:
       custom: []
@@ -940,6 +1114,210 @@ endpoints:
         content: null
         headers: []
         description: 'Paginated ride history retrieved successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/driver/rides/{id}'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Ride'
+      description: 'Get details of a specific ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Ride details.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: 'Unauthorized - Invalid or missing token'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - User does not have driver role'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/driver/rides/{ride_id}/receipt'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Ride Receipt'
+      description: 'Get earnings receipt for a completed ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Receipt retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Receipt not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/driver/rides/{ride_id}/timeline'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Ride Timeline'
+      description: 'Get the status timeline for a ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Ride timeline retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden.
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
     responseFields: []
     auth: []
     controller: null
@@ -1020,7 +1398,7 @@ endpoints:
         name: id
         description: 'The ID of the ban.'
         required: true
-        example: 01knj1ka4w4gt06xh9z63s7p4d
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1038,7 +1416,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1ka4w4gt06xh9z63s7p4d
+      id: architecto
       ban: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1100,7 +1478,7 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: 01knj1kbkj1svvphx1fx15y22s
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1118,7 +1496,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: 01knj1kbkj1svvphx1fx15y22s
+      ticket_id: architecto
       ticket: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1176,68 +1554,6 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: api/v1/driver/rides/available
-    metadata:
-      custom: []
-      groupName: Driver
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get Available Rides'
-      description: 'Get list of rides available for pickup'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer <token>'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters:
-      per_page:
-        custom: []
-        name: per_page
-        description: 'Page size. Default: 15.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      page:
-        custom: []
-        name: page
-        description: 'Page number.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanQueryParameters:
-      per_page: 15
-      page: 1
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 200
-        content: null
-        headers: []
-        description: 'List of available rides retrieved successfully.'
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
       - POST
     uri: 'api/v1/driver/rides/{ride_id}/accept'
     metadata:
@@ -1260,7 +1576,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1278,7 +1594,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1322,7 +1638,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1340,7 +1656,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1384,7 +1700,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1402,7 +1718,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1446,7 +1762,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1464,7 +1780,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1508,7 +1824,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1526,7 +1842,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1570,7 +1886,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1588,7 +1904,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -1614,6 +1930,98 @@ endpoints:
         content: null
         headers: []
         description: 'Ride cannot be cancelled in its current status.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/driver/rides/{ride_id}/rate-rider'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Rate Rider'
+      description: 'Rate a rider after a completed ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      rating:
+        custom: []
+        name: rating
+        description: 'Rating from 1 to 5. Must be at least 1. Must not be greater than 5.'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      comment:
+        custom: []
+        name: comment
+        description: 'Optional comment about the rider. Must not be greater than 1000 characters.'
+        required: false
+        example: 'Polite and friendly rider.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      rating: 5
+      comment: 'Polite and friendly rider.'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Rider rated successfully.'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation failed'
     responseFields: []
     auth: []
     controller: null
@@ -1862,14 +2270,14 @@ endpoints:
         name: vehicle_id
         description: 'The ID of the vehicle.'
         required: true
-        example: 01knj1k9mtt78a8eqj9dh4pf4k
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      vehicle_id: 01knj1k9mtt78a8eqj9dh4pf4k
+      vehicle_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2076,14 +2484,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle.'
         required: true
-        example: 01knj1k9mtt78a8eqj9dh4pf4k
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1k9mtt78a8eqj9dh4pf4k
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2240,14 +2648,14 @@ endpoints:
         name: vehicle_id
         description: 'The ID of the vehicle.'
         required: true
-        example: 01knj1k9mtt78a8eqj9dh4pf4k
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      vehicle_id: 01knj1k9mtt78a8eqj9dh4pf4k
+      vehicle_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2857,14 +3265,14 @@ endpoints:
         name: id
         description: 'The ID of the schedule.'
         required: true
-        example: 01knj1k9pbfe1rh27b6z9gb2v4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1k9pbfe1rh27b6z9gb2v4
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2967,14 +3375,14 @@ endpoints:
         name: id
         description: 'The ID of the schedule.'
         required: true
-        example: 01knj1k9pbfe1rh27b6z9gb2v4
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1k9pbfe1rh27b6z9gb2v4
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2993,6 +3401,290 @@ endpoints:
         content: null
         headers: []
         description: 'Schedule not found.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/driver/documents
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Documents'
+      description: 'Get all documents uploaded by the driver'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'List of driver documents'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/driver/documents
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Upload Document'
+      description: 'Upload a verification document'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        custom: []
+        name: type
+        description: 'The type of the document.'
+        required: true
+        example: driving_license
+        type: string
+        enumValues:
+          - driving_license
+          - vehicle_registration
+          - insurance
+          - background_check
+          - vehicle_inspection
+          - identity_document
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      document:
+        custom: []
+        name: document
+        description: 'The document file (jpg, png, pdf, max 10MB). Must be a file. Must not be greater than 10240 kilobytes.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      expires_at:
+        custom: []
+        name: expires_at
+        description: 'Expiration date of the document. Must be a valid date. Must be a date after <code>now</code>.'
+        required: false
+        example: '2027-01-01'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      type: driving_license
+      expires_at: '2027-01-01'
+    fileParameters:
+      document: null
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Document uploaded successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/driver/documents/{id}'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Document'
+      description: 'Get details of a specific document'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the document.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Document retrieved successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Document not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/driver/documents/{id}'
+    metadata:
+      custom: []
+      groupName: Driver
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Document'
+      description: 'Delete an uploaded document'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the document.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Document deleted successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Document not found'
     responseFields: []
     auth: []
     controller: null

@@ -503,14 +503,14 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 01knj1k9kh7d6sk7dda6sxga37
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1k9kh7d6sk7dda6sxga37
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -571,14 +571,14 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 01knj1k9kh7d6sk7dda6sxga37
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      user_id: 01knj1k9kh7d6sk7dda6sxga37
+      user_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -648,14 +648,14 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 01knj1k9kh7d6sk7dda6sxga37
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1k9kh7d6sk7dda6sxga37
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -934,6 +934,472 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: 'api/v1/admin/drivers/{driver_id}/rides'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Driver Rides'
+      description: 'Get paginated list of rides for a specific driver'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      driver_id:
+        custom: []
+        name: driver_id
+        description: 'The ID of the driver.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      driver_id: architecto
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Filter by ride status.'
+        required: false
+        example: completed
+        type: string
+        enumValues:
+          - scheduled
+          - pending
+          - accepted
+          - on_the_way
+          - arrived
+          - started
+          - completed
+          - cancelled
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter:
+        custom: []
+        name: filter
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.rider_id:
+        custom: []
+        name: filter.rider_id
+        description: 'Filter by rider ID.'
+        required: false
+        example: 01h7x9b6w5e8v2k4n8m0p3q5r1
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.driver_id:
+        custom: []
+        name: filter.driver_id
+        description: 'Filter by driver ID.'
+        required: false
+        example: 01h7x9b6w5e8v2k4n8m0p3q5r2
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort field (prefix with - for descending).'
+        required: false
+        example: '-created_at'
+        type: string
+        enumValues:
+          - created_at
+          - '-created_at'
+          - updated_at
+          - '-updated_at'
+          - price
+          - '-price'
+          - status
+          - '-status'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 15
+      status: completed
+      filter:
+        rider_id: 01h7x9b6w5e8v2k4n8m0p3q5r1
+        driver_id: 01h7x9b6w5e8v2k4n8m0p3q5r2
+      sort: '-created_at'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Paginated driver rides list.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Driver not found.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/drivers/{driver_id}/earnings'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Driver Earnings'
+      description: 'Get earnings breakdown for a specific driver'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      driver_id:
+        custom: []
+        name: driver_id
+        description: 'The ID of the driver.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      driver_id: architecto
+    queryParameters:
+      from:
+        custom: []
+        name: from
+        description: 'Start date for daily breakdown (Y-m-d). Defaults to 30 days ago.'
+        required: false
+        example: '2026-01-01'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      to:
+        custom: []
+        name: to
+        description: 'End date for daily breakdown (Y-m-d). Defaults to today.'
+        required: false
+        example: '2026-01-31'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      from: '2026-01-01'
+      to: '2026-01-31'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Driver earnings retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Driver not found.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/drivers/{driver_id}/documents'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Driver Documents'
+      description: 'List all documents for a specific driver'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      driver_id:
+        custom: []
+        name: driver_id
+        description: 'The ID of the driver.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      driver_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'List of driver documents'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Unauthorized – not an admin'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Driver not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/documents/{id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Document'
+      description: 'Get details of a specific driver document'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the document.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Document retrieved successfully'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Unauthorized – not an admin'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Document not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/documents/{document_id}/verify'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Verify Document'
+      description: 'Approve or reject a driver document'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      document_id:
+        custom: []
+        name: document_id
+        description: 'The ID of the document.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      document_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      status:
+        custom: []
+        name: status
+        description: 'Verification status (approved or rejected).'
+        required: true
+        example: approved
+        type: string
+        enumValues:
+          - approved
+          - rejected
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      rejection_reason:
+        custom: []
+        name: rejection_reason
+        description: 'Reason for rejection (required when status is rejected). This field is required when <code>status</code> is <code>rejected</code>. Must not be greater than 1000 characters.'
+        required: false
+        example: 'Document is expired'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      status: approved
+      rejection_reason: 'Document is expired'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Document verified successfully'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Unauthorized – not an admin'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Document not found'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/v1/admin/rides
     metadata:
       custom: []
@@ -1187,14 +1653,14 @@ endpoints:
         name: id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1kavt0ar3xkaqxdnj3seq
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1234,6 +1700,118 @@ endpoints:
     custom: []
     httpMethods:
       - POST
+    uri: 'api/v1/admin/rides/{ride_id}/assign-driver'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Assign Driver to Ride'
+      description: 'Manually assign a driver to a pending ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      driver_id:
+        custom: []
+        name: driver_id
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      driver_id: architecto
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/rides/{ride_id}/cancel'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cancel Ride'
+      description: 'Cancel a ride as an admin'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      reason:
+        custom: []
+        name: reason
+        description: 'Must not be greater than 500 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      reason: b
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
     uri: 'api/v1/admin/drivers/{driver_id}/ban'
     metadata:
       custom: []
@@ -1255,14 +1833,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: 01knj1k9kh7d6sk7dda6sxga37
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: 01knj1k9kh7d6sk7dda6sxga37
+      driver_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1374,14 +1952,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: 01knj1k9kh7d6sk7dda6sxga37
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      driver_id: 01knj1k9kh7d6sk7dda6sxga37
+      driver_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1587,14 +2165,14 @@ endpoints:
         name: id
         description: 'The ID of the ticket.'
         required: true
-        example: 01knj1kbkj1svvphx1fx15y22s
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1kbkj1svvphx1fx15y22s
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1655,14 +2233,14 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: 01knj1kbkj1svvphx1fx15y22s
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: 01knj1kbkj1svvphx1fx15y22s
+      ticket_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1723,7 +2301,7 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: 01knj1kbkj1svvphx1fx15y22s
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1741,7 +2319,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: 01knj1kbkj1svvphx1fx15y22s
+      ticket_id: architecto
       ticket: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1821,7 +2399,7 @@ endpoints:
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
-        example: 01knj1kbkj1svvphx1fx15y22s
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1839,7 +2417,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: 01knj1kbkj1svvphx1fx15y22s
+      ticket_id: architecto
       ticket: 01HZY2K8J8QK8Z8Z8Z8Z8Z8Z8Z
     queryParameters: []
     cleanQueryParameters: []
@@ -1932,7 +2510,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 23df60f1-fe51-47f7-9a73-a6a33e6f75aa
+          x-request-id: 397ea73f-247b-475b-829a-14a14eeb6bb4
         description: null
     responseFields: []
     auth: []
@@ -2154,14 +2732,14 @@ endpoints:
         name: promoCode_id
         description: 'The ID of the promoCode.'
         required: true
-        example: 01knj1k9k43j0aj8181epvjvsh
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      promoCode_id: 01knj1k9k43j0aj8181epvjvsh
+      promoCode_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2176,7 +2754,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 51347ca3-7d5d-4dba-94da-712893eb504c
+          x-request-id: 4762593a-fb89-4b59-84eb-f690f61ca19c
         description: null
     responseFields: []
     auth: []
@@ -2208,14 +2786,14 @@ endpoints:
         name: promoCode_id
         description: 'The ID of the promoCode.'
         required: true
-        example: 01knj1k9k43j0aj8181epvjvsh
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      promoCode_id: 01knj1k9k43j0aj8181epvjvsh
+      promoCode_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2404,14 +2982,14 @@ endpoints:
         name: promoCode_id
         description: 'The ID of the promoCode.'
         required: true
-        example: 01knj1k9k43j0aj8181epvjvsh
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      promoCode_id: 01knj1k9k43j0aj8181epvjvsh
+      promoCode_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2448,14 +3026,14 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 01knj1k9kh7d6sk7dda6sxga37
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      user_id: 01knj1k9kh7d6sk7dda6sxga37
+      user_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2500,6 +3078,127 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - GET
+    uri: 'api/v1/admin/users/{user_id}/credits/history'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get User Credit History'
+      description: 'Get paginated credit transaction history for a specific user'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      user_id: architecto
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter:
+        custom: []
+        name: filter
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.type:
+        custom: []
+        name: filter.type
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues:
+          - referral_bonus
+          - promo_saving
+          - ride_payment
+          - admin_adjustment
+          - wallet_top_up
+          - wallet_top_up_cancelled
+          - refund
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.from:
+        custom: []
+        name: filter.from
+        description: 'Must be a valid date.'
+        required: false
+        example: '2026-06-02T08:40:34'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.to:
+        custom: []
+        name: filter.to
+        description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
+        required: false
+        example: '2052-06-25'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 15
+      filter:
+        type: architecto
+        from: '2026-06-02T08:40:34'
+        to: '2052-06-25'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 895ce533-1ac3-4a30-aa95-2c0883aeff77
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: 'api/v1/admin/payments/{paymentAttempt_id}/refund'
     metadata:
@@ -2522,14 +3221,14 @@ endpoints:
         name: paymentAttempt_id
         description: 'The ID of the paymentAttempt.'
         required: true
-        example: 01knj1kaw3pp75arzbqrm0fgb8
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      paymentAttempt_id: 01knj1kaw3pp75arzbqrm0fgb8
+      paymentAttempt_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2566,6 +3265,158 @@ endpoints:
         content: null
         headers: []
         description: 'Payment cannot be refunded.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/admin/payments
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Payments'
+      description: 'Get paginated list of all payment attempts'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of items per page. Must be at least 2. Must not be greater than 50.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Filter by payment status.'
+        required: false
+        example: completed
+        type: string
+        enumValues:
+          - pending
+          - processing
+          - completed
+          - failed
+          - refunded
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter:
+        custom: []
+        name: filter
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.status:
+        custom: []
+        name: filter.status
+        description: 'Filter by payment status (via Spatie query builder).'
+        required: false
+        example: completed
+        type: string
+        enumValues:
+          - pending
+          - processing
+          - completed
+          - failed
+          - refunded
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.user_id:
+        custom: []
+        name: filter.user_id
+        description: 'Filter by user ID.'
+        required: false
+        example: 01h7x9b6w5e8v2k4n8m0p3q5r1
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      filter.ride_id:
+        custom: []
+        name: filter.ride_id
+        description: 'Filter by ride ID.'
+        required: false
+        example: 01h7x9b6w5e8v2k4n8m0p3q5r2
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort field (prefix with - for descending).'
+        required: false
+        example: '-created_at'
+        type: string
+        enumValues:
+          - created_at
+          - '-created_at'
+          - updated_at
+          - '-updated_at'
+          - amount
+          - '-amount'
+          - status
+          - '-status'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 15
+      status: completed
+      filter:
+        status: completed
+        user_id: 01h7x9b6w5e8v2k4n8m0p3q5r1
+        ride_id: 01h7x9b6w5e8v2k4n8m0p3q5r2
+      sort: '-created_at'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Paginated payments list retrieved successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthorized.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - not an admin.'
     responseFields: []
     auth: []
     controller: null
@@ -2699,7 +3550,7 @@ endpoints:
         name: id
         description: 'The ID of the payout.'
         required: true
-        example: 01knj1kbppk84h0dyere7v30af
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2717,7 +3568,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1kbppk84h0dyere7v30af
+      id: architecto
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2767,7 +3618,7 @@ endpoints:
         name: payout_id
         description: 'The ID of the payout.'
         required: true
-        example: 01knj1kbppk84h0dyere7v30af
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2785,7 +3636,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      payout_id: 01knj1kbppk84h0dyere7v30af
+      payout_id: architecto
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2835,7 +3686,7 @@ endpoints:
         name: payout_id
         description: 'The ID of the payout.'
         required: true
-        example: 01knj1kbppk84h0dyere7v30af
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2853,7 +3704,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      payout_id: 01knj1kbppk84h0dyere7v30af
+      payout_id: architecto
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2903,7 +3754,7 @@ endpoints:
         name: payout_id
         description: 'The ID of the payout.'
         required: true
-        example: 01knj1kbppk84h0dyere7v30af
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2921,7 +3772,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      payout_id: 01knj1kbppk84h0dyere7v30af
+      payout_id: architecto
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -2971,7 +3822,7 @@ endpoints:
         name: payout_id
         description: 'The ID of the payout.'
         required: true
-        example: 01knj1kbppk84h0dyere7v30af
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2989,7 +3840,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      payout_id: 01knj1kbppk84h0dyere7v30af
+      payout_id: architecto
       payout: architecto
     queryParameters: []
     cleanQueryParameters: []
@@ -3061,7 +3912,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 79c382fb-e805-4fae-8cc8-3b8f9d0e251e
+          x-request-id: 2701616d-86f7-4d30-8bf6-b4c7cc4f0240
         description: null
     responseFields: []
     auth: []
@@ -3212,14 +4063,14 @@ endpoints:
         name: id
         description: 'The ID of the announcement.'
         required: true
-        example: 01knj1kbk00aev956eptesvpg8
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1kbk00aev956eptesvpg8
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -3343,14 +4194,14 @@ endpoints:
         name: id
         description: 'The ID of the announcement.'
         required: true
-        example: 01knj1kbk00aev956eptesvpg8
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1kbk00aev956eptesvpg8
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -3397,7 +4248,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 1e761a7d-7e5c-4902-8b78-0fee8d603886
+          x-request-id: 45715c74-40e6-4ac8-8c84-db3c5faac0ed
         description: null
     responseFields: []
     auth: []
@@ -3451,7 +4302,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: ca8d3248-1b60-4b84-a6f6-f5fbdcb9db4b
+          x-request-id: 513dbd23-5fc5-4c02-86ed-c70e794a1b15
         description: null
     responseFields: []
     auth: []
@@ -3483,14 +4334,14 @@ endpoints:
         name: report_id
         description: 'The ID of the report.'
         required: true
-        example: 01knj1kbn3bvhb4d41q7xztjtp
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      report_id: 01knj1kbn3bvhb4d41q7xztjtp
+      report_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -3577,7 +4428,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: af94865f-c044-48dd-94ba-0bdc9e94cd55
+          x-request-id: a2828eaf-c2b6-45ea-9fc4-bd38cc84c073
         description: null
     responseFields: []
     auth: []
@@ -3766,14 +4617,14 @@ endpoints:
         name: id
         description: 'The ID of the achievement.'
         required: true
-        example: 01knj1k9g1enkrravfwqg3mp1x
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1k9g1enkrravfwqg3mp1x
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -3788,7 +4639,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 2a89d33d-700c-44aa-8743-76e005b36c33
+          x-request-id: 1066f6f8-173c-4f29-811f-c791bbad8a2c
         description: null
     responseFields: []
     auth: []
@@ -3820,14 +4671,14 @@ endpoints:
         name: id
         description: 'The ID of the achievement.'
         required: true
-        example: 01knj1k9g1enkrravfwqg3mp1x
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1k9g1enkrravfwqg3mp1x
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -3983,14 +4834,440 @@ endpoints:
         name: id
         description: 'The ID of the achievement.'
         required: true
-        example: 01knj1k9g1enkrravfwqg3mp1x
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 01knj1k9g1enkrravfwqg3mp1x
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/admin/pricing-zones
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Pricing Zones'
+      description: 'Get a paginated list of all pricing zones'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: cc184dbd-8511-43a1-88a2-a4eb49aa5014
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/admin/pricing-zones
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Pricing Zone'
+      description: 'Create a new pricing zone'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Zone name. Must not be greater than 255 characters.'
+        required: true
+        example: 'Centru, Chișinău'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Unique zone slug. Must not be greater than 255 characters.'
+        required: true
+        example: centru-chisinau
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_enabled:
+        custom: []
+        name: is_enabled
+        description: 'Whether the zone is active.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      surge_multiplier:
+        custom: []
+        name: surge_multiplier
+        description: 'Surge pricing multiplier (1.0 - 5.0). Must be at least 1. Must not be greater than 5.'
+        required: true
+        example: 1.5
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      reason:
+        custom: []
+        name: reason
+        description: 'Reason for surge. Must not be greater than 50 characters.'
+        required: false
+        example: high_demand_area
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      center_lat:
+        custom: []
+        name: center_lat
+        description: 'Latitude of zone center. Must be between -90 and 90.'
+        required: true
+        example: 47.0268
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      center_lng:
+        custom: []
+        name: center_lng
+        description: 'Longitude of zone center. Must be between -180 and 180.'
+        required: true
+        example: 28.8416
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      radius_meters:
+        custom: []
+        name: radius_meters
+        description: 'Radius in meters. Must be at least 100. Must not be greater than 50000.'
+        required: true
+        example: 1500
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: 'Centru, Chișinău'
+      slug: centru-chisinau
+      is_enabled: true
+      surge_multiplier: 1.5
+      reason: high_demand_area
+      center_lat: 47.0268
+      center_lng: 28.8416
+      radius_meters: 1500
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: null
+        headers: []
+        description: 'Pricing zone created successfully.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/pricing-zones/{zone_id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Pricing Zone'
+      description: 'Get details of a specific pricing zone'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      zone_id:
+        custom: []
+        name: zone_id
+        description: 'The ID of the zone.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      zone_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          x-request-id: 1577ee38-8675-4683-a74f-13bc29693d23
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/pricing-zones/{zone_id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Pricing Zone'
+      description: 'Update an existing pricing zone'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      zone_id:
+        custom: []
+        name: zone_id
+        description: 'The ID of the zone.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      zone_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Zone name. Must not be greater than 255 characters.'
+        required: true
+        example: 'Centru, Chișinău'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Unique zone slug. Must not be greater than 255 characters.'
+        required: true
+        example: centru-chisinau
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_enabled:
+        custom: []
+        name: is_enabled
+        description: 'Whether the zone is active.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      surge_multiplier:
+        custom: []
+        name: surge_multiplier
+        description: 'Surge pricing multiplier (1.0 - 5.0). Must be at least 1. Must not be greater than 5.'
+        required: true
+        example: 1.5
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      reason:
+        custom: []
+        name: reason
+        description: 'Reason for surge. Must not be greater than 50 characters.'
+        required: false
+        example: high_demand_area
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      center_lat:
+        custom: []
+        name: center_lat
+        description: 'Latitude of zone center. Must be between -90 and 90.'
+        required: true
+        example: 47.0268
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      center_lng:
+        custom: []
+        name: center_lng
+        description: 'Longitude of zone center. Must be between -180 and 180.'
+        required: true
+        example: 28.8416
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      radius_meters:
+        custom: []
+        name: radius_meters
+        description: 'Radius in meters. Must be at least 100. Must not be greater than 50000.'
+        required: true
+        example: 1500
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: 'Centru, Chișinău'
+      slug: centru-chisinau
+      is_enabled: true
+      surge_multiplier: 1.5
+      reason: high_demand_area
+      center_lat: 47.0268
+      center_lng: 28.8416
+      radius_meters: 1500
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Pricing zone updated successfully.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/pricing-zones/{zone_id}'
+    metadata:
+      custom: []
+      groupName: Admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Pricing Zone'
+      description: 'Delete a pricing zone'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      zone_id:
+        custom: []
+        name: zone_id
+        description: 'The ID of the zone.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      zone_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

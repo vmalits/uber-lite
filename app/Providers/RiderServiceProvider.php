@@ -22,6 +22,8 @@ use App\Queries\Rider\GetFavoriteLocationsQuery;
 use App\Queries\Rider\GetFavoriteLocationsQueryInterface;
 use App\Queries\Rider\GetFavoriteRoutesQuery;
 use App\Queries\Rider\GetFavoriteRoutesQueryInterface;
+use App\Queries\Rider\GetNearbyDriversQuery;
+use App\Queries\Rider\GetNearbyDriversQueryInterface;
 use App\Queries\Rider\GetPaymentMethodsQuery;
 use App\Queries\Rider\GetPaymentMethodsQueryInterface;
 use App\Queries\Rider\GetReceiptQuery;
@@ -64,6 +66,7 @@ final class RiderServiceProvider extends ServiceProvider
         GetDriverReviewsQueryInterface::class      => GetDriverReviewsQuery::class,
         GetFareBreakdownQueryInterface::class      => GetFareBreakdownQuery::class,
         GetFavoriteDriversQueryInterface::class    => GetFavoriteDriversQuery::class,
+        GetNearbyDriversQueryInterface::class      => GetNearbyDriversQuery::class,
         GetFavoriteLocationQueryInterface::class   => GetFavoriteLocationQuery::class,
         GetFavoriteLocationsQueryInterface::class  => GetFavoriteLocationsQuery::class,
         GetFavoriteRoutesQueryInterface::class     => GetFavoriteRoutesQuery::class,

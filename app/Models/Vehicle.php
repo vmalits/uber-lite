@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $year
  * @property string $color
  * @property string $plate_number
- * @property string $vehicle_type
+ * @property VehicleType $vehicle_type
  * @property int $seats
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at

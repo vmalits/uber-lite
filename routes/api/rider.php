@@ -35,6 +35,7 @@ use App\Http\Controllers\Api\V1\Rider\GetFavoriteLocationsController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\GetFavoriteRoutesController;
 use App\Http\Controllers\Api\V1\Rider\GetLevelController;
+use App\Http\Controllers\Api\V1\Rider\GetNearbyDriversController;
 use App\Http\Controllers\Api\V1\Rider\GetPaymentMethodsController;
 use App\Http\Controllers\Api\V1\Rider\GetPaymentStatusController;
 use App\Http\Controllers\Api\V1\Rider\GetPricingZonesController;
@@ -79,6 +80,8 @@ Route::prefix('rider')
         'set_locale',
     ])
     ->group(function (): void {
+        Route::get('nearby-drivers', [GetNearbyDriversController::class, '__invoke'])
+            ->name('api.v1.rider.nearby-drivers');
         Route::get('locations/search', [SearchLocationsController::class, '__invoke'])
             ->name('api.v1.rider.locations.search');
         Route::get('favorite-drivers', [GetFavoriteDriversController::class, '__invoke'])

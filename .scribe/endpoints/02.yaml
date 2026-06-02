@@ -26,7 +26,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -44,7 +44,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -160,7 +160,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -178,7 +178,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -240,7 +240,7 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -258,7 +258,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
       ride: 01jk9v6v9v6v9v6v9v6v9v6v9v
     queryParameters: []
     cleanQueryParameters: []
@@ -378,6 +378,174 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: 'api/v1/ride/{ride_id}/split/cancel'
+    metadata:
+      custom: []
+      groupName: Ride
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cancel Ride Splits'
+      description: 'Cancel all pending split invitations for a ride'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Split invitations cancelled successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated.
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Forbidden - Only the ride owner can cancel splits.'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Cannot cancel splits at this time.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/ride/{ride_id}/split/respond'
+    metadata:
+      custom: []
+      groupName: Ride
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Respond to Split'
+      description: 'Accept or decline a split ride invitation'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ride_id:
+        custom: []
+        name: ride_id
+        description: 'The ID of the ride.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      ride_id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      split_id:
+        custom: []
+        name: split_id
+        description: 'The <code>id</code> of an existing record in the ride_splits table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: true
+        example: accepted
+        type: string
+        enumValues:
+          - accepted
+          - declined
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      split_id: architecto
+      status: accepted
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Split invitation responded to successfully.'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated.
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Ride or split not found.'
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation failed or split already responded to.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: 'api/v1/ride/{ride_id}/messages'
     metadata:
@@ -400,14 +568,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -468,14 +636,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -554,14 +722,14 @@ endpoints:
         name: ride_id
         description: 'The ID of the ride.'
         required: true
-        example: 01knj1kavt0ar3xkaqxdnj3seq
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ride_id: 01knj1kavt0ar3xkaqxdnj3seq
+      ride_id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

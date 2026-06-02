@@ -1,19 +1,19 @@
-name: Announcements
+name: Gamification
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/v1/announcements
+    uri: api/v1/leaderboard/drivers
     metadata:
       custom: []
-      groupName: Announcements
+      groupName: Gamification
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get Active Announcements'
-      description: 'Get active announcements filtered by user role'
+      title: 'Get Driver Leaderboard'
+      description: 'Get top drivers ranked by rating or total rides'
       authenticated: true
       deprecated: false
     headers:
@@ -23,19 +23,31 @@ endpoints:
     urlParameters: []
     cleanUrlParameters: []
     queryParameters:
-      per_page:
+      sort:
         custom: []
-        name: per_page
-        description: 'Number of announcements per page'
+        name: sort
+        description: 'Sort by "-rating" (descending) or "-total_rides"'
         required: true
-        example: '15'
+        example: '-rating'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Number of drivers to return (max 50)'
+        required: true
+        example: '10'
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanQueryParameters:
-      per_page: '15'
+      sort: '-rating'
+      limit: '10'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -43,7 +55,69 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":true,"data":{"items":[{"id":"01HQXYZABC1234567890DEFGHI","title":"New Feature Launch","body":"We are excited to announce...","target":"all","is_active":true,"published_at":{"human":"1 hour ago","string":"2026-03-26 12:00:00"},"expires_at":null,"created_at":{"human":"1 hour ago","string":"2026-03-26 12:00:00"},"updated_at":{"human":"1 hour ago","string":"2026-03-26 12:00:00"}}],"pagination":{"total":1,"per_page":15,"current_page":1,"last_page":1}}}'
+        content: '{"success":true,"data":[{"id":"01HQXYZABC1234567890DEFGHI","first_name":"John","last_name":"Doe","avatar_paths":null,"rating":4.95,"total_rides":1250,"rank":1}]}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/leaderboard/riders
+    metadata:
+      custom: []
+      groupName: Gamification
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Rider Leaderboard'
+      description: 'Get top riders ranked by streak or total rides'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      sort:
+        custom: []
+        name: sort
+        description: 'Sort by "-current_streak" (descending) or "-total_rides"'
+        required: true
+        example: '-current_streak'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Number of riders to return (max 50)'
+        required: true
+        example: '10'
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      sort: '-current_streak'
+      limit: '10'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"data":[{"id":"01HQXYZABC1234567890DEFGHI","first_name":"John","last_name":"Doe","avatar_paths":null,"current_streak":15,"total_rides":250,"rank":1}]}'
         headers: []
         description: ''
     responseFields: []
