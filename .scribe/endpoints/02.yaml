@@ -488,9 +488,9 @@ endpoints:
       split_id:
         custom: []
         name: split_id
-        description: 'The <code>id</code> of an existing record in the ride_splits table.'
+        description: 'The ULID of the ride split to respond to. The <code>id</code> of an existing record in the ride_splits table.'
         required: true
-        example: architecto
+        example: 01HXYZ123456789
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -499,7 +499,7 @@ endpoints:
       status:
         custom: []
         name: status
-        description: ''
+        description: 'The response to the split request (accepted or declined).'
         required: true
         example: accepted
         type: string
@@ -510,7 +510,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      split_id: architecto
+      split_id: 01HXYZ123456789
       status: accepted
     fileParameters: []
     responses:

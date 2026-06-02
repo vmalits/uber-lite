@@ -28,4 +28,23 @@ final class RespondToSplitRequest extends FormRequest
             ],
         ];
     }
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'split_id' => [
+                'description' => 'The ULID of the ride split to respond to.',
+                'example'     => '01HXYZ123456789',
+                'type'        => 'string',
+            ],
+            'status' => [
+                'description' => 'The response to the split request (accepted or declined).',
+                'example'     => 'accepted',
+                'type'        => 'string',
+            ],
+        ];
+    }
 }

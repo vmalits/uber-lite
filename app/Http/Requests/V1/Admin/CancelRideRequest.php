@@ -22,4 +22,18 @@ final class CancelRideRequest extends FormRequest
             'reason' => ['required', 'string', 'max:500'],
         ];
     }
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'reason' => [
+                'description' => 'The reason for cancelling the ride.',
+                'example'     => 'Driver is too far away',
+                'type'        => 'string',
+            ],
+        ];
+    }
 }

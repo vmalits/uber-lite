@@ -2329,7 +2329,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-06-02 10:40:31'
+        example: '2026-06-02 16:28:42'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2342,7 +2342,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-06-02 10:40:31'
+      scheduled_at: '2026-06-02 16:28:42'
     fileParameters: []
     responses:
       -
@@ -2475,7 +2475,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-06-02 11:40:31'
+        example: '2026-06-02 17:28:42'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2488,7 +2488,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-06-02 11:40:31'
+      scheduled_at: '2026-06-02 17:28:42'
     fileParameters: []
     responses:
       -
@@ -4275,7 +4275,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: f99d5f2b-1979-4535-865b-6e4fc3b36642
+          x-request-id: ca1acd35-8cf1-479d-8579-c88f68db99cf
         description: null
     responseFields: []
     auth: []
@@ -4349,7 +4349,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-02T08:40:31'
+        example: '2026-06-02T14:28:43'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4370,7 +4370,7 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-06-02T08:40:31'
+        from: '2026-06-02T14:28:43'
         to: '2052-06-25'
     bodyParameters: []
     cleanBodyParameters: []
@@ -5068,7 +5068,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-02T08:40:31'
+        example: '2026-06-02T14:28:43'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -5089,7 +5089,7 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-06-02T08:40:31'
+        from: '2026-06-02T14:28:43'
         to: '2052-06-25'
     bodyParameters: []
     cleanBodyParameters: []

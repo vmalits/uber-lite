@@ -28,4 +28,18 @@ final class AssignDriverRequest extends FormRequest
             ],
         ];
     }
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'driver_id' => [
+                'description' => 'The ULID of the driver to assign to the ride.',
+                'example'     => '01HXYZ123456789',
+                'type'        => 'string',
+            ],
+        ];
+    }
 }

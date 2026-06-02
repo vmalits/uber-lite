@@ -1737,16 +1737,16 @@ endpoints:
       driver_id:
         custom: []
         name: driver_id
-        description: 'The <code>id</code> of an existing record in the users table.'
+        description: 'The ULID of the driver to assign to the ride. The <code>id</code> of an existing record in the users table.'
         required: true
-        example: architecto
+        example: 01HXYZ123456789
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      driver_id: architecto
+      driver_id: 01HXYZ123456789
     fileParameters: []
     responses: []
     responseFields: []
@@ -1793,16 +1793,16 @@ endpoints:
       reason:
         custom: []
         name: reason
-        description: 'Must not be greater than 500 characters.'
+        description: 'The reason for cancelling the ride. Must not be greater than 500 characters.'
         required: true
-        example: b
+        example: 'Driver is too far away'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      reason: b
+      reason: 'Driver is too far away'
     fileParameters: []
     responses: []
     responseFields: []
@@ -2512,7 +2512,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 397ea73f-247b-475b-829a-14a14eeb6bb4
+          x-request-id: 95f5e0c6-7428-45e5-972f-3c777cb50fae
         description: null
     responseFields: []
     auth: []
@@ -2756,7 +2756,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 4762593a-fb89-4b59-84eb-f690f61ca19c
+          x-request-id: 7dbeaaff-f98e-4438-8e74-3cc6e0e41d91
         description: null
     responseFields: []
     auth: []
@@ -3156,7 +3156,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-02T08:40:34'
+        example: '2026-06-02T14:28:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3177,7 +3177,7 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-06-02T08:40:34'
+        from: '2026-06-02T14:28:45'
         to: '2052-06-25'
     bodyParameters: []
     cleanBodyParameters: []
@@ -3191,7 +3191,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 895ce533-1ac3-4a30-aa95-2c0883aeff77
+          x-request-id: 6f59ad6b-2184-49ef-a4e9-6f3195ac9f30
         description: null
     responseFields: []
     auth: []
@@ -3914,7 +3914,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 2701616d-86f7-4d30-8bf6-b4c7cc4f0240
+          x-request-id: 2f68ecd9-9821-42b6-b873-d4cf134c382a
         description: null
     responseFields: []
     auth: []
@@ -4250,7 +4250,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 45715c74-40e6-4ac8-8c84-db3c5faac0ed
+          x-request-id: d93aae54-d1ed-4296-9870-68f5ddb5d54b
         description: null
     responseFields: []
     auth: []
@@ -4304,7 +4304,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 513dbd23-5fc5-4c02-86ed-c70e794a1b15
+          x-request-id: 6fb3d767-be0a-44c2-bda3-88e4ad32745e
         description: null
     responseFields: []
     auth: []
@@ -4430,7 +4430,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: a2828eaf-c2b6-45ea-9fc4-bd38cc84c073
+          x-request-id: 50b69ca3-dd8f-48a4-a8c9-e3bd9cadd495
         description: null
     responseFields: []
     auth: []
@@ -4641,7 +4641,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 1066f6f8-173c-4f29-811f-c791bbad8a2c
+          x-request-id: 2fcae29d-179a-4877-84ce-c061e3b98fa8
         description: null
     responseFields: []
     auth: []
@@ -4890,7 +4890,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: cc184dbd-8511-43a1-88a2-a4eb49aa5014
+          x-request-id: 7ad5030d-1ce5-4050-8852-8e0204cad77e
         description: null
     responseFields: []
     auth: []
@@ -5084,7 +5084,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 1577ee38-8675-4683-a74f-13bc29693d23
+          x-request-id: 82f71059-bb3f-4d04-af52-37cd2cada098
         description: null
     responseFields: []
     auth: []

@@ -36,7 +36,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: d8c21801-fece-4fb3-878c-c65dd6779543
+          x-request-id: 42629fc8-a79d-4f0f-b879-63c425d10242
         description: null
     responseFields: []
     auth: []
@@ -70,9 +70,9 @@ endpoints:
       ride_updates:
         custom: []
         name: ride_updates
-        description: ''
+        description: 'Enable or disable ride update notifications.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -81,7 +81,7 @@ endpoints:
       promo:
         custom: []
         name: promo
-        description: ''
+        description: 'Enable or disable promotional notifications.'
         required: false
         example: false
         type: boolean
@@ -92,9 +92,9 @@ endpoints:
       ride_split:
         custom: []
         name: ride_split
-        description: ''
+        description: 'Enable or disable ride split notifications.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -103,9 +103,9 @@ endpoints:
       achievement:
         custom: []
         name: achievement
-        description: ''
+        description: 'Enable or disable achievement notifications.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -114,7 +114,7 @@ endpoints:
       streak:
         custom: []
         name: streak
-        description: ''
+        description: 'Enable or disable streak notifications.'
         required: false
         example: true
         type: boolean
@@ -125,9 +125,9 @@ endpoints:
       safety:
         custom: []
         name: safety
-        description: ''
+        description: 'Enable or disable safety notifications.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -136,7 +136,7 @@ endpoints:
       push_enabled:
         custom: []
         name: push_enabled
-        description: ''
+        description: 'Enable or disable push notifications globally.'
         required: false
         example: true
         type: boolean
@@ -147,23 +147,23 @@ endpoints:
       email_enabled:
         custom: []
         name: email_enabled
-        description: ''
+        description: 'Enable or disable email notifications globally.'
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      ride_updates: false
+      ride_updates: true
       promo: false
-      ride_split: false
-      achievement: false
+      ride_split: true
+      achievement: true
       streak: true
-      safety: false
+      safety: true
       push_enabled: true
-      email_enabled: true
+      email_enabled: false
     fileParameters: []
     responses: []
     responseFields: []

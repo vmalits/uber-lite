@@ -5331,7 +5331,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"driver_id\": \"architecto\"
+    \"driver_id\": \"01HXYZ123456789\"
 }"
 </code></pre></div>
 
@@ -5348,7 +5348,7 @@ const headers = {
 };
 
 let body = {
-    "driver_id": "architecto"
+    "driver_id": "01HXYZ123456789"
 };
 
 fetch(url, {
@@ -5370,7 +5370,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'driver_id' =&gt; 'architecto',
+            'driver_id' =&gt; '01HXYZ123456789',
         ],
     ]
 );
@@ -5384,7 +5384,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/admin/rides/architecto/assign-driver'
 payload = {
-    "driver_id": "architecto"
+    "driver_id": "01HXYZ123456789"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -5503,10 +5503,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="driver_id"                data-endpoint="POSTapi-v1-admin-rides--ride_id--assign-driver"
-               value="architecto"
+               value="01HXYZ123456789"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the users table. Example: <code>architecto</code></p>
+<p>The ULID of the driver to assign to the ride. The <code>id</code> of an existing record in the users table. Example: <code>01HXYZ123456789</code></p>
         </div>
         </form>
 
@@ -5529,7 +5529,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"reason\": \"b\"
+    \"reason\": \"Driver is too far away\"
 }"
 </code></pre></div>
 
@@ -5546,7 +5546,7 @@ const headers = {
 };
 
 let body = {
-    "reason": "b"
+    "reason": "Driver is too far away"
 };
 
 fetch(url, {
@@ -5568,7 +5568,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'reason' =&gt; 'b',
+            'reason' =&gt; 'Driver is too far away',
         ],
     ]
 );
@@ -5582,7 +5582,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/admin/rides/architecto/cancel'
 payload = {
-    "reason": "b"
+    "reason": "Driver is too far away"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -5701,10 +5701,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="reason"                data-endpoint="POSTapi-v1-admin-rides--ride_id--cancel"
-               value="b"
+               value="Driver is too far away"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>b</code></p>
+<p>The reason for cancelling the ride. Must not be greater than 500 characters. Example: <code>Driver is too far away</code></p>
         </div>
         </form>
 
@@ -7464,7 +7464,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 397ea73f-247b-475b-829a-14a14eeb6bb4
+x-request-id: 95f5e0c6-7428-45e5-972f-3c777cb50fae
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8026,7 +8026,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 4762593a-fb89-4b59-84eb-f690f61ca19c
+x-request-id: 7dbeaaff-f98e-4438-8e74-3cc6e0e41d91
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8931,7 +8931,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/admin/users/architecto/credits/history?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T08%3A40%3A34&amp;filter[to]=2052-06-25" \
+    --get "http://localhost:8080/api/v1/admin/users/architecto/credits/history?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T14%3A28%3A45&amp;filter[to]=2052-06-25" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8945,7 +8945,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-06-02T08:40:34",
+    "filter[from]": "2026-06-02T14:28:45",
     "filter[to]": "2052-06-25",
 };
 Object.keys(params)
@@ -8978,7 +8978,7 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-06-02T08:40:34',
+            'filter[from]' =&gt; '2026-06-02T14:28:45',
             'filter[to]' =&gt; '2052-06-25',
         ],
     ]
@@ -8995,7 +8995,7 @@ url = 'http://localhost:8080/api/v1/admin/users/architecto/credits/history'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-06-02T08:40:34',
+  'filter[from]': '2026-06-02T14:28:45',
   'filter[to]': '2052-06-25',
 }
 headers = {
@@ -9020,7 +9020,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 895ce533-1ac3-4a30-aa95-2c0883aeff77
+x-request-id: 6f59ad6b-2184-49ef-a4e9-6f3195ac9f30
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9170,10 +9170,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-admin-users--user_id--credits-history"
-               value="2026-06-02T08:40:34"
+               value="2026-06-02T14:28:45"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-02T08:40:34</code></p>
+<p>Must be a valid date. Example: <code>2026-06-02T14:28:45</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -11051,7 +11051,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 2701616d-86f7-4d30-8bf6-b4c7cc4f0240
+x-request-id: 2f68ecd9-9821-42b6-b873-d4cf134c382a
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -11992,7 +11992,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 45715c74-40e6-4ac8-8c84-db3c5faac0ed
+x-request-id: d93aae54-d1ed-4296-9870-68f5ddb5d54b
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -12167,7 +12167,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 513dbd23-5fc5-4c02-86ed-c70e794a1b15
+x-request-id: 6fb3d767-be0a-44c2-bda3-88e4ad32745e
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -12585,7 +12585,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: a2828eaf-c2b6-45ea-9fc4-bd38cc84c073
+x-request-id: 50b69ca3-dd8f-48a4-a8c9-e3bd9cadd495
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -13107,7 +13107,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 1066f6f8-173c-4f29-811f-c791bbad8a2c
+x-request-id: 2fcae29d-179a-4877-84ce-c061e3b98fa8
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -13819,7 +13819,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: cc184dbd-8511-43a1-88a2-a4eb49aa5014
+x-request-id: 7ad5030d-1ce5-4050-8852-8e0204cad77e
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -14315,7 +14315,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 1577ee38-8675-4683-a74f-13bc29693d23
+x-request-id: 82f71059-bb3f-4d04-af52-37cd2cada098
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -17101,7 +17101,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 98a1ed84-bc29-4587-aaa5-40852b8be46d
+x-request-id: 9183c474-9c11-429d-82a3-fe6a1d213546
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -17463,8 +17463,8 @@ Must be one of:
     --header "Accept: application/json" \
     --data "{
     \"platform\": \"ios\",
-    \"device_name\": \"b\",
-    \"app_version\": \"ngzmiyvdljnikhwa\"
+    \"device_name\": \"iPhone 15 Pro\",
+    \"app_version\": \"1.2.3\"
 }"
 </code></pre></div>
 
@@ -17482,8 +17482,8 @@ const headers = {
 
 let body = {
     "platform": "ios",
-    "device_name": "b",
-    "app_version": "ngzmiyvdljnikhwa"
+    "device_name": "iPhone 15 Pro",
+    "app_version": "1.2.3"
 };
 
 fetch(url, {
@@ -17506,8 +17506,8 @@ $response = $client-&gt;put(
         ],
         'json' =&gt; [
             'platform' =&gt; 'ios',
-            'device_name' =&gt; 'b',
-            'app_version' =&gt; 'ngzmiyvdljnikhwa',
+            'device_name' =&gt; 'iPhone 15 Pro',
+            'app_version' =&gt; '1.2.3',
         ],
     ]
 );
@@ -17522,8 +17522,8 @@ import json
 url = 'http://localhost:8080/api/v1/devices/architecto'
 payload = {
     "platform": "ios",
-    "device_name": "b",
-    "app_version": "ngzmiyvdljnikhwa"
+    "device_name": "iPhone 15 Pro",
+    "app_version": "1.2.3"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -17673,7 +17673,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="ios"
                data-component="body">
     <br>
-<p>Example: <code>ios</code></p>
+<p>The device platform (ios or android). Example: <code>ios</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>ios</code></li> <li><code>android</code></li> <li><code>web</code></li></ul>
         </div>
@@ -17684,10 +17684,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="device_name"                data-endpoint="PUTapi-v1-devices--deviceToken_id-"
-               value="b"
+               value="iPhone 15 Pro"
                data-component="body">
     <br>
-<p>Must not be greater than 100 characters. Example: <code>b</code></p>
+<p>The human-readable device name. Must not be greater than 100 characters. Example: <code>iPhone 15 Pro</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>app_version</code></b>&nbsp;&nbsp;
@@ -17696,10 +17696,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="app_version"                data-endpoint="PUTapi-v1-devices--deviceToken_id-"
-               value="ngzmiyvdljnikhwa"
+               value="1.2.3"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>ngzmiyvdljnikhwa</code></p>
+<p>The application version string. Must not be greater than 20 characters. Example: <code>1.2.3</code></p>
         </div>
         </form>
 
@@ -19606,7 +19606,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 6ed11b5e-65a8-4e0b-8f86-6dcaf07c4357
+x-request-id: 8a282624-7175-4ab4-84c1-3bb28e599829
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -19806,7 +19806,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: b4a845c8-ab25-4eec-8991-9037522c4020
+x-request-id: e5e6c03f-81ba-40b1-a143-c5655ea81436
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -24680,7 +24680,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phph8hdf46b63ln5abbdgI" </code></pre></div>
+    --form "avatar=@/tmp/phprd3oeoc6gmmc0FOjkBH" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -24718,7 +24718,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phph8hdf46b63ln5abbdgI', 'r')
+                'contents' =&gt; fopen('/tmp/phprd3oeoc6gmmc0FOjkBH', 'r')
             ],
         ],
     ]
@@ -24733,7 +24733,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phph8hdf46b63ln5abbdgI', 'rb')}
+  'avatar': open('/tmp/phprd3oeoc6gmmc0FOjkBH', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -24848,7 +24848,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phph8hdf46b63ln5abbdgI</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phprd3oeoc6gmmc0FOjkBH</code></p>
         </div>
         </form>
 
@@ -28294,7 +28294,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "type=driving_license"\
     --form "expires_at=2027-01-01"\
-    --form "document=@/tmp/phpoh58clhre80b7cekgff" </code></pre></div>
+    --form "document=@/tmp/php0hifpedfbp4deHnEllb" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -28342,7 +28342,7 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'document',
-                'contents' =&gt; fopen('/tmp/phpoh58clhre80b7cekgff', 'r')
+                'contents' =&gt; fopen('/tmp/php0hifpedfbp4deHnEllb', 'r')
             ],
         ],
     ]
@@ -28359,7 +28359,7 @@ url = 'http://localhost:8080/api/v1/driver/documents'
 files = {
   'type': (None, 'driving_license'),
   'expires_at': (None, '2027-01-01'),
-  'document': open('/tmp/phpoh58clhre80b7cekgff', 'rb')}
+  'document': open('/tmp/php0hifpedfbp4deHnEllb', 'rb')}
 payload = {
     "type": "driving_license",
     "expires_at": "2027-01-01"
@@ -28513,7 +28513,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>The document file (jpg, png, pdf, max 10MB). Must be a file. Must not be greater than 10240 kilobytes. Example: <code>/tmp/phpoh58clhre80b7cekgff</code></p>
+<p>The document file (jpg, png, pdf, max 10MB). Must be a file. Must not be greater than 10240 kilobytes. Example: <code>/tmp/php0hifpedfbp4deHnEllb</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expires_at</code></b>&nbsp;&nbsp;
@@ -29453,7 +29453,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: d8c21801-fece-4fb3-878c-c65dd6779543
+x-request-id: 42629fc8-a79d-4f0f-b879-63c425d10242
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -29565,14 +29565,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"ride_updates\": false,
+    \"ride_updates\": true,
     \"promo\": false,
-    \"ride_split\": false,
-    \"achievement\": false,
+    \"ride_split\": true,
+    \"achievement\": true,
     \"streak\": true,
-    \"safety\": false,
+    \"safety\": true,
     \"push_enabled\": true,
-    \"email_enabled\": true
+    \"email_enabled\": false
 }"
 </code></pre></div>
 
@@ -29589,14 +29589,14 @@ const headers = {
 };
 
 let body = {
-    "ride_updates": false,
+    "ride_updates": true,
     "promo": false,
-    "ride_split": false,
-    "achievement": false,
+    "ride_split": true,
+    "achievement": true,
     "streak": true,
-    "safety": false,
+    "safety": true,
     "push_enabled": true,
-    "email_enabled": true
+    "email_enabled": false
 };
 
 fetch(url, {
@@ -29618,14 +29618,14 @@ $response = $client-&gt;put(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'ride_updates' =&gt; false,
+            'ride_updates' =&gt; true,
             'promo' =&gt; false,
-            'ride_split' =&gt; false,
-            'achievement' =&gt; false,
+            'ride_split' =&gt; true,
+            'achievement' =&gt; true,
             'streak' =&gt; true,
-            'safety' =&gt; false,
+            'safety' =&gt; true,
             'push_enabled' =&gt; true,
-            'email_enabled' =&gt; true,
+            'email_enabled' =&gt; false,
         ],
     ]
 );
@@ -29639,14 +29639,14 @@ import json
 
 url = 'http://localhost:8080/api/v1/notifications/preferences'
 payload = {
-    "ride_updates": false,
+    "ride_updates": true,
     "promo": false,
-    "ride_split": false,
-    "achievement": false,
+    "ride_split": true,
+    "achievement": true,
     "streak": true,
-    "safety": false,
+    "safety": true,
     "push_enabled": true,
-    "email_enabled": true
+    "email_enabled": false
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -29765,7 +29765,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Enable or disable ride update notifications. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>promo</code></b>&nbsp;&nbsp;
@@ -29787,7 +29787,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Enable or disable promotional notifications. Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>ride_split</code></b>&nbsp;&nbsp;
@@ -29809,7 +29809,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Enable or disable ride split notifications. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>achievement</code></b>&nbsp;&nbsp;
@@ -29831,7 +29831,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Enable or disable achievement notifications. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>streak</code></b>&nbsp;&nbsp;
@@ -29853,7 +29853,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Enable or disable streak notifications. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>safety</code></b>&nbsp;&nbsp;
@@ -29875,7 +29875,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Enable or disable safety notifications. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>push_enabled</code></b>&nbsp;&nbsp;
@@ -29897,7 +29897,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Enable or disable push notifications globally. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email_enabled</code></b>&nbsp;&nbsp;
@@ -29919,7 +29919,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Enable or disable email notifications globally. Example: <code>false</code></p>
         </div>
         </form>
 
@@ -31404,7 +31404,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: ecbe8064-38ba-4a3e-bb71-db9738754e5b
+x-request-id: a69fb7e6-f1e0-45f4-842f-a92800a1d331
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -31828,7 +31828,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 55b879d0-34c6-484c-bfa4-80a887c4ab95
+x-request-id: 94464db5-496b-48c0-bb65-ee526613ed60
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -33004,7 +33004,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"split_id\": \"architecto\",
+    \"split_id\": \"01HXYZ123456789\",
     \"status\": \"accepted\"
 }"
 </code></pre></div>
@@ -33022,7 +33022,7 @@ const headers = {
 };
 
 let body = {
-    "split_id": "architecto",
+    "split_id": "01HXYZ123456789",
     "status": "accepted"
 };
 
@@ -33045,7 +33045,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'split_id' =&gt; 'architecto',
+            'split_id' =&gt; '01HXYZ123456789',
             'status' =&gt; 'accepted',
         ],
     ]
@@ -33060,7 +33060,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/ride/architecto/split/respond'
 payload = {
-    "split_id": "architecto",
+    "split_id": "01HXYZ123456789",
     "status": "accepted"
 }
 headers = {
@@ -33208,10 +33208,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="split_id"                data-endpoint="POSTapi-v1-ride--ride_id--split-respond"
-               value="architecto"
+               value="01HXYZ123456789"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the ride_splits table. Example: <code>architecto</code></p>
+<p>The ULID of the ride split to respond to. The <code>id</code> of an existing record in the ride_splits table. Example: <code>01HXYZ123456789</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -33223,7 +33223,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="accepted"
                data-component="body">
     <br>
-<p>Example: <code>accepted</code></p>
+<p>The response to the split request (accepted or declined). Example: <code>accepted</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>accepted</code></li> <li><code>declined</code></li></ul>
         </div>
@@ -40127,7 +40127,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-06-02 10:40:31\"
+    \"scheduled_at\": \"2026-06-02 16:28:42\"
 }"
 </code></pre></div>
 
@@ -40150,7 +40150,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-06-02 10:40:31"
+    "scheduled_at": "2026-06-02 16:28:42"
 };
 
 fetch(url, {
@@ -40178,7 +40178,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-06-02 10:40:31',
+            'scheduled_at' =&gt; '2026-06-02 16:28:42',
         ],
     ]
 );
@@ -40198,7 +40198,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-06-02 10:40:31"
+    "scheduled_at": "2026-06-02 16:28:42"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -40397,10 +40397,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-06-02 10:40:31"
+               value="2026-06-02 16:28:42"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-06-02 10:40:31</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-06-02 16:28:42</code></p>
         </div>
         </form>
 
@@ -40429,7 +40429,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-06-02 11:40:31\"
+    \"scheduled_at\": \"2026-06-02 17:28:42\"
 }"
 </code></pre></div>
 
@@ -40452,7 +40452,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-06-02 11:40:31"
+    "scheduled_at": "2026-06-02 17:28:42"
 };
 
 fetch(url, {
@@ -40480,7 +40480,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-06-02 11:40:31',
+            'scheduled_at' =&gt; '2026-06-02 17:28:42',
         ],
     ]
 );
@@ -40500,7 +40500,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-06-02 11:40:31"
+    "scheduled_at": "2026-06-02 17:28:42"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -40719,10 +40719,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-06-02 11:40:31"
+               value="2026-06-02 17:28:42"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-06-02 11:40:31</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-06-02 17:28:42</code></p>
         </div>
         </form>
 
@@ -45482,7 +45482,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: f99d5f2b-1979-4535-865b-6e4fc3b36642
+x-request-id: ca1acd35-8cf1-479d-8579-c88f68db99cf
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -45589,7 +45589,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T08%3A40%3A31&amp;filter[to]=2052-06-25" \
+    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T14%3A28%3A43&amp;filter[to]=2052-06-25" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -45603,7 +45603,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-06-02T08:40:31",
+    "filter[from]": "2026-06-02T14:28:43",
     "filter[to]": "2052-06-25",
 };
 Object.keys(params)
@@ -45636,7 +45636,7 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-06-02T08:40:31',
+            'filter[from]' =&gt; '2026-06-02T14:28:43',
             'filter[to]' =&gt; '2052-06-25',
         ],
     ]
@@ -45653,7 +45653,7 @@ url = 'http://localhost:8080/api/v1/rider/credits/transactions'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-06-02T08:40:31',
+  'filter[from]': '2026-06-02T14:28:43',
   'filter[to]': '2052-06-25',
 }
 headers = {
@@ -45805,10 +45805,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-rider-credits-transactions"
-               value="2026-06-02T08:40:31"
+               value="2026-06-02T14:28:43"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-02T08:40:31</code></p>
+<p>Must be a valid date. Example: <code>2026-06-02T14:28:43</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -47470,7 +47470,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpe0i4tpvgf2d44dPgAiL" </code></pre></div>
+    --form "avatar=@/tmp/phpajo7nvj5oh1nfCNhMoK" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -47508,7 +47508,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpe0i4tpvgf2d44dPgAiL', 'r')
+                'contents' =&gt; fopen('/tmp/phpajo7nvj5oh1nfCNhMoK', 'r')
             ],
         ],
     ]
@@ -47523,7 +47523,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpe0i4tpvgf2d44dPgAiL', 'rb')}
+  'avatar': open('/tmp/phpajo7nvj5oh1nfCNhMoK', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -47638,7 +47638,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpe0i4tpvgf2d44dPgAiL</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpajo7nvj5oh1nfCNhMoK</code></p>
         </div>
         </form>
 
@@ -47821,7 +47821,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/wallet/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T08%3A40%3A31&amp;filter[to]=2052-06-25" \
+    --get "http://localhost:8080/api/v1/rider/wallet/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T14%3A28%3A43&amp;filter[to]=2052-06-25" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -47835,7 +47835,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-06-02T08:40:31",
+    "filter[from]": "2026-06-02T14:28:43",
     "filter[to]": "2052-06-25",
 };
 Object.keys(params)
@@ -47868,7 +47868,7 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-06-02T08:40:31',
+            'filter[from]' =&gt; '2026-06-02T14:28:43',
             'filter[to]' =&gt; '2052-06-25',
         ],
     ]
@@ -47885,7 +47885,7 @@ url = 'http://localhost:8080/api/v1/rider/wallet/transactions'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-06-02T08:40:31',
+  'filter[from]': '2026-06-02T14:28:43',
   'filter[to]': '2052-06-25',
 }
 headers = {
@@ -48037,10 +48037,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-rider-wallet-transactions"
-               value="2026-06-02T08:40:31"
+               value="2026-06-02T14:28:43"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-02T08:40:31</code></p>
+<p>Must be a valid date. Example: <code>2026-06-02T14:28:43</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
