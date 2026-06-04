@@ -59,6 +59,7 @@ use App\Http\Controllers\Api\V1\Rider\PayRideController;
 use App\Http\Controllers\Api\V1\Rider\PayRideWithCreditsController;
 use App\Http\Controllers\Api\V1\Rider\ProfileController;
 use App\Http\Controllers\Api\V1\Rider\RateRideController;
+use App\Http\Controllers\Api\V1\Rider\RebookRideController;
 use App\Http\Controllers\Api\V1\Rider\RemovePromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
 use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
@@ -161,6 +162,8 @@ Route::prefix('rider')
             ->name('api.v1.rider.rides.note');
         Route::post('rides/{ride}/cancel', [CancelRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.cancel');
+        Route::post('rides/{ride}/rebook', [RebookRideController::class, '__invoke'])
+            ->name('api.v1.rider.rides.rebook');
         Route::put('rides/{ride}/rating', [RateRideController::class, '__invoke'])
             ->name('api.v1.rider.rides.rating');
         Route::post('rides/{ride}/share', [ShareRideController::class, '__invoke'])

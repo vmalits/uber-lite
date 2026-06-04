@@ -77,6 +77,7 @@ return [
         'stop_deleted'         => 'Stop deleted successfully.',
         'tip_added'            => 'Tip added successfully.',
         'message_sent'         => 'Message sent successfully.',
+        'rebooked'             => 'Ride rebooked successfully.',
     ],
     'profile' => [
         'updated' => 'Profile updated successfully.',

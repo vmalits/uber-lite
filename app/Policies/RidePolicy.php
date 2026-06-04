@@ -181,6 +181,12 @@ final class RidePolicy
             );
     }
 
+    public function rebook(User $user, Ride $ride): bool
+    {
+        return $ride->rider()->is($user)
+            && $ride->status->isFinal();
+    }
+
     public function rateRider(User $user, Ride $ride): bool
     {
         return $ride->driver()->is($user)
