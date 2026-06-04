@@ -363,6 +363,180 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: api/v1/rider/blocked-drivers
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Blocked Drivers'
+      description: "Get list of rider's blocked drivers"
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Blocked drivers retrieved successfully'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/rider/blocked-drivers
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Block Driver'
+      description: 'Block a driver from being matched with the rider'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      driver_id:
+        custom: []
+        name: driver_id
+        description: 'The ID of the driver to block. The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: 01HQXYZABC1234567890DEFGHI
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      driver_id: 01HQXYZABC1234567890DEFGHI
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Driver blocked successfully'
+      -
+        custom: []
+        status: 401
+        content: null
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 422
+        content: null
+        headers: []
+        description: 'Validation errors'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/rider/blocked-drivers/{blocked_id}'
+    metadata:
+      custom: []
+      groupName: Rider
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Unblock Driver'
+      description: 'Remove a driver from the blocked list'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer <token>'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      blocked_id:
+        custom: []
+        name: blocked_id
+        description: 'The ID of the blocked.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      blocked:
+        custom: []
+        name: blocked
+        description: 'ULID of the blocked driver record.'
+        required: true
+        example: 01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      blocked_id: architecto
+      blocked: 01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: null
+        headers: []
+        description: 'Driver unblocked successfully'
+      -
+        custom: []
+        status: 403
+        content: null
+        headers: []
+        description: 'Can only unblock own blocked drivers'
+      -
+        custom: []
+        status: 404
+        content: null
+        headers: []
+        description: 'Blocked driver record not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: 'api/v1/rider/drivers/{driver_id}/reviews'
     metadata:
       custom: []
@@ -2327,7 +2501,7 @@ endpoints:
         name: scheduled_at
         description: 'The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2026-06-02 16:28:42'
+        example: '2026-06-04 17:57:26'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2340,7 +2514,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-06-02 16:28:42'
+      scheduled_at: '2026-06-04 17:57:26'
     fileParameters: []
     responses:
       -
@@ -2473,7 +2647,7 @@ endpoints:
         name: scheduled_at
         description: 'The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>.'
         required: false
-        example: '2026-06-02 17:28:42'
+        example: '2026-06-04 18:57:26'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2486,7 +2660,7 @@ endpoints:
       destination_address: 'str. Mihai Eminescu, 50, Chișinău'
       destination_lat: 47.0225
       destination_lng: 28.8353
-      scheduled_at: '2026-06-02 17:28:42'
+      scheduled_at: '2026-06-04 18:57:26'
     fileParameters: []
     responses:
       -
@@ -4273,7 +4447,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: ca1acd35-8cf1-479d-8579-c88f68db99cf
+          x-request-id: 2ed52a16-cead-4aec-8c57-618774c45f39
         description: null
     responseFields: []
     auth: []
@@ -4347,7 +4521,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-02T14:28:43'
+        example: '2026-06-04T15:57:27'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4358,7 +4532,7 @@ endpoints:
         name: filter.to
         description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
         required: false
-        example: '2052-06-25'
+        example: '2052-06-27'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4368,8 +4542,8 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-06-02T14:28:43'
-        to: '2052-06-25'
+        from: '2026-06-04T15:57:27'
+        to: '2052-06-27'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -5066,7 +5240,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-02T14:28:43'
+        example: '2026-06-04T15:57:27'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -5077,7 +5251,7 @@ endpoints:
         name: filter.to
         description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
         required: false
-        example: '2052-06-25'
+        example: '2052-06-27'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -5087,8 +5261,8 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-06-02T14:28:43'
-        to: '2052-06-25'
+        from: '2026-06-04T15:57:27'
+        to: '2052-06-27'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []

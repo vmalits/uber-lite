@@ -620,6 +620,15 @@
                                                                                 <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">
                                 <a href="#rider-DELETEapi-v1-rider-favorite-drivers--favorite_id-">Delete Favorite Driver</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-blocked-drivers">
+                                <a href="#rider-GETapi-v1-rider-blocked-drivers">Get Blocked Drivers</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-POSTapi-v1-rider-blocked-drivers">
+                                <a href="#rider-POSTapi-v1-rider-blocked-drivers">Block Driver</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="rider-DELETEapi-v1-rider-blocked-drivers--blocked_id-">
+                                <a href="#rider-DELETEapi-v1-rider-blocked-drivers--blocked_id-">Unblock Driver</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="rider-GETapi-v1-rider-drivers--driver_id--reviews">
                                 <a href="#rider-GETapi-v1-rider-drivers--driver_id--reviews">Get Driver Reviews</a>
                             </li>
@@ -881,7 +890,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: June 2, 2026</li>
+        <li>Last updated: June 4, 2026</li>
     </ul>
 </div>
 
@@ -7464,7 +7473,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 95f5e0c6-7428-45e5-972f-3c777cb50fae
+x-request-id: 4966a82f-2c19-4c32-ad3d-899bc0b00fb7
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8026,7 +8035,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 7dbeaaff-f98e-4438-8e74-3cc6e0e41d91
+x-request-id: 52e6eb49-87cd-4c69-b57b-21eec75f781f
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8931,7 +8940,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/admin/users/architecto/credits/history?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T14%3A28%3A45&amp;filter[to]=2052-06-25" \
+    --get "http://localhost:8080/api/v1/admin/users/architecto/credits/history?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-04T15%3A57%3A29&amp;filter[to]=2052-06-27" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8945,8 +8954,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-06-02T14:28:45",
-    "filter[to]": "2052-06-25",
+    "filter[from]": "2026-06-04T15:57:29",
+    "filter[to]": "2052-06-27",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -8978,8 +8987,8 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-06-02T14:28:45',
-            'filter[to]' =&gt; '2052-06-25',
+            'filter[from]' =&gt; '2026-06-04T15:57:29',
+            'filter[to]' =&gt; '2052-06-27',
         ],
     ]
 );
@@ -8995,8 +9004,8 @@ url = 'http://localhost:8080/api/v1/admin/users/architecto/credits/history'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-06-02T14:28:45',
-  'filter[to]': '2052-06-25',
+  'filter[from]': '2026-06-04T15:57:29',
+  'filter[to]': '2052-06-27',
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -9020,7 +9029,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 6f59ad6b-2184-49ef-a4e9-6f3195ac9f30
+x-request-id: 176f5568-16ca-4412-a5b7-e0f9b294d0ff
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9170,10 +9179,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-admin-users--user_id--credits-history"
-               value="2026-06-02T14:28:45"
+               value="2026-06-04T15:57:29"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-02T14:28:45</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T15:57:29</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -9182,10 +9191,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.to"                data-endpoint="GETapi-v1-admin-users--user_id--credits-history"
-               value="2052-06-25"
+               value="2052-06-27"
                data-component="query">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-06-25</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-06-27</code></p>
             </div>
                 </form>
 
@@ -11051,7 +11060,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 2f68ecd9-9821-42b6-b873-d4cf134c382a
+x-request-id: 4566840a-6ff1-4bb7-b1ed-651ab8db04d0
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -11992,7 +12001,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: d93aae54-d1ed-4296-9870-68f5ddb5d54b
+x-request-id: c3206b27-033d-4c11-8b3b-b72e0be68448
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -12167,7 +12176,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 6fb3d767-be0a-44c2-bda3-88e4ad32745e
+x-request-id: c7641b13-0d01-4414-92d1-7b734038e8e6
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -12585,7 +12594,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 50b69ca3-dd8f-48a4-a8c9-e3bd9cadd495
+x-request-id: b027173d-33a3-47ab-98ba-edefbbee133b
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -13107,7 +13116,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 2fcae29d-179a-4877-84ce-c061e3b98fa8
+x-request-id: c55b4f3e-1075-462c-a8b4-af59ac0d4acb
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -13819,7 +13828,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 7ad5030d-1ce5-4050-8852-8e0204cad77e
+x-request-id: 77e81b1e-480b-4b3d-b2bd-31c51f193a60
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -14315,7 +14324,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 82f71059-bb3f-4d04-af52-37cd2cada098
+x-request-id: 6449426d-7ccf-4046-a284-41c850a2090a
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -17101,7 +17110,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 9183c474-9c11-429d-82a3-fe6a1d213546
+x-request-id: e647267e-c9ea-4b6c-972f-8b158dcd0dc1
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -19606,7 +19615,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 8a282624-7175-4ab4-84c1-3bb28e599829
+x-request-id: 3ae95528-2325-46dd-a2b9-9eb592cbf27c
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -19806,7 +19815,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: e5e6c03f-81ba-40b1-a143-c5655ea81436
+x-request-id: e3dacd44-d1ee-4841-93ec-4c4acd24d6d2
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -24680,7 +24689,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phprd3oeoc6gmmc0FOjkBH" </code></pre></div>
+    --form "avatar=@/tmp/phpvknivm5u7iol5gAMjjI" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -24718,7 +24727,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phprd3oeoc6gmmc0FOjkBH', 'r')
+                'contents' =&gt; fopen('/tmp/phpvknivm5u7iol5gAMjjI', 'r')
             ],
         ],
     ]
@@ -24733,7 +24742,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/driver/avatar'
 files = {
-  'avatar': open('/tmp/phprd3oeoc6gmmc0FOjkBH', 'rb')}
+  'avatar': open('/tmp/phpvknivm5u7iol5gAMjjI', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -24848,7 +24857,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phprd3oeoc6gmmc0FOjkBH</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpvknivm5u7iol5gAMjjI</code></p>
         </div>
         </form>
 
@@ -28294,7 +28303,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "type=driving_license"\
     --form "expires_at=2027-01-01"\
-    --form "document=@/tmp/php0hifpedfbp4deHnEllb" </code></pre></div>
+    --form "document=@/tmp/phpevs3m220vq79defjMKe" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -28342,7 +28351,7 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'document',
-                'contents' =&gt; fopen('/tmp/php0hifpedfbp4deHnEllb', 'r')
+                'contents' =&gt; fopen('/tmp/phpevs3m220vq79defjMKe', 'r')
             ],
         ],
     ]
@@ -28359,7 +28368,7 @@ url = 'http://localhost:8080/api/v1/driver/documents'
 files = {
   'type': (None, 'driving_license'),
   'expires_at': (None, '2027-01-01'),
-  'document': open('/tmp/php0hifpedfbp4deHnEllb', 'rb')}
+  'document': open('/tmp/phpevs3m220vq79defjMKe', 'rb')}
 payload = {
     "type": "driving_license",
     "expires_at": "2027-01-01"
@@ -28513,7 +28522,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>The document file (jpg, png, pdf, max 10MB). Must be a file. Must not be greater than 10240 kilobytes. Example: <code>/tmp/php0hifpedfbp4deHnEllb</code></p>
+<p>The document file (jpg, png, pdf, max 10MB). Must be a file. Must not be greater than 10240 kilobytes. Example: <code>/tmp/phpevs3m220vq79defjMKe</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expires_at</code></b>&nbsp;&nbsp;
@@ -29453,7 +29462,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 42629fc8-a79d-4f0f-b879-63c425d10242
+x-request-id: b1cea5ef-900e-44e3-b7ed-be2144f767d8
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -31404,7 +31413,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: a69fb7e6-f1e0-45f4-842f-a92800a1d331
+x-request-id: a476f3b8-d41c-45b3-a7f2-b65a718d561d
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -31828,7 +31837,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: 94464db5-496b-48c0-bb65-ee526613ed60
+x-request-id: 2eaf04e2-751b-4511-ae64-659f6baefbaa
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -35123,6 +35132,581 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="url">
     <br>
 <p>ULID of favorite driver. Example: <code>01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="rider-GETapi-v1-rider-blocked-drivers">Get Blocked Drivers</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get list of rider's blocked drivers</p>
+
+<span id="example-requests-GETapi-v1-rider-blocked-drivers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8080/api/v1/rider/blocked-drivers" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/blocked-drivers"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/blocked-drivers';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/blocked-drivers'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-rider-blocked-drivers">
+            <blockquote>
+            <p>Example response (200, Blocked drivers retrieved successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-rider-blocked-drivers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-rider-blocked-drivers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-rider-blocked-drivers"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-rider-blocked-drivers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-rider-blocked-drivers">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-rider-blocked-drivers" data-method="GET"
+      data-path="api/v1/rider/blocked-drivers"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-rider-blocked-drivers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-rider-blocked-drivers"
+                    onclick="tryItOut('GETapi-v1-rider-blocked-drivers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-rider-blocked-drivers"
+                    onclick="cancelTryOut('GETapi-v1-rider-blocked-drivers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-rider-blocked-drivers"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/rider/blocked-drivers</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-rider-blocked-drivers"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-rider-blocked-drivers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-rider-blocked-drivers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="rider-POSTapi-v1-rider-blocked-drivers">Block Driver</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Block a driver from being matched with the rider</p>
+
+<span id="example-requests-POSTapi-v1-rider-blocked-drivers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8080/api/v1/rider/blocked-drivers" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"driver_id\": \"01HQXYZABC1234567890DEFGHI\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/blocked-drivers"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "driver_id": "01HQXYZABC1234567890DEFGHI"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/blocked-drivers';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'driver_id' =&gt; '01HQXYZABC1234567890DEFGHI',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/blocked-drivers'
+payload = {
+    "driver_id": "01HQXYZABC1234567890DEFGHI"
+}
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-rider-blocked-drivers">
+            <blockquote>
+            <p>Example response (200, Driver blocked successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-rider-blocked-drivers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-rider-blocked-drivers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-rider-blocked-drivers"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-rider-blocked-drivers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-rider-blocked-drivers">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-rider-blocked-drivers" data-method="POST"
+      data-path="api/v1/rider/blocked-drivers"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-rider-blocked-drivers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-rider-blocked-drivers"
+                    onclick="tryItOut('POSTapi-v1-rider-blocked-drivers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-rider-blocked-drivers"
+                    onclick="cancelTryOut('POSTapi-v1-rider-blocked-drivers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-rider-blocked-drivers"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/rider/blocked-drivers</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-rider-blocked-drivers"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-rider-blocked-drivers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-rider-blocked-drivers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>driver_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="driver_id"                data-endpoint="POSTapi-v1-rider-blocked-drivers"
+               value="01HQXYZABC1234567890DEFGHI"
+               data-component="body">
+    <br>
+<p>The ID of the driver to block. The <code>id</code> of an existing record in the users table. Example: <code>01HQXYZABC1234567890DEFGHI</code></p>
+        </div>
+        </form>
+
+                    <h2 id="rider-DELETEapi-v1-rider-blocked-drivers--blocked_id-">Unblock Driver</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Remove a driver from the blocked list</p>
+
+<span id="example-requests-DELETEapi-v1-rider-blocked-drivers--blocked_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8080/api/v1/rider/blocked-drivers/architecto" \
+    --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/api/v1/rider/blocked-drivers/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer &amp;lt;token&amp;gt;",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8080/api/v1/rider/blocked-drivers/architecto';
+$response = $client-&gt;delete(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer &lt;token&gt;',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8080/api/v1/rider/blocked-drivers/architecto'
+headers = {
+  'Authorization': 'Bearer &amp;lt;token&amp;gt;',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-rider-blocked-drivers--blocked_id-">
+            <blockquote>
+            <p>Example response (200, Driver unblocked successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Can only unblock own blocked drivers):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Blocked driver record not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;"></code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v1-rider-blocked-drivers--blocked_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-rider-blocked-drivers--blocked_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-rider-blocked-drivers--blocked_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-rider-blocked-drivers--blocked_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-rider-blocked-drivers--blocked_id-" data-method="DELETE"
+      data-path="api/v1/rider/blocked-drivers/{blocked_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-rider-blocked-drivers--blocked_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+                    onclick="tryItOut('DELETEapi-v1-rider-blocked-drivers--blocked_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+                    onclick="cancelTryOut('DELETEapi-v1-rider-blocked-drivers--blocked_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/rider/blocked-drivers/{blocked_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+               value="Bearer <token>"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>blocked_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="blocked_id"                data-endpoint="DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the blocked. Example: <code>architecto</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>blocked</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="blocked"                data-endpoint="DELETEapi-v1-rider-blocked-drivers--blocked_id-"
+               value="01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9"
+               data-component="url">
+    <br>
+<p>ULID of the blocked driver record. Example: <code>01jk9v6v9v6v9v6v9v6v9v6v9v6v9v6v9v6v9</code></p>
             </div>
                     </form>
 
@@ -40127,7 +40711,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-06-02 16:28:42\"
+    \"scheduled_at\": \"2026-06-04 17:57:26\"
 }"
 </code></pre></div>
 
@@ -40150,7 +40734,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-06-02 16:28:42"
+    "scheduled_at": "2026-06-04 17:57:26"
 };
 
 fetch(url, {
@@ -40178,7 +40762,7 @@ $response = $client-&gt;post(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-06-02 16:28:42',
+            'scheduled_at' =&gt; '2026-06-04 17:57:26',
         ],
     ]
 );
@@ -40198,7 +40782,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-06-02 16:28:42"
+    "scheduled_at": "2026-06-04 17:57:26"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -40397,10 +40981,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="POSTapi-v1-rider-rides-scheduled"
-               value="2026-06-02 16:28:42"
+               value="2026-06-04 17:57:26"
                data-component="body">
     <br>
-<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-06-02 16:28:42</code></p>
+<p>The date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-06-04 17:57:26</code></p>
         </div>
         </form>
 
@@ -40429,7 +41013,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"destination_address\": \"str. Mihai Eminescu, 50, Chișinău\",
     \"destination_lat\": 47.0225,
     \"destination_lng\": 28.8353,
-    \"scheduled_at\": \"2026-06-02 17:28:42\"
+    \"scheduled_at\": \"2026-06-04 18:57:26\"
 }"
 </code></pre></div>
 
@@ -40452,7 +41036,7 @@ let body = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-06-02 17:28:42"
+    "scheduled_at": "2026-06-04 18:57:26"
 };
 
 fetch(url, {
@@ -40480,7 +41064,7 @@ $response = $client-&gt;put(
             'destination_address' =&gt; 'str. Mihai Eminescu, 50, Chișinău',
             'destination_lat' =&gt; 47.0225,
             'destination_lng' =&gt; 28.8353,
-            'scheduled_at' =&gt; '2026-06-02 17:28:42',
+            'scheduled_at' =&gt; '2026-06-04 18:57:26',
         ],
     ]
 );
@@ -40500,7 +41084,7 @@ payload = {
     "destination_address": "str. Mihai Eminescu, 50, Chișinău",
     "destination_lat": 47.0225,
     "destination_lng": 28.8353,
-    "scheduled_at": "2026-06-02 17:28:42"
+    "scheduled_at": "2026-06-04 18:57:26"
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -40719,10 +41303,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="scheduled_at"                data-endpoint="PUTapi-v1-rider-rides-scheduled--ride_id-"
-               value="2026-06-02 17:28:42"
+               value="2026-06-04 18:57:26"
                data-component="body">
     <br>
-<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-06-02 17:28:42</code></p>
+<p>The updated date and time when the ride is scheduled to start. Must be a valid date. Must be a date after <code>now</code>. Example: <code>2026-06-04 18:57:26</code></p>
         </div>
         </form>
 
@@ -45482,7 +46066,7 @@ response.json()</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-x-request-id: ca1acd35-8cf1-479d-8579-c88f68db99cf
+x-request-id: 2ed52a16-cead-4aec-8c57-618774c45f39
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -45589,7 +46173,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T14%3A28%3A43&amp;filter[to]=2052-06-25" \
+    --get "http://localhost:8080/api/v1/rider/credits/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-04T15%3A57%3A27&amp;filter[to]=2052-06-27" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -45603,8 +46187,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-06-02T14:28:43",
-    "filter[to]": "2052-06-25",
+    "filter[from]": "2026-06-04T15:57:27",
+    "filter[to]": "2052-06-27",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -45636,8 +46220,8 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-06-02T14:28:43',
-            'filter[to]' =&gt; '2052-06-25',
+            'filter[from]' =&gt; '2026-06-04T15:57:27',
+            'filter[to]' =&gt; '2052-06-27',
         ],
     ]
 );
@@ -45653,8 +46237,8 @@ url = 'http://localhost:8080/api/v1/rider/credits/transactions'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-06-02T14:28:43',
-  'filter[to]': '2052-06-25',
+  'filter[from]': '2026-06-04T15:57:27',
+  'filter[to]': '2052-06-27',
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -45805,10 +46389,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-rider-credits-transactions"
-               value="2026-06-02T14:28:43"
+               value="2026-06-04T15:57:27"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-02T14:28:43</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T15:57:27</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -45817,10 +46401,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.to"                data-endpoint="GETapi-v1-rider-credits-transactions"
-               value="2052-06-25"
+               value="2052-06-27"
                data-component="query">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-06-25</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-06-27</code></p>
             </div>
                 </form>
 
@@ -47470,7 +48054,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpajo7nvj5oh1nfCNhMoK" </code></pre></div>
+    --form "avatar=@/tmp/phpbl0vlt2pb4804MgBmDM" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -47508,7 +48092,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('/tmp/phpajo7nvj5oh1nfCNhMoK', 'r')
+                'contents' =&gt; fopen('/tmp/phpbl0vlt2pb4804MgBmDM', 'r')
             ],
         ],
     ]
@@ -47523,7 +48107,7 @@ import json
 
 url = 'http://localhost:8080/api/v1/rider/avatar'
 files = {
-  'avatar': open('/tmp/phpajo7nvj5oh1nfCNhMoK', 'rb')}
+  'avatar': open('/tmp/phpbl0vlt2pb4804MgBmDM', 'rb')}
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
   'Content-Type': 'multipart/form-data',
@@ -47638,7 +48222,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpajo7nvj5oh1nfCNhMoK</code></p>
+<p>Avatar image (jpg, png, webp, max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpbl0vlt2pb4804MgBmDM</code></p>
         </div>
         </form>
 
@@ -47821,7 +48405,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/v1/rider/wallet/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-02T14%3A28%3A43&amp;filter[to]=2052-06-25" \
+    --get "http://localhost:8080/api/v1/rider/wallet/transactions?per_page=15&amp;filter[type]=architecto&amp;filter[from]=2026-06-04T15%3A57%3A27&amp;filter[to]=2052-06-27" \
     --header "Authorization: Bearer &amp;lt;token&amp;gt;" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -47835,8 +48419,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 const params = {
     "per_page": "15",
     "filter[type]": "architecto",
-    "filter[from]": "2026-06-02T14:28:43",
-    "filter[to]": "2052-06-25",
+    "filter[from]": "2026-06-04T15:57:27",
+    "filter[to]": "2052-06-27",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -47868,8 +48452,8 @@ $response = $client-&gt;get(
         'query' =&gt; [
             'per_page' =&gt; '15',
             'filter[type]' =&gt; 'architecto',
-            'filter[from]' =&gt; '2026-06-02T14:28:43',
-            'filter[to]' =&gt; '2052-06-25',
+            'filter[from]' =&gt; '2026-06-04T15:57:27',
+            'filter[to]' =&gt; '2052-06-27',
         ],
     ]
 );
@@ -47885,8 +48469,8 @@ url = 'http://localhost:8080/api/v1/rider/wallet/transactions'
 params = {
   'per_page': '15',
   'filter[type]': 'architecto',
-  'filter[from]': '2026-06-02T14:28:43',
-  'filter[to]': '2052-06-25',
+  'filter[from]': '2026-06-04T15:57:27',
+  'filter[to]': '2052-06-27',
 }
 headers = {
   'Authorization': 'Bearer &amp;lt;token&amp;gt;',
@@ -48037,10 +48621,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.from"                data-endpoint="GETapi-v1-rider-wallet-transactions"
-               value="2026-06-02T14:28:43"
+               value="2026-06-04T15:57:27"
                data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-02T14:28:43</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T15:57:27</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter.to</code></b>&nbsp;&nbsp;
@@ -48049,10 +48633,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="filter.to"                data-endpoint="GETapi-v1-rider-wallet-transactions"
-               value="2052-06-25"
+               value="2052-06-27"
                data-component="query">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-06-25</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>filter.from</code>. Example: <code>2052-06-27</code></p>
             </div>
                 </form>
 

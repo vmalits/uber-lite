@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Matching;
 
+use App\Models\BlockedDriver;
 use App\Queries\Driver\FindNearbyDriversQueryInterface;
 use denis660\Centrifugo\Centrifugo;
 use Illuminate\Support\Facades\Log;
@@ -23,6 +24,7 @@ final readonly class OrderMatchingService
         string $rideId,
         float $pickupLat,
         float $pickupLng,
+        string $riderId,
         int $limit = 10,
         ?float $radiusKm = null,
     ): array {
@@ -37,6 +39,11 @@ final readonly class OrderMatchingService
             return [];
         }
 
+        $blockedDriverIds = BlockedDriver::query()
+            ->where('rider_id', $riderId)
+            ->pluck('driver_id')
+            ->toArray();
+
         $payload = [
             'event' => 'ride.offer',
             'data'  => [
@@ -50,6 +57,11 @@ final readonly class OrderMatchingService
 
         foreach ($candidates as $candidate) {
             $driverId = $candidate['driver_id'];
+
+            if (\in_array($driverId, $blockedDriverIds, true)) {
+                continue;
+            }
+
             try {
                 $this->centrifugo->publish("driver:{$driverId}", $payload, true);
             } catch (Throwable $exception) {

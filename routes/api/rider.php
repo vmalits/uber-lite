@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\V1\Rider\AddRideStopController;
 use App\Http\Controllers\Api\V1\Rider\AddTipController;
 use App\Http\Controllers\Api\V1\Rider\ApplyPromoCodeController;
 use App\Http\Controllers\Api\V1\Rider\ApplyReferralCodeController;
+use App\Http\Controllers\Api\V1\Rider\BlockDriverController;
 use App\Http\Controllers\Api\V1\Rider\CancelRideController;
 use App\Http\Controllers\Api\V1\Rider\CancelScheduledRideController;
 use App\Http\Controllers\Api\V1\Rider\CancelWalletTopUpController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\Api\V1\Rider\DeletePaymentMethodController;
 use App\Http\Controllers\Api\V1\Rider\DeleteRideStopController;
 use App\Http\Controllers\Api\V1\Rider\GetAchievementsController;
 use App\Http\Controllers\Api\V1\Rider\GetActiveRideController;
+use App\Http\Controllers\Api\V1\Rider\GetBlockedDriversController;
 use App\Http\Controllers\Api\V1\Rider\GetCreditsController;
 use App\Http\Controllers\Api\V1\Rider\GetCreditTransactionsController;
 use App\Http\Controllers\Api\V1\Rider\GetDriverReviewsController;
@@ -62,6 +64,7 @@ use App\Http\Controllers\Api\V1\Rider\ScheduleRideController;
 use App\Http\Controllers\Api\V1\Rider\SearchLocationsController;
 use App\Http\Controllers\Api\V1\Rider\SetDefaultPaymentMethodController;
 use App\Http\Controllers\Api\V1\Rider\TrackRideController;
+use App\Http\Controllers\Api\V1\Rider\UnblockDriverController;
 use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteLocationController;
 use App\Http\Controllers\Api\V1\Rider\UpdateFavoriteRouteController;
 use App\Http\Controllers\Api\V1\Rider\UpdateProfileController;
@@ -90,6 +93,12 @@ Route::prefix('rider')
             ->name('api.v1.rider.favorite-drivers.store');
         Route::delete('favorite-drivers/{favorite}', [DeleteFavoriteDriverController::class, '__invoke'])
             ->name('api.v1.rider.favorite-drivers.destroy');
+        Route::get('blocked-drivers', [GetBlockedDriversController::class, '__invoke'])
+            ->name('api.v1.rider.blocked-drivers.index');
+        Route::post('blocked-drivers', [BlockDriverController::class, '__invoke'])
+            ->name('api.v1.rider.blocked-drivers.store');
+        Route::delete('blocked-drivers/{blocked}', [UnblockDriverController::class, '__invoke'])
+            ->name('api.v1.rider.blocked-drivers.destroy');
         Route::get('drivers/{driver}/reviews', [GetDriverReviewsController::class, '__invoke'])
             ->name('api.v1.rider.drivers.reviews');
         Route::get('favorites', [GetFavoriteLocationsController::class, '__invoke'])

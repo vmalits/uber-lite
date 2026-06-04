@@ -2510,7 +2510,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 95f5e0c6-7428-45e5-972f-3c777cb50fae
+          x-request-id: 4966a82f-2c19-4c32-ad3d-899bc0b00fb7
         description: null
     responseFields: []
     auth: []
@@ -2754,7 +2754,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 7dbeaaff-f98e-4438-8e74-3cc6e0e41d91
+          x-request-id: 52e6eb49-87cd-4c69-b57b-21eec75f781f
         description: null
     responseFields: []
     auth: []
@@ -3154,7 +3154,7 @@ endpoints:
         name: filter.from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-02T14:28:45'
+        example: '2026-06-04T15:57:29'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3165,7 +3165,7 @@ endpoints:
         name: filter.to
         description: 'Must be a valid date. Must be a date after or equal to <code>filter.from</code>.'
         required: false
-        example: '2052-06-25'
+        example: '2052-06-27'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -3175,8 +3175,8 @@ endpoints:
       per_page: 15
       filter:
         type: architecto
-        from: '2026-06-02T14:28:45'
-        to: '2052-06-25'
+        from: '2026-06-04T15:57:29'
+        to: '2052-06-27'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -3189,7 +3189,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 6f59ad6b-2184-49ef-a4e9-6f3195ac9f30
+          x-request-id: 176f5568-16ca-4412-a5b7-e0f9b294d0ff
         description: null
     responseFields: []
     auth: []
@@ -3912,7 +3912,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 2f68ecd9-9821-42b6-b873-d4cf134c382a
+          x-request-id: 4566840a-6ff1-4bb7-b1ed-651ab8db04d0
         description: null
     responseFields: []
     auth: []
@@ -4248,7 +4248,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: d93aae54-d1ed-4296-9870-68f5ddb5d54b
+          x-request-id: c3206b27-033d-4c11-8b3b-b72e0be68448
         description: null
     responseFields: []
     auth: []
@@ -4302,7 +4302,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 6fb3d767-be0a-44c2-bda3-88e4ad32745e
+          x-request-id: c7641b13-0d01-4414-92d1-7b734038e8e6
         description: null
     responseFields: []
     auth: []
@@ -4428,7 +4428,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 50b69ca3-dd8f-48a4-a8c9-e3bd9cadd495
+          x-request-id: b027173d-33a3-47ab-98ba-edefbbee133b
         description: null
     responseFields: []
     auth: []
@@ -4639,7 +4639,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 2fcae29d-179a-4877-84ce-c061e3b98fa8
+          x-request-id: c55b4f3e-1075-462c-a8b4-af59ac0d4acb
         description: null
     responseFields: []
     auth: []
@@ -4888,7 +4888,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 7ad5030d-1ce5-4050-8852-8e0204cad77e
+          x-request-id: 77e81b1e-480b-4b3d-b2bd-31c51f193a60
         description: null
     responseFields: []
     auth: []
@@ -5082,7 +5082,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          x-request-id: 82f71059-bb3f-4d04-af52-37cd2cada098
+          x-request-id: 6449426d-7ccf-4046-a284-41c850a2090a
         description: null
     responseFields: []
     auth: []

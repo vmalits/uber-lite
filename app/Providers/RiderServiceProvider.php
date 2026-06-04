@@ -6,6 +6,8 @@ namespace App\Providers;
 
 use App\Queries\Rider\GetActiveRideQuery;
 use App\Queries\Rider\GetActiveRideQueryInterface;
+use App\Queries\Rider\GetBlockedDriversQuery;
+use App\Queries\Rider\GetBlockedDriversQueryInterface;
 use App\Queries\Rider\GetCreditBalanceQuery;
 use App\Queries\Rider\GetCreditBalanceQueryInterface;
 use App\Queries\Rider\GetCreditTransactionsQuery;
@@ -61,6 +63,7 @@ final class RiderServiceProvider extends ServiceProvider
      */
     public array $bindings = [
         GetActiveRideQueryInterface::class         => GetActiveRideQuery::class,
+        GetBlockedDriversQueryInterface::class     => GetBlockedDriversQuery::class,
         GetCreditBalanceQueryInterface::class      => GetCreditBalanceQuery::class,
         GetCreditTransactionsQueryInterface::class => GetCreditTransactionsQuery::class,
         GetDriverReviewsQueryInterface::class      => GetDriverReviewsQuery::class,

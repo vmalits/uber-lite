@@ -104,6 +104,10 @@ return [
         'driver_added'     => 'Favorite driver added successfully.',
         'driver_removed'   => 'Favorite driver removed successfully.',
     ],
+    'blocked' => [
+        'driver_blocked'   => 'Driver blocked successfully.',
+        'driver_unblocked' => 'Driver unblocked successfully.',
+    ],
     'rider' => [
         'favorite_route_added'   => 'Favorite route added successfully.',
         'favorite_route_updated' => 'Favorite route updated successfully.',
